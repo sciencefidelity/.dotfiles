@@ -17,6 +17,6 @@ PS1='\[\033[38;5;214m\]\u\[\033[38;5;230m\]@\[\033[38;5;142m\]\h\[\033[38;5;230m
 
 eval `dircolors ~/.dir_colors`
     
-alias l='ls'
-alias la='ls -al' 
+alias l='ls -f'
+alias la='ls -Al' 
 alias ll='ls -l'
