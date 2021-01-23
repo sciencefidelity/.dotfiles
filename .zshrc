@@ -26,6 +26,6 @@ PROMPT='%F{214}%n%f%F{230}@%f%F{142}%m%f %F{73}%~%f %F{230}%# '
 
 eval `dircolors ~/.dir_colors`
 
-alias l="ls"
+alias l="ls -f"
 alias ll="ls -l"
-alias la="ls -al"
+alias la="ls -Al"
