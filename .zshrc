@@ -1,25 +1,25 @@
-# Lines configured by zsh-newuser-install
+#
+# ~/.zshrc
+#
+
 HISTFILE=~/.histfile
-HISTSIZE=1000                                                                                                               
-SAVEHIST=1000
+HISTSIZE=100
+SAVEHIST=100
 bindkey -e
-# End of lines configured by zsh-newuser-install                                                                            
-# The following lines were added by compinstall                                                                             
+                                                                           
 zstyle :compinstall filename '/home/matt/.zshrc'                                                                            
                                                                                                                             
 autoload -Uz compinit                                                                                                       
-compinit                                                                                                                    
-# End of lines added by compinstall                                                                                         
+compinit
                                                                                                                             
-export TERM=xterm-256color                                                                                                  
-                                                                                                                            
-# Tell ls to be colourful                                                                                                   
+# Tell ls to be colourful
+export TERM=xterm-256color
 alias ls='ls --color=auto'                                                                                                  
 export CLICOLOR=1                                                                                                           
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx                                                                                      
                                                                                                                             
 # Tell grep to highlight matches                                                                                            
-# export GREP_OPTIONS='--color=auto'
+export GREP_OPTIONS='--color=auto'
 
 # autoload -U colors && colors
 PROMPT='%F{214}%n%f%F{230}@%f%F{142}%m%f %F{73}%~%f %F{230}%# '
