@@ -29,3 +29,5 @@ eval `dircolors ~/.dir_colors`
 alias l="ls -f"
 alias ll="ls -l"
 alias la="ls -Al"
+
+alias sudo="sudo -v; sudo "
