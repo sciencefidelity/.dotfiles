@@ -30,4 +30,5 @@ alias l="ls -f"
 alias ll="ls -l"
 alias la="ls -Al"
 
+# Prevent typing for password too often
 alias sudo="sudo -v; sudo "
