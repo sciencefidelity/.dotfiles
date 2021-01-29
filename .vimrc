@@ -1,4 +1,5 @@
 " Color settings
+" set t_Co=256
 set termguicolors
 set background=dark
 let g:gruvbox_transp_bg = 1
