@@ -6,19 +6,19 @@ HISTFILE=~/.histfile
 HISTSIZE=100
 SAVEHIST=100
 bindkey -e
-                                                                           
-zstyle :compinstall filename '/home/matt/.zshrc'                                                                            
-                                                                                                                            
-autoload -Uz compinit                                                                                                       
+
+zstyle :compinstall filename '/home/matt/.zshrc'
+
+autoload -Uz compinit
 compinit
-                                                                                                                            
+
 # Tell ls to be colourful
 export TERM=xterm-256color
-alias ls='ls --color=auto'                                                                                                  
-export CLICOLOR=1                                                                                                           
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx                                                                                      
-                                                                                                                            
-# Tell grep to highlight matches                                                                                            
+alias ls='ls --color=auto'
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+
+# Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
 # autoload -U colors && colors
