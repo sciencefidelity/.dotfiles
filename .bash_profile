@@ -11,7 +11,7 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # Test the color of the terminal
 true_color() {
-  printf "\x1b[38;2;255;100;0mTRUECOLOR\x1b[0m\n"
+  printf '\x1b[38;2;255;100;0mTRUECOLOR\x1b[0m\n'
 }
 
 # Tell grep to highlight matches
@@ -26,5 +26,7 @@ alias l='ls -f'
 alias la='ls -Al'
 alias ll='ls -l'
 
+alias ..='cd ../'
+
 # Prevent typing for password too often
-alias sudo="sudo -v; sudo "
+alias sudo='sudo -v; sudo '
