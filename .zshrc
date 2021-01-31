@@ -14,12 +14,11 @@ compinit
 
 # Tell ls to be colourful
 export TERM=xterm-256color
-alias ls='ls --color=auto'
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # Test the color of the terminal
-true_color() {
+truecolor() {
   printf "\x1b[38;2;255;100;0mTRUECOLOR\x1b[0m\n"
 }
 
@@ -31,9 +30,11 @@ PROMPT='%F{214}%n%f%F{230}@%f%F{142}%m%f %F{73}%~%f %F{230}%# '
 
 eval `dircolors ~/.dir_colors`
 
-alias l="ls -f"
-alias ll="ls -l"
-alias la="ls -Al"
+alias l='ls -f --color=auto'
+alias ll='ls -l --color=auto'
+alias la='ls -Al --color=auto'
+
+alias ..='cd ../'
 
 # Prevent typing for password too often
 alias sudo="sudo -v; sudo "
