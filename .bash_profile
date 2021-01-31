@@ -5,7 +5,6 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 # Tell ls to be colourful
-alias ls='ls --color=auto'
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
