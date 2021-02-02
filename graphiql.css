@@ -1,3 +1,12 @@
+/* 
+ * GraphiQL theme modified from by One Dark theme by Ben Keating 
+ * https://gist.github.com/andriy-rudyk/69ce4cc72511f2c6b1751af8c00b0c79
+ * 
+ * Colors inspired by gruvbox.vim https://github.com/morhetz/gruvbox
+ * 
+ * Impliment using Stylish add-on for Firefox
+ */
+
 .CodeMirror-code {
   font-size: 175%;
   font-family: MonoLisa;
