@@ -1,0 +1,212 @@
+.CodeMirror-code {
+  font-size: 175%;
+  font-family: MonoLisa;
+}
+
+.CodeMirror {
+  background: #282828 !important;
+}
+
+.graphiql-container .doc-explorer-contents, .graphiql-container .history-contents {
+  background-color: #282828;
+  border-top: 1px solid #181A1F;
+}
+
+.graphiql-container .toolbar-button {
+  background: #282828 !important;
+  box-shadow: none !important;
+  color: #B8B5A6 !important;
+  border: 1px solid #181a1f !important;
+}
+
+.graphiql-container .result-window .CodeMirror-gutters {
+  background: #282828;
+  border: none !important;
+}
+
+.graphiql-container .resultWrap {
+  border-left: solid 1px #181a1f;
+}
+
+.graphiql-container .variable-editor-title {
+  background: #282828;
+  border-bottom: 1px solid #181a1f;
+  border-top: 1px solid #181a1f;
+  color: #F2EED9;
+}
+
+.graphiql-container .topBar {
+  background: #282828;
+  border-color: #181A1F;
+}
+
+.graphiql-container .docExplorerHide {
+  color: #606671;
+}
+
+.graphiql-container .doc-explorer-title, .graphiql-container .history-title, .doc-explorer-back {
+  color: #CACDD3 !important;
+
+}
+
+.graphiql-container .doc-explorer {
+  background: #282828;
+}
+
+.graphiql-container .docExplorerWrap, .graphiql-container .historyPaneWrap {
+  box-shadow: none;
+}
+
+.graphiql-container .docExplorerShow {
+  border-left: none;
+}
+.graphiql-container .docExplorerShow, .graphiql-container .historyShow {
+  background: #282828;
+  border-bottom: 1px solid #181A1E;
+  color: #CACDD3;
+}
+
+.graphiql-container .docExplorerShow:before, .graphiql-container .doc-explorer-back:before  {
+  border-color: #CACDD3;
+}
+
+.graphiql-container .search-box {
+  margin: auto auto 10px auto;
+  border: none;
+}
+.graphiql-container .search-box input {
+  background: #1E2127;
+  padding-left: 28px;
+}
+
+.graphiql-container .search-box .search-box-clear,
+.graphiql-container .search-box .search-box-clear:hover {
+  background: #1d2126;
+}
+
+.graphiql-container .search-box:before {
+  color: #c1c4ca;
+  font-size: 21px;
+  left: 8px;
+}
+
+.graphiql-container, .graphiql-container button, .graphiql-container input {
+  color: #F2EED9;
+}
+
+.CodeMirror-gutters {
+  border: none !important;
+  background-color: #282828;
+}
+
+.graphiql-container .execute-button {
+  background: #282828;
+  border: 1px solid #F2EED9;
+  box-shadow: none !important;
+  fill: #F2EED9;
+}
+
+.graphiql-container .history-contents p {
+  border: none;
+}
+
+.graphiql-container .historyPaneWrap {
+  background: #282828;
+}
+
+.graphiql-container .execute-options > li.selected, .graphiql-container .toolbar-menu-items > li.hover, .graphiql-container .toolbar-menu-items > li:active, .graphiql-container .toolbar-menu-items > li:hover, .graphiql-container .toolbar-select-options > li.hover, .graphiql-container .toolbar-select-options > li:active, .graphiql-container .toolbar-select-options > li:hover, .graphiql-container .history-contents > p:hover, .graphiql-container .history-contents > p:active {
+  background: #383C41;
+}
+
+.graphiql-container .doc-category-title {
+  border-bottom: 1px solid #181a1f;
+  color: #cacdd3;
+}
+
+.graphiql-container .field-name {
+  color: #9CA3AC;
+}
+
+.graphiql-container .type-name {
+  color: #98971A;
+}
+
+
+.cm-property {
+  color: #F2EED9;
+}
+
+.cm-string {
+  color: #98971A;
+}
+
+.cm-variable {
+  color: #FBBD2F;
+}
+
+.cm-attribute {
+  color: #FBBD2F;
+}
+
+.cm-def {
+  color: #CD3E1D;
+}
+
+.cm-keyword {
+  color: #A1C7B9;
+}
+
+.graphiql-container .keyword {
+  color: #9ea5b0;
+}
+
+.graphiql-container .arg-name {
+  color: #FBBD2F;
+}
+
+.graphiql-container .doc-category-item {
+  color: #D4869B;
+}
+
+a {
+  color: #8FC07C;
+}
+
+.CodeMirror-lint-tooltip {
+  background: #1a1e22 !important;
+  color: #CD3E1D;
+}
+
+
+.cm-atom {
+  color: #D4869B;
+}
+
+.CodeMirror-hints {
+  background: #282828;
+  box-shadow: 0 16px 13px -10px rgba(0, 0, 0, 0.3);
+}
+.CodeMirror-hint {
+  border-top: solid 1px #282828;
+  color: #98971A;
+}
+.CodeMirror-hint-information {
+  border-top: solid 1px #181a1e;
+}
+li.CodeMirror-hint-active {
+  background-color: #282828;
+  border-top-color: #212629;
+  color: #98971A;
+}
+.CodeMirror-hint-information .content {
+  color: #8FC07C;
+}
+.CodeMirror-linenumber {
+  color: #8B897C;
+}
+.cm-comment {
+  color: #5e6063;
+}
+.cm-punctuation {
+  color: #B8B5A4;
+}
