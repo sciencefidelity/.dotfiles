@@ -1,52 +1,77 @@
-/* 
- * GraphiQL theme modified from by One Dark theme by Ben Keating 
- * https://gist.github.com/andriy-rudyk/69ce4cc72511f2c6b1751af8c00b0c79
- * 
- * Colors inspired by gruvbox.vim https://github.com/morhetz/gruvbox
- * 
- * Impliment using Stylish add-on for Firefox
- */
-
 .CodeMirror-code {
-  font-size: 175%;
+  font-size: 125%;
   font-family: MonoLisa;
 }
 
 .CodeMirror {
-  background: #282828 !important;
+  background: rgb(27,28,28) !important;
+}
+
+.graphiql-explorer-root {
+  font-size: 100% !important;
+  font-family: MonoLisa !important;
+  border-right: 1px solid rgb(53,52,53);
+}
+
+.graphiql-explorer-filter {
+  color: rgb(161,137,220) !important;
+}
+
+.doc-explorer-title-bar, .topBar, .docExplorerShow {
+  background-color: rgb(40,40,40) !important;
+}
+.graphiql-container .docExplorerShow::before {
+  border-left: 2px solid rgb(217,230,241) !important;
+  border-top: 2px solid rgb(217,230,241) !important;
+}
+
+.graphiql-operation-title-bar {
+  color: rgb(253,106,96) !important;
+}
+
+.graphiql-operation-title-bar span input {
+  background-color: rgb(27,28,28);
+  color: rgb(253,106,96) !important;
+  font-family: MonoLisa !important;
+  font-size: 100% !important;
+  border: none;
+}
+
+.graphiql-explorer-field-view {
+  color: rgb(106, 180, 252) !important;
 }
 
 .graphiql-container .doc-explorer-contents, .graphiql-container .history-contents {
-  background-color: #282828;
-  border-top: 1px solid #181A1F;
+  background-color: rgb(27,28,28);
+  border-top: 1px solid rgb(53,52,53);
 }
 
 .graphiql-container .toolbar-button {
-  background: #282828 !important;
+  background: rgb(55,57,60) !important;
   box-shadow: none !important;
-  color: #B8B5A6 !important;
-  border: 1px solid #181a1f !important;
+  color: rgb(217,230,241) !important;
+  border: 1px solid rgb(53,52,53) !important;
 }
 
 .graphiql-container .result-window .CodeMirror-gutters {
-  background: #282828;
+  background: rgb(27,28,28);
   border: none !important;
 }
 
 .graphiql-container .resultWrap {
-  border-left: solid 1px #181a1f;
+  border-left: solid 1px rgb(53,52,53);
 }
 
 .graphiql-container .variable-editor-title {
-  background: #282828;
-  border-bottom: 1px solid #181a1f;
-  border-top: 1px solid #181a1f;
-  color: #F2EED9;
+  background: rgb(27,28,28);
+  border-bottom: 1px solid rgb(53,52,53);
+  border-top: 1px solid rgb(53,52,53);
+  color: rgb(217,230,241);
 }
 
 .graphiql-container .topBar {
-  background: #282828;
-  border-color: #181A1F;
+  background: rgb(27,28,28);
+  border-color: rgb(53,52,53);
 }
 
 .graphiql-container .docExplorerHide {
@@ -54,12 +79,12 @@
 }
 
 .graphiql-container .doc-explorer-title, .graphiql-container .history-title, .doc-explorer-back {
-  color: #CACDD3 !important;
+  color: rgb(217,230,241) !important;
 
 }
 
 .graphiql-container .doc-explorer {
-  background: #282828;
+  background: rgb(27,28,28);
 }
 
 .graphiql-container .docExplorerWrap, .graphiql-container .historyPaneWrap {
@@ -70,13 +95,13 @@
   border-left: none;
 }
 .graphiql-container .docExplorerShow, .graphiql-container .historyShow {
-  background: #282828;
-  border-bottom: 1px solid #181A1E;
-  color: #CACDD3;
+  background: rgb(27,28,28);
+  border-bottom: 1px solid rgb(53,52,53);
+  color: rgb(217,230,241);
 }
 
 .graphiql-container .docExplorerShow:before, .graphiql-container .doc-explorer-back:before  {
-  border-color: #CACDD3;
+  border-color: rgb(53,52,53);
 }
 
 .graphiql-container .search-box {
@@ -100,19 +125,19 @@
 }
 
 .graphiql-container, .graphiql-container button, .graphiql-container input {
-  color: #F2EED9;
+  color: rgb(217,230,241);
 }
 
 .CodeMirror-gutters {
   border: none !important;
-  background-color: #282828;
+  background-color: rgb(27,28,28);
 }
 
 .graphiql-container .execute-button {
-  background: #282828;
-  border: 1px solid #F2EED9;
+  background: rgb(40,40,40);
+  border: 1px solid rgb(217,230,241);
   box-shadow: none !important;
-  fill: #F2EED9;
+  fill: rgb(217,230,241);
 }
 
 .graphiql-container .history-contents p {
@@ -120,7 +145,7 @@
 }
 
 .graphiql-container .historyPaneWrap {
-  background: #282828;
+  background: rgb(27,28,28);
 }
 
 .graphiql-container .execute-options > li.selected, .graphiql-container .toolbar-menu-items > li.hover, .graphiql-container .toolbar-menu-items > li:active, .graphiql-container .toolbar-menu-items > li:hover, .graphiql-container .toolbar-select-options > li.hover, .graphiql-container .toolbar-select-options > li:active, .graphiql-container .toolbar-select-options > li:hover, .graphiql-container .history-contents > p:hover, .graphiql-container .history-contents > p:active {
@@ -128,8 +153,8 @@
 }
 
 .graphiql-container .doc-category-title {
-  border-bottom: 1px solid #181a1f;
-  color: #cacdd3;
+  border-bottom: 1px solid rgb(53,52,53);
+  color: rgb(217,230,241);
 }
 
 .graphiql-container .field-name {
@@ -137,85 +162,107 @@
 }
 
 .graphiql-container .type-name {
-  color: #98971A;
+  color: rgb(145,208,103);
 }
 
 
 .cm-property {
-  color: #F2EED9;
+  color: rgb(217,230,241);
 }
 
 .cm-string {
-  color: #98971A;
+  color: rgb(145,208,103);
 }
 
 .cm-variable {
-  color: #FBBD2F;
+  color: rgb(246,187,81);
 }
 
 .cm-attribute {
-  color: #FBBD2F;
+  color: rgb(246,187,81);
 }
 
 .cm-def {
-  color: #CD3E1D;
+  color: rgb(253,106,96);
 }
 
 .cm-keyword {
-  color: #A1C7B9;
+  color: rgb(121,197,179);
 }
 
 .graphiql-container .keyword {
-  color: #9ea5b0;
+  color: rgb(161,137,220);
 }
 
 .graphiql-container .arg-name {
-  color: #FBBD2F;
+  color: rgb(246,187,81);
 }
 
 .graphiql-container .doc-category-item {
-  color: #D4869B;
+  color: rgb(161,137,220);
 }
 
 a {
-  color: #8FC07C;
+  color: rgb(121,197,179);
 }
 
 .CodeMirror-lint-tooltip {
   background: #1a1e22 !important;
-  color: #CD3E1D;
+  color: rgb(253,106,96);
 }
 
 
 .cm-atom {
-  color: #D4869B;
+  color: rgb(161,137,220);
 }
 
 .CodeMirror-hints {
-  background: #282828;
+  background: rgb(27,28,28);
   box-shadow: 0 16px 13px -10px rgba(0, 0, 0, 0.3);
 }
 .CodeMirror-hint {
-  border-top: solid 1px #282828;
-  color: #98971A;
+  border-top: solid 1px rgb(53,52,53);
+  color: rgb(145,208,103);
 }
 .CodeMirror-hint-information {
-  border-top: solid 1px #181a1e;
+  border-top: solid 1px rgb(53,52,53);
 }
 li.CodeMirror-hint-active {
-  background-color: #282828;
-  border-top-color: #212629;
-  color: #98971A;
+  background-color: rgb(27,28,28);
+  border-top-color: rgb(53,52,53);
+  color: rgb(145,208,103);
 }
 .CodeMirror-hint-information .content {
-  color: #8FC07C;
+  color: rgb(121,197,179);
 }
 .CodeMirror-linenumber {
-  color: #8B897C;
+  color: rgb(92,97,102);
 }
 .cm-comment {
-  color: #5e6063;
+  color: rgb(103,115,127);
 }
 .cm-punctuation {
-  color: #B8B5A4;
+  color: rgb(155,174,191);
+}
+
+.graphiql-code-exporter {
+  border-left: 1px solid rgb(53,52,53);
+}
+.CodeMirror-line .cm-keyword {
+  color: rgb(106,180,252);
+}
+.CodeMirror-line .cm-def {
+  color: rgb(217,230,241);
+}
+.CodeMirror-line .cm-string, .CodeMirror-line .cm-string-2 {
+  color: rgb(253,106,96);
+}
+.CodeMirror-line .cm-variable {
+  color: rgb(145,208,103);
+}
+.CodeMirror-line .cm-tag, .CodeMirror-line .cm-tag.cm-bracket {
+  color: rgb(161,137,220);
+}
+svg {
+  fill: rgb(217,230,241);
 }
