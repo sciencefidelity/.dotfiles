@@ -1,5 +1,5 @@
 .CodeMirror-code {
-  font-size: 125%;
+  font-size: 100%;
   font-family: MonoLisa;
 }
 
@@ -248,7 +248,7 @@ li.CodeMirror-hint-active {
 .graphiql-code-exporter {
   border-left: 1px solid rgb(53,52,53);
 }
-.CodeMirror-line .cm-keyword {
+/* .CodeMirror-line .cm-keyword {
   color: rgb(106,180,252);
 }
 .CodeMirror-line .cm-def {
@@ -262,7 +262,7 @@ li.CodeMirror-hint-active {
 }
 .CodeMirror-line .cm-tag, .CodeMirror-line .cm-tag.cm-bracket {
   color: rgb(161,137,220);
-}
+} */
 svg {
   fill: rgb(217,230,241);
 }
@@ -284,4 +284,36 @@ svg {
 }
 .secondary-editor-title div {
   color: rgb(217,230,241) !important;
+}
+.graphiql-explorer-graphql-arguments div span span {
+  color: rgb(161,137,220) !important;
+}
+.graphiql-explorer-graphql-arguments div span {
+  color: rgb(145,208,103) !important;
+}
+.graphiql-explorer-graphql-arguments div span input {
+  color: rgb(145,208,103) !important;
+  background: rgb(40,40,40) !important;
+}
+.cm-builtin {
+  color: rgb(253,106,96);
+}
+.cm-invalidchar {
+  color: rgb(253,106,96);
+}
+select { 
+}
+.doc-explorer-contents {
+  border-left: 1px solid rgb(53,52,53);
+}
+.secondary-editor-title {
+  background: rgb(40,40,40);
+}
+
+.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection {
+  background: rgb(40,40,40) !important;
+}
+
+.CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection {
+  background: rgb(40,40,40);
 }
