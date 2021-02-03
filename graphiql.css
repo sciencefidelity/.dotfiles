@@ -1,3 +1,10 @@
+  /* 
+   * GraphiQL theme edited from Ben Keating's
+   * https://gist.github.com/bkeating/cfe0d5e72bd3f9f1f77e1a2ff2309972
+   * 
+   * Colors taken from Nova's Dark theme.
+   */
+
 .CodeMirror-code {
   font-size: 125%;
   font-family: MonoLisa;
