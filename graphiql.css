@@ -1,3 +1,11 @@
+/*
+ * Dark theme for GraphiQL modified from Ben Keating
+ * https://gist.github.com/bkeating/cfe0d5e72bd3f9f1f77e1a2ff2309972
+ *
+ * Colours based on the dark theme in Nova.
+ */
+
+
 .CodeMirror-code {
   font-size: 100%;
   font-family: MonoLisa;
