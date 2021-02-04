@@ -227,7 +227,7 @@ a {
 .CodeMirror-hint-information {
   border-top: solid 1px rgb(53,52,53);
 }
-li.CodeMirror-hint-active {
+.CodeMirror-hint-active {
   background-color: rgb(27,28,28);
   border-top-color: rgb(53,52,53);
   color: rgb(145,208,103);
