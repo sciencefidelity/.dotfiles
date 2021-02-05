@@ -36,5 +36,5 @@ alias la='ls -Alh --color=auto'
 
 alias ..='cd ..'
 
-# Prevent typing for password too often
+# Prevent typing password too often
 alias sudo="sudo -v; sudo "
