@@ -25,7 +25,7 @@ alias l='ls -f --color=auto'
 alias la='ls -Al --color=auto'
 alias ll='ls -l --color=auto'
 
-alias ..='cd ../'
+alias ..='cd ..'
 
 # Prevent typing for password too often
 alias sudo='sudo -v; sudo '
