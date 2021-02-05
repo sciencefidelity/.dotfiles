@@ -31,8 +31,8 @@ PROMPT='%F{214}%n%f%F{230}@%f%F{142}%m%f %F{73}%~%f %F{230}%# '
 eval `dircolors ~/.dir_colors`
 
 alias l='ls -f --color=auto'
-alias ll='ls -l --color=auto'
-alias la='ls -Al --color=auto'
+alias ll='ls -lh --color=auto'
+alias la='ls -Alh --color=auto'
 
 alias ..='cd ..'
 
