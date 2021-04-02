@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "MonoLisa";
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://warwickhall.studio/fonts/MonoLisa-Regular.woff2' format('woff2'));
+}
+@font-face {
+    font-family: "MonoLisa";
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://warwickhall.studio/fonts/MonoLisa-Bold.woff2' format('woff2'));
+}
+@font-face {
+    font-family: "MonoLisa";
+    font-style: italic;
+    font-weight: 400;
+    src: url('https://warwickhall.studio/fonts/MonoLisa-RegularItalic.woff2' format('woff2');
+}
+@font-face {
+    font-family: "MonoLisa";
+    font-style: italic;
+    font-weight: 400;
+    src: url('https://warwickhall.studio/fonts/MonoLisa-BoldItalic.woff2' format('woff2'));
+}
