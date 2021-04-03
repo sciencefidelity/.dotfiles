@@ -22,3 +22,7 @@
     font-weight: 700;
     src: url('fonts/MonoLisa-BoldItalic.ttf') format('truetype');
 }
+
+body {
+    font-size: 88%;
+}
