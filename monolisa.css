@@ -2,27 +2,26 @@
     font-family: "MonoLisa";
     font-style: normal;
     font-weight: 400;
-    font-size: 93.75%;
     src: url('fonts/MonoLisa-Regular.ttf') format('truetype');
 }
 @font-face {
     font-family: "MonoLisa";
     font-style: normal;
     font-weight: 700;
-    font-size: 93.75%;
     src: url('fonts/MonoLisa-Bold.ttf') format('truetype');
 }
 @font-face {
     font-family: "MonoLisa";
     font-style: italic;
     font-weight: 400;
-    font-size: 93.75%;
     src: url('fonts/MonoLisa-RegularItalic.ttf') format('truetype');
 }
 @font-face {
     font-family: "MonoLisa";
     font-style: italic;
     font-weight: 700;
-    font-size: 93.75%;
     src: url('fonts/MonoLisa-BoldItalic.ttf') format('truetype');
+}
+* {
+    font-size: 98%;
 }
