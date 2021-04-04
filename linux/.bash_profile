@@ -17,7 +17,7 @@ truecolor() {
 export GREP_OPTIONS='--color=auto'
 
 export TERM="xterm-color"
-PS1='\[\033[38;5;214m\]\u\[\033[38;5;230m\]@\[\033[38;5;142m\]\h\[\033[38;5;230m\]:\[\033[38;5;73m\]\w\[\033[38;5;230m\]\$ '
+PS1='\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]\$ '
 
 eval `dircolors ~/.dir_colors`
 
