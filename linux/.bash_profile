@@ -4,16 +4,16 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-# Tell ls to be colourful
+# tell ls to be colourful
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
-# Test the color of the terminal
+# test the color of the terminal
 truecolor() {
   printf '\x1b[38;2;255;100;0mTRUECOLOR\x1b[0m\n'
 }
 
-# Tell grep to highlight matches
+# tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
 export TERM="xterm-color"
@@ -27,5 +27,5 @@ alias la='ls -Alh --color=auto'
 
 alias ..='cd ..'
 
-# Prevent typing password too often
+# prevent typing password too often
 alias sudo='sudo -v; sudo '
