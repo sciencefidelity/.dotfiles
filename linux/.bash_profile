@@ -29,3 +29,6 @@ alias ..='cd ..'
 
 # prevent typing password too often
 alias sudo='sudo -v; sudo '
+
+# Path to hugo
+export PATH="~/go/bin:$PATH"
