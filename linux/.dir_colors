@@ -1,3 +1,4 @@
+# Exact Solarized Dark color theme for the color GNU ls utility.
 # Designed for dircolors (GNU coreutils) 5.97
 #
 # This simple theme was simultaneously designed for these terminal color schemes:
@@ -160,22 +161,22 @@ EIGHTBIT 1
 ### By file type
 
 # global default
-NORMAL 38;5;231 
+NORMAL 00
 # normal file
-FILE 38;5;231
+FILE 00
 # directory
-DIR 38;5;183
+DIR 34
 # 777 directory
-OTHER_WRITABLE 38;5;183;40
+OTHER_WRITABLE 34;40
 # symbolic link
-LINK 38;5;212
+LINK 35
 
 # pipe, socket, block device, character device (blue bg)
-FIFO 30;48;5;73
-SOCK 38;5;212;48;5;73
-DOOR 38;5;212;48;5;73 # Solaris 2.5 and later
-BLK  38;5;229;48;5;73
-CHR  37;48;5;73
+FIFO 30;44
+SOCK 35;44
+DOOR 35;44 # Solaris 2.5 and later
+BLK  33;44
+CHR  37;44
 
 
 #############################################################################
@@ -188,13 +189,13 @@ ORPHAN  05;37;41
 MISSING 05;37;41
 
 # files with execute permission
-EXEC 38;5;212  # Unix
-.cmd 38;5;212  # Win
-.exe 38;5;212  # Win
-.com 38;5;212  # Win
-.bat 38;5;212  # Win
-.reg 38;5;212  # Win
-.app 38;5;212  # OSX
+EXEC 01;31  # Unix
+.cmd 01;31  # Win
+.exe 01;31  # Win
+.com 01;31  # Win
+.bat 01;31  # Win
+.reg 01;31  # Win
+.app 01;31  # OSX
 
 #############################################################################
 ### By extension
@@ -206,278 +207,278 @@ EXEC 38;5;212  # Unix
 ### Text formats
 
 # Text that we can edit with a regular editor
-.txt 38;5;120
-.org 38;5;120
-.md 38;5;120
-.mkd 38;5;120
+.txt 32
+.org 32
+.md 32
+.mkd 32
 
 # Source text
-.h 38;5;120
-.hpp 38;5;120
-.c 38;5;120
-.C 38;5;120
-.cc 38;5;120
-.cpp 38;5;120
-.cxx 38;5;120
-.objc 38;5;120
-.cl 38;5;120
-.sh 38;5;120
-.bash 38;5;120
-.csh 38;5;120
-.zsh 38;5;120
-.el 38;5;120
-.vim 38;5;120
-.java 38;5;120
-.pl 38;5;120
-.pm 38;5;120
-.py 38;5;120
-.rb 38;5;120
-.hs 38;5;120
-.php 38;5;120
-.htm 38;5;120
-.html 38;5;120
-.shtml 38;5;120
-.erb 38;5;120
-.haml 38;5;120
-.xml 38;5;120
-.rdf 38;5;120
-.css 38;5;120
-.sass 38;5;120
-.scss 38;5;120
-.less 38;5;120
-.js 38;5;120
-.coffee 38;5;120
-.man 38;5;120
-.0 38;5;120
-.1 38;5;120
-.2 38;5;120
-.3 38;5;120
-.4 38;5;120
-.5 38;5;120
-.6 38;5;120
-.7 38;5;120
-.8 38;5;120
-.9 38;5;120
-.l 38;5;120
-.n 38;5;120
-.p 38;5;120
-.pod 38;5;120
-.tex 38;5;120
-.go 38;5;120
-.sql 38;5;120
-.csv 38;5;120
-.sv 38;5;120
-.svh 38;5;120
-.v 38;5;120
-.vh 38;5;120
-.vhd 38;5;120
+.h 32
+.hpp 32
+.c 32
+.C 32
+.cc 32
+.cpp 32
+.cxx 32
+.objc 32
+.cl 32
+.sh 32
+.bash 32
+.csh 32
+.zsh 32
+.el 32
+.vim 32
+.java 32
+.pl 32
+.pm 32
+.py 32
+.rb 32
+.hs 32
+.php 32
+.htm 32
+.html 32
+.shtml 32
+.erb 32
+.haml 32
+.xml 32
+.rdf 32
+.css 32
+.sass 32
+.scss 32
+.less 32
+.js 32
+.coffee 32
+.man 32
+.0 32
+.1 32
+.2 32
+.3 32
+.4 32
+.5 32
+.6 32
+.7 32
+.8 32
+.9 32
+.l 32
+.n 32
+.p 32
+.pod 32
+.tex 32
+.go 32
+.sql 32
+.csv 32
+.sv 32
+.svh 32
+.v 32
+.vh 32
+.vhd 32
 
 ### Multimedia formats
 
 # Image
-.bmp 38;5;229
-.cgm 38;5;229
-.dl 38;5;229
-.dvi 38;5;229
-.emf 38;5;229
-.eps 38;5;229
-.gif 38;5;229
-.jpeg 38;5;229
-.jpg 38;5;229
-.JPG 38;5;229
-.mng 38;5;229
-.pbm 38;5;229
-.pcx 38;5;229
-.pdf 38;5;229
-.pgm 38;5;229
-.png 38;5;229
-.PNG 38;5;229
-.ppm 38;5;229
-.pps 38;5;229
-.ppsx 38;5;229
-.ps 38;5;229
-.svg 38;5;229
-.svgz 38;5;229
-.tga 38;5;229
-.tif 38;5;229
-.tiff 38;5;229
-.xbm 38;5;229
-.xcf 38;5;229
-.xpm 38;5;229
-.xwd 38;5;229
-.xwd 38;5;229
-.yuv 38;5;229
-.nef 38;5;229 # Nikon RAW format
-.NEF 38;5;229
+.bmp 33
+.cgm 33
+.dl 33
+.dvi 33
+.emf 33
+.eps 33
+.gif 33
+.jpeg 33
+.jpg 33
+.JPG 33
+.mng 33
+.pbm 33
+.pcx 33
+.pdf 33
+.pgm 33
+.png 33
+.PNG 33
+.ppm 33
+.pps 33
+.ppsx 33
+.ps 33
+.svg 33
+.svgz 33
+.tga 33
+.tif 33
+.tiff 33
+.xbm 33
+.xcf 33
+.xpm 33
+.xwd 33
+.xwd 33
+.yuv 33
+.nef 33 # Nikon RAW format
+.NEF 33
 
 # Audio
-.aac 38;5;229
-.au  38;5;229
-.flac 38;5;229
-.m4a 38;5;229
-.mid 38;5;229
-.midi 38;5;229
-.mka 38;5;229
-.mp3 38;5;229
-.mpa 38;5;229
-.mpeg 38;5;229
-.mpg 38;5;229
-.ogg  38;5;229
-.opus 38;5;229
-.ra 38;5;229
-.wav 38;5;229
+.aac 33
+.au  33
+.flac 33
+.m4a 33
+.mid 33
+.midi 33
+.mka 33
+.mp3 33
+.mpa 33
+.mpeg 33
+.mpg 33
+.ogg  33
+.opus 33
+.ra 33
+.wav 33
 
 # Video
-.anx 38;5;229
-.asf 38;5;229
-.avi 38;5;229
-.axv 38;5;229
-.flc 38;5;229
-.fli 38;5;229
-.flv 38;5;229
-.gl 38;5;229
-.m2v 38;5;229
-.m4v 38;5;229
-.mkv 38;5;229
-.mov 38;5;229
-.MOV 38;5;229
-.mp4 38;5;229
-.mp4v 38;5;229
-.mpeg 38;5;229
-.mpg 38;5;229
-.nuv 38;5;229
-.ogm 38;5;229
-.ogv 38;5;229
-.ogx 38;5;229
-.qt 38;5;229
-.rm 38;5;229
-.rmvb 38;5;229
-.swf 38;5;229
-.vob 38;5;229
-.webm 38;5;229
-.wmv 38;5;229
+.anx 33
+.asf 33
+.avi 33
+.axv 33
+.flc 33
+.fli 33
+.flv 33
+.gl 33
+.m2v 33
+.m4v 33
+.mkv 33
+.mov 33
+.MOV 33
+.mp4 33
+.mp4v 33
+.mpeg 33
+.mpg 33
+.nuv 33
+.ogm 33
+.ogv 33
+.ogx 33
+.qt 33
+.rm 33
+.rmvb 33
+.swf 33
+.vob 33
+.webm 33
+.wmv 33
 
 ### Misc
 
 # Binary document formats and multimedia source
-.doc 38;5;210
-.docx 38;5;210
-.rtf 38;5;210
-.odt 38;5;210
-.dot 38;5;210
-.dotx 38;5;210
-.ott 38;5;210
-.xls 38;5;210
-.xlsx 38;5;210
-.ods 38;5;210
-.ots 38;5;210
-.ppt 38;5;210
-.pptx 38;5;210
-.odp 38;5;210
-.otp 38;5;210
-.fla 38;5;210
-.psd 38;5;210
+.doc 31
+.docx 31
+.rtf 31
+.odt 31
+.dot 31
+.dotx 31
+.ott 31
+.xls 31
+.xlsx 31
+.ods 31
+.ots 31
+.ppt 31
+.pptx 31
+.odp 31
+.otp 31
+.fla 31
+.psd 31
 
 # Archives, compressed
-.7z   38;5;212
-.apk  38;5;212
-.arj  38;5;212
-.bin  38;5;212
-.bz   38;5;212
-.bz2  38;5;212
-.cab  38;5;212  # Win
-.deb  38;5;212
-.dmg  38;5;212  # OSX
-.gem  38;5;212
-.gz   38;5;212
-.iso  38;5;212
-.jar  38;5;212
-.msi  38;5;212  # Win
-.rar  38;5;212
-.rpm  38;5;212
-.tar  38;5;212
-.tbz  38;5;212
-.tbz2 38;5;212
-.tgz  38;5;212
-.tx   38;5;212
-.war  38;5;212
-.xpi  38;5;212
-.xz   38;5;212
-.z    38;5;212
-.Z    38;5;212
-.zip  38;5;212
-.zst  38;5;212
+.7z   1;35
+.apk  1;35
+.arj  1;35
+.bin  1;35
+.bz   1;35
+.bz2  1;35
+.cab  1;35  # Win
+.deb  1;35
+.dmg  1;35  # OSX
+.gem  1;35
+.gz   1;35
+.iso  1;35
+.jar  1;35
+.msi  1;35  # Win
+.rar  1;35
+.rpm  1;35
+.tar  1;35
+.tbz  1;35
+.tbz2 1;35
+.tgz  1;35
+.tx   1;35
+.war  1;35
+.xpi  1;35
+.xz   1;35
+.z    1;35
+.Z    1;35
+.zip  1;35
+.zst  1;35
 
 # For testing
 .ANSI-30-black 30
 .ANSI-01;30-brblack 01;30
-.ANSI-31-red 38;5;210
-.ANSI-01;31-brred 38;5;212
-.ANSI-32-green 38;5;120
-.ANSI-01;32-brgreen 38;5;120
-.ANSI-33-yellow 38;5;229
-.ANSI-01;33-bryellow 38;5;229
-.ANSI-34-blue 38;5;183
-.ANSI-01;34-brblue 38;5;183
-.ANSI-35-magenta 38;5;212
-.ANSI-01;35-brmagenta 38;5;212
-.ANSI-36-cyan 38;5;159
-.ANSI-01;36-brcyan 38;5;159
-.ANSI-37-white 38;5;231
-.ANSI-01;37-brwhite 38;5;231
+.ANSI-31-red 31
+.ANSI-01;31-brred 01;31
+.ANSI-32-green 32
+.ANSI-01;32-brgreen 01;32
+.ANSI-33-yellow 33
+.ANSI-01;33-bryellow 01;33
+.ANSI-34-blue 34
+.ANSI-01;34-brblue 01;34
+.ANSI-35-magenta 35
+.ANSI-01;35-brmagenta 01;35
+.ANSI-36-cyan 36
+.ANSI-01;36-brcyan 01;36
+.ANSI-37-white 37
+.ANSI-01;37-brwhite 01;37
 
 #############################################################################
 # Your customizations
 
 # Unimportant text files
-# For universal scheme, use brightgreen 38;5;120
-# For optimal on light bg (but too prominent on dark bg), use white 38;5;183
-.log 38;5;120
-*~ 38;5;120
-*# 38;5;120
-#.log 38;5;120
-#*~ 38;5;120
-#*# 38;5;120
+# For universal scheme, use brightgreen 01;32
+# For optimal on light bg (but too prominent on dark bg), use white 01;34
+.log 01;32
+*~ 01;32
+*# 01;32
+#.log 01;34
+#*~ 01;34
+#*# 01;34
 
 # Unimportant non-text files
-# For universal scheme, use brightcyan 38;5;159
-# For optimal on dark bg (but too prominent on light bg), change to 38;5;229
-#.bak 38;5;159
-#.BAK 38;5;159
-#.old 38;5;159
-#.OLD 38;5;159
-#.org_archive 38;5;159
-#.off 38;5;159
-#.OFF 38;5;159
-#.dist 38;5;159
-#.DIST 38;5;159
-#.orig 38;5;159
-#.ORIG 38;5;159
-#.swp 38;5;159
-#.swo 38;5;159
-#*.v 38;5;159
-.bak 38;5;229
-.BAK 38;5;229
-.old 38;5;229
-.OLD 38;5;229
-.org_archive 38;5;229
-.off 38;5;229
-.OFF 38;5;229
-.dist 38;5;229
-.DIST 38;5;229
-.orig 38;5;229
-.ORIG 38;5;229
-.swp 38;5;229
-.swo 38;5;229
-*.v 38;5;229
+# For universal scheme, use brightcyan 01;36
+# For optimal on dark bg (but too prominent on light bg), change to 01;33
+#.bak 01;36
+#.BAK 01;36
+#.old 01;36
+#.OLD 01;36
+#.org_archive 01;36
+#.off 01;36
+#.OFF 01;36
+#.dist 01;36
+#.DIST 01;36
+#.orig 01;36
+#.ORIG 01;36
+#.swp 01;36
+#.swo 01;36
+#*.v 01;36
+.bak 01;33
+.BAK 01;33
+.old 01;33
+.OLD 01;33
+.org_archive 01;33
+.off 01;33
+.OFF 01;33
+.dist 01;33
+.DIST 01;33
+.orig 01;33
+.ORIG 01;33
+.swp 01;33
+.swo 01;33
+*.v 01;33
 
 # The brightmagenta (Solarized: purple) color is free for you to use for your
 # custom file type
-.gpg 38;5;183
-.gpg 38;5;183
-.pgp 38;5;183
-.asc 38;5;183
-.3des 38;5;183
-.aes 38;5;183
-.enc 38;5;183
-.sqlite 38;5;183
+.gpg 34
+.gpg 34
+.pgp 34
+.asc 34
+.3des 34
+.aes 34
+.enc 34
+.sqlite 34
