@@ -26,7 +26,7 @@ truecolor() {
 export GREP_OPTIONS='--color=auto'
 
 # autoload -U colors && colors
-PROMPT='%F{214}%n%f%F{230}@%f%F{142}%m%f %F{73}%~%f %F{230}%# '
+PS1='%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%# '
 
 eval `dircolors ~/.dir_colors`
 
