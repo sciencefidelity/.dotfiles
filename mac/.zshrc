@@ -5,14 +5,15 @@ export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # Tell grep to highlight matches
-export GREP_OPTIONS='--color=auto'
+export GREP_OPTIONS="--color=auto"
 
 autoload -U colors && colors
 PS1="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%# "
 
-alias l='ls -f'
-alias ll='ls -l'
-alias la='ls -Al'
+alias l="ls -f"
+alias ll="ls -lh"
+alias la="ls -Alh"
+alias ..="cd .."
 
 # Open in Nova
 alias -s {cs,js,html}=nova
