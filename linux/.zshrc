@@ -36,5 +36,8 @@ alias la='ls -Alh --color=auto'
 
 alias ..='cd ..'
 
+# Git push alias
+alias push='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git push'
+
 # Prevent typing password too often
 alias sudo="sudo -v; sudo "
