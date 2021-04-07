@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script to print a colored motd.
+# script to print a colored motd.
 
 echo -e "\033[38;5;160m            /######/     /######/" > /etc/motd
 echo -e "\033[38;5;162m           /######/     /######/" >> /etc/motd

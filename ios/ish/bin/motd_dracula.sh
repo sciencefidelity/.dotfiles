@@ -1,5 +1,5 @@
-#!/bin/bash
-# script to print a colored motd.
+#!/bin/ash
+# script to print a colored motd.based on the Dracula Theme
 
 echo -e "\033[38;5;210m            /######/     /######/" > /etc/motd
 echo -e "\033[38;5;210m           /######/     /######/" >> /etc/motd
