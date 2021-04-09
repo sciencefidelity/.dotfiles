@@ -17,6 +17,7 @@ alias la='ls -Al'
 # Open in Nova
 alias -s {cs,js,html}=nova
 
-# Git push alias
-alias push='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git push'
+# Git aliases
+alias push=‘eval “$(ssh-agent -s)”; ssh-add ~/.ssh/github; git push’
+alias pull=‘eval “$(ssh-agent -s)”; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main’
 
