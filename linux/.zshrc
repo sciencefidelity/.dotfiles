@@ -36,8 +36,16 @@ alias la='ls -Alh --color=auto'
 
 alias ..='cd ..'
 
-# Git push alias
+# Git aliases
 alias push='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git push'
+alias pull='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main'
 
 # Prevent typing password too often
 alias sudo="sudo -v; sudo "
+
+# path to Go
+export PATH=$PATH:/usr/local/src/go/bin
+# path to Dart
+export PATH=$PATH:/usr/local/src/dart-sdk/bin
+# path to hugo
+export PATH="~/go/bin:$PATH"
