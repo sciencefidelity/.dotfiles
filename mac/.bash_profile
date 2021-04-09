@@ -19,5 +19,10 @@ alias ..=‘cd ..‘
 alias push='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git push'
 alias pull='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main'
 
+# open in Nova
 alias -s {cs,js,html}=nova
+
 export GPG_TTY=$(tty)
+
+# path to php8.0
+export PATH="/usr/local/opt/php@8.0/bin:$PATH"

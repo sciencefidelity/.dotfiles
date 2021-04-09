@@ -1,10 +1,10 @@
 export TERM=xterm-256color
 
-# Tell ls to be colourful
+# tell ls to be colourful
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
-# Tell grep to highlight matches
+# tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
 autoload -U colors && colors
@@ -14,7 +14,7 @@ alias l='ls -f'
 alias ll='ls -l'
 alias la='ls -Al'
 
-# Open in Nova
+# open in Nova
 alias -s {cs,js,html}=nova
 
 # Git aliases
