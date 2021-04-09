@@ -13,6 +13,14 @@ truecolor() {
   printf '\x1b[38;2;255;100;0mTRUECOLOR\x1b[0m\n'
 }
 
+# synchronise dotfiles
+push-dotfiles() {
+  bash /home/matt/bin/push-dotfiles.sh
+}
+pull-dotfiles() {
+  bash /home/matt/bin/pull-dotfiles.sh
+}
+
 # tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
