@@ -33,5 +33,9 @@ alias push='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git push'
 # prevent typing password too often
 alias sudo='sudo -v; sudo '
 
-# Path to hugo
+# path to Go
+export PATH=$PATH:/usr/local/src/go/bin
+# path to Dart
+export PATH=$PATH:/usr/local/src/dart-sdk/bin
+# path to hugo
 export PATH="~/go/bin:$PATH"
