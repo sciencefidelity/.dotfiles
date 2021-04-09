@@ -16,8 +16,8 @@ alias la='ls -Alh --color=auto'
 alias ..=‘cd ..‘
 
 # Git aliases
-alias push=‘eval “$(ssh-agent -s)”; ssh-add ~/.ssh/github; git push’
-alias pull=‘eval “$(ssh-agent -s)”; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main’
+alias push='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git push'
+alias pull='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main'
 
 alias -s {cs,js,html}=nova
 export GPG_TTY=$(tty)
