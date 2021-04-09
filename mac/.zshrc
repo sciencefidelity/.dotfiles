@@ -18,6 +18,8 @@ alias la='ls -Al'
 alias -s {cs,js,html}=nova
 
 # Git aliases
-alias push=‘eval “$(ssh-agent -s)”; ssh-add ~/.ssh/github; git push’
-alias pull=‘eval “$(ssh-agent -s)”; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main’
+alias push='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git push'
+alias pull='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main'
 
+# path to php8.0
+export PATH="/usr/local/opt/php@8.0/bin:$PATH"
