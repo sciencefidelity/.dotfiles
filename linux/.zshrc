@@ -23,11 +23,11 @@ truecolor() {
 }
 
 # synchronise dotfiles
-push-dotfiles() {
-  bash /home/matt/bin/push-dotfiles.sh
+push_dotfiles() {
+  zsh /home/matt/bin/push-dotfiles.sh
 }
-pull-dotfiles() {
-  bash /home/matt/bin/pull-dotfiles.sh
+pull_dotfiles() {
+  zsh /home/matt/bin/pull-dotfiles.sh
 }
 
 # Tell grep to highlight matches

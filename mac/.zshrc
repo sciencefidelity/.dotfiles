@@ -7,6 +7,14 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 # tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
+# synchronise dotfiles
+push_dotfiles() {
+  zsh /Users/matt/dotfiles/mac/bin/push-dotfiles.sh
+}
+pull_dotfiles() {
+  zsh /home/matt/dotfiles/mac/bin/pull-dotfiles.sh
+}
+
 autoload -U colors && colors
 PS1="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%# "
 
