@@ -14,10 +14,10 @@ truecolor() {
 }
 
 # synchronise dotfiles
-push-dotfiles() {
+push_dotfiles() {
   bash /home/matt/bin/push-dotfiles.sh
 }
-pull-dotfiles() {
+pull_dotfiles() {
   bash /home/matt/bin/pull-dotfiles.sh
 }
 

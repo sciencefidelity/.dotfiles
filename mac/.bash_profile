@@ -5,6 +5,14 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 # tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
+# synchronise dotfiles
+push_dotfiles() {
+  bash /home/matt/dotfiles/mac/bin/push-dotfiles.sh
+}
+pull_dotfiles() {
+  bash /home/matt/dotfiles/mac/bin/pull-dotfiles.sh
+}
+
 autoload -U colors && colors
 export TERM="xterm-color"
 PS1='\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]\$ '
