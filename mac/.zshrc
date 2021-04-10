@@ -12,7 +12,7 @@ push_dotfiles() {
   zsh /Users/matt/dotfiles/mac/bin/push-dotfiles.sh
 }
 pull_dotfiles() {
-  zsh /home/matt/dotfiles/mac/bin/pull-dotfiles.sh
+  zsh /Users/matt/dotfiles/mac/bin/pull-dotfiles.sh
 }
 
 autoload -U colors && colors
