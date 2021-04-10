@@ -12,7 +12,7 @@ push_dotfiles() {
   zsh /Users/matt/dotfiles/mac/bin/push-dotfiles.sh
 }
 pull_dotfiles() {
-  zsh /Users/matt/dotfiles/mac/bin/pull-dotfiles.sh
+  zsh /home/matt/dotfiles/mac/bin/pull-dotfiles.sh
 }
 
 autoload -U colors && colors
@@ -21,6 +21,8 @@ PS1="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$res
 alias l='ls -f'
 alias ll='ls -l'
 alias la='ls -Al'
+
+alias ..='cd ..'
 
 # open in Nova
 alias -s {cs,js,html}=nova

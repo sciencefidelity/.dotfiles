@@ -7,10 +7,10 @@ export GREP_OPTIONS='--color=auto'
 
 # synchronise dotfiles
 push_dotfiles() {
-  bash /Users/matt/dotfiles/mac/bin/push-dotfiles.sh
+  bash /home/matt/dotfiles/mac/bin/push-dotfiles.sh
 }
 pull_dotfiles() {
-  bash /Users/matt/dotfiles/mac/bin/pull-dotfiles.sh
+  bash /home/matt/dotfiles/mac/bin/pull-dotfiles.sh
 }
 
 autoload -U colors && colors
@@ -21,7 +21,7 @@ alias l='ls -f --color=auto'
 alias ll='ls -lh --color=auto'
 alias la='ls -Alh --color=auto'
 
-alias ..=‘cd ..‘
+alias ..='cd ..'
 
 # Git aliases
 alias push='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git push'
