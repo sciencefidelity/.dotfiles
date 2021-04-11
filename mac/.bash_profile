@@ -7,10 +7,10 @@ export GREP_OPTIONS='--color=auto'
 
 # synchronise dotfiles
 push_dotfiles() {
-  bash /home/matt/dotfiles/mac/bin/push-dotfiles.sh
+  bash /Users/matt/dotfiles/mac/bin/push-dotfiles.sh
 }
 pull_dotfiles() {
-  bash /home/matt/dotfiles/mac/bin/pull-dotfiles.sh
+  bash /Users/matt/dotfiles/mac/bin/pull-dotfiles.sh
 }
 
 autoload -U colors && colors
