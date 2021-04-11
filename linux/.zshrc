@@ -47,6 +47,12 @@ alias lr='ll -R'                            # recursive
 
 alias ..='cd ..'
 
+alias vi='vim'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias mkdir='mkdir -p'
+
 # for more human readable results
 alias df='df -kTh'
 alias free='free -h'
