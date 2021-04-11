@@ -33,6 +33,7 @@ pull_dotfiles() {
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
+# prompt
 # autoload -U colors && colors
 PS1='%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%# '
 
@@ -45,6 +46,10 @@ alias ll='ls -lv --group-directories-first' # directories first, alphanumeric so
 alias lr='ll -R'                            # recursive
 
 alias ..='cd ..'
+
+# for more human readable results
+alias df='df -kTh'
+alias free='free -h'
 
 # Git aliases
 alias push='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git push'
