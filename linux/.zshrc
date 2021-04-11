@@ -39,8 +39,10 @@ PS1='%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$res
 eval `dircolors ~/.dir_colors`
 
 alias l='ls -f --color=auto'
-alias ll='ls -lh --color=auto'
-alias la='ls -Alh --color=auto'
+alias la='ls -Alh --color=auto'             # show hidden files
+alias lx='ls -lXB'                          # sort by extension
+alias ll='ls -lv --group-directories-first' # directories first, alphanumeric sorting
+alias lr='ll -R'                            # recursive
 
 alias ..='cd ..'
 
