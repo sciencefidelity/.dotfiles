@@ -30,10 +30,14 @@ PS1='\[\e[0;35m\]\u\[\e[0m\]@\[\e[0;34m\]\h\[\e[0m\]:\[\e[0;33m\]\w\[\e[0m\]\$ '
 eval `dircolors ~/.dir_colors`
 
 alias l='ls -f --color=auto'
-alias ll='ls -lh --color=auto'
-alias la='ls -Alh --color=auto'
+alias la='ls -Alh --color=auto'             # show hidden files
+alias lx='ls -lXB'                          # sort by extension
+alias ll='ls -lv --group-directories-first' # directories first, alphanumeric sorting
+alias lr='ll -R'                            # recursive
 
 alias ..='cd ..'
+
+alias df='df -kTh'
 
 # Git aliases
 alias push='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git push'
