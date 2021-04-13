@@ -1,5 +1,6 @@
 # mac stuff
 .DS_Store
+.nova/
 
 # backups
 *.bak
