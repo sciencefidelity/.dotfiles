@@ -67,3 +67,7 @@ export PATH=$PATH:/usr/local/src/go/bin
 export PATH=$PATH:/usr/local/src/dart-sdk/bin
 # path to hugo
 export PATH="~/go/bin:$PATH"
+# path to deno
+export DENO_INSTALL="/home/matt/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
