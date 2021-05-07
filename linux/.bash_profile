@@ -56,5 +56,10 @@ alias sudo='sudo -v; sudo '
 export PATH=$PATH:/usr/local/src/go/bin
 # path to Dart
 export PATH=$PATH:/usr/local/src/dart-sdk/bin
+export PATH="$PATH":"$HOME/.pub-cache/bin"
 # path to hugo
 export PATH="~/go/bin:$PATH"
+# path to deno
+export DENO_INSTALL="/home/matt/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
