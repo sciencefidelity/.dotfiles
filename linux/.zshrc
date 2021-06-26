@@ -67,3 +67,4 @@ export PATH=$PATH:/usr/local/src/go/bin
 export PATH=$PATH:/usr/local/src/dart-sdk/bin
 # path to hugo
 export PATH="~/go/bin:$PATH"
+
