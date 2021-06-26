@@ -31,8 +31,10 @@ alias -s {cs,js,html}=nova
 alias push='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git push'
 alias pull='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main'
 
-# path to php8.0
-export PATH="/usr/local/opt/php@8.0/bin:$PATH"
-
-# path to deno
+# PATHS
+# dart executables
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+# deno executables
 export PATH="/Users/matt/.deno/bin:$PATH"
+# php8.0
+export PATH="/usr/local/opt/php@8.0/bin:$PATH"
