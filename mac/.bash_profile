@@ -32,3 +32,6 @@ alias -s {cs,js,html}=nova
 
 # path to php8.0
 export PATH="/usr/local/opt/php@8.0/bin:$PATH"
+
+# path to deno
+export PATH="/Users/matt/.deno/bin:$PATH"
