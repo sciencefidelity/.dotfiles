@@ -35,5 +35,7 @@ alias -s {cs,js,html}=nova
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 # deno executables
 export PATH="/Users/matt/.deno/bin:$PATH"
+# flutter
+export PATH="$PATH:/usr/local/flutter/bin"
 # php8.0
 export PATH="/usr/local/opt/php@8.0/bin:$PATH"
