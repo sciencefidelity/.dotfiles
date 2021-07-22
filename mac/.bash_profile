@@ -31,6 +31,9 @@ alias pull='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git fetch origin; git
 alias -s {cs,js,html}=nova
 
 # PATHS
+# android sdk
+export ANDROID_SDK=$HOME/Library/Android/sdk
+export PATH=$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH
 # brave browser (standing in for chrome)
 export CHROME_EXECUTABLE="/Applications/Brave Browser.app/Contents/MacOS/Brave Browser"
 # dart executables
