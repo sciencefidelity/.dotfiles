@@ -4,6 +4,11 @@
 # export CLICOLOR=1
 # export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
+fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
+# .zshrc
+autoload -U promptinit; promptinit
+prompt spaceship
+
 # tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
@@ -47,9 +52,7 @@ export PATH="$PATH:/usr/local/flutter/bin"
 export PATH="/usr/local/opt/php@8.0/bin:$PATH"
 
 # Load Dracula theme
-source /Users/matt/dotfiles/zsh/dracula/dracula.zsh-theme 2>/dev/null
-DRACULA_DISPLAY_TIME=1
-DRACULA_DISPLAY_CONTEXT=1
-DRACULA_ARROW_ICON="-> "
+# source /Users/matt/dotfiles/zsh/dracula/dracula.zsh-theme 2>/dev/null
+
 
 source /Users/matt/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
