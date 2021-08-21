@@ -1,26 +1,49 @@
-#
-# ~/.zshrc
-#
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.cache/zsh/.zsh_history
 
-HISTFILE=~/.histfile
-HISTSIZE=100
-SAVEHIST=100
-bindkey -e
-
-zstyle :compinstall filename '/home/matt/.zshrc'
-
-autoload -Uz compinit
+# Basic auto/tab complete:
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
 compinit
+_comp_options+=(globdots)
 
-# Tell ls to be colourful
-export TERM=xterm-256color
-export CLICOLOR=1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+# vi mode
+bindkey -v
+export KEYTIMEOUT=1
 
-# Test the color of the terminal
-truecolor() {
-  printf "\x1b[38;2;255;100;0mTRUECOLOR\x1b[0m\n"
+# Use vim keys in tab complete menu:
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+# Use lf to switch directories and bind it to ctrl-o
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
 }
+bindkey -s '^o' 'lfcd\n'
+
+# Edit line in vim with ctrl-e:
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+
+bindkey '^ ' autosuggest-accept
+
+export EDITOR=vi
+
+# Load aliases and shortcuts if existent.
+[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
+[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # synchronise dotfiles
 push_dotfiles() {
@@ -33,17 +56,14 @@ pull_dotfiles() {
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
-# prompt
-# autoload -U colors && colors
-PS1='%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%# '
-
 eval `dircolors ~/.dir_colors`
 
-alias l='ls -f --color=auto'
-alias la='ls -Alh --color=auto'             # show hidden files
-alias lx='ls -lXB'                          # sort by extension
-alias ll='ls -lv --group-directories-first' # directories first, alphanumeric sorting
-alias lr='ll -R'                            # recursive
+alias ls='ls --color=auto --group-directories-first'
+alias l='ls -f'
+alias la='ls -Alh'
+alias lx='ls -lXB'
+alias ll='ls -lv'
+alias lr='ll -R'
 
 alias ..='cd ..'
 
@@ -68,3 +88,13 @@ export PATH=$PATH:/usr/local/src/dart-sdk/bin
 # path to hugo
 export PATH="~/go/bin:$PATH"
 
+# Zplug
+source ~/.zplug/init.zsh
+
+zplug 'dracula/zsh', from:github, as:theme
+zplug 'spaceship-prompt/spaceship-prompt', use:spaceship.zsh, from:github, as:theme
+zplug 'zsh-users/zsh-autosuggestions', from:github
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
+zplug 'zsh-users/zsh-syntax-highlighting', from:github, defer:3
+
+zplug load
