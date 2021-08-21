@@ -125,4 +125,4 @@ export PATH=$PATH:/usr/local/src/bin
 source ~/dotfiles/zsh/dracula/dracula.zsh-theme 2>/dev/null
 source ~/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 
-source /Users/matt/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
