@@ -81,9 +81,8 @@ alias pull='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git fetch origin; git
 # Prevent typing password too often
 alias sudo="sudo -v; sudo "
 
-#
-# # ex - archive extractor
-# # usage: ex <file>
+# # ext - archive extractor
+# # usage: ext <file>
 ext ()
 {
   if [ -f $1 ] ; then

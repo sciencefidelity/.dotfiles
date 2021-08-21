@@ -79,9 +79,8 @@ alias mkdir='mkdir -p'
 alias df='df -kTh'
 alias free='free -h'
 
-#
-# # ex - archive extractor
-# # usage: ex <file>
+# # ext - archive extractor
+# # usage: ext <file>
 ext ()
 {
   if [ -f $1 ] ; then
