@@ -3,6 +3,11 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.cache/zsh/.zsh_history
 
+fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
+# .zshrc
+autoload -U promptinit; promptinit
+prompt spaceship
+
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -39,7 +44,7 @@ bindkey '^e' edit-command-line
 
 bindkey '^ ' autosuggest-accept
 
-export EDITOR=vi
+export EDITOR=vim
 
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
@@ -116,13 +121,8 @@ export PATH="~/go/bin:$PATH"
 # path to LF
 export PATH=$PATH:/usr/local/src/bin
 
-# Zplug
-source ~/.zplug/init.zsh
+# Load Dracula theme
+source /Users/matt/dotfiles/zsh/dracula/dracula.zsh-theme 2>/dev/null
+source /Users/matt/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 
-zplug 'dracula/zsh', from:github, as:theme
-zplug 'spaceship-prompt/spaceship-prompt', use:spaceship.zsh, from:github, as:theme
-zplug 'zsh-users/zsh-autosuggestions', from:github
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug 'zsh-users/zsh-syntax-highlighting', from:github, defer:3
-
-zplug load
+source /Users/matt/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
