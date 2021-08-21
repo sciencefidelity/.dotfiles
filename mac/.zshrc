@@ -82,7 +82,7 @@ alias free='free -h'
 #
 # # ex - archive extractor
 # # usage: ex <file>
-ex ()
+ext ()
 {
   if [ -f $1 ] ; then
     case $1 in
