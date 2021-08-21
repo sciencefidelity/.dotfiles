@@ -58,8 +58,10 @@ pull_dotfiles() {
   zsh /Users/matt/dotfiles/mac/bin/pull-dotfiles.sh
 }
 
-alias dircolors='gdircolors'
-eval `dircolors ~/.dir_colors`
+eval $(gdircolors ~/.dir_colors)
+
+# alias dircolors='gdircolors'
+# eval "gdircolors $HOME/.dir_colors"
 
 # tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
