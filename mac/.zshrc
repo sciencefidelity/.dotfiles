@@ -44,7 +44,7 @@ bindkey '^e' edit-command-line
 
 bindkey '^ ' autosuggest-accept
 
-export EDITOR=vi
+export EDITOR=vim
 
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
@@ -57,6 +57,9 @@ push_dotfiles() {
 pull_dotfiles() {
   zsh /Users/matt/dotfiles/mac/bin/pull-dotfiles.sh
 }
+
+alias dircolors='gdircolors'
+eval `dircolors ~/.dir_colors`
 
 # tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
@@ -91,5 +94,6 @@ export PATH="/usr/local/opt/php@8.0/bin:$PATH"
 
 # Load Dracula theme
 # source /Users/matt/dotfiles/zsh/dracula/dracula.zsh-theme 2>/dev/null
+source /Users/matt/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 
 source /Users/matt/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
