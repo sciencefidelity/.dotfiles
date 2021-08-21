@@ -65,9 +65,9 @@ export GREP_OPTIONS='--color=auto'
 
 alias ls='gls --color=auto'
 alias l='ls -f  --color=auto'
-alias la='ls -Alh --color=auto'
+alias la='ls -Alh --color=auto --human-readable'
 alias lx='ls -lXB --color=auto'
-alias ll='ls -lv --color=auto'
+alias ll='ls -lv --color=auto --human-readable'
 alias lr='ll -R --color=auto'
 
 alias ..='cd ..'
@@ -126,9 +126,12 @@ export PATH="/Users/matt/.deno/bin:$PATH"
 export PATH="$PATH:/usr/local/flutter/bin"
 # php8.0
 export PATH="/usr/local/opt/php@8.0/bin:$PATH"
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Load Dracula theme
-# source /Users/matt/dotfiles/zsh/dracula/dracula.zsh-theme 2>/dev/null
+source /Users/matt/dotfiles/zsh/dracula/dracula.zsh-theme 2>/dev/null
 source /Users/matt/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 
 source /Users/matt/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
