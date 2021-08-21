@@ -66,9 +66,12 @@ eval $(gdircolors ~/.dir_colors)
 # tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
-alias l='ls -f'
-alias ll='ls -l'
-alias la='ls -Al'
+alias ls='gls --color=auto'
+alias l='ls -f  --color=auto'
+alias la='ls -Alh --color=auto'
+alias lx='ls -lXB --color=auto'
+alias ll='ls -lv --color=auto'
+alias lr='ll -R --color=auto'
 
 alias ..='cd ..'
 
