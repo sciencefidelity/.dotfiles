@@ -1,7 +1,7 @@
 # dotfiles
 
 ### Plugins for zsh
-[Spaceship Prompt](https://github.com/spaceship-prompt/spaceship-prompt/)
+[Spaceship Prompt](https://github.com/spaceship-prompt/spaceship-prompt ~/dotfiles/zsh/spaceship-prompt)
 
 ```shell
 git clone https://github.com/spaceship-prompt/spaceship-prompt.git --depth=1

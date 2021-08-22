@@ -4,7 +4,6 @@ SAVEHIST=1000
 HISTFILE=~/.cache/zsh/.zsh_history
 
 fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
-# .zshrc
 autoload -U promptinit; promptinit
 prompt spaceship
 SPACESHIP_VI_MODE_SHOW=false
