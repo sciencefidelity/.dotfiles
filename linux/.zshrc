@@ -7,6 +7,7 @@ fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
 # .zshrc
 autoload -U promptinit; promptinit
 prompt spaceship
+SPACESHIP_VI_MODE_SHOW=false
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -93,7 +94,8 @@ alias lr='ll -R'
 
 alias ..='cd ..'
 
-alias vi='vim'
+alias vi='nvim'
+alias vim='nvim'
 alias mkdir='mkdir -p'
 
 # for more human readable results
