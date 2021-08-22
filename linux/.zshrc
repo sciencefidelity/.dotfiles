@@ -74,16 +74,16 @@ export EDITOR=nvim
 
 # synchronise dotfiles
 push_dotfiles() {
-  zsh /home/matt/bin/push-dotfiles.sh
+  zsh ~/dotfiles/linux/bin/push-dotfiles.sh
 }
 pull_dotfiles() {
-  zsh /home/matt/bin/pull-dotfiles.sh
+  zsh ~/dotfiles/linux/bin/pull-dotfiles.sh
 }
 
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
-eval `dircolors ~/.dir_colors`
+eval 'dircolors ~/.dir_colors'
 
 alias ls='ls --color=auto --group-directories-first'
 alias l='ls -f'

@@ -1,6 +1,6 @@
 #! bin/bash
 
-cp /home/matt/dotfiles/linux/.zshrc /home/matt/
-cp /home/matt/dotfiles/linux/.bash_profile /home/matt/
-cp /home/matt/dotfiles/linux/.dir_colors /home/matt/
-cp -R /home/matt/dotfiles/linux/nvim /home/matt/.config/
+cp ~/linux/.zshrc ~/
+cp ~/linux/.bash_profile ~/
+cp ~/linux/.dir_colors ~/
+cp -R ~/dotfiles/linux/nvim ~/.config/

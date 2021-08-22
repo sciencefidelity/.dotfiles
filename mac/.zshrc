@@ -54,10 +54,10 @@ export EDITOR=vim
 
 # synchronise dotfiles
 push_dotfiles() {
-  zsh /Users/matt/dotfiles/mac/bin/push-dotfiles.sh
+  zsh ~/dotfiles/mac/bin/push-dotfiles.sh
 }
 pull_dotfiles() {
-  zsh /Users/matt/dotfiles/mac/bin/pull-dotfiles.sh
+  zsh ~/dotfiles/mac/bin/pull-dotfiles.sh
 }
 
 eval $(gdircolors ~/.dir_colors)

@@ -1,6 +1,6 @@
 #! bin/bash
 
-cp /Users/matt/.zshrc /Users/matt/dotfiles/mac/
-cp /Users/matt/.bash_profile /Users/matt/dotfiles/mac/
-cp /Users/matt/.dir_colors /Users/matt/dotfiles/mac/
-cp /Users/matt/.vimrc /Users/matt/dotfiles/mac/
+cp ~/.zshrc ~/dotfiles/mac/
+cp ~/.bash_profile ~/dotfiles/mac/
+cp ~/.dir_colors ~/dotfiles/mac/
+cp ~/.vimrc ~/dotfiles/mac/
