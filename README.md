@@ -11,8 +11,12 @@ ln -sf "~/dotfiles/zsh/spaceship-prompt/spaceship.zsh" "${ZDOTDIR:-$HOME}/.zfunc
 
 [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 
-`git clone https://github.com/zsh-users/zsh-autosuggestions ~/dotfiles/zsh/zsh-autosuggestions`
+```
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/dotfiles/zsh/zsh-autosuggestions
+```
 
 [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
-`git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/dotfiles/zsh/zsh-syntax-highlighting`
+```
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/dotfiles/zsh/zsh-syntax-highlighting
+```
