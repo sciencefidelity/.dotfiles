@@ -4,3 +4,9 @@
 
 # backups
 *.bak
+
+# imported plugins
+zsh/
+
+# generated
+packer_compiled.lua
