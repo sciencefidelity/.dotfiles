@@ -6,7 +6,7 @@
 ```shell
 git clone https://github.com/spaceship-prompt/spaceship-prompt.git ~/dotfiles/zsh/spaceship-prompt --depth=1
 mkdir .zfunctions
-ln -sf "~/dotfiles/zsh/spaceship-prompt/spaceship.zsh" "${ZDOTDIR:-$HOME}/.zfunctions/prompt_spaceship_setup"
+ln -sf "$PWD/dotfiles/zsh/spaceship-prompt/spaceship.zsh" "${ZDOTDIR:-$HOME}/.zfunctions/prompt_spaceship_setup"
 ```
 
 [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)

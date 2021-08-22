@@ -82,7 +82,7 @@ pull_dotfiles() {
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
-eval 'dircolors ~/.dir_colors'
+eval `dircolors ~/.dir_colors`
 
 alias ls='ls --color=auto --group-directories-first'
 alias l='ls -f'
