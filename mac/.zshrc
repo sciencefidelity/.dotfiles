@@ -153,7 +153,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Load Dracula theme
-source /Users/matt/dotfiles/zsh/dracula/dracula.zsh-theme 2>/dev/null
+source /Users/matt/dotfiles/zsh/dracula/zsh/dracula.zsh-theme 2>/dev/null
 source /Users/matt/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 
 source /Users/matt/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
