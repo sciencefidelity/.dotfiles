@@ -142,8 +142,6 @@ export PATH="~/go/bin:$PATH"
 # path to LF
 export PATH=$PATH:/usr/local/src/bin
 
-# Load Dracula theme
-source ~/dotfiles/zsh/dracula/zsh/dracula.zsh-theme 2>/dev/null
+# Plugins
 source ~/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
-
 source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
