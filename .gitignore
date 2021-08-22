@@ -6,7 +6,7 @@
 *.bak
 
 # imported plugins
-zsh/
+# zsh/
 
 # generated
-packer_compiled.lua
+# packer_compiled.lua
