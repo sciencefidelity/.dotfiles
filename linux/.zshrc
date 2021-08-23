@@ -92,18 +92,34 @@ alias ll='ls -lv'
 alias lr='ll -R'
 
 alias ..='cd ..'
-
-alias vi='nvim'
-alias vim='nvim'
 alias mkdir='mkdir -p'
 
 # for more human readable results
 alias df='df -kTh'
 alias free='free -h'
 
+# Always use Neovim
+alias vi='nvim'
+alias vim='nvim'
+
 # Git aliases
 alias push='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git push'
 alias pull='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main'
+gitpush() {
+  git add .
+  git commit -m "$*"
+  git pull
+  git push
+}
+gitupdate() {
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/github
+  ssh -T git@github.com
+}
+alias gp=gitpush
+alias gu=gitupdate
+alias gst='git status'
+alias lg='lazygit'
 
 # Prevent typing password too often
 alias sudo="sudo -v; sudo "
