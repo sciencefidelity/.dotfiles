@@ -20,3 +20,11 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/dotfiles/zsh/zsh-au
 ```shell
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/dotfiles/zsh/zsh-syntax-highlighting
 ```
+
+### Neovim
+
+[Packer](https://github.com/wbthomason/packer.nvim)
+
+```shell
+git clone https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+```
