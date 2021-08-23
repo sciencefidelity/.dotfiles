@@ -33,12 +33,6 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 --Color column
--- vim.wo.colorcolumn = '80'
+vim.wo.colorcolumn = '80'
 vim.highlight.create('ColorColumn', { ctermbg=0, guibg='#44475A' }, false)
 --Map blankline
--- vim.g.indent_blankline_char = '┊'
--- vim.g.indent_blankline_char = '|'
--- vim.g.indent_blankline_filetype_exclude = { 'help', 'packer' }
--- vim.g.indent_blankline_buftype_exclude = { 'terminal', 'nofile' }
--- vim.g.indent_blankline_char_highlight = 'LineNr'
--- vim.g.indent_blankline_show_trailing_blankline_indent = false
