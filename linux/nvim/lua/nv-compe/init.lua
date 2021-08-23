@@ -1,3 +1,5 @@
+-- https://github.com/hrsh7th/nvim-compe
+
 require'compe'.setup {
   enabled = true;
   autocomplete = true;
