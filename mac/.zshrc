@@ -54,10 +54,12 @@ export EDITOR=vim
 
 # synchronise dotfiles
 pull_dotfiles() {
+  echo 'Updating dotfiles'
   cp ~/dotfiles/mac/.zshrc ~/
   cp ~/dotfiles/mac/.bash_profile ~/
   cp ~/dotfiles/mac/.dir_colors ~/
   cp -R ~/dotfiles/mac/nvim ~/.config/
+  . ~/.zshrc
 }
 push_dotfiles() {
   cp ~/.zshrc ~/dotfiles/mac/

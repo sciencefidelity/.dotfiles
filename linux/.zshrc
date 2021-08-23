@@ -73,10 +73,12 @@ export EDITOR=nvim
 
 # synchronise dotfiles
 pull_dotfiles() {
+  echo 'Updating dotfiles'
   cp ~/dotfiles/linux/.zshrc ~/
   cp ~/dotfiles/linux/.bash_profile ~/
   cp ~/dotfiles/linux/.dir_colors ~/
   cp -R ~/dotfiles/linux/nvim ~/.config/
+  . ~/.zshrc
 }
 push_dotfiles() {
   cp ~/.zshrc ~/dotfiles/linux/
