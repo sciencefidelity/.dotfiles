@@ -53,12 +53,19 @@ export EDITOR=vim
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # synchronise dotfiles
-push_dotfiles() {
-  zsh ~/dotfiles/mac/bin/push-dotfiles.sh
-}
 pull_dotfiles() {
-  zsh ~/dotfiles/mac/bin/pull-dotfiles.sh
+  cp ~/dotfiles/mac/.zshrc ~/
+  cp ~/dotfiles/mac/.bash_profile ~/
+  cp ~/dotfiles/mac/.dir_colors ~/
+  cp -R ~/dotfiles/mac/nvim ~/.config/
 }
+push_dotfiles() {
+  cp ~/.zshrc ~/dotfiles/mac/
+  cp ~/.bash_profile ~/dotfiles/mac/
+  cp ~/.dir_colors ~/dotfiles/mac/
+  cp -R ~/.config/nvim ~/dotfiles/mac/
+}
+alias pd='pull_dotfiles'
 
 eval $(gdircolors ~/.dir_colors)
 

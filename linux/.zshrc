@@ -72,12 +72,19 @@ export EDITOR=nvim
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # synchronise dotfiles
-push_dotfiles() {
-  zsh ~/dotfiles/linux/bin/push-dotfiles.sh
-}
 pull_dotfiles() {
-  zsh ~/dotfiles/linux/bin/pull-dotfiles.sh
+  cp ~/dotfiles/linux/.zshrc ~/
+  cp ~/dotfiles/linux/.bash_profile ~/
+  cp ~/dotfiles/linux/.dir_colors ~/
+  cp -R ~/dotfiles/linux/nvim ~/.config/
 }
+push_dotfiles() {
+  cp ~/.zshrc ~/dotfiles/linux/
+  cp ~/.bash_profile ~/dotfiles/linux/
+  cp ~/.dir_colors ~/dotfiles/linux/
+  cp -R ~/.config/nvim ~/dotfiles/linux/
+}
+alias pd='pull_dotfiles'
 
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
