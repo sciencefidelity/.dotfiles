@@ -74,7 +74,8 @@ alias lr='ll -R --color=auto'
 
 alias ..='cd ..'
 
-alias vi='vim'
+alias vi='nvim'
+alias vim='nvim'
 alias mkdir='mkdir -p'
 
 # for more human readable results
