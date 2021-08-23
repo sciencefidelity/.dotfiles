@@ -22,7 +22,14 @@ return require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter-textobjects' -- Additional textobjects for treesitter
   use { 'kyazdani42/nvim-tree.lua', 'kyazdani42/nvim-web-devicons' }
   use 'neovim/nvim-lspconfig' -- LSP config
+  use 'glepnir/lspsaga.nvim'
   use 'hrsh7th/nvim-compe'
   use 'hrsh7th/vim-vsnip'
   use 'pangloss/vim-javascript' -- JavaScript syntax highlighting and improved indentation
+  -- Flutter tools
+  use 'dart-lang/dart-vim-plugin'
+  use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
+  -- Go tools
+  use 'fatih/vim-go'
+  -- use 'ray-x/go.nvim'
 end)
