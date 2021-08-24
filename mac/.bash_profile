@@ -5,30 +5,18 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 # tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
-# synchronise dotfiles
-push_dotfiles() {
-  bash /Users/matt/dotfiles/mac/bin/push-dotfiles.sh
-}
-pull_dotfiles() {
-  bash /Users/matt/dotfiles/mac/bin/pull-dotfiles.sh
-}
-
 autoload -U colors && colors
 export TERM="xterm-color"
 PS1='\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]\$ '
 
-alias l='ls -f --color=auto'
-alias ll='ls -lh --color=auto'
-alias la='ls -Alh --color=auto'
+export EDITOR=nvim
+export VISUAL="$EDITOR"
 
-alias ..='cd ..'
+eval $(gdircolors ~/.dir_colors)
 
-# Git aliases
-alias push='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git push'
-alias pull='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main'
-
-# open in Nova
-alias -s {cs,js,html}=nova
+# Load aliases and shortcuts if existent.
+[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
+[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # PATHS
 # android sdk
