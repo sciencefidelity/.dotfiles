@@ -1,6 +1,7 @@
 # dotfiles
 
-### Plugins for zsh
+### Zsh
+
 [Spaceship Prompt](https://github.com/spaceship-prompt/spaceship-prompt)
 
 ```shell
