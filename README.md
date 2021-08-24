@@ -41,3 +41,12 @@ git clone https://github.com/wbthomason/packer.nvim\
 ```shell
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
+
+### Emacs
+
+[Dracula Theme](https://github.com/dracula/emacs)
+
+```shell
+mkdir themes
+wget https://raw.githubusercontent.com/dracula/emacs/master/dracula-theme.el
+```
