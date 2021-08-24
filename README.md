@@ -33,3 +33,11 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting\
 git clone https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
+
+### Tmux
+
+[Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
+
+```shell
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
