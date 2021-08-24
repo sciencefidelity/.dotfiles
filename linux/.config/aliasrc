@@ -4,7 +4,8 @@ pull_dotfiles() {
   cp ~/dotfiles/linux/.zshrc ~/
   cp ~/dotfiles/linux/.bash_profile ~/
   cp ~/dotfiles/linux/.dir_colors ~/
-  cp -R ~/dotfiles/linux/config/aliasrc ~/.config/
+  cp ~/dotfiles/linux/.tmux.conf ~/
+  cp ~/dotfiles/linux/config/aliasrc ~/.config/
   cp -R ~/dotfiles/linux/config/nvim ~/.config/
   . ~/.zshrc
 }
@@ -12,6 +13,7 @@ push_dotfiles() {
   cp ~/.zshrc ~/dotfiles/linux/
   cp ~/.bash_profile ~/dotfiles/linux/
   cp ~/.dir_colors ~/dotfiles/linux/
+  cp ~/.tmux.conf ~/dotfiles/linux/
   cp -R ~/.config/aliasrc ~/dotfiles/linux/config
   cp -R ~/.config/nvim ~/dotfiles/linux/config
 }
