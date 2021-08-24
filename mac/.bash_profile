@@ -2,9 +2,6 @@
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
-# tell grep to highlight matches
-export GREP_OPTIONS='--color=auto'
-
 autoload -U colors && colors
 export TERM="xterm-color"
 PS1='\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]\$ '
@@ -12,11 +9,13 @@ PS1='\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]\$ '
 export EDITOR=nvim
 export VISUAL="$EDITOR"
 
+# tell grep to highlight matches
+export GREP_OPTIONS='--color=auto'
 eval $(gdircolors ~/.dir_colors)
 
 # Load aliases and shortcuts if existent.
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+[ -f "$HOME/.config/shortcutrc.sh" ] && source "$HOME/.config/shortcutrc.sh"
+[ -f "$HOME/.config/aliasrc.sh" ] && source "$HOME/.config/aliasrc.sh"
 
 # PATHS
 # android sdk

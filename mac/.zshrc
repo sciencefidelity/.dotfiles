@@ -10,6 +10,7 @@ prompt spaceship
 SPACESHIP_VI_MODE_SHOW=false
 SPACESHIP_USER_SHOW=always
 SPACESHIP_HOST_SHOW=always
+
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -52,8 +53,8 @@ export VISUAL="$EDITOR"
 eval $(gdircolors ~/.dir_colors)
 
 # Load aliases and shortcuts if existent.
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
-[ -f "$HOME/.config/aliasrc.sh" ] && source "$HOME/.config/aliasrc"
+[ -f "$HOME/.config/shortcutrc.sh" ] && source "$HOME/.config/shortcutrc.sh"
+[ -f "$HOME/.config/aliasrc.sh" ] && source "$HOME/.config/aliasrc.sh"
 
 # PATHS
 # android sdk
