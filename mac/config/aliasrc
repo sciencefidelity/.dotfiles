@@ -4,16 +4,16 @@ pull_dotfiles() {
   cp ~/dotfiles/mac/.zshrc ~/
   cp ~/dotfiles/mac/.bash_profile ~/
   cp ~/dotfiles/mac/.dir_colors ~/
-  cp -R ~/dotfiles/mac/.config/aliasrc ~/.config/
-  cp -R ~/dotfiles/mac/.config/nvim ~/.config/
+  cp -R ~/dotfiles/mac/config/aliasrc ~/.config/
+  cp -R ~/dotfiles/mac/config/nvim ~/.config/
   . ~/.zshrc
 }
 push_dotfiles() {
   cp ~/.zshrc ~/dotfiles/mac/
   cp ~/.bash_profile ~/dotfiles/mac/
   cp ~/.dir_colors ~/dotfiles/mac/
-  cp -R ~/.config/aliasrc ~/dotfiles/mac/.config
-  cp -R ~/.config/nvim ~/dotfiles/mac/.config
+  cp -R ~/.config/aliasrc ~/dotfiles/mac/config
+  cp -R ~/.config/nvim ~/dotfiles/mac/config
 }
 alias pd='pull_dotfiles'
 
