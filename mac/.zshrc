@@ -53,7 +53,7 @@ eval $(gdircolors ~/.dir_colors)
 
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
-[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+[ -f "$HOME/.config/aliasrc.sh" ] && source "$HOME/.config/aliasrc"
 
 # PATHS
 # android sdk

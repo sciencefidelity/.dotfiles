@@ -5,7 +5,8 @@ pull_dotfiles() {
   cp ~/dotfiles/mac/.bash_profile ~/
   cp ~/dotfiles/mac/.dir_colors ~/
   # cp ~/dotfiles/mac/.tmux.conf ~/
-  cp ~/dotfiles/mac/config/aliasrc ~/.config/
+  # cp ~/dotfiles/mac/emacs.d/init.el ~/.emacs.d/
+  cp ~/dotfiles/mac/config/aliasrc.sh ~/.config/
   cp -R ~/dotfiles/mac/config/nvim ~/.config/
   . ~/.zshrc
 }
@@ -14,7 +15,8 @@ push_dotfiles() {
   cp ~/.bash_profile ~/dotfiles/mac/
   cp ~/.dir_colors ~/dotfiles/mac/
   # cp ~/.tmux.conf ~/dotfiles/mac/
-  cp ~/.config/aliasrc ~/dotfiles/mac/config
+  # cp ~/.emacs.d/init.el ~/dotfiles/mac/emacs.d
+  cp ~/.config/aliasrc.sh ~/dotfiles/mac/config
   cp -R ~/.config/nvim ~/dotfiles/mac/config
 }
 alias pd='pull_dotfiles'
