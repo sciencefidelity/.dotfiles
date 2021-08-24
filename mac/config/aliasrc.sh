@@ -49,9 +49,9 @@ alias -s {cs,js,html}=nova
 alias push='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git push'
 alias pull='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main'
 gitpush() {
+  pull
   git add .
   git commit -m "$*"
-  git pull
   git push
 }
 gitupdate() {
