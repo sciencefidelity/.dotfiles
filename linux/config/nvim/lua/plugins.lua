@@ -29,6 +29,7 @@ return require('packer').startup(function()
   -- Flutter tools
   use 'dart-lang/dart-vim-plugin'
   use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
+  -- Go tools
   use 'fatih/vim-go'
   -- use 'ray-x/go.nvim'
 end)
