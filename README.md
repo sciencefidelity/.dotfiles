@@ -5,8 +5,9 @@
 [Dracula Theme](https://github.com/dracula/emacs)
 
 ```shell
-mkdir themes
-wget https://raw.githubusercontent.com/dracula/emacs/master/dracula-theme.el
+mkdir -pv -- ~/.emacs.d/themes
+wget https://raw.githubusercontent.com/dracula/emacs/master/dracula-theme.el\
+ ~/.emacs.d/themes/dracula-theme.el
 ```
 
 ### Neovim
