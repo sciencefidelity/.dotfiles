@@ -8,6 +8,7 @@ pull_dotfiles() {
   # cp ~/dotfiles/mac/emacs.d/init.el ~/.emacs.d/
   cp ~/dotfiles/mac/config/aliasrc.sh ~/.config/
   cp -R ~/dotfiles/mac/config/nvim ~/.config/
+  cp -R ~/dotfiles/mac/config/kitty/kitty.conf ~/.config/kitty
   . ~/.zshrc
 }
 push_dotfiles() {
@@ -18,6 +19,7 @@ push_dotfiles() {
   # cp ~/.emacs.d/init.el ~/dotfiles/mac/emacs.d
   cp ~/.config/aliasrc.sh ~/dotfiles/mac/config
   cp -R ~/.config/nvim ~/dotfiles/mac/config
+  cp -R ~/.config/kitty/kitty.conf ~/dotfiles/mac/config/kitty/
 }
 alias pd='pull_dotfiles'
 
