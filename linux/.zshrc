@@ -7,6 +7,7 @@ fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
 autoload -U promptinit; promptinit
 prompt spaceship
 SPACESHIP_VI_MODE_SHOW=false
+SPACESHIP_PROMPT_ADD_NEWLINE=false
 
 # Basic auto/tab complete:
 autoload -U compinit
