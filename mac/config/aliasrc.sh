@@ -21,9 +21,6 @@ push_dotfiles() {
 }
 alias pd='pull_dotfiles'
 
-# tell grep to highlight matches
-export GREP_OPTIONS='--color=auto'
-
 alias ls='exa -F --group-directories-first'
 alias l='exa -aF --group-directories-first'
 alias la='exa -laF --group-directories-first --git --git-ignore'

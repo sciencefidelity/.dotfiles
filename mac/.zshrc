@@ -4,7 +4,6 @@ SAVEHIST=1000
 HISTFILE=~/.cache/zsh/.zsh_history
 
 fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
-# .zshrc
 autoload -U promptinit; promptinit
 prompt spaceship
 SPACESHIP_VI_MODE_SHOW=false
@@ -50,6 +49,9 @@ bindkey '^ ' autosuggest-accept
 
 export EDITOR=nvim
 export VISUAL="$EDITOR"
+
+# tell grep to highlight matches
+export GREP_OPTIONS='--color=auto'
 
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shortcutrc.sh" ] && source "$HOME/.config/shortcutrc.sh"

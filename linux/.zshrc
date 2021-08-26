@@ -7,6 +7,8 @@ fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
 autoload -U promptinit; promptinit
 prompt spaceship
 SPACESHIP_VI_MODE_SHOW=false
+SPACESHIP_USER_SHOW=always
+SPACESHIP_HOST_SHOW=always
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 
 # Basic auto/tab complete:
@@ -46,10 +48,10 @@ bindkey '^e' edit-command-line
 bindkey '^ ' autosuggest-accept
 
 export EDITOR=nvim
+export VISUAL="$EDITOR"
 
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
-eval `dircolors ~/.dir_colors`
 
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shortcutrc.sh" ] && source "$HOME/.config/shortcutrc.sh"
