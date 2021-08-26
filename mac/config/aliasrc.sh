@@ -33,11 +33,16 @@ alias lt='exa -T --git-ignore'
 alias lr='exa -R --git-ignore'
 
 alias ..='cd ..'
+alias ...='cd ../..'
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 alias mkdir='mkdir -p'
 
+alias grep='grep --color=auto'
 # for more human readable results
 alias df='df -kTh'
 alias free='free -h'
+alias du='du -h -c' # calculate disk usage for a folder
 
 # Always use Neovim
 alias vi='nvim'
@@ -63,6 +68,12 @@ gitupdate() {
 alias gp=gitpush
 alias gu=gitupdate
 alias gst='git status'
+
+# Prevent typing password too often
+alias sudo="sudo -v; sudo "
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
 # # ext - archive extractor
 # # usage: ext <file>
