@@ -21,12 +21,13 @@ push_dotfiles() {
 }
 alias pd='pull_dotfiles'
 
-alias ls='ls --color=auto --group-directories-first'
-alias l='ls -f'
-alias la='ls -Alh'
-alias lx='ls -lXB'
-alias ll='ls -lv'
-alias lr='ll -R'
+# https://the.exa.website/docs/command-line-options
+alias ls='exa -F --group-directories-first'
+alias l='exa -aF --group-directories-first'
+alias la='exa -laF --group-directories-first --git --git-ignore'
+alias ll='exa -lF --group-directories-first --git --git-ignore'
+alias lt='exa -T --git-ignore'
+alias lr='exa -R --git-ignore'
 
 alias ..='cd ..'
 alias mkdir='mkdir -p'
