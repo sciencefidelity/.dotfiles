@@ -51,8 +51,6 @@ bindkey '^ ' autosuggest-accept
 export EDITOR=nvim
 export VISUAL="$EDITOR"
 
-eval $(gdircolors ~/.dir_colors)
-
 # Load aliases and shortcuts if existent.
 [ -f "$HOME/.config/shortcutrc.sh" ] && source "$HOME/.config/shortcutrc.sh"
 [ -f "$HOME/.config/aliasrc.sh" ] && source "$HOME/.config/aliasrc.sh"

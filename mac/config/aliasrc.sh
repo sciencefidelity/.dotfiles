@@ -2,8 +2,6 @@
 pull_dotfiles() {
   echo 'Updating dotfiles'
   cp ~/dotfiles/mac/.zshrc ~/
-  cp ~/dotfiles/mac/.bash_profile ~/
-  cp ~/dotfiles/mac/.dir_colors ~/
   # cp ~/dotfiles/mac/.tmux.conf ~/
   # cp ~/dotfiles/mac/emacs.d/init.el ~/.emacs.d/
   cp ~/dotfiles/mac/config/aliasrc.sh ~/.config/
@@ -30,8 +28,8 @@ alias ls='exa -F --group-directories-first'
 alias l='exa -aF --group-directories-first'
 alias la='exa -laF --group-directories-first --git --git-ignore'
 alias ll='exa -lF --group-directories-first --git --git-ignore'
-alias lt='exa -T'
-alias lr='exa -RT --git-ignore'
+alias lt='exa -T --git-ignore'
+alias lr='exa -R --git-ignore'
 
 alias ..='cd ..'
 alias mkdir='mkdir -p'
