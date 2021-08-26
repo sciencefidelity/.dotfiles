@@ -35,3 +35,28 @@ vim.opt.expandtab = true
 -- Color column
 -- vim.wo.colorcolumn = '80'
 vim.highlight.create('ColorColumn', { ctermbg=0, guibg='#44475A' }, false)
+-- tree settings
+vim.g.nvim_tree_width = 25
+vim.g.nvim_tree_ignore = { '.git', 'node_modules', '.cache' }
+vim.g.nvim_tree_lsp_diagnostics = 1
+local circle = "⭘"
+local devIcons = require("nvim-web-devicons")
+local override_icons = devIcons.get_icons()
+for _, icon in pairs(override_icons) do icon.icon = circle end
+devIcons.setup({override = override_icons, default = true})
+vim.g.nvim_tree_show_icons = { git = 1, folders = 1, files = 1, folder_arrows = 1 }
+vim.g.nvim_tree_icons = {
+  default = circle,
+  symlink = circle,
+  folder = {
+    arrow_open = "↓",
+    arrow_closed = "→",
+    default = circle,
+    open = circle,
+    empty = circle,
+    empty_open = circle,
+    symlink = circle,
+    symlink_open = circle
+  }
+}
+
