@@ -13,14 +13,14 @@ vim.o.smartcase = true
 vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 -- Set colorscheme (order is important here)
-vim.o.termguicolors = false
--- vim.g.onedark_terminal_italics = 2
-vim.g.dracula_bold = 1
-vim.g.dracula_italic = 1
-vim.cmd [[colorscheme dracula]]
+vim.o.termguicolors = true
+vim.g.onedark_terminal_italics = 2
+-- vim.g.dracula_bold = 1
+-- vim.g.dracula_italic = 1
+vim.cmd [[colorscheme onedark]]
 -- Set statusbar
 vim.g.lightline = {
-  colorscheme = 'dracula',
+  colorscheme = 'onedark',
   active = { left = { { 'mode', 'paste' }, { 'gitbranch', 'readonly', 'filename', 'modified' } } },
   component_function = { gitbranch = 'fugitive#head' },
 }
@@ -39,16 +39,16 @@ vim.highlight.create('ColorColumn', { ctermbg=0, guibg='#44475A' }, false)
 vim.g.nvim_tree_width = 25
 vim.g.nvim_tree_ignore = { '.git', 'node_modules', '.cache' }
 vim.g.nvim_tree_lsp_diagnostics = 1
--- local circle = "▪"
-local circle = "⎙"
+vim.g.nvim_tree_symlink_arrow = " -> "
+local file = "◦"
 local devIcons = require("nvim-web-devicons")
 local override_icons = devIcons.get_icons()
-for _, icon in pairs(override_icons) do icon.icon = circle end
+for _, icon in pairs(override_icons) do icon.icon = file end
 devIcons.setup({override = override_icons, default = true})
 vim.g.nvim_tree_show_icons = { git = 1, folders = 1, files = 1, folder_arrows = 1 }
 vim.g.nvim_tree_icons = {
-  default = circle,
-  symlink = circle,
+  default = file,
+  symlink = file,
   git = {
     unstaged = "☁",
     staged = "☇",
@@ -61,12 +61,11 @@ vim.g.nvim_tree_icons = {
   folder = {
     arrow_open = "▼",
     arrow_closed = "▶",
-    default = "🌐",
-    open = "🌐",
-    empty = "🌐",
-    empty_open = "🌐",
-    symlink = "🌐",
-    symlink_open = "🌐"
+    default = "◇",
+    open = "◇",
+    empty = "◇",
+    empty_open = "◇",
+    symlink = "◇",
+    symlink_open = "◇"
   }
 }
-
