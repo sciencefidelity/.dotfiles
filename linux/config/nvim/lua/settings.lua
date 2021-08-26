@@ -33,7 +33,7 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 -- Color column
-vim.wo.colorcolumn = '80'
+-- vim.wo.colorcolumn = '80'
 vim.highlight.create('ColorColumn', { ctermbg=0, guibg='#44475A' }, false)
 -- tree settings
 vim.g.nvim_tree_width = 25
