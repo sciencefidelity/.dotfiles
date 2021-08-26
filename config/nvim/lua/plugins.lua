@@ -12,7 +12,7 @@ return require('packer').startup(function()
   use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } } }
   -- use 'Mofiqul/dracula.nvim' -- Theme
   use 'dracula/vim' -- Theme
-  use 'joshdick/onedark.vim' -- Theme inspired by Atom
+  -- use 'joshdick/onedark.vim' -- Theme inspired by Atom
   use 'itchyny/lightline.vim' -- Fancier statusline
   -- Add indentation guides even on blank lines
   use 'lukas-reineke/indent-blankline.nvim'

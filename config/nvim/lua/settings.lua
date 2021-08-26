@@ -14,13 +14,13 @@ vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 -- Set colorscheme (order is important here)
 vim.o.termguicolors = true
-vim.g.onedark_terminal_italics = 2
--- vim.g.dracula_bold = 1
--- vim.g.dracula_italic = 1
-vim.cmd [[colorscheme onedark]]
+-- vim.g.onedark_terminal_italics = 2
+vim.g.dracula_bold = 1
+vim.g.dracula_italic = 1
+vim.cmd [[colorscheme dracula]]
 -- Set statusbar
 vim.g.lightline = {
-  colorscheme = 'onedark',
+  colorscheme = 'dracula',
   active = { left = { { 'mode', 'paste' }, { 'gitbranch', 'readonly', 'filename', 'modified' } } },
   component_function = { gitbranch = 'fugitive#head' },
 }
