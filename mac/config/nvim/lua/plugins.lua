@@ -32,4 +32,6 @@ return require('packer').startup(function()
   -- Go tools
   use 'fatih/vim-go'
   -- use 'ray-x/go.nvim'
+  -- Highlight kitty.conf
+  use 'fladson/vim-kitty'
 end)
