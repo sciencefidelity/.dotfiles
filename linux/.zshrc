@@ -29,6 +29,14 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
+test () {
+  if [[ "$(uname)" == "Darwin" ]]; then
+    echo "Hello Macbook!"
+  else
+    echo "Hi Pi!"
+  fi
+}
+
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
     tmp="$(mktemp)"
