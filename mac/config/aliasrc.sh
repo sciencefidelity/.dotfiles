@@ -26,12 +26,12 @@ alias pd='pull_dotfiles'
 # tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
 
-alias ls='gls --color=auto'
-alias l='ls -f  --color=auto'
-alias la='ls -Alh --color=auto --human-readable'
-alias lx='ls -lXB --color=auto'
-alias ll='ls -lv --color=auto --human-readable'
-alias lr='ll -R --color=auto'
+alias ls='exa -F --group-directories-first'
+alias l='exa -aF --group-directories-first'
+alias la='exa -laF --group-directories-first --git --git-ignore'
+alias ll='exa -lF --group-directories-first --git --git-ignore'
+alias lt='exa -T'
+alias lr='exa -RT --git-ignore'
 
 alias ..='cd ..'
 alias mkdir='mkdir -p'
