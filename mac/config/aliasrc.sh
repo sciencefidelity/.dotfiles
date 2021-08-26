@@ -21,6 +21,7 @@ push_dotfiles() {
 }
 alias pd='pull_dotfiles'
 
+# https://the.exa.website/docs/command-line-options
 alias ls='exa -F --group-directories-first'
 alias l='exa -aF --group-directories-first'
 alias la='exa -laF --group-directories-first --git --git-ignore'
