@@ -29,14 +29,6 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-test () {
-  if [[ "$(uname)" == "Darwin" ]]; then
-    echo "Hello Macbook!"
-  else
-    echo "Hi Pi!"
-  fi
-}
-
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
     tmp="$(mktemp)"
@@ -74,14 +66,11 @@ export LESS_TERMCAP_mh=$(tput dim)
 [ -f "$HOME/.config/shortcutrc.sh" ] && source "$HOME/.config/shortcutrc.sh"
 [ -f "$HOME/.config/aliasrc.sh" ] && source "$HOME/.config/aliasrc.sh"
 
-# path to Go
-export PATH=$PATH:/usr/local/src/go/bin
-# path to Dart
-export PATH=$PATH:/usr/local/src/dart-sdk/bin
-# path to Hugo
-export PATH="~/go/bin:$PATH"
-# path to LF
-export PATH=$PATH:/usr/local/src/bin
+if [[ "$(uname)" == "Darwin" ]]; then
+  [ -f "$HOME/.config/path_mac.sh" ] && source "$HOME/.config/path_mac.sh"
+else
+  [ -f "$HOME/.config/path_linux.sh" ] && source "$HOME/.config/path_linux.sh"
+fi
 
 # Plugins
 source ~/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null

@@ -1,23 +1,32 @@
 # synchronise dotfiles
 pull_dotfiles() {
   echo 'Updating dotfiles'
-  cp ~/dotfiles/mac/.zshrc ~/
-  # cp ~/dotfiles/mac/.tmux.conf ~/
-  # cp ~/dotfiles/mac/emacs.d/init.el ~/.emacs.d/
-  cp ~/dotfiles/mac/config/aliasrc.sh ~/.config/
-  cp -R ~/dotfiles/mac/config/nvim ~/.config/
-  cp -R ~/dotfiles/mac/config/kitty/kitty.conf ~/.config/kitty
+  cp ~/dotfiles/.zshrc ~/
+  cp ~/dotfiles/config/aliasrc.sh ~/.config/
+  cp ~/dotfiles/emacs.d/init.el ~/.emacs.d/
+  cp ~/dotfiles/config/nvim/init.lua ~/.config/nvim/
+  cp -R ~/dotfiles/config/nvim/lua ~/.config/nvim/
+  if [[ "$(uname)" == "Darwin" ]]; then
+    cp ~/dotfiles/config/path_mac.sh ~/.config/
+    cp ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/
+  else
+    cp ~/dotfiles/config/path_linux.sh ~/.config/
+  fi
   . ~/.zshrc
 }
 push_dotfiles() {
-  cp ~/.zshrc ~/dotfiles/mac/
-  cp ~/.bash_profile ~/dotfiles/mac/
-  cp ~/.dir_colors ~/dotfiles/mac/
-  # cp ~/.tmux.conf ~/dotfiles/mac/
-  # cp ~/.emacs.d/init.el ~/dotfiles/mac/emacs.d
-  cp ~/.config/aliasrc.sh ~/dotfiles/mac/config
-  cp -R ~/.config/nvim ~/dotfiles/mac/config
-  cp -R ~/.config/kitty/kitty.conf ~/dotfiles/mac/config/kitty/
+  cp ~/.zshrc ~/dotfiles/
+  cp ~/.emacs.d/init.el ~/dotfiles/emacs.d/
+  cp ~/.config/aliasrc.sh ~/dotfiles/config/
+  cp ~/.config/nvim/init.lua ~/dotfiles/config/nvim/
+  cp -R ~/.config/nvim/lua ~/dotfiles/config/nvim/
+  if [[ "$(uname)" == "Darwin" ]]; then
+    cp ~/.config/path_mac.sh ~/dotfiles/config/
+    cp ~/.config/karabiner/karabiner.json ~/dotfiles/config/karabiner/
+    cp ~/.config/kitty/kitty.conf ~/dotfiles/config/kitty/
+  else
+    cp ~/.config/path_linux.sh ~/dotfiles/config/
+  fi
 }
 alias pd='pull_dotfiles'
 
