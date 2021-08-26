@@ -64,13 +64,8 @@ export LESS_TERMCAP_mh=$(tput dim)
 
 # Load aliases and shortcuts
 [ -f "$HOME/.config/zsh/alias.sh" ] && source "$HOME/.config/zsh/alias.sh"
-[ -f "$HOME/.config/tmux/tmux.sh" ] && source "$HOME/.config/tmux/tmux.sh"
-
-if [[ "$(uname)" == "Darwin" ]]; then
-  [ -f "$HOME/.config/zsh/path_mac.sh" ] && source "$HOME/.config/zsh/path_mac.sh"
-else
-  [ -f "$HOME/.config/zsh/path_linux.sh" ] && source "$HOME/.config/zsh/path_linux.sh"
-fi
+[ -f "$HOME/.config/zsh/path.sh" ] && source "$HOME/.config/zsh/path.sh"
+[ -f "$HOME/.config/zsh/tmux.sh" ] && source "$HOME/.config/zsh/tmux.sh"
 
 # Plugins
 source ~/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
