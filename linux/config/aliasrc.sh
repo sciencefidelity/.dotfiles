@@ -2,8 +2,6 @@
 pull_dotfiles() {
   echo 'Updating dotfiles'
   cp ~/dotfiles/linux/.zshrc ~/
-  cp ~/dotfiles/linux/.bash_profile ~/
-  cp ~/dotfiles/linux/.dir_colors ~/
   cp ~/dotfiles/linux/.tmux.conf ~/
   cp ~/dotfiles/linux/emacs.d/init.el ~/.emacs.d/
   cp ~/dotfiles/linux/config/aliasrc.sh ~/.config/
@@ -12,8 +10,6 @@ pull_dotfiles() {
 }
 push_dotfiles() {
   cp ~/.zshrc ~/dotfiles/linux/
-  cp ~/.bash_profile ~/dotfiles/linux/
-  cp ~/.dir_colors ~/dotfiles/linux/
   cp ~/.tmux.conf ~/dotfiles/linux/
   cp ~/.emacs.d/init.el ~/dotfiles/linux/emacs.d
   cp -R ~/.config/aliasrc.sh ~/dotfiles/linux/config
