@@ -1,4 +1,4 @@
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.cache/zsh/.zsh_history
@@ -11,7 +11,7 @@ SPACESHIP_USER_SHOW=always
 SPACESHIP_HOST_SHOW=always
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 
-# Basic auto/tab complete:
+# Basic auto/tab complete
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
@@ -22,7 +22,7 @@ _comp_options+=(globdots)
 bindkey -v
 export KEYTIMEOUT=1
 
-# Use vim keys in tab complete menu:
+# Use vim keys in tab complete menu
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
@@ -41,7 +41,7 @@ lfcd () {
 }
 bindkey -s '^o' 'lfcd\n'
 
-# Edit line in vim with ctrl-e:
+# Edit line in vim with ctrl-e
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
@@ -62,7 +62,7 @@ export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
 export LESS_TERMCAP_mr=$(tput rev)
 export LESS_TERMCAP_mh=$(tput dim)
 
-# Load aliases and shortcuts if existent.
+# Load aliases and shortcuts
 [ -f "$HOME/.config/shortcutrc.sh" ] && source "$HOME/.config/shortcutrc.sh"
 [ -f "$HOME/.config/aliasrc.sh" ] && source "$HOME/.config/aliasrc.sh"
 
@@ -75,3 +75,4 @@ fi
 # Plugins
 source ~/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+
