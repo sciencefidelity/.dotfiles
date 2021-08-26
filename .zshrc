@@ -63,7 +63,7 @@ export LESS_TERMCAP_mr=$(tput rev)
 export LESS_TERMCAP_mh=$(tput dim)
 
 # Load aliases and shortcuts
-[ -f "$HOME/.config/zsh/aliasrc.sh" ] && source "$HOME/.config/zsh/aliasrc.sh"
+[ -f "$HOME/.config/zsh/alias.sh" ] && source "$HOME/.config/zsh/alias.sh"
 [ -f "$HOME/.config/tmux/tmux.sh" ] && source "$HOME/.config/tmux/tmux.sh"
 
 if [[ "$(uname)" == "Darwin" ]]; then

@@ -2,34 +2,26 @@
 pull_dotfiles() {
   echo 'Updating dotfiles'
   cp ~/dotfiles/.zshrc ~/
+  cp -R ~/dotfiles/config/zsh ~/.config/
   cp ~/dotfiles/.tmux.conf ~/
-  cp ~/dotfiles/config/zsh/aliasrc.sh ~/.config/zsh/
   cp ~/dotfiles/emacs.d/init.el ~/.emacs.d/
   cp ~/dotfiles/config/nvim/init.lua ~/.config/nvim/
-  cp -R ~/dotfiles/config/tmux ~/.config/
   cp -R ~/dotfiles/config/nvim/lua ~/.config/nvim/
   if [[ "$(uname)" == "Darwin" ]]; then
-    cp ~/dotfiles/config/zsh/path_mac.sh ~/.config/zsh/
     cp ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/
-  else
-    cp ~/dotfiles/config/zsh/path_linux.sh ~/.config/zsh/
   fi
   . ~/.zshrc
 }
 push_dotfiles() {
   cp ~/.zshrc ~/dotfiles/
+  cp -R ~/.config/zsh ~/dotfiles/config/
   cp ~/.tmux.conf ~/dotfiles/
   cp ~/.emacs.d/init.el ~/dotfiles/emacs.d/
-  cp ~/.config/zsh/aliasrc.sh ~/dotfiles/config/zsh/
   cp ~/.config/nvim/init.lua ~/dotfiles/config/nvim/
-  cp -R ~/.config/tmux ~/dotfiles/config/
   cp -R ~/.config/nvim/lua ~/dotfiles/config/nvim/
   if [[ "$(uname)" == "Darwin" ]]; then
-    cp ~/.config/zsh/path_mac.sh ~/dotfiles/config/zsh/
     cp ~/.config/karabiner/karabiner.json ~/dotfiles/config/karabiner/
     cp ~/.config/kitty/kitty.conf ~/dotfiles/config/kitty/
-  else
-    cp ~/.config/zsh/path_linux.sh ~/dotfiles/config/zsh/
   fi
 }
 alias pd='pull_dotfiles'
