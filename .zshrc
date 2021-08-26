@@ -63,13 +63,13 @@ export LESS_TERMCAP_mr=$(tput rev)
 export LESS_TERMCAP_mh=$(tput dim)
 
 # Load aliases and shortcuts
-[ -f "$HOME/.config/shortcutrc.sh" ] && source "$HOME/.config/shortcutrc.sh"
-[ -f "$HOME/.config/aliasrc.sh" ] && source "$HOME/.config/aliasrc.sh"
+[ -f "$HOME/.config/zsh/aliasrc.sh" ] && source "$HOME/.config/zsh/aliasrc.sh"
+[ -f "$HOME/.config/tmux/tmux.sh" ] && source "$HOME/.config/tmux/tmux.sh"
 
 if [[ "$(uname)" == "Darwin" ]]; then
-  [ -f "$HOME/.config/path_mac.sh" ] && source "$HOME/.config/path_mac.sh"
+  [ -f "$HOME/.config/zsh/path_mac.sh" ] && source "$HOME/.config/zsh/path_mac.sh"
 else
-  [ -f "$HOME/.config/path_linux.sh" ] && source "$HOME/.config/path_linux.sh"
+  [ -f "$HOME/.config/zsh/path_linux.sh" ] && source "$HOME/.config/zsh/path_linux.sh"
 fi
 
 # Plugins
