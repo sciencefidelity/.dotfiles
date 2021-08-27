@@ -19,14 +19,6 @@ git clone https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
 
-### Tmux
-
-[Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
-
-```shell
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-```
-
 ### Zsh
 
 [Spaceship Prompt](https://github.com/spaceship-prompt/spaceship-prompt)
@@ -51,4 +43,13 @@ git clone https://github.com/zsh-users/zsh-autosuggestions\
 ```shell
 git clone https://github.com/zsh-users/zsh-syntax-highlighting\
  ~/dotfiles/zsh/zsh-syntax-highlighting
+```
+
+### Utils
+
+[Temperature util](https://www.raspberrypi.org/forums/viewtopic.php?t=252115) (for Raspberry Pi)
+
+```
+gcc ~/dotfiles/utils/temp.c -o temp
+sudo mv ./temp /usr/local/bin/
 ```
