@@ -4,7 +4,7 @@ pull_dotfiles() {
   cp ~/dotfiles/.zshrc ~/
   cp -R ~/dotfiles/config/zsh ~/.config/
   cp ~/dotfiles/.tmux.conf ~/
-  cp ~/dotfiles/emacs.d/init.el ~/.emacs.d/
+  cp ~/dotfiles/config/emacs.d/init.el ~/.emacs.d/
   cp ~/dotfiles/config/nvim/init.lua ~/.config/nvim/
   cp -R ~/dotfiles/config/nvim/lua ~/.config/nvim/
   if [[ "$(uname)" == "Darwin" ]]; then
@@ -16,7 +16,7 @@ push_dotfiles() {
   cp ~/.zshrc ~/dotfiles/
   cp -R ~/.config/zsh ~/dotfiles/config/
   cp ~/.tmux.conf ~/dotfiles/
-  cp ~/.emacs.d/init.el ~/dotfiles/emacs.d/
+  cp ~/.emacs.d/init.el ~/dotfiles/config/emacs.d/
   cp ~/.config/nvim/init.lua ~/dotfiles/config/nvim/
   cp -R ~/.config/nvim/lua ~/dotfiles/config/nvim/
   if [[ "$(uname)" == "Darwin" ]]; then
