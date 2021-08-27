@@ -6,3 +6,7 @@
 
 (setq backup-inhibited t)      ; disable backups
 (setq auto-save-default nil)   ; disable autosave
+
+(column-number-mode)           ; line and column numbers
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+
