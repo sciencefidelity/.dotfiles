@@ -28,8 +28,11 @@
 (require 'rainbow-delimiters) ; load rainbow delimiters
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
-(add-to-list 'load-path "~/.emacs.d/highlight-indent-guides")
+;(add-to-list 'load-path "~/.emacs.d/highlight-indent-guides")
 ;(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+
+;(add-to-list 'load-path "~/.emacs.d/highlight-indentation")
+;(add-hook 'prog-mode-hook 'highlight-indentation-mode)
 
 ;(require 'package)            ; initialte package manager
 ;  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
