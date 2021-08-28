@@ -1,19 +1,23 @@
-(menu-bar-mode -1)            ; disable to menu bar
+;;·disable·to·menu·bar
+(menu-bar-mode -1)
 
+;;·load·theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/plugins")
-;(setq dracula-alternate-mode-line-and-minibuffer t)
-(load-theme 'dracula t)       ; load theme
+(load-theme 'dracula t)
 
-(setq backup-inhibited t)     ; disable backups
-(setq auto-save-default nil)  ; disable autosave
+;;·disable·backups and autosave
+(setq backup-inhibited t)
+(setq auto-save-default nil)
 
-(column-number-mode)          ; line and column numbers
+;;·line·and·column·numbers in prog mode
+(column-number-mode)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
-(setq-default indent-tabs-mode nil) ; disable tabs
-(setq tab-width 2)            ; set default tab width
+;;·disable·tabs and set·default·tab·width
+(setq-default indent-tabs-mode nil)
+(setq tab-width 2)
 
-; show invisible characters
+;; show invisible characters
 (progn
   (setq whitespace-style (quote (face spaces tabs newline space-mark tab-mark newline-mark)))
   (setq whitespace-display-mappings
@@ -24,35 +28,33 @@
           )))
 (add-hook 'prog-mode-hook 'whitespace-mode)
 
+;;·initiate·evil·mode
 (add-to-list 'load-path "~/.emacs.d/evil")
-(require 'evil)               ; set up evil mode
+(require 'evil)
 (evil-mode 1)
 
-;; Initialize package sources
+;; initialize package sources
 (require 'package)
-
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("org" . "https://orgmode.org/elpa/")
-                         ("elpa" . "https://elpa.gnu.org/packages/")))
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
 (package-initialize)
-(unless package-archive-contents
-  (package-refresh-contents))
-
-;; Initialize use-package on non-Linux platforms
 (unless (package-installed-p 'use-package)
-  (package-install 'use-package)
+  (package-install 'use-package))
 
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+;; https://github.com/DarthFennec/highlight-indent-guides
 (use-package highlight-indent-guides
   :ensure t
   :diminish highlight-indent-guides-mode
   :config
   (setq highlight-indent-guides-method 'character)
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-  (add-hook 'yaml-mode-hook 'highlight-indent-guides-mode)
-  (add-hook 'json-mode-hook 'highlight-indent-guides-mode)
-  )
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
+
+;; https://github.com/Fanael/rainbow-delimiters
+(use-package rainbow-delimiters
+  :init
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
