@@ -10,6 +10,13 @@ wget https://raw.githubusercontent.com/dracula/emacs/master/dracula-theme.el\
  ~/.emacs.d/themes/dracula-theme.el
 ```
 
+[Evil](https://github.com/emacs-evil/evil)
+
+```shell
+git clone --depth 1 https://github.com/emacs-evil/evil.git\
+ ~/.emacs.d/
+```
+
 ### Neovim
 
 [Packer](https://github.com/wbthomason/packer.nvim)
