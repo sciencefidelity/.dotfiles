@@ -1,6 +1,6 @@
 (menu-bar-mode -1)            ; disable to menu bar
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/plugins")
 ;(setq dracula-alternate-mode-line-and-minibuffer t)
 (load-theme 'dracula t)       ; load theme
 
@@ -24,25 +24,35 @@
           )))
 (add-hook 'prog-mode-hook 'whitespace-mode)
 
-(add-to-list 'load-path "~/.emacs.d/rainbow-delimiters")
-(require 'rainbow-delimiters) ; load rainbow delimiters
-(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-
-;(add-to-list 'load-path "~/.emacs.d/highlight-indent-guides")
-;(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-
-;(add-to-list 'load-path "~/.emacs.d/highlight-indentation")
-;(add-hook 'prog-mode-hook 'highlight-indentation-mode)
-
-;(require 'package)            ; initialte package manager
-;  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-;(package-initialize)
-
 (add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)               ; set up evil mode
 (evil-mode 1)
 
-;(add-to-list 'load-path "~/.emacs.d/undo-tree")
-;(require 'undo-tree)
-;(global-undo-tree-mode)       ; set up undo-tree
+;; Initialize package sources
+(require 'package)
 
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("org" . "https://orgmode.org/elpa/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")))
+
+(package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
+
+;; Initialize use-package on non-Linux platforms
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package)
+
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(use-package highlight-indent-guides
+  :ensure t
+  :diminish highlight-indent-guides-mode
+  :config
+  (setq highlight-indent-guides-method 'character)
+  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  (add-hook 'yaml-mode-hook 'highlight-indent-guides-mode)
+  (add-hook 'json-mode-hook 'highlight-indent-guides-mode)
+  )
