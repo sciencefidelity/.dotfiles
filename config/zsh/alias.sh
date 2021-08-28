@@ -53,7 +53,9 @@ alias du='du -h -c' # calculate disk usage for a folder
 alias vi='nvim'
 alias vim='nvim'
 # open emacs with truecolor
-alias emacs='TERM=xterm-24bit emacs -nw'
+if [[ "$TERM" == "xterm-kitty" ]]; then
+    alias emacs='TERM=xterm-24bit emacs -nw'
+fi
 
 # open in Nova
 alias -s {cs,js,html}=nova
