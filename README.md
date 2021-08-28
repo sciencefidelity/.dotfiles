@@ -49,7 +49,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting\
 
 [Temperature util](https://www.raspberrypi.org/forums/viewtopic.php?t=252115) (for Raspberry Pi)
 
-```
+```shell
 gcc ~/dotfiles/utils/temp.c -o temp
 sudo mv ./temp /usr/local/bin/
 ```
@@ -62,7 +62,7 @@ sudo mv ./temp /usr/local/bin/
 
 Create a file `terminfo-custom.src` in the home directory:
 
-```
+```shell
 xterm-emacs|xterm with 24-bit direct color mode for Emacs,
 use=xterm-256color,
 setb24=\E[48\:2\:\:%p1%{65536}%/%d\:%p1%{256}%/%{255}%&\
@@ -71,7 +71,7 @@ setf24=\E[38\:2\:\:%p1%{65536}%/%d\:%p1%{256}%/%{255}%&\
    %d\:%p1%{255}%&%dm,
 ```
 
-```
+```shell
 tic -x -o ~/.terminfo terminfo-custom.src
 ```
 
