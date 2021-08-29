@@ -1,7 +1,7 @@
-;;·disable·to·menu·bar
+;; disable menu bar
 (menu-bar-mode -1)
 
-;;·load·theme - https://github.com/dracula/emacs
+;; load theme - https://github.com/dracula/emacs
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (load-theme 'dracula t)
 (let ((custom--inhibit-theme-enable nil))
@@ -13,11 +13,11 @@
     `(whitespace-space ((t (:foreground ,"#565761"))))
     ))
 
-;;·disable·backups and autosave
+;;·disable backups and autosave
 (setq backup-inhibited t)
 (setq auto-save-default nil)
 
-;;·line·and·column·numbers in prog mode
+;; line and column numbers in prog mode
 (column-number-mode)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
@@ -36,7 +36,7 @@
           )))
 (add-hook 'prog-mode-hook 'whitespace-mode)
 
-;;·initialize·evil·mode
+;; initialize evil mode
 (add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
 (evil-mode 1)
