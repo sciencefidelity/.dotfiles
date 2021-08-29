@@ -25,7 +25,7 @@
     `(whitespace-tab ((t (:background ,"#282a36" :foreground ,"#565761"))))
     `(whitespace-space ((t (:foreground ,"#565761"))))
     ))
-
+;
 ;; initialize package sources
 (require 'package)
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
@@ -75,13 +75,42 @@
   :init
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
+;; https://github.com/redguardtoo/evil-nerd-commenter
+(use-package evil-nerd-commenter
+  :bind ("M-/" . evilnc-comment-or-uncomment-lines))
+
+;; https://github.com/emacs-lsp/lsp-mode/
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :config
+  ;(lsp-enable-which-key-integration t))
+
 ;; https://github.com/emacs-lsp/lsp-ui/
 (use-package lsp-ui)
 
 ;; https://github.com/emacs-typescript/typescript.el
-(use-package typescript-mode)
+(use-package typescript-mode
+  :mode "\\.ts\\'"
+  :hook (typescript-mode . lsp-deferred)
+  :config
+  (setq typescript-indent-level 2))
 
 ;; https://github.com/ananthakumaran/tide
-(use-package tide
-  :hook (typescript-mode . #'setup-tide-mode))
+;(use-package tide
+;  :hook (typescript-mode . #'setup-tide-mode))
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(tide typescript-mode lsp-ui rainbow-delimiters highlight-indent-guides powerline-evil diminish evil use-package)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
