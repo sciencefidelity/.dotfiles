@@ -1,9 +1,17 @@
 ;;·disable·to·menu·bar
 (menu-bar-mode -1)
 
-;;·load·theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/plugins")
+;;·load·theme - https://github.com/dracula/emacs
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (load-theme 'dracula t)
+(let ((custom--inhibit-theme-enable nil))
+  (custom-theme-set-faces
+    'dracula
+    `(line-number ((t (:foreground ,"#565761" :background ,"#282a36"))))
+    `(whitespace-newline ((t (:foreground ,"#565761"))))
+    `(whitespace-tab ((t (:background ,"#282a36" :foreground ,"#565761"))))
+    `(whitespace-space ((t (:foreground ,"#565761"))))
+    ))
 
 ;;·disable·backups and autosave
 (setq backup-inhibited t)
@@ -28,7 +36,7 @@
           )))
 (add-hook 'prog-mode-hook 'whitespace-mode)
 
-;;·initiate·evil·mode
+;;·initialize·evil·mode
 (add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
 (evil-mode 1)
@@ -48,13 +56,14 @@
 
 ;; https://github.com/DarthFennec/highlight-indent-guides
 (use-package highlight-indent-guides
-  :ensure t
-  :diminish highlight-indent-guides-mode
+  :hook (prog-mode . highlight-indent-guides-mode)
+  :delight
   :config
-  (setq highlight-indent-guides-method 'character)
-  (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
+  (setq highlight-indent-guides-method 'character))
 
 ;; https://github.com/Fanael/rainbow-delimiters
 (use-package rainbow-delimiters
+  :delight
   :init
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+
