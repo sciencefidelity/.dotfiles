@@ -1,18 +1,6 @@
 ;; disable menu bar
 (menu-bar-mode -1)
 
-;; load theme - https://github.com/dracula/emacs
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(load-theme 'dracula t)
-(let ((custom--inhibit-theme-enable nil))
-  (custom-theme-set-faces
-    'dracula
-    `(line-number ((t (:foreground ,"#565761" :background ,"#282a36"))))
-    `(whitespace-newline ((t (:foreground ,"#565761"))))
-    `(whitespace-tab ((t (:background ,"#282a36" :foreground ,"#565761"))))
-    `(whitespace-space ((t (:foreground ,"#565761"))))
-    ))
-
 ;;·disable backups and autosave
 (setq backup-inhibited t)
 (setq auto-save-default nil)
@@ -25,6 +13,40 @@
 (setq-default indent-tabs-mode nil)
 (setq tab-width 2)
 
+;; load theme - https://github.com/dracula/emacs
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(load-theme 'dracula t)
+;; theme customisations
+(let ((custom--inhibit-theme-enable nil))
+  (custom-theme-set-faces
+    'dracula
+    `(line-number ((t (:foreground ,"#565761" :background ,"#282a36"))))
+    `(whitespace-newline ((t (:foreground ,"#565761"))))
+    `(whitespace-tab ((t (:background ,"#282a36" :foreground ,"#565761"))))
+    `(whitespace-space ((t (:foreground ,"#565761"))))
+    ))
+
+;; initialize package sources
+(require 'package)
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+
+;; https://github.com/jwiegley/use-package
+(package-initialize)
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+;; https://github.com/emacs-evil/evil
+(use-package evil
+  :init (evil-mode 1))
+
+;; https://github.com/myrjola/diminish.el
+(use-package diminish
+  :config (diminish 'ws))
+
 ;; show invisible characters
 (progn
   (setq whitespace-style (quote (face spaces tabs newline space-mark tab-mark newline-mark)))
@@ -36,54 +58,30 @@
           )))
 (add-hook 'prog-mode-hook 'whitespace-mode)
 
-;; initialize evil mode
-(add-to-list 'load-path "~/.emacs.d/evil")
-(require 'evil)
-(evil-mode 1)
-
-;; initialize package sources
-(require 'package)
-(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-
-(package-initialize)
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-
-(require 'use-package)
-(setq use-package-always-ensure t)
+;; https://github.com/johnson-christopher/powerline-evil
+(use-package powerline-evil
+  :config (powerline-evil-center-color-theme))
 
 ;; https://github.com/DarthFennec/highlight-indent-guides
 (use-package highlight-indent-guides
   :hook (prog-mode . highlight-indent-guides-mode)
-  :delight
+  :diminish
   :config
   (setq highlight-indent-guides-method 'character))
 
 ;; https://github.com/Fanael/rainbow-delimiters
 (use-package rainbow-delimiters
-  :delight
+  :diminish
   :init
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
-;; https://github.com/seagle0128/doom-modeline
-(use-package doom-modeline
-  :ensure t
-  :init (doom-modeline-mode 1)
-  :config
-  (setq all-the-icons-color-icons nil))
+;; https://github.com/emacs-lsp/lsp-ui/
+(use-package lsp-ui)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(doom-modeline use-package simple-modeline rainbow-delimiters mini-modeline highlight-indent-guides)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; https://github.com/emacs-typescript/typescript.el
+(use-package typescript-mode)
+
+;; https://github.com/ananthakumaran/tide
+(use-package tide
+  :hook (typescript-mode . #'setup-tide-mode))
+
