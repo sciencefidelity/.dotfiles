@@ -1,4 +1,4 @@
-;; disable menu bar
+; disable menu bar
 (menu-bar-mode -1)
 
 ;;·disable backups and autosave
@@ -21,11 +21,13 @@
   (custom-theme-set-faces
     'dracula
     `(line-number ((t (:foreground ,"#565761" :background ,"#282a36"))))
-    `(whitespace-newline ((t (:foreground ,"#565761"))))
-    `(whitespace-tab ((t (:background ,"#282a36" :foreground ,"#565761"))))
-    `(whitespace-space ((t (:foreground ,"#565761"))))
+    `(powerline-evil-normal-face ((t (:background ,"#bd93f9" :foreground ,"#282a36"))))
+    `(powerline-evil-insert-face ((t (:background ,"#50fa7b" :foreground ,"#282a36"))))
+    `(whitespace-newline ((t (:foreground ,"#424450"))))
+    `(whitespace-tab ((t (:background ,"#282a36" :foreground ,"#424450"))))
+    `(whitespace-space ((t (:foreground ,"#424450"))))
     ))
-;
+
 ;; initialize package sources
 (require 'package)
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
@@ -44,8 +46,7 @@
   :init (evil-mode 1))
 
 ;; https://github.com/myrjola/diminish.el
-(use-package diminish
-  :config (diminish 'ws))
+(use-package diminish)
 
 ;; show invisible characters
 (progn
@@ -58,11 +59,12 @@
           )))
 (add-hook 'prog-mode-hook 'whitespace-mode)
 
+;; https://github.com/abo-abo/swiper#ivy
 (use-package ivy
   :diminish
   :bind (("C-s" . swiper)
          :map ivy-minibuffer-map
-         ("TAB" . ivy-alt-done)	
+         ("TAB" . ivy-alt-done)
          ("C-l" . ivy-alt-done)
          ("C-j" . ivy-next-line)
          ("C-k" . ivy-previous-line)
@@ -76,13 +78,40 @@
   :config
   (ivy-mode 1))
 
+;; https://github.com/Yevgnen/ivy-rich
+(use-package ivy-rich
+  :init
+  (ivy-rich-mode))
+
+;; https://github.com/abo-abo/swiper#counsel
+(use-package counsel
+  :bind (("M-x" . counsel-M-x)
+         ("C-x b" . counsel-ibuffer)
+         ("C-x C-f" . counsel-find-file)
+         :map minibuffer-local-map
+         ("C-r" . 'councel-minibuffer-history))
+  :config
+(setq ivy-initial-inputs-alist nil))
+
+;; https://github.com/Wilfred/helpful
+(use-package helpful
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . helpful-function)
+  ([remap describe-symbol] . helpful-symbol)
+  ([remap describe-variable] . helpful-variable)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-key] . helpful-key))
+
 ;; https://github.com/johnson-christopher/powerline-evil
 (use-package powerline-evil
   :config (powerline-evil-center-color-theme))
 
 ;; https://github.com/DarthFennec/highlight-indent-guides
 (use-package highlight-indent-guides
-  :hook (prog-mode . highlight-indent-guides-mode)
+  ;:hook (prog-mode . highlight-indent-guides-mode)
   :diminish
   :config
   (setq highlight-indent-guides-method 'character))
@@ -90,8 +119,14 @@
 ;; https://github.com/Fanael/rainbow-delimiters
 (use-package rainbow-delimiters
   :diminish
-  :init
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+  :hook (prog-mode . rainbow-delimiters-mode))
+
+;; https://github.com/justbur/emacs-which-key
+(use-package which-key
+  :init (which-key-mode)
+  :diminish which-key-mode
+  :config
+  (setq which-key-idle-delay 0.3))
 
 ;; https://github.com/redguardtoo/evil-nerd-commenter
 (use-package evil-nerd-commenter
