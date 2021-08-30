@@ -16,7 +16,7 @@ vim.api.nvim_exec(
 )
 
 local use = require('packer').use
-return require('packer').startup(function()
+require('packer').startup(function()
   --·https://github.com/wbthomason/packer.nvim
   use 'wbthomason/packer.nvim'
   -- https://github.com/tpope/vim-fugitive
@@ -26,9 +26,9 @@ return require('packer').startup(function()
   -- https://github.com/tpope/vim-commentary
   use 'tpope/vim-commentary'
   -- https://github.com/ludovicchabant/vim-gutentags
-  -- use 'ludovicchabant/vim-gutentags'
+  use 'ludovicchabant/vim-gutentags'
   -- https://github.com/nvim-telescope/telescope.nvim
-  use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } } }
+  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   -- https://github.com/dracula/vim
   use 'dracula/vim'
   -- https://github.com/itchyny/lightline.vim
@@ -53,6 +53,9 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp'
   -- https://github.com/hrsh7th/vim-vsnip
   -- use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use 'fladson/vim-kitty' -- Highlighting for Kitty.conf
 end)
 
@@ -63,7 +66,7 @@ vim.o.hlsearch = false
 vim.wo.number = true
 
 -- Enable mouse mode
--- vim.o.mouse = 'a'
+vim.o.mouse = 'a'
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -286,6 +289,43 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+-- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
+local sumneko_root_path = vim.fn.getenv 'HOME' .. '/.local/bin/lua-language-server'
+local sumneko_binary = sumneko_root_path .. '/bin/Linux/lua-language-server'
+
+-- Make runtime files discoverable to the server
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
+
+require('lspconfig').sumneko_lua.setup {
+  cmd = { sumneko_binary, '-E', sumneko_root_path .. '/main.lua' },
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      runtime = {
+        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+        -- Setup your lua path
+        path = runtime_path,
+      },
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = { 'vim' },
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = vim.api.nvim_get_runtime_file('', true),
+      },
+      -- Do not send telemetry data containing a randomized but unique identifier
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+}
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
