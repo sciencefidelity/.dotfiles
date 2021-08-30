@@ -31,17 +31,12 @@ return require('packer').startup(function()
   -- https://github.com/neovim/nvim-lspconfig
   use 'neovim/nvim-lspconfig'
   -- https://github.com/glepnir/lspsaga.nvim
-  use 'glepnir/lspsaga.nvim'
-  -- https://github.com/hrsh7th/nvim-compe
-  use 'hrsh7th/nvim-compe'
+  -- use 'glepnir/lspsaga.nvim'
+  -- https://github.com/hrsh7th/nvim-cmp
+  use 'hrsh7th/nvim-cmp'
+  -- https://github.com/hrsh7th/cmp-nvim-lsp
+  use 'hrsh7th/cmp-nvim-lsp'
   -- https://github.com/hrsh7th/vim-vsnip
-  use 'hrsh7th/vim-vsnip'
-  -- use 'pangloss/vim-javascript' -- JavaScript syntax highlighting and improved indentation
-  -- Flutter tools
-  -- use 'dart-lang/dart-vim-plugin'
-  -- use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
-  -- Go tools
-  -- use 'fatih/vim-go'
-  -- use 'ray-x/go.nvim'
+  -- use 'hrsh7th/vim-vsnip'
   use 'fladson/vim-kitty' -- Highlighting for Kitty.conf
 end)
