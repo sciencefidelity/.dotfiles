@@ -1,4 +1,5 @@
-;;disable menu bar
+;; disable menu bar and startup message
+(setq inhibit-startup-message t)
 (menu-bar-mode -1)
 
 ;;·disable backups and autosave
@@ -141,28 +142,9 @@
   :config
   (setq which-key-idle-delay 0.3))
 
-;; https://github.com/bbatsov/projectile
-(use-package projectile
-  :diminish projectile-mode
-  :config (projectile-mode)
-  :custom (projectile-completion-system 'ivy)
-  :bind-keymap
-  ("C-c p" . projectile-command-map))
-;  :init
-;  (when (file-directory-"~")
-;    (setq projectile-project-search-path '("~")))
-;  (setq projectile-switch-project-action #'dw/switch-project-action))
-
-;; https://github.com/ericdanan/counsel-projectile
-(use-package counsel-projectile
-  :config (counsel-projectile))
-
 (use-package magit
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
-
-;(use-package evil-magit
-;  :after magit)
 
 ;; https://github.com/redguardtoo/evil-nerd-commenter
 (use-package evil-nerd-commenter
@@ -186,20 +168,3 @@
   :config
   (setq typescript-indent-level 2))
 
-;; https://github.com/ananthakumaran/tide
-;(use-package tide
-;  :hook (typescript-mode . #'setup-tide-mode))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(tide typescript-mode lsp-ui rainbow-delimiters highlight-indent-guides powerline-evil diminish evil use-package)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
