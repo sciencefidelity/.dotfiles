@@ -138,7 +138,7 @@
 ;; https://github.com/justbur/emacs-which-key
 (use-package which-key
   :init (which-key-mode)
-  :diminish which-key-mode
+  :diminish
   :config
   (setq which-key-idle-delay 0.3))
 
@@ -155,16 +155,29 @@
   :commands (lsp lsp-deferred)
   :init
   (setq lsp-keymap-prefix "C-c l")
+  :diminish
   :config
   (lsp-enable-which-key-integration t))
 
 ;; https://github.com/emacs-lsp/lsp-ui/
-(use-package lsp-ui)
+;(use-package lsp-ui)
 
 ;; https://github.com/emacs-typescript/typescript.el
 (use-package typescript-mode
   :mode "\\.ts\\'"
   :hook (typescript-mode . lsp-deferred)
+  :diminish
   :config
   (setq typescript-indent-level 2))
+
+(use-package company
+  :after lsp-mode
+  :hook (prog-mode . company-mode)
+  :bind (:map company-active-map
+         ("<tab>" . company-complete-selection))
+        (:map lsp-mode-map
+         ("<tab>" . company-indent-or-complete-common))
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.0))
 
