@@ -142,20 +142,20 @@
   (setq which-key-idle-delay 0.3))
 
 ;; https://github.com/bbatsov/projectile
-;(use-package projectile
-;  :diminish projectile-mode
-;  :config (projectile-mode)
-;  :custom (projectile-completion-system 'ivy)
-;  :bind-keymap
-;  ("C-c p" . projectile-command-map)
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :custom (projectile-completion-system 'ivy)
+  :bind-keymap
+  ("C-c p" . projectile-command-map))
 ;  :init
-;  (when (file-directory-p "~/sites")
-;    (setq projectile-project-search-path '("~/sites")))
+;  (when (file-directory-"~")
+;    (setq projectile-project-search-path '("~")))
 ;  (setq projectile-switch-project-action #'dw/switch-project-action))
 
 ;; https://github.com/ericdanan/counsel-projectile
-;(use-package counsel-projectile
-;  :config (counsel-projectile))
+(use-package counsel-projectile
+  :config (counsel-projectile))
 
 (use-package magit
   :custom
