@@ -1,3 +1,6 @@
+--Set highlight on search
+vim.o.hlsearch = false
+
 -- Make line numbers default
 vim.wo.number = true
 -- Enable mouse mode
@@ -14,7 +17,6 @@ vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 -- Set colorscheme (order is important here)
 vim.o.termguicolors = true
--- vim.g.onedark_terminal_italics = 2
 vim.g.dracula_bold = 1
 vim.g.dracula_italic = 1
 vim.cmd [[colorscheme dracula]]
@@ -24,6 +26,10 @@ vim.g.lightline = {
   active = { left = { { 'mode', 'paste' }, { 'gitbranch', 'readonly', 'filename', 'modified' } } },
   component_function = { gitbranch = 'fugitive#head' },
 }
+--Remap space as leader key
+vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 -- Show invibles
 vim.opt.list = true
 vim.opt.listchars = { eol = '¬', tab = '→ ', trail = '·', extends = '>', precedes = '<', space = '·' }
@@ -53,7 +59,7 @@ vim.g.nvim_tree_icons = {
     unstaged = "☁",
     staged = "☇",
     unmerged = "♥",
-    renamed = "💳",
+    renamed = "☾",
     untracked = "*",
     deleted = "☒",
     ignored = "◌"

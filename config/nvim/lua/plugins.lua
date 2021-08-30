@@ -27,7 +27,7 @@ return require('packer').startup(function()
   -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   -- https://github.com/kyazdani42/nvim-tree.lua
-  use 'kyazdani42/nvim-tree.lua'
+  use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' } }
   -- https://github.com/neovim/nvim-lspconfig
   use 'neovim/nvim-lspconfig'
   -- https://github.com/glepnir/lspsaga.nvim
@@ -40,3 +40,4 @@ return require('packer').startup(function()
   -- use 'hrsh7th/vim-vsnip'
   use 'fladson/vim-kitty' -- Highlighting for Kitty.conf
 end)
+
