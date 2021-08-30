@@ -46,7 +46,7 @@ require('packer').startup(function()
   -- https://github.com/neovim/nvim-lspconfig
   use 'neovim/nvim-lspconfig'
   -- https://github.com/glepnir/lspsaga.nvim
-  -- use 'glepnir/lspsaga.nvim'
+  use 'glepnir/lspsaga.nvim'
   -- https://github.com/hrsh7th/nvim-cmp
   use 'hrsh7th/nvim-cmp'
   -- https://github.com/hrsh7th/cmp-nvim-lsp
