@@ -53,7 +53,6 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp'
   -- https://github.com/hrsh7th/vim-vsnip
   -- use 'hrsh7th/vim-vsnip'
-  use 'hrsh7th/cmp-nvim-lsp'
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use 'fladson/vim-kitty' -- Highlighting for Kitty.conf
@@ -64,6 +63,7 @@ vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
+-- vim.wo.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -87,6 +87,10 @@ vim.o.termguicolors = true
 vim.g.dracula_bold = 1
 vim.g.dracula_italic = 1
 vim.cmd [[colorscheme dracula]]
+
+-- vim.autocmd [[colorscheme dracula h LineNr guifg='#565761' ]]
+vim.cmd('hi LineNr guifg=#565761')
+-- vim.cmd('hi CursorLineNr guifg=#FFB86C')
 
 -- Set statusbar
 vim.g.lightline = {
