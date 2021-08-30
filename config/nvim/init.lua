@@ -281,6 +281,10 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
+-- set up
+local saga = require 'lspsaga'
+saga.init_lsp_saga()
+
 -- Enable the following language servers
 local servers = { 'tsserver' }
 for _, lsp in ipairs(servers) do
