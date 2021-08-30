@@ -142,6 +142,7 @@
   :config
   (setq which-key-idle-delay 0.3))
 
+;; https://magit.vc
 (use-package magit
   :custom
   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
@@ -159,9 +160,6 @@
   :config
   (lsp-enable-which-key-integration t))
 
-;; https://github.com/emacs-lsp/lsp-ui/
-;(use-package lsp-ui)
-
 ;; https://github.com/emacs-typescript/typescript.el
 (use-package typescript-mode
   :mode "\\.ts\\'"
@@ -170,9 +168,11 @@
   :config
   (setq typescript-indent-level 2))
 
+;; https://github.com/company-mode/company-mode
 (use-package company
   :after lsp-mode
-  :hook (prog-mode . company-mode)
+  :hook (lsp-mode . company-mode)
+  :diminish
   :bind (:map company-active-map
          ("<tab>" . company-complete-selection))
         (:map lsp-mode-map
@@ -180,4 +180,14 @@
   :custom
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0))
+
+;; https://github.com/Alexander-Miller/treemacs
+(use-package treemacs
+  :init
+  (with-eval-after-load 'winum
+    (define-key winum-keymap (kbd "M-0") #'treemacs-select-window)))
+
+(use-package treemacs-magit
+  :after (treemacs magit)
+  :ensure t)
 
