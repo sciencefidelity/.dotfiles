@@ -1,4 +1,4 @@
-; disable menu bar
+;;disable menu bar
 (menu-bar-mode -1)
 
 ;;·disable backups and autosave
@@ -23,6 +23,7 @@
     `(line-number ((t (:foreground ,"#565761" :background ,"#282a36"))))
     `(powerline-evil-normal-face ((t (:background ,"#bd93f9" :foreground ,"#282a36"))))
     `(powerline-evil-insert-face ((t (:background ,"#50fa7b" :foreground ,"#282a36"))))
+    `(powerline-evil-motion-face ((t (:background ,"#8be9fd" :foreground ,"#282a36"))))
     `(whitespace-newline ((t (:foreground ,"#424450"))))
     `(whitespace-tab ((t (:background ,"#282a36" :foreground ,"#424450"))))
     `(whitespace-space ((t (:foreground ,"#424450"))))
@@ -43,7 +44,19 @@
 
 ;; https://github.com/emacs-evil/evil
 (use-package evil
-  :init (evil-mode 1))
+  :init
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil)
+  (setq evil-want-C-u-scroll t)
+  (setq evil-want-C-i-jump nil)
+  :config
+  (evil-mode 1)
+  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+
+  ;; Use visual line motions even outside of visual-line-mode buffers
+  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+  (evil-global-set-key 'motion "k" 'evil-previous-visual-line))
 
 ;; https://github.com/myrjola/diminish.el
 (use-package diminish)
@@ -127,6 +140,29 @@
   :diminish which-key-mode
   :config
   (setq which-key-idle-delay 0.3))
+
+;; https://github.com/bbatsov/projectile
+;(use-package projectile
+;  :diminish projectile-mode
+;  :config (projectile-mode)
+;  :custom (projectile-completion-system 'ivy)
+;  :bind-keymap
+;  ("C-c p" . projectile-command-map)
+;  :init
+;  (when (file-directory-p "~/sites")
+;    (setq projectile-project-search-path '("~/sites")))
+;  (setq projectile-switch-project-action #'dw/switch-project-action))
+
+;; https://github.com/ericdanan/counsel-projectile
+;(use-package counsel-projectile
+;  :config (counsel-projectile))
+
+(use-package magit
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
+;(use-package evil-magit
+;  :after magit)
 
 ;; https://github.com/redguardtoo/evil-nerd-commenter
 (use-package evil-nerd-commenter
