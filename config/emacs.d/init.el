@@ -10,7 +10,7 @@
 (column-number-mode)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
-;;·disable·tabs and set·default·tab·width
+;; disable tabs and set default tab width
 (setq-default indent-tabs-mode nil)
 (setq tab-width 2)
 
@@ -22,12 +22,17 @@
   (custom-theme-set-faces
     'dracula
     `(line-number ((t (:foreground ,"#565761" :background ,"#282a36"))))
+    `(font-lock-comment-face ((t (:foreground ,"#6272a4" :weight light))))
+    `(font-lock-comment-delilmiter-face ((t (:foreground ,"#6272a4" :weigh light))))
+    `(dired-ignored ((t (:foreground ,"#6272a4" :weight light))))
+    `(font-lock-doc-face ((t (:foreground ,"#6272a4" :weight light))))
+    `(powerline-evil-normal-face ((t (:background ,"#bd93f9" :foreground ,"#282a36"))))
     `(powerline-evil-normal-face ((t (:background ,"#bd93f9" :foreground ,"#282a36"))))
     `(powerline-evil-insert-face ((t (:background ,"#50fa7b" :foreground ,"#282a36"))))
     `(powerline-evil-motion-face ((t (:background ,"#8be9fd" :foreground ,"#282a36"))))
-    `(whitespace-newline ((t (:foreground ,"#424450"))))
-    `(whitespace-tab ((t (:background ,"#282a36" :foreground ,"#424450"))))
-    `(whitespace-space ((t (:foreground ,"#424450"))))
+    `(whitespace-newline ((t (:foreground ,"#424450" :weight light))))
+    `(whitespace-tab ((t (:background ,"#282a36" :foreground ,"#424450" :weight light))))
+    `(whitespace-space ((t (:foreground ,"#424450" :wieght light))))
     ))
 
 ;; initialize package sources
