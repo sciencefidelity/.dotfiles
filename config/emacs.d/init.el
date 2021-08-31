@@ -64,7 +64,7 @@
   (evil-global-set-key 'motion "j" 'evil-next-visual-line)
   (evil-global-set-key 'motion "k" 'evil-previous-visual-line))
 
-https://github.com/editorconfig/editorconfig-emacs
+;; https://github.com/editorconfig/editorconfig-emacs
 (use-package editorconfig
   :ensure t
   :config
