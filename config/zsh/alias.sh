@@ -8,6 +8,7 @@ pull_dotfiles() {
   cp ~/dotfiles/config/nvim/init.lua ~/.config/nvim/
   if [[ "$(uname)" == "Darwin" ]]; then
     cp ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/
+    cp ~/dotfiles/.gitconfig ~/
   fi
   . ~/.zshrc
 }
@@ -20,6 +21,7 @@ push_dotfiles() {
   if [[ "$(uname)" == "Darwin" ]]; then
     cp ~/.config/karabiner/karabiner.json ~/dotfiles/config/karabiner/
     cp ~/.config/kitty/kitty.conf ~/dotfiles/config/kitty/
+    cp ~/.gitconfig ~/dotfiles/
   fi
 }
 alias pd='pull_dotfiles'
