@@ -1,0 +1,40 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+
+# .gitconfig
+[.gitconfig]
+indent_style = tab
+indent_size = 2
+
+# Neovim
+[*.lua]
+indent_style = space
+indent_size = 2
+
+# Shell script
+[*.sh]
+indent_style = space
+indent_size = 2
+
+# Emacs
+[*.el]
+indent_style = space
+indent_size = 2
+
+# Karabiner Elements
+[karabiner.json]
+indent_style = space
+indent_size = 4
+
+# kitty.conf
+[kitty.conf]
+indent_style = space
+indent_size = 4
