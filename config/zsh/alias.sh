@@ -48,6 +48,7 @@ alias free='free -h'
 alias du='du -h -c' # calculate disk usage for a folder
 
 # https://github.com/sharkdp/bat
+alias bat='batcat'
 alias cat='batcat'
 # https://github.com/BurntSushi/ripgrep
 alias grep='rg'
