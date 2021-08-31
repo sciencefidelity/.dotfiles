@@ -1,7 +1,7 @@
 # Keep 1000 lines of history within the shell and save it to ~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
-HISTFILE=~/.cache/zsh/.zsh_history
+HISTFILE=~/.zsh_history
 
 if [[ "$TERM" == "xterm-256color" ]]; then
     export TERM=xterm-24bit
