@@ -48,8 +48,12 @@ alias free='free -h'
 alias du='du -h -c' # calculate disk usage for a folder
 
 # https://github.com/sharkdp/bat
-alias bat='batcat'
-alias cat='batcat'
+if [[ "$(uname)" == "Darwin" ]]; then
+  alias cat='bat'
+else
+  alias bat='batcat'
+  alias cat='batcat'
+fi
 # https://github.com/BurntSushi/ripgrep
 alias grep='rg'
 # https://github.com/sharkdp/fd
@@ -62,6 +66,9 @@ alias vim='nvim'
 if [[ "$TERM" == "xterm-kitty" ]]; then
     alias emacs='TERM=xterm-24bit emacs -nw'
 fi
+
+# Homebrew
+alias bbd='brew bundle dump --file=~/dotfiles/Brewfile --force'
 
 # open in Nova
 alias -s {cs,js,html}=nova
