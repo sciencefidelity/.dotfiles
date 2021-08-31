@@ -7,11 +7,11 @@ end
 
 vim.api.nvim_exec(
   [[
-  augroup Packer
-    autocmd!
-    autocmd BufWritePost init.lua PackerCompile
-  augroup end
-]],
+    augroup Packer
+      autocmd!
+      autocmd BufWritePost init.lua PackerCompile
+    augroup end
+  ]],
   false
 )
 
@@ -19,6 +19,8 @@ local use = require('packer').use
 require('packer').startup(function()
   --·https://github.com/wbthomason/packer.nvim
   use 'wbthomason/packer.nvim'
+  -- https://github.com/editorconfig/editorconfig-vim
+  use 'editorconfig/editorconfig-vim'
   -- https://github.com/tpope/vim-fugitive
   use 'tpope/vim-fugitive'
   -- https://github.com/tpope/vim-rhubarb
@@ -53,10 +55,14 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp'
   -- https://github.com/hrsh7th/vim-vsnip
   -- use 'hrsh7th/vim-vsnip'
+  -- https://github.com/akinsho/flutter-tools.nvim
   use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
+  -- https://github.com/saadparwaiz1/cmp_luasnip
   use 'saadparwaiz1/cmp_luasnip'
-  use 'L3MON4D3/LuaSnip' -- Snippets plugin
-  use 'fladson/vim-kitty' -- Highlighting for Kitty.conf
+  -- https://github.com/L3MON4D3/LuaSnip
+  use 'L3MON4D3/LuaSnip'
+  -- https://github.com/fladson/vim-kitty
+  use 'fladson/vim-kitty'
 end)
 
 --Set highlight on search
@@ -112,11 +118,11 @@ vim.api.nvim_set_keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { noremap = true,
 -- Highlight on yank
 vim.api.nvim_exec(
   [[
-  augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-  augroup end
-]],
+    augroup YankHighlight
+      autocmd!
+      autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+    augroup end
+  ]],
   false
 )
 
