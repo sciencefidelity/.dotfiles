@@ -1,0 +1,12 @@
+[gpg]
+	program = gpg
+[commit]
+	gpgsign = false
+[user]
+	signingkey = 9F071448877E6705
+	name = sciencefidelity
+	email = 32623301+sciencefidelity@users.noreply.github.com
+[credential]
+	helper = osxkeychain
+[init]
+	defaultBranch = main
