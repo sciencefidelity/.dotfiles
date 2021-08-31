@@ -47,6 +47,13 @@ alias df='df -kTh'
 alias free='free -h'
 alias du='du -h -c' # calculate disk usage for a folder
 
+# https://github.com/sharkdp/bat
+alias cat='batcat'
+# https://github.com/BurntSushi/ripgrep
+alias grep='rg'
+# https://github.com/sharkdp/fd
+alias fd='fdfind'
+
 # always use Neovim
 alias vi='nvim'
 alias vim='nvim'
