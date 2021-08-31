@@ -1,5 +1,16 @@
 # dotfiles
 
+### [Bat](https://github.com/sharkdp/bat)
+
+[https://github.com/dracula/sublime](https://github.com/dracula/sublime)
+
+```shell
+mkdir -p "$(bat --config-dir)/themes"
+cd "$(bat --config-dir)/themes"
+git clone https://github.com/dracula/sublime
+bat cache --build
+```
+
 ### Emacs
 
 [Dracula Theme](https://github.com/dracula/emacs)

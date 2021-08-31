@@ -53,6 +53,7 @@ bindkey '^ ' autosuggest-accept
 
 export EDITOR=nvim
 export VISUAL="$EDITOR"
+export BAT_THEME="Dracula"
 
 # add color to man pages
 export MANROFFOPT='-c'
