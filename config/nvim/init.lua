@@ -47,6 +47,10 @@ require('packer').startup(function()
   use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' } }
   -- https://github.com/neovim/nvim-lspconfig
   use 'neovim/nvim-lspconfig'
+  -- https://github.com/p00f/nvim-ts-rainbow
+  use 'p00f/nvim-ts-rainbow'
+  -- https://github.com/windwp/nvim-autopairs
+  use 'windwp/nvim-autopairs'
   -- https://github.com/glepnir/lspsaga.nvim
   use 'glepnir/lspsaga.nvim'
   -- https://github.com/hrsh7th/nvim-cmp
@@ -261,6 +265,39 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
+require'nvim-treesitter.configs'.setup {
+  rainbow = {
+    enable = true,
+    colors = {
+      "#bd93f9",
+      "#ff79c6",
+      "#f8f8f2",
+      "#f1fa8c",
+      "#50fa7b",
+      "#ffb86c",
+      "#8be9fd"
+    },
+--    termcolors = {}
+  }
+}
+
+local npairs = require("nvim-autopairs")
+
+npairs.setup({
+    check_ts = true,
+    ts_config = {
+        lua = {'string'},-- it will not add pair on that treesitter node
+        javascript = {'template_string'},
+        java = false,-- don't check treesitter on java
+    }
+})
+
+require('nvim-treesitter.configs').setup {
+    autopairs = {enable = true}
+}
+
+local ts_conds = require('nvim-autopairs.ts-conds')
+
 -- LSP settings
 local nvim_lsp = require 'lspconfig'
 local on_attach = function(_, bufnr)
@@ -321,20 +358,15 @@ require('lspconfig').sumneko_lua.setup {
   settings = {
     Lua = {
       runtime = {
-        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
         version = 'LuaJIT',
-        -- Setup your lua path
         path = runtime_path,
       },
       diagnostics = {
-        -- Get the language server to recognize the `vim` global
         globals = { 'vim' },
       },
       workspace = {
-        -- Make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file('', true),
       },
-      -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = {
         enable = false,
       },
