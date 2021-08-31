@@ -53,6 +53,7 @@ require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp'
   -- https://github.com/hrsh7th/vim-vsnip
   -- use 'hrsh7th/vim-vsnip'
+  use { 'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim' }
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use 'fladson/vim-kitty' -- Highlighting for Kitty.conf
@@ -290,7 +291,7 @@ local saga = require 'lspsaga'
 saga.init_lsp_saga()
 
 -- Enable the following language servers
-local servers = { 'tsserver' }
+local servers = { 'dartls', 'svelte', 'tsserver', 'vuels' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
