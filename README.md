@@ -9,6 +9,8 @@ mkdir -p "$(bat --config-dir)/themes"
 cd "$(bat --config-dir)/themes"
 git clone https://github.com/dracula/sublime
 bat cache --build
+
+
 ```
 
 ### Emacs
@@ -56,13 +58,15 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting\
  ~/dotfiles/zsh/zsh-syntax-highlighting
 ```
 
-### Utils
+### Homebrew
 
-[Temperature util](https://www.raspberrypi.org/forums/viewtopic.php?t=252115) (for Raspberry Pi)
+Setting up on a new Mac.
 
 ```shell
-gcc ~/dotfiles/utils/temp.c -o temp
-sudo mv ./temp /usr/local/bin/
+xcode-select --install
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew install mas
 ```
 
 ### Truecolor Support
