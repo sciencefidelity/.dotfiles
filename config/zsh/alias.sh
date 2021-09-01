@@ -69,7 +69,7 @@ alias vim='nvim'
 # open emacs with truecolor
 if [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Linux" ]]; then
     alias emacs='TERM=xterm-24bit emacs -nw'
-else if [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Darwin" ]]; then
+elif [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Darwin" ]]; then
     alias emacs='TERM=xterm-emacs emacs -nw'
 fi
 
