@@ -23,6 +23,7 @@ cask "figma"
 # Notes
 cask "miro"
 cask "notion"
+cask "raindropio"
 
 # Development
 cask "android-studio"
