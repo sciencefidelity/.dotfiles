@@ -76,7 +76,7 @@
   :ensure t
   :diminish
   :config
-  (editorcoznfig-mode 1))
+  (editorconfig-mode 1))
 
 ;; https://github.com/myrjola/diminish.el
 (use-package diminish)
