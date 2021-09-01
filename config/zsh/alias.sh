@@ -43,7 +43,6 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias mkdir='mkdir -p'
 
-alias grep='grep --color=auto'
 # for more human readable results
 alias df='df -kTh'
 alias free='free -h'
@@ -56,7 +55,9 @@ else
   alias bat='batcat'
   alias cat='batcat'
 fi
+
 # https://github.com/BurntSushi/ripgrep
+alias grep='grep --color=auto'
 alias grep='rg'
 # https://github.com/sharkdp/fd
 alias fd='fdfind'
@@ -64,6 +65,7 @@ alias fd='fdfind'
 # always use Neovim
 alias vi='nvim'
 alias vim='nvim'
+
 # open emacs with truecolor
 if [[ "$TERM" == "xterm-kitty" ]]; then
     alias emacs='TERM=xterm-24bit emacs -nw'
