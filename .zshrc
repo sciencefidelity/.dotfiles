@@ -4,7 +4,7 @@ SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
 if [[ "$TERM" == "xterm-256color" ]]; then
-    export TERM=xterm-24bit
+    export TERM=xterm-24bits
 fi
 
 fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
