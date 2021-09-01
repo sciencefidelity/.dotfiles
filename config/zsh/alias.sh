@@ -68,7 +68,7 @@ alias vim='nvim'
 
 # open emacs with truecolor
 if [[ "$TERM" == "xterm-kitty" ]]; then
-    alias emacs='TERM=xterm-24bit emacs -nw'
+    alias emacs='TERM=xterm-emacs emacs -nw'
 fi
 
 # Homebrew

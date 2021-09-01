@@ -1,8 +1,8 @@
 ;; disable menu bar, toolbar and startup message
 (setq inhibit-startup-message t)
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(tooltip-mode -1)
+;; (scroll-bar-mode -1)
+;; (tool-bar-mode -1)
+;; (tooltip-mode -1)
 (menu-bar-mode -1)
 
 ;;·disable backups and autosave
@@ -10,8 +10,8 @@
 (setq auto-save-default nil)
 
 ;; use custom typeface in standalone
-(set-face-attribute 'default nil :font "MonoLisa" :height 130)
-(setq-default line-spacing 0.18)
+;; (set-face-attribute 'default nil :font "MonoLisa" :height 130)
+;; (setq-default line-spacing 0.18)
 
 ;; line and column numbers in prog mode
 (column-number-mode)
