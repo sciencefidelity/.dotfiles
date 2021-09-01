@@ -1,6 +1,7 @@
 # taps
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 
@@ -9,30 +10,45 @@ tap "sass/sass"
 
 brew "mas"
 
-# Applications
-cask "ableton-live-suite@10.1.30"
+# Browsers
+cask "brave-browser"
+cask "firefox"
+
+# Design
 cask "affinity-designer"
 cask "affinity-photo"
 cask "affinity-publisher"
-cask "android-studio"
-cask "anki"
-cask "appcleaner"
-cask "brave-browser"
-cask "dash"
 cask "figma"
-cask "firefox"
-cask "imageoptim"
-cask "insomnia"
-cask "karabiner-elements"
-cask "microsoft-teams"
-cask "kitty"
+
+# Notes
 cask "miro"
-cask "native-access"
 cask "notion"
+
+# Development
+cask "android-studio"
+cask "dash"
+cask "google-cloud-sdk"
+cask "insomnia"
+cask "kitty"
 cask "nova"
+
+# Social
+cask "microsoft-teams"
 cask "slack"
-cask "spotify"
 cask "zoom"
+
+# Utils
+cask "appcleaner"
+cask "imageoptim"
+cask "karabiner-elements"
+
+# Entertainment
+cask "anki"
+cask "spotify"
+
+# Audio
+cask "ableton-live-suite10"
+cask "native-access"
 
 # packages
 brew "bat"
@@ -52,7 +68,6 @@ brew "php"
 brew "ripgrep"
 brew "uutils-coreutils", link: false
 brew "sass/sass/sass"
-cask "kitty"
 
 # App Store
 mas "Apple Configurator 2", id: 1037126344
