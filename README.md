@@ -9,8 +9,6 @@ mkdir -p "$(bat --config-dir)/themes"
 cd "$(bat --config-dir)/themes"
 git clone https://github.com/dracula/sublime
 bat cache --build
-
-
 ```
 
 ### Emacs
