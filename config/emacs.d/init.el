@@ -154,6 +154,8 @@
   :diminish
   :hook (prog-mode . rainbow-delimiters-mode))
 
+(add-hook 'prog-mode-hook 'electric-pair-mode)
+
 ;; https://github.com/justbur/emacs-which-key
 (use-package which-key
   :init (which-key-mode)
