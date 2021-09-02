@@ -57,11 +57,6 @@ end)
 
 -- open Nova with "cmd+ctrl+n"
 hs.hotkey.bind({"cmd", "ctrl"}, "n", function()
-  hs.application.open('Nova.app')
-end)
-
--- open Notion with "cmd+ctrl+o"
-hs.hotkey.bind({"cmd", "ctrl"}, "o", function()
   hs.application.open('Notion.app')
 end)
 
@@ -78,4 +73,9 @@ end)
 -- open TextEdit with "cmd+ctrl+t"
 hs.hotkey.bind({"cmd", "ctrl"}, "t", function()
   hs.application.open('TextEdit.app')
+end)
+
+-- open Notion with "cmd+ctrl+v"
+hs.hotkey.bind({"cmd", "ctrl"}, "v", function()
+  hs.application.open('Nova.app')
 end)
