@@ -156,6 +156,11 @@
 
 (add-hook 'prog-mode-hook 'electric-pair-mode)
 
+;; https://github.com/Fuco1/smartparens
+(use-package smartparens
+  :config
+  (add-hook 'prog-mode-hook #'smartparens-mode))
+
 ;; https://github.com/justbur/emacs-which-key
 (use-package which-key
   :init (which-key-mode)
