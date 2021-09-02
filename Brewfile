@@ -40,6 +40,7 @@ cask "zoom"
 
 # Utils
 cask "appcleaner"
+cask "hammerspoon"
 cask "imageoptim"
 cask "karabiner-elements"
 
