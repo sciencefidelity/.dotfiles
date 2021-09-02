@@ -36,7 +36,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "f", function()
 end)
 
 -- open Figma with "cmd+ctrl+g"
-hs.hotkey.bind({"cmd", "ctrl"}, "f", function()
+hs.hotkey.bind({"cmd", "ctrl"}, "g", function()
   hs.application.open('Figma.app')
 end)
 
