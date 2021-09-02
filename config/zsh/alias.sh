@@ -8,6 +8,7 @@ pull_dotfiles() {
   cp ~/dotfiles/config/nvim/init.lua ~/.config/nvim/
   if [[ "$(uname)" == "Darwin" ]]; then
     cp ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/
+    cp ~/dotfiles/config/hammerspoon/init.lua ~/.hammerspoon/
     cp ~/dotfiles/.gitconfig ~/
   fi
   . ~/.zshrc
@@ -21,6 +22,7 @@ push_dotfiles() {
   if [[ "$(uname)" == "Darwin" ]]; then
     cp ~/.config/karabiner/karabiner.json ~/dotfiles/config/karabiner/
     cp ~/.config/kitty/kitty.conf ~/dotfiles/config/kitty/
+    cp ~/.hammerspoon/init.lua ~/dotfiles/config/hammerspoon/
     cp ~/.gitconfig ~/dotfiles/
   fi
 }
@@ -72,15 +74,18 @@ else
     alias emacs='emacs'
 fi
 
-alias ios="open -a Simulator"
-# https://sw.kovidgoyal.net/kitty/faq/
-alias ssh="kitty +kitten ssh"
-# http://www.hammerspoon.org
-alias hs="open -a Hammerspoon"
-# https://docs.brew.sh/Manpage
-alias bbd='brew bundle dump --file=~/dotfiles/Brewfile --force'
-# https://library.panic.com/nova/cli-tool/
-alias -s {cs,js,html}=nova
+# macOS specific
+if  [[ "$(uname)" == "Darwin" ]]; then
+    alias ios="open -a Simulator"
+    # https://sw.kovidgoyal.net/kitty/faq/
+    alias ssh="kitty +kitten ssh"
+    # http://www.hammerspoon.org
+    alias hs="open -a Hammerspoon"
+    # https://docs.brew.sh/Manpage
+    alias bbd='brew bundle dump --file=~/dotfiles/Brewfile --force'
+    # https://library.panic.com/nova/cli-tool/
+    alias -s {cs,js,html}=nova
+fi
 
 # Git aliases
 alias push='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git push'
