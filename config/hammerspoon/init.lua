@@ -15,51 +15,58 @@ end
 myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 hs.alert.show("Config loaded")
 
--- open Kitty with F1
-hs.hotkey.bind({}, "f1", function()
-  hs.application.open('Kitty.app')
-end)
--- open Nova with F2
-hs.hotkey.bind({}, "f2", function()
-  hs.application.open('Nova.app')
-end)
--- open Safari with F3
-hs.hotkey.bind({}, "f3", function()
-  hs.application.open('Safari.app')
-end)
--- open Notion with F4
-hs.hotkey.bind({}, "f4", function()
-  hs.application.open('Notion.app')
-end)
--- open Firefox with F5
-hs.hotkey.bind({}, "f5", function()
-  hs.application.open('Firefox.app')
-end)
--- open iA Writer with F6
-hs.hotkey.bind({}, "f6", function()
+-- open iA Writer with "cmd+ctrl+a"
+hs.hotkey.bind({"cmd", "ctrl"}, "a", function()
   hs.application.open('iA Writer.app')
 end)
--- open Dash with F7
-hs.hotkey.bind({}, "f7", function()
-  hs.application.open('Dash.app')
-end)
--- open TextEdit with F8
-hs.hotkey.bind({}, "f8", function()
-  hs.application.open('TextEdit.app')
-end)
--- open Mail with F9
-hs.hotkey.bind({}, "f9", function()
-  hs.application.open('Mail.app')
-end)
--- open Spotify with F10
-hs.hotkey.bind({}, "f10", function()
-  hs.application.open('Spotify.app')
-end)
--- open Brave with F11
-hs.hotkey.bind({}, "f11", function()
+
+-- open Brave with "cmd+ctrl+b"
+hs.hotkey.bind({"cmd", "ctrl"}, "b", function()
   hs.application.open('Brave Browser.app')
 end)
--- open Insomnia with F12
-hs.hotkey.bind({}, "f12", function()
+-- open Dash with "cmd+ctrl+d"
+hs.hotkey.bind({"cmd", "ctrl"}, "d", function()
+  hs.application.open('Dash.app')
+end)
+-- open Firefox with "cmd+ctrl+f"
+hs.hotkey.bind({"cmd", "ctrl"}, "f", function()
+  hs.application.open('Firefox.app')
+end)
+-- open Figma with "cmd+ctrl+g"
+hs.hotkey.bind({"cmd", "ctrl"}, "f", function()
+  hs.application.open('Figma.app')
+end)
+-- open Insomnia with "cmd+ctrl+i"
+hs.hotkey.bind({"cmd", "ctrl"}, "i", function()
   hs.application.open('Insomnia.app')
 end)
+-- open Kitty with "cmd+ctrl+k"
+hs.hotkey.bind({"cmd", "ctrl"}, "k", function()
+  hs.application.open('Kitty.app')
+end)
+-- open Mail with "cmd+ctrl+m"
+hs.hotkey.bind({"cmd", "ctrl"}, "m", function()
+  hs.application.open('Mail.app')
+end)
+-- open Nova with "cmd+ctrl+n"
+hs.hotkey.bind({"cmd", "ctrl"}, "n", function()
+  hs.application.open('Nova.app')
+end)
+-- open Notion with "cmd+ctrl+o"
+hs.hotkey.bind({"cmd", "ctrl"}, "o", function()
+  hs.application.open('Notion.app')
+end)
+-- open Spotify with "cmd+ctrl+p"
+hs.hotkey.bind({"cmd", "ctrl"}, "p", function()
+  hs.application.open('Spotify.app')
+end)
+-- open Safari with "cmd+ctrl+s"
+hs.hotkey.bind({"cmd", "ctrl"}, "s", function()
+  hs.application.open('Safari.app')
+end)
+-- open TextEdit with "cmd+ctrl+t"
+hs.hotkey.bind({"cmd", "ctrl"}, "t", function()
+  hs.application.open('TextEdit.app')
+end)
+
+
