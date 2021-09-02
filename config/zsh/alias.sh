@@ -26,9 +26,6 @@ push_dotfiles() {
 }
 alias pd='pull_dotfiles'
 
-# fix ssh with kitty: https://sw.kovidgoyal.net/kitty/faq/
-alias ssh="kitty +kitten ssh"
-
 # https://the.exa.website/docs/command-line-options
 alias ls='exa -F --group-directories-first'
 alias l='exa -aF --group-directories-first'
@@ -75,10 +72,14 @@ else
     alias emacs='emacs'
 fi
 
-# Homebrew
+alias ios="open -a Simulator"
+# https://sw.kovidgoyal.net/kitty/faq/
+alias ssh="kitty +kitten ssh"
+# http://www.hammerspoon.org
+alias hs="open -a Hammerspoon"
+# https://docs.brew.sh/Manpage
 alias bbd='brew bundle dump --file=~/dotfiles/Brewfile --force'
-
-# open in Nova
+# https://library.panic.com/nova/cli-tool/
 alias -s {cs,js,html}=nova
 
 # Git aliases
