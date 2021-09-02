@@ -48,9 +48,9 @@ hs.hotkey.bind({}, "f8", function()
   hs.application.open('TextEdit.app')
 end)
 -- open Mail with F9
--- hs.hotkey.bind({}, "f9", function()
---   hs.application.open('Mail.app')
--- end)
+hs.hotkey.bind({}, "f9", function()
+  hs.application.open('Mail.app')
+end)
 -- open Spotify with F10
 hs.hotkey.bind({}, "f10", function()
   hs.application.open('Spotify.app')
