@@ -13,14 +13,6 @@ bat cache --build
 
 ### Emacs
 
-[Dracula Theme](https://github.com/dracula/emacs)
-
-```shell
-mkdir -pv -- ~/.emacs.d/themes
-curl https://raw.githubusercontent.com/dracula/emacs/master/dracula-theme.el \
- -o ~/.emacs.d/themes/dracula-theme.el
-```
-
 First time running emacs do `M-x package-refresh-contents`
 
 ### Neovim

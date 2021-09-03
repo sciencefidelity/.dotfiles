@@ -21,8 +21,23 @@
 (setq-default indent-tabs-mode nil)
 (setq tab-width 2)
 
-;; load theme - https://github.com/dracula/emacs
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+;; initialize package sources
+(require 'package)
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+
+;; https://github.com/jwiegley/use-package
+(package-initialize)
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(require 'use-package)
+(setq use-package-always-ensure t)
+
+;; https://github.com/dracula/emacs
+(unless (package-installed-p 'dracula-theme)
+  (package-install 'dracula-theme))
+(require 'dracula-theme)
 (load-theme 'dracula t)
 ;; theme customisations
 (let ((custom--inhibit-theme-enable nil))
@@ -41,19 +56,6 @@
     `(whitespace-tab ((t (:background ,"#282a36" :foreground ,"#424450" :weight light))))
     `(whitespace-space ((t (:foreground ,"#424450" :wieght light))))
     ))
-
-;; initialize package sources
-(require 'package)
-(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-
-;; https://github.com/jwiegley/use-package
-(package-initialize)
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-(require 'use-package)
-(setq use-package-always-ensure t)
 
 ;; https://github.com/emacs-evil/evil
 (use-package evil
