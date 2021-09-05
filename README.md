@@ -72,10 +72,8 @@ Create a file `terminfo-custom.src` in the home directory:
 ```shell
 xterm-emacs|xterm with 24-bit direct color mode for Emacs,
 use=xterm-256color,
-setb24=\E[48\:2\:\:%p1%{65536}%/%d\:%p1%{256}%/%{255}%&\
-   %d\:%p1%{255}%&%dm,
-setf24=\E[38\:2\:\:%p1%{65536}%/%d\:%p1%{256}%/%{255}%&\
-   %d\:%p1%{255}%&%dm,
+setb24=\E[48\:2\:\:%p1%{65536}%/%d\:%p1%{256}%/%{255}%&\%d\:%p1%{255}%&%dm,
+setf24=\E[38\:2\:\:%p1%{65536}%/%d\:%p1%{256}%/%{255}%&\%d\:%p1%{255}%&%dm,
 ```
 
 ```shell

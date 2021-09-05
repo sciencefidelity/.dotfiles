@@ -71,7 +71,7 @@ if [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Linux" ]]; then
 elif [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Darwin" ]]; then
     alias emacs='TERM=xterm-emacs emacs -nw'
 else
-    alias emacs='emacs'
+    alias emacs='emacs -nw'
 fi
 
 # macOS specific
