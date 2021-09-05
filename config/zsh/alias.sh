@@ -3,6 +3,7 @@ pull_dotfiles() {
   echo 'Updating dotfiles'
   cp ~/dotfiles/.zshrc ~/
   cp -R ~/dotfiles/config/zsh ~/.config/
+  cp ~/dotfiles/config/bat/config ~/.config/bat/
   cp ~/dotfiles/.tmux.conf ~/
   cp ~/dotfiles/config/emacs.d/init.el ~/.emacs.d/
   cp ~/dotfiles/config/nvim/init.lua ~/.config/nvim/
@@ -16,6 +17,7 @@ pull_dotfiles() {
 push_dotfiles() {
   cp ~/.zshrc ~/dotfiles/
   cp -R ~/.config/zsh ~/dotfiles/config/
+  cp ~/.config/bat/config ~/dotfiles/config/bat/
   cp ~/.tmux.conf ~/dotfiles/
   cp ~/.emacs.d/init.el ~/dotfiles/config/emacs.d/
   cp ~/.config/nvim/init.lua ~/dotfiles/config/nvim/
@@ -71,7 +73,7 @@ if [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Linux" ]]; then
 elif [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Darwin" ]]; then
     alias emacs='TERM=xterm-emacs emacs -nw'
 else
-    alias emacs='emacs -nw'
+    alias emacs='emacs'
 fi
 
 # macOS specific
