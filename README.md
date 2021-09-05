@@ -82,3 +82,12 @@ tic -x -o ~/.terminfo terminfo-custom.src
 
 Run Emacs with the command `TERM=xterm-emacs emacs -nw`
 
+## Notes
+
+#### Colors not working in macOS
+
+- emacs in Nova
+- bat run in Nova
+- emacs in tmux in Kitty
+- emacs in tmux in Nova
+- bat run in tmux in Nova
