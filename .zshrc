@@ -3,9 +3,11 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-if [[ "$TERM" == "xterm-256color" ]]; then
+if [[ "$TERM" == "xterm-256color" && "$(uname)" == "Linux" ]]; then
     export TERM=xterm-24bits
 fi
+
+export TERM=xterm-256color
 
 fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
 autoload -U promptinit; promptinit
