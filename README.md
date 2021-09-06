@@ -91,3 +91,5 @@ Run Emacs with the command `TERM=xterm-emacs emacs -nw`
 - emacs in tmux in Kitty
 - emacs in tmux in Nova
 - bat run in tmux in Nova
+- emacs on Raspberry Pi in tmux on Kitty
+- tmux and all packages on Raspberry pi in Blink
