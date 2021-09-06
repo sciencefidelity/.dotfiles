@@ -72,6 +72,8 @@ if [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Linux" ]]; then
     alias emacs='TERM=xterm-24bit emacs -nw'
 elif [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Darwin" ]]; then
     alias emacs='TERM=xterm-emacs emacs -nw'
+elif [[ "$TERM" == "xterm-256color" && "$(uname)" == "Darwin" ]]; then
+    alias emacs='TERM=xterm-24bits emacs -nw'
 else
     alias emacs='emacs'
 fi

@@ -84,11 +84,13 @@ Run Emacs with the command `TERM=xterm-emacs emacs -nw`
 
 ## Notes
 
-#### Colors not working in macOS
+#### Colors not working in macOS ($TERM)
 
-- emacs in Nova
-- bat run in Nova
-- emacs in tmux in Kitty
-- emacs in tmux in Nova
-- bat run in tmux in Nova
-- emacs on Raspberry Pi in tmux on Kitty
+- emacs in tmux in Kitty (screen)
+- emacs in tmux in Nova (screen-256color)
+
+- bat run in Nova (xterm-256color)
+- bat run in tmux in Nova (screen-256color)
+- bat run on Raspberry Pi in Nova (xterm-24bits)
+- bat run on Raspberry Pi in tmux in Nova (xterm-24bits)
+
