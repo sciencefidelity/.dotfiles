@@ -40,6 +40,7 @@ brew "exa"
 brew "fd"
 brew "lf"
 brew "neovim", args: ["HEAD"]
+brew "node"
 brew "ripgrep"
 brew "sass/sass/sass"
 

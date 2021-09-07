@@ -67,6 +67,7 @@ brew "mariadb"
 brew "mongosh"
 brew "mosh"
 brew "neovim", args: ["HEAD"]
+brew "node"
 brew "php"
 brew "ripgrep"
 brew "uutils-coreutils", link: false
