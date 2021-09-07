@@ -73,8 +73,13 @@
   environment.systemPackages = with pkgs; [
     bat
     emacs
+    flutter
+    go
+    gopls
     neovim
+    nodejs
     ripgrep
+    tmux
     wget
     zsh
   ];
