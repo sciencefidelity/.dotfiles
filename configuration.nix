@@ -45,6 +45,16 @@
     neovim
   ];
 
+  programs.zsh = {
+    enable = true;
+    syntaxHighlighting.enable = true;
+    interactiveShellInit = ''
+      source ${pkgs.grml-zsh-config}/etc/zsh/zshrc
+    '';
+    promptInit = ""; # otherwise it'll override the grml prompt
+  };
+
+
   users = {
     defaultUserShell = pkgs.zsh;
     mutableUsers = false;
@@ -73,12 +83,22 @@
   environment.systemPackages = with pkgs; [
     bat
     emacs
+    exa
     flutter
+    fzf
+    lua
+    luajit
+    luarocks
+    git
     go
     gopls
+    lazygit
+    lf
+    mosh
     neovim
     nodejs
     ripgrep
+    samba
     tmux
     wget
     zsh
