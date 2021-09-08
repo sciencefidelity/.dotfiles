@@ -10,21 +10,6 @@
       ./hardware-configuration.nix
     ];
 
-#   boot = {
-#     kernelPackages = pkgs.linuxPackages_rpi4;
-#     tmpOnTmpfs = true;
-#     initrd.availableKernelModules = [ "usbhib" "usb_storage" ];
-#     # ttyAMA0 is the serial console broken out to the GPIO
-#     kernelParams = [
-#         "8250.nr_uarts=1"
-#         "console=ttyAMA0,115200"
-#         "console=tty1"
-#         # Some gui programs need this
-#         "cma=128M"
-#     ];
-#   };
-#
-
   boot.loader.raspberryPi = {
     enable = true;
     version = 4;
@@ -41,15 +26,6 @@
       enable = true;
     };
   };
-
-  # programs.zsh = {
-  #   enable = true;
-  #   syntaxHighlighting.enable = true;
-  #   interactiveShellInit = ''
-  #     source ${pkgs.grml-zsh-config}/etc/zsh/zshrc
-  #   '';
-  #   promptInit = ""; # otherwise it'll override the grml prompt
-  # };
 
   users = {
     defaultUserShell = pkgs.zsh;
