@@ -51,9 +51,13 @@
   #   promptInit = ""; # otherwise it'll override the grml prompt
   # };
 
-  users.users.matt = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+  users = {
+    defaultUserShell = pkgs.zsh;
+    mutableUsers = false;
+    users.matt = {
+      isNormalUser = true;
+      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    };
   };
 
   # Set your time zone.
