@@ -34,7 +34,10 @@
     mutableUsers = false;
     users.matt = {
       isNormalUser = true;
+      home = "/home/matt";
+      description = "Matt Cook";
       extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+      openssh.authorizedKeys.keys = [ /home/matt/.ssh/raspi.pub ];
     };
   };
 

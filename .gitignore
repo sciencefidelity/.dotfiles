@@ -9,3 +9,6 @@
 
 # generated
 packer_compiled.lua
+
+# secrets
+secrets.*
