@@ -38,14 +38,9 @@
     };
   };
 
-  # Set your time zone.
   time.timeZone = "Europe/London";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     abduco
     bat
@@ -87,8 +82,6 @@
   };
 
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
   # This value determines the NixOS release from which the default
