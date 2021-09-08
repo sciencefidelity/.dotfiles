@@ -52,7 +52,14 @@
     cabal-install
     deno
     dart
+    elmPackages.create-elm-app
     elmPackages.elm
+    elmPackages.elm-analyse
+    elmPackages.elm-format
+    elmPackages.elm-language-server
+    elmPackages.elm-live
+    elmPackages.elm-review
+    elmPackages.elm-test
     emacs
     exa
     fd
@@ -70,6 +77,14 @@
     mosh
     neovim
     nodejs
+    nodePackages.esy
+    nodePackages.gatsby-cli
+    nodePackages.svelte-language-server
+    nodePackages.typescript
+    nodePackages.typescript-language-server
+    nodePackages.vue-cli
+    nodePackages.vue-language-server
+    nodePackages.yarn
     ocamlPackages.js_of_ocaml
     ocamlPackages.js_of_ocaml-ppx
     ocamlPackages.js_of_ocaml-lwt
