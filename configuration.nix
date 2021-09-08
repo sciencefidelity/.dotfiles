@@ -37,7 +37,10 @@
       home = "/home/matt";
       description = "Matt Cook";
       extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-      openssh.authorizedKeys.keys = [ /home/matt/.ssh/raspi.pub ];
+      openssh.authorizedKeys.keys = [
+        let keys = import /home/matt/.ssh/keys.nix;
+        in [ keys.raspi ];
+      ];
     };
   };
 
