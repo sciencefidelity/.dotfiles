@@ -45,9 +45,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    abduco
     bat
+    cabal-install
     deno
     dart
+    elmPackages.elm
     emacs
     exa
     fd
@@ -55,16 +58,23 @@
     lua
     luajit
     luarocks
+    gcc
+    ghc
     git
     go
     gopls
     lazygit
     lf
+    libstdcxx5
     mosh
     neovim
     nodejs
+    ocamlPackages.js_of_ocaml
+    ocamlPackages.js_of_ocaml-ppx
+    ocamlPackages.js_of_ocaml-lwt
     ripgrep
     samba
+    sumneko-lua-language-server
     tmux
     wget
     zsh
