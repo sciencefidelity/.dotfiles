@@ -52,6 +52,7 @@
     exa
     fd
     fzf
+    libraspberrypi
     lua
     luajit
     luarocks
@@ -69,6 +70,7 @@
     ocamlPackages.js_of_ocaml
     ocamlPackages.js_of_ocaml-ppx
     ocamlPackages.js_of_ocaml-lwt
+    raspberrypi-eeprom
     ripgrep
     samba
     sumneko-lua-language-server
