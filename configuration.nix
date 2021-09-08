@@ -61,14 +61,12 @@
     lua
     luajit
     luarocks
-    gcc
     ghc
     git
     go
     gopls
     lazygit
     lf
-    libstdcxx5
     mosh
     neovim
     nodejs
