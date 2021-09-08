@@ -5,20 +5,25 @@
 { config, pkgs, ... }:
 
 {
-
-  boot = {
-    kernelPackages = pkgs.linuxPackages_rpi4;
-    tmpOnTmpfs = true;
-    initrd.availableKernelModules = [ "usbhib" "usb_storage" ];
-    # ttyAMA0 is the serial console broken out to the GPIO
-    kernelParams = [
-        "8250.nr_uarts=1"
-        "console=ttyAMA0,115200"
-        "console=tty1"
-        # Some gui programs need this
-        "cma=128M"
+  imports =
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
     ];
-  };
+
+#   boot = {
+#     kernelPackages = pkgs.linuxPackages_rpi4;
+#     tmpOnTmpfs = true;
+#     initrd.availableKernelModules = [ "usbhib" "usb_storage" ];
+#     # ttyAMA0 is the serial console broken out to the GPIO
+#     kernelParams = [
+#         "8250.nr_uarts=1"
+#         "console=ttyAMA0,115200"
+#         "console=tty1"
+#         # Some gui programs need this
+#         "cma=128M"
+#     ];
+#   };
+#
 
   boot.loader.raspberryPi = {
     enable = true;
@@ -32,38 +37,27 @@
 
   networking = {
     hostName = "pi"; # Define your hostname
-    wireless.enable = true;
+    wireless = {
+      enable = true;
     };
   };
 
-  programs.zsh = {
-    enable = true;
-    syntaxHighlighting.enable = true;
-    interactiveShellInit = ''
-      source ${pkgs.grml-zsh-config}/etc/zsh/zshrc
-    '';
-    promptInit = ""; # otherwise it'll override the grml prompt
-  };
+  # programs.zsh = {
+  #   enable = true;
+  #   syntaxHighlighting.enable = true;
+  #   interactiveShellInit = ''
+  #     source ${pkgs.grml-zsh-config}/etc/zsh/zshrc
+  #   '';
+  #   promptInit = ""; # otherwise it'll override the grml prompt
+  # };
 
-
-  users = {
-    defaultUserShell = pkgs.zsh;
-    mutableUsers = false;
-    users.matt = {
-      isNormalUser = true;
-      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    };
+  users.users.matt = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   };
 
   # Set your time zone.
   time.timeZone = "Europe/London";
-
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
-  networking.useDHCP = false;
-  networking.interfaces.eth0.useDHCP = true;
-  networking.interfaces.wlan0.useDHCP = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -72,8 +66,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     bat
-    dart
     deno
+    dart
     emacs
     exa
     fd
@@ -95,6 +89,10 @@
     wget
     zsh
   ];
+
+  environment.variables = {
+    EDITOR = "nvim";
+  };
 
   # List services that you want to enable:
 
