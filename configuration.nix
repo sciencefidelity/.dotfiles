@@ -2,13 +2,9 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 
-# {
-#   imports =
-#     [ # Include the results of the hardware scan.
-#       ./hardware-configuration.nix
-#     ];
+{
 
   boot = {
     kernelPackages = pkgs.linuxPackages_rpi4;
@@ -36,14 +32,9 @@
 
   networking = {
     hostName = "pi"; # Define your hostname
-    networkmanager = {
-      enable = true;
+    wireless.enable = true;
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    neovim
-  ];
 
   programs.zsh = {
     enable = true;
@@ -74,7 +65,6 @@
   networking.interfaces.eth0.useDHCP = true;
   networking.interfaces.wlan0.useDHCP = true;
 
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
 
@@ -82,9 +72,11 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     bat
+    dart
+    deno
     emacs
     exa
-    flutter
+    fd
     fzf
     lua
     luajit
@@ -104,24 +96,10 @@
     zsh
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
