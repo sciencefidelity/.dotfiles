@@ -1,14 +1,11 @@
-# This is the nix config for Raspberry pi.
-
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# nix config for Raspberry pi
 
 { config, pkgs, ... }:
 
 {
+
   imports =
-    [ # Include the results of the hardware scan.
+    [ # the results of the hardware scan, do not change
       ./hardware-configuration.nix
     ];
 
@@ -19,11 +16,10 @@
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
 
-  # Required for the Wireless firmware
   hardware.enableRedistributableFirmware = true;
 
   networking = {
-    hostName = "pi"; # Define your hostname
+    hostName = "pi";
     wireless = {
       enable = true;
     };
@@ -36,10 +32,10 @@
       isNormalUser = true;
       home = "/home/matt";
       description = "Matt Cook";
-      extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+      extraGroups = [ "wheel" ]; # enable ‘sudo’ for the user
       openssh.authorizedKeys.keys =
         let keys = import /home/matt/.ssh/keys.nix;
-        in [ keys.raspi ];
+        in [ keys.matt ];
     };
   };
 
@@ -99,17 +95,74 @@
 
   environment.variables = {
     EDITOR = "nvim";
+    KEYTIMEOUT = 1;
+    VISUAL = "$EDITOR";
+    BAT_THEME = "Dracula";
   };
 
-  # List services that you want to enable:
   services.openssh.enable = true;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.11"; # Did you read the comment?
+  programs.zsh = {
+    enable = true;
+    syntaxHighlighting.enable = true;
+    shellAliases = {
+      update = "sudo nixos-rebuild switch";
+      # https://the.exa.website/docs/command-line-options
+      ls="exa -F --group-directories-first";
+      l="exa -aF --group-directories-first";
+      la="exa -laF --group-directories-first --git --git-ignore";
+      ll="exa -lF --group-directories-first --git --git-ignore";
+      lt="exa -T --git-ignore";
+      lr="exa -R --git-ignore";
+
+      ..="cd ..";
+      ...="cd ../..";
+      ....="cd ../../..";
+      .....="cd ../../../..";
+      mkdir="mkdir -p";
+      # for more human readable results
+      df="df -kTh";
+      free="free -h";
+      du="du -h -c"; # calculate disk usage for a folder
+      # https://github.com/sharkdp/bat
+      cat="bat";
+      # https://github.com/BurntSushi/ripgrep
+      grep="grep --color=auto";
+      grep="rg";
+      # https://github.com/sharkdp/fd
+      fd="fdfind";
+      # always use Neovim
+      vi="nvim";
+      vim="nvim";
+
+      push="eval '$(ssh-agent -s)'; ssh-add ~/.ssh/github; git push";
+      pull="eval '$(ssh-agent -s)'; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main";
+      gst="git status";
+      # prevent typing password too often
+      sudo="sudo -v; sudo ";
+      # recursively delete `.DS_Store` files
+      cleanup="find . -name '*.DS_Store' -type f -ls -delete";
+    };
+    history = {
+      size = 10000;
+      path = "${config.xdg.dataHome}/zsh/history";
+    };
+    # https://github.com/zplug/zplug
+    zplug = {
+      enable = true;
+      plugins = [
+        # https://github.com/dracula/zsh
+        { name = "dracula/zsh"; tags = [ as:theme ]; }
+        # https://github.com/zsh-users/zsh-autosuggestions
+        { name = "zsh-users/zsh-autosuggestions"; }
+        # https://github.com/zsh-users/zsh-syntax-highlighting
+        { name = "zsh-users/zsh-syntax-highlighting"; }
+        # https://github.com/spaceship-prompt/spaceship-prompt
+        { name = "spaceship-prompt/spaceship-prompt"; tags = [ use:spaceship.zsh from:github as:theme ]; }
+      ];
+    };
+  };
+
+  system.stateVersion = "21.11";
 
 }
