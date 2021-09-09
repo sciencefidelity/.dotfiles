@@ -105,6 +105,15 @@
   programs.zsh = {
     enable = true;
     syntaxHighlighting.enable = true;
+    enableAutosuggestions = true;
+    autocd = true;
+    localVariables = {
+      SPACESHIP_VI_MODE_SHOW = false;
+      SPACESHIP_USER_SHOW = always;
+      SPACESHIP_HOST_SHOW = always;
+      SPACESHIP_PROMPT_ADD_NEWLINE = false;
+    }
+
     shellAliases = {
       update = "sudo nixos-rebuild switch";
       # https://the.exa.website/docs/command-line-options
@@ -161,6 +170,15 @@
         { name = "spaceship-prompt/spaceship-prompt"; tags = [ use:spaceship.zsh from:github as:theme ]; }
       ];
     };
+  };
+
+  programs.neovim = {
+    enable = true;
+  };
+
+  programs.tmux = {
+    enable = true;
+    terminal = "tmux-256color";
   };
 
   system.stateVersion = "21.11";
