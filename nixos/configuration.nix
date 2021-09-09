@@ -141,8 +141,8 @@
       # https://github.com/sharkdp/fd
       fd="fdfind";
       # always use Neovim
-      vi="nvim";
-      vim="nvim";
+      # vi="nvim";
+      # vim="nvim";
 
       push="eval '$(ssh-agent -s)'; ssh-add ~/.ssh/github; git push";
       pull="eval '$(ssh-agent -s)'; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main";
@@ -174,11 +174,16 @@
 
   programs.neovim = {
     enable = true;
+    viAlias = true;
   };
 
   programs.tmux = {
     enable = true;
     terminal = "tmux-256color";
+  };
+
+  programs.emacs = {
+    enable = true;
   };
 
   system.stateVersion = "21.11";
