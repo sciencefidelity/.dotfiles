@@ -7,7 +7,6 @@
   imports =
     [ # the results of the hardware scan, do not change
       ./hardware-configuration.nix
-#      <home-manager/nixos>
     ];
 
   boot.loader.raspberryPi = {
@@ -136,7 +135,6 @@
     git
     go
     gopls
-    home-manager
     htop
     lazygit
     lf
