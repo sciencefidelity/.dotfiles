@@ -1,12 +1,13 @@
 # nix config for Raspberry pi
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
 
   imports =
     [ # the results of the hardware scan, do not change
       ./hardware-configuration.nix
+#      <home-manager/nixos>
     ];
 
   boot.loader.raspberryPi = {
@@ -21,7 +22,7 @@
   networking = {
     hostName = "pi";
     wireless = {
-      enable = true;
+      enable = false;
     };
   };
 
@@ -30,17 +31,84 @@
     mutableUsers = false;
     users.matt = {
       isNormalUser = true;
-      home = "/home/matt";
-      description = "Matt Cook";
       extraGroups = [ "wheel" ]; # enable ‘sudo’ for the user
-      openssh.authorizedKeys.keys =
-        let keys = import /home/matt/.ssh/keys.nix;
-        in [ keys.matt ];
+      initialPassword = "nixos";
+      # openssh.authorizedKeys.keys =
+      #   let keys = import /home/matt/.ssh/keys.nix;
+      #   in [ keys.nixos ];
     };
   };
 
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
+  
+#  programs.git = {
+#    enable = true;
+#    userName = "sciencefidelity";
+#    userEmail = "32623301+sciencefidelity@users.noreply.github.com";
+    
+#    signing = {
+#      key = "9F071448877E6705";
+#      signByDefault = true;
+#    };
+
+#    aliases = {
+#      co = "checkout";
+#      ci = "commit";
+#      st = "status";
+#      br = "branch";
+#      hist = "log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short";
+#      type = "cat-file -t";
+#      dump = "cat-file -p";
+#    };
+#  };
+
+#  programs.htop = {
+#    enable = true;
+#  };
+
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+  }; 
+  
+  programs.zsh = {
+    enable = true;
+    syntaxHighlighting.enable = true;
+    enableCompletion = false;
+    autosuggestions.enable = true;
+#    dotDir = ".config/zsh";
+    shellAliases = {
+      sysrs = "sudo nixos-rebuild switch";
+      sysup = "sudo nixos-rebuild switch --upgrade";
+      sysclean = "sudo nix-collect-garbage -d; and sudo nix-store --optimise";
+      ls="exa -F --group-directories-first";
+      l="exa -aF --group-directories-first";
+      la="exa -laF --group-directories-first --git --git-ignore";
+      ll="exa -lF --group-directories-first --git --git-ignore";
+      lt="exa -T --git-ignore";
+      lr="exa -R --git-ignore";
+      df="df -kTh";
+      free="free -h";
+      du="du -h -c";
+      cat = "bat -p";
+      grep="rg";
+      fd="fdfind";
+    };
+
+#    profileExtra = ''
+#      if [[ "$TERM" == "xterm-256color" && "$(uname)" == "Linux" ]]; then
+#        export TERM=xterm-24bits
+#      fi
+#
+#      autoloag -U compinit
+#      zstyle ":completeion:*" menu select
+#      zmodload zsh/complist
+#      compinit
+#      _comp_options+=(globdots)
+#    '';
+  };
 
   environment.systemPackages = with pkgs; [
     abduco
@@ -68,12 +136,13 @@
     git
     go
     gopls
+    home-manager
+    htop
     lazygit
     lf
     mosh
     neovim
     nodejs
-    nodePackages.esy
     nodePackages.gatsby-cli
     nodePackages.svelte-language-server
     nodePackages.typescript
@@ -95,97 +164,11 @@
 
   environment.variables = {
     EDITOR = "nvim";
-    KEYTIMEOUT = 1;
-    VISUAL = "$EDITOR";
-    BAT_THEME = "Dracula";
   };
 
   services.openssh.enable = true;
 
-  programs.zsh = {
-    enable = true;
-    syntaxHighlighting.enable = true;
-    enableAutosuggestions = true;
-    autocd = true;
-    localVariables = {
-      SPACESHIP_VI_MODE_SHOW = false;
-      SPACESHIP_USER_SHOW = always;
-      SPACESHIP_HOST_SHOW = always;
-      SPACESHIP_PROMPT_ADD_NEWLINE = false;
-    }
-
-    shellAliases = {
-      update = "sudo nixos-rebuild switch";
-      # https://the.exa.website/docs/command-line-options
-      ls="exa -F --group-directories-first";
-      l="exa -aF --group-directories-first";
-      la="exa -laF --group-directories-first --git --git-ignore";
-      ll="exa -lF --group-directories-first --git --git-ignore";
-      lt="exa -T --git-ignore";
-      lr="exa -R --git-ignore";
-
-      ..="cd ..";
-      ...="cd ../..";
-      ....="cd ../../..";
-      .....="cd ../../../..";
-      mkdir="mkdir -p";
-      # for more human readable results
-      df="df -kTh";
-      free="free -h";
-      du="du -h -c"; # calculate disk usage for a folder
-      # https://github.com/sharkdp/bat
-      cat="bat";
-      # https://github.com/BurntSushi/ripgrep
-      grep="grep --color=auto";
-      grep="rg";
-      # https://github.com/sharkdp/fd
-      fd="fdfind";
-      # always use Neovim
-      # vi="nvim";
-      # vim="nvim";
-
-      push="eval '$(ssh-agent -s)'; ssh-add ~/.ssh/github; git push";
-      pull="eval '$(ssh-agent -s)'; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main";
-      gst="git status";
-      # prevent typing password too often
-      sudo="sudo -v; sudo ";
-      # recursively delete `.DS_Store` files
-      cleanup="find . -name '*.DS_Store' -type f -ls -delete";
-    };
-    history = {
-      size = 10000;
-      path = "${config.xdg.dataHome}/zsh/history";
-    };
-    # https://github.com/zplug/zplug
-    zplug = {
-      enable = true;
-      plugins = [
-        # https://github.com/dracula/zsh
-        { name = "dracula/zsh"; tags = [ as:theme ]; }
-        # https://github.com/zsh-users/zsh-autosuggestions
-        { name = "zsh-users/zsh-autosuggestions"; }
-        # https://github.com/zsh-users/zsh-syntax-highlighting
-        { name = "zsh-users/zsh-syntax-highlighting"; }
-        # https://github.com/spaceship-prompt/spaceship-prompt
-        { name = "spaceship-prompt/spaceship-prompt"; tags = [ use:spaceship.zsh from:github as:theme ]; }
-      ];
-    };
-  };
-
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-  };
-
-  programs.tmux = {
-    enable = true;
-    terminal = "tmux-256color";
-  };
-
-  programs.emacs = {
-    enable = true;
-  };
-
   system.stateVersion = "21.11";
 
 }
+
