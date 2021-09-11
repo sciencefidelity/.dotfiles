@@ -226,6 +226,10 @@
         :ensure t)
     '';
     myEmacs = emacs.pkgs.withPackages (epkgs: (with epkgs.melpaStablePackages; [
+      (runCommand "default.el" {} ''
+        mkdir -p $out/share/emacs/site-lisp
+        cp ${myEmacsConfig} $out/share/emacs/site-lisp/default.el
+      '')
       company
       counsel
       diminish
