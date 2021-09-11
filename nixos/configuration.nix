@@ -2,11 +2,15 @@
 
 { config, pkgs, lib, ... }:
 
+let
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+in
 {
 
   imports =
     [ # the results of the hardware scan, do not change
       ./hardware-configuration.nix
+      (import "${home-manager}/nixos")
     ];
 
   boot.loader.raspberryPi = {
@@ -40,44 +44,46 @@
 
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
-  
-#  programs.git = {
-#    enable = true;
-#    userName = "sciencefidelity";
-#    userEmail = "32623301+sciencefidelity@users.noreply.github.com";
-    
-#    signing = {
-#      key = "9F071448877E6705";
-#      signByDefault = true;
-#    };
 
-#    aliases = {
-#      co = "checkout";
-#      ci = "commit";
-#      st = "status";
-#      br = "branch";
-#      hist = "log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short";
-#      type = "cat-file -t";
-#      dump = "cat-file -p";
-#    };
-#  };
+  home-manager.users.matt = {
+    programs.git = {
+      enable = true;
+      userName = "sciencefidelity";
+      userEmail = "32623301+sciencefidelity@users.noreply.github.com";
 
-#  programs.htop = {
-#    enable = true;
-#  };
+      signing = {
+        key = "9F071448877E6705";
+        signByDefault = true;
+      };
+
+      aliases = {
+        co = "checkout";
+        ci = "commit";
+        st = "status";
+        br = "branch";
+        hist = "log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short";
+        type = "cat-file -t";
+        dump = "cat-file -p";
+      };
+    };
+
+    programs.htop = {
+      enable = true;
+    };
+  };
 
   programs.neovim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
-  }; 
-  
+  };
+
   programs.zsh = {
     enable = true;
     syntaxHighlighting.enable = true;
     enableCompletion = false;
     autosuggestions.enable = true;
-#    dotDir = ".config/zsh";
+    # dotDir = ".config/zsh";
     shellAliases = {
       sysrs = "sudo nixos-rebuild switch";
       sysup = "sudo nixos-rebuild switch --upgrade";
@@ -96,17 +102,17 @@
       fd="fdfind";
     };
 
-#    profileExtra = ''
-#      if [[ "$TERM" == "xterm-256color" && "$(uname)" == "Linux" ]]; then
-#        export TERM=xterm-24bits
-#      fi
+#     profileExtra = ''
+#       if [[ "$TERM" == "xterm-256color" && "$(uname)" == "Linux" ]]; then
+#         export TERM=xterm-24bits
+#       fi
 #
-#      autoloag -U compinit
-#      zstyle ":completeion:*" menu select
-#      zmodload zsh/complist
-#      compinit
-#      _comp_options+=(globdots)
-#    '';
+#       autoloag -U compinit
+#       zstyle ":completeion:*" menu select
+#       zmodload zsh/complist
+#       compinit
+#       _comp_options+=(globdots)
+#     '';
   };
 
   environment.systemPackages = with pkgs; [
