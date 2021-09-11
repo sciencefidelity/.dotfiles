@@ -82,6 +82,12 @@ in
       enable = true;
     };
 
+    services.gpg-agent = {
+      enable = true;
+      enableSshSupport = true;
+
+    };
+
     programs.htop = {
       enable = true;
     };
@@ -150,6 +156,8 @@ in
             alias emacs="emacs"
         fi
 
+        eval "$(ssh-agent -s)"
+        ssh-add ~/.ssh/github
         gitpush() {
           pull
           git add .
@@ -291,6 +299,7 @@ in
     ocamlPackages.js_of_ocaml
     ocamlPackages.js_of_ocaml-ppx
     ocamlPackages.js_of_ocaml-lwt
+    pinentry
     raspberrypi-eeprom
     ripgrep
     samba
