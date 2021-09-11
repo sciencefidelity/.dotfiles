@@ -1,5 +1,7 @@
 # dotfiles
 
+I currently use two platforms, macOS and NixOS on Raspberry Pi. Nix home manager is accessed in different ways depending on the platform. NixOS for a single user can be entirely managed via the main `configuration.nix` file located in `/etc/nixos`. Nix home manager on Darwin is managed from the `home.nix` file located in `~/.config/nixpkgs`. Instead of creating seperate repos for the two platforms, I have put everything in this repo with the appropriate Nix configuration in its respective path for the OS.
+
 ### [Bat](https://github.com/sharkdp/bat)
 
 [https://github.com/dracula/sublime](https://github.com/dracula/sublime)

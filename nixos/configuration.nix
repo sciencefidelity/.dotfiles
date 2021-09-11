@@ -80,7 +80,6 @@ in
 
     programs.gpg = {
       enable = true;
-
     };
 
     programs.htop = {
