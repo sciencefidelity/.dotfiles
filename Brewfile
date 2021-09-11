@@ -59,7 +59,7 @@ brew "deno"
 brew "emacs"
 brew "exa"
 brew "fd"
-brew "webp"
+brew "git-delta"
 brew "gopls"
 brew "httpd"
 brew "lf"
@@ -70,8 +70,9 @@ brew "neovim", args: ["HEAD"]
 brew "node"
 brew "php"
 brew "ripgrep"
-brew "uutils-coreutils", link: false
 brew "sass/sass/sass"
+brew "uutils-coreutils", link: false
+brew "webp"
 
 # App Store
 mas "Apple Configurator 2", id: 1037126344
