@@ -38,11 +38,11 @@ alias ll='exa -lF --group-directories-first --git --git-ignore'
 alias lt='exa -T --git-ignore'
 alias lr='exa -R --git-ignore'
 
-alias ..='cd ..'
-alias ...='cd ../..'
+alias ..="cd .."
+alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias mkdir='mkdir -p'
+alias mkdir="mkdir -p"
 
 # for more human readable results
 alias df='df -kTh'
@@ -58,7 +58,6 @@ else
 fi
 
 # https://github.com/BurntSushi/ripgrep
-alias grep='grep --color=auto'
 alias grep='rg'
 # https://github.com/sharkdp/fd
 alias fd='fdfind'
