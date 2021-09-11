@@ -1,5 +1,3 @@
-{ config, pkgs, lib, ... }:
-
 {
   packageOverrides = pkgs: with pkgs; rec {
     myEmacsConfig = writeText "default.el" ''
@@ -251,5 +249,5 @@
       use-package
       which-key
     ]));
-  }
+  };
 }
