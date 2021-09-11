@@ -2,7 +2,7 @@
 
 {
   packageOverrides = pkgs: with pkgs; rec {
-    emacsConfig = writeText "init.el" ''
+    myEmacsConfig = writeText "default.el" ''
       ;; disable menu bar, toolbar and startup message
       (setq inhibit-startup-message t)
       ;; (scroll-bar-mode -1)
@@ -226,8 +226,8 @@
       (use-package treemacs-magit
         :after (treemacs magit)
         :ensure t)
-    ''
-    emacs = emacs.pkgs.withPackages (epkgs: (with epkgs.melpaStablePackages; [
+    '';
+    myEmacs = emacs.pkgs.withPackages (epkgs: (with epkgs.melpaStablePackages; [
       company
       counsel
       diminish
