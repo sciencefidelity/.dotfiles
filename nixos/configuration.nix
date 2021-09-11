@@ -136,6 +136,7 @@
     go
     gopls
     htop
+    home-manager
     lazygit
     lf
     mosh
