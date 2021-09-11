@@ -47,7 +47,7 @@ in
 
   home-manager.users.matt = {
 
-    Programs.gh = {
+    programs.gh = {
       enable = true;
       gitProtocol = "ssh";
     };
@@ -67,7 +67,7 @@ in
 
       delta.enable = true;
 
-      extraConfig = { init = { defaultBranch = "main"; } ; }
+      extraConfig = { init = { defaultBranch = "main"; } ; };
 
       signing = {
         key = "9F071448877E6705";
@@ -200,15 +200,11 @@ in
             export TERM=xterm-24bits
         fi
       '';
-      };
 
       zplug = {
         enable = true;
         plugins = [
-          {
-            name = "spaceship-prompt/spaceship-prompt";
-            tags = [ use:spaceship.zsh from:github as:theme ];
-          }
+          { name = "spaceship-prompt/spaceship-prompt"; tags = [ use:spaceship.zsh from:github as:theme ]; }
         ];
       };
     };
@@ -236,17 +232,17 @@ in
       ll = "exa -lF --group-directories-first --git --git-ignore";
       lt = "exa -T --git-ignore";
       lr = "exa -R --git-ignore";
-      mkdir = "mkdir -p"
+      mkdir = "mkdir -p";
       df = "df -kTh";
       free = "free -h";
       du = "du -h -c";
       cat = "bat -p";
       grep = "rg";
       fd = "fdfind";
-      push = "eval '$(ssh-agent -s)'; ssh-add ~/.ssh/github; git push"
-      pull="eval '$(ssh-agent -s)'; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main"
-      gst = "git status"
-      cleanup = "find . -name '*.DS_Store' -type f -ls -delete"
+      push = "eval '$(ssh-agent -s)'; ssh-add ~/.ssh/github; git push";
+      pull="eval '$(ssh-agent -s)'; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main";
+      gst = "git status";
+      cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
     };
   };
 
