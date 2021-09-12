@@ -1,6 +1,6 @@
 # nix config for Raspberry pi
 
-{ config, pkgs, lib, ... }:
+{ callPackage, config, lib, pkgs, ... }:
 
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
@@ -46,7 +46,154 @@ in
   time.timeZone = "Europe/London";
   i18n.defaultLocale = "en_GB.UTF-8";
 
+  services.emacs.package = pkgs.emacsUnstable;
+  services.emacs.enable = true;
+
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+    }))
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+    }))
+  ];
+
+  environment.systemPackages = with pkgs; [
+    (emacsWithPackagesFromUsePackage {
+      config = /home/matt/dotfiles/config/emacs.d/init.el;
+      alwaysEnsure = true;
+      extraEmacsPackages = epkgs: [
+        epkgs.dracula-theme
+      ];
+    })
+    abduco
+    bat
+    bc
+    cabal-install
+    delta
+    deno
+    dart
+    elmPackages.create-elm-app
+    elmPackages.elm
+    elmPackages.elm-analyse
+    elmPackages.elm-format
+    elmPackages.elm-language-server
+    elmPackages.elm-live
+    elmPackages.elm-review
+    elmPackages.elm-test
+    # emacs
+    exa
+    fd
+    fzf
+    libraspberrypi
+    lua
+    luajit
+    luarocks
+    gh
+    ghc
+    git
+    gnupg
+    go
+    gopls
+    htop
+    home-manager
+    lazygit
+    lf
+    mosh
+    neovim-nightly
+    nodejs
+    nodePackages.gatsby-cli
+    nodePackages.svelte-language-server
+    nodePackages.typescript
+    nodePackages.typescript-language-server
+    nodePackages.vue-cli
+    nodePackages.vue-language-server
+    nodePackages.yarn
+    ocamlPackages.js_of_ocaml
+    ocamlPackages.js_of_ocaml-ppx
+    ocamlPackages.js_of_ocaml-lwt
+    pinentry
+    raspberrypi-eeprom
+    ripgrep
+    samba
+    sumneko-lua-language-server
+    tmux
+    vimPlugins.cmp_luasnip
+    vimPlugins.cmp-nvim-lsp
+    vimPlugins.dracula-vim
+    vimPlugins.editorconfig-vim
+    vimPlugins.gitsigns-nvim
+    vimPlugins.indent-blankline-nvim
+    vimPlugins.lightline-vim
+    vimPlugins.lspsaga-nvim
+    vimPlugins.luasnip
+    vimPlugins.nvim-autopairs
+    vimPlugins.nvim-cmp
+    vimPlugins.nvim-lspconfig
+    vimPlugins.nvim-tree-lua
+    vimPlugins.nvim-treesitter
+    vimPlugins.nvim-treesitter-textobjects
+    vimPlugins.nvim-ts-rainbow
+    vimPlugins.plenary-nvim
+    vimPlugins.telescope-nvim
+    vimPlugins.vim-fugitive
+    vimPlugins.vim-rhubarb
+    vimPlugins.vim-commentary
+    vimPlugins.vim-gutentags
+    wget
+    zplug
+    zsh
+  ];
+
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+  };
+
+  programs.zsh = {
+    enable = true;
+    syntaxHighlighting.enable = true;
+    enableCompletion = false;
+    autosuggestions.enable = true;
+
+    shellAliases = {
+      sysrs = "sudo nixos-rebuild switch";
+      sysup = "sudo nixos-rebuild switch --upgrade";
+      sysclean = "sudo nix-collect-garbage -d; and sudo nix-store --optimise";
+      ls = "exa -F --group-directories-first";
+      l = "exa -aF --group-directories-first";
+      la = "exa -laF --group-directories-first --git --git-ignore";
+      ll = "exa -lF --group-directories-first --git --git-ignore";
+      lt = "exa -T --git-ignore";
+      lr = "exa -R --git-ignore";
+      mkdir = "mkdir -p";
+      df = "df -kTh";
+      free = "free -h";
+      du = "du -h -c";
+      cat = "bat";
+      grep = "rg";
+      fd = "fdfind";
+      emacs = "TERM=xterm-24bits emacs -nw";
+      push = "eval '$(ssh-agent -s)'; ssh-add ~/.ssh/github; git push";
+      pull="eval '$(ssh-agent -s)'; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main";
+      gst = "git status";
+      cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
+    };
+  };
+
+
+  environment.variables = {
+    EDITOR = "nvim";
+  };
+
+  services.openssh.enable = true;
+
   home-manager.users.matt = {
+
+    home.file.".emacs.d/init.el" = {
+      source = /home/matt/dotfiles/config/emacs.d/init.el;
+    };
 
     programs.bat = {
       enable = true;
@@ -68,13 +215,6 @@ in
 
     programs.emacs = {
       enable = true;
-      extraConfig = ''
-        source ${/home/matt/dotfiles/config/emacs.d/init.el}
-      '';
-      extraPackages = epkgs: [
-        epkgs.dracula-theme
-        epkgs.use-package
-      ];
     };
 
     programs.gh = {
@@ -123,35 +263,36 @@ in
 
     programs.neovim = {
       enable = true;
+      package = pkgs.neovim-nightly;
       extraConfig = ''
-        packadd! packer-nvim
-        :lua require(/home/matt/dotfiles/config/nvim/init.lua)
+
       '';
-      plugins = with pkgs.vimPlugins; [
-        # packer-nvim
-        cmp_luasnip
-        cmp-nvim-lsp
-        dracula-vim
-        editorconfig-vim
-        gitsigns-nvim
-        indent-blankline-nvim
-        lightline-vim
-        lspsaga-nvim
-        luasnip
-        nvim-autopairs
-        nvim-cmp
-        nvim-lspconfig
-        nvim-tree-lua
-        nvim-treesitter
-        nvim-treesitter-textobjects
-        nvim-ts-rainbow
-        plenary-nvim
-        telescope-nvim
-        vim-fugitive
-        vim-rhubarb
-        vim-commentary
-        vim-gutentags
+      extraPackages = [
+        pkgs.vimPlugins.cmp_luasnip
+        pkgs.vimPlugins.cmp-nvim-lsp
+        pkgs.vimPlugins.dracula-vim
+        pkgs.vimPlugins.editorconfig-vim
+        pkgs.vimPlugins.gitsigns-nvim
+        pkgs.vimPlugins.indent-blankline-nvim
+        pkgs.vimPlugins.lightline-vim
+        pkgs.vimPlugins.lspsaga-nvim
+        pkgs.vimPlugins.luasnip
+        pkgs.vimPlugins.nvim-autopairs
+        pkgs.vimPlugins.nvim-cmp
+        pkgs.vimPlugins.nvim-lspconfig
+        pkgs.vimPlugins.nvim-tree-lua
+        pkgs.vimPlugins.nvim-treesitter
+        pkgs.vimPlugins.nvim-treesitter-textobjects
+        pkgs.vimPlugins.nvim-ts-rainbow
+        pkgs.vimPlugins.plenary-nvim
+        pkgs.vimPlugins.telescope-nvim
+        pkgs.vimPlugins.vim-fugitive
+        pkgs.vimPlugins.vim-rhubarb
+        pkgs.vimPlugins.vim-commentary
+        pkgs.vimPlugins.vim-gutentags
       ];
+      viAlias = true;
+      vimAlias = true;
     };
 
     programs.tmux = {
@@ -309,108 +450,6 @@ in
       };
     };
   };
-
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-  };
-
-  programs.zsh = {
-    enable = true;
-    syntaxHighlighting.enable = true;
-    enableCompletion = false;
-    autosuggestions.enable = true;
-
-    shellAliases = {
-      sysrs = "sudo nixos-rebuild switch";
-      sysup = "sudo nixos-rebuild switch --upgrade";
-      sysclean = "sudo nix-collect-garbage -d; and sudo nix-store --optimise";
-      ls = "exa -F --group-directories-first";
-      l = "exa -aF --group-directories-first";
-      la = "exa -laF --group-directories-first --git --git-ignore";
-      ll = "exa -lF --group-directories-first --git --git-ignore";
-      lt = "exa -T --git-ignore";
-      lr = "exa -R --git-ignore";
-      mkdir = "mkdir -p";
-      df = "df -kTh";
-      free = "free -h";
-      du = "du -h -c";
-      cat = "bat";
-      grep = "rg";
-      fd = "fdfind";
-      emacs = "TERM=xterm-24bits emacs -nw";
-      push = "eval '$(ssh-agent -s)'; ssh-add ~/.ssh/github; git push";
-      pull="eval '$(ssh-agent -s)'; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main";
-      gst = "git status";
-      cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
-    };
-  };
-
-  environment.systemPackages = with pkgs; [
-    abduco
-    bat
-    bc
-    cabal-install
-    delta
-    deno
-    dart
-    elmPackages.create-elm-app
-    elmPackages.elm
-    elmPackages.elm-analyse
-    elmPackages.elm-format
-    elmPackages.elm-language-server
-    elmPackages.elm-live
-    elmPackages.elm-review
-    elmPackages.elm-test
-    emacs
-    exa
-    fd
-    fzf
-    libraspberrypi
-    lua
-    luajit
-    luarocks
-    gh
-    ghc
-    git
-    gnupg
-    go
-    gopls
-    htop
-    home-manager
-    lazygit
-    lf
-    mosh
-    neovim
-    nodejs
-    nodePackages.gatsby-cli
-    nodePackages.svelte-language-server
-    nodePackages.typescript
-    nodePackages.typescript-language-server
-    nodePackages.vue-cli
-    nodePackages.vue-language-server
-    nodePackages.yarn
-    ocamlPackages.js_of_ocaml
-    ocamlPackages.js_of_ocaml-ppx
-    ocamlPackages.js_of_ocaml-lwt
-    pinentry
-    raspberrypi-eeprom
-    ripgrep
-    samba
-    sumneko-lua-language-server
-    tmux
-    # vimPlugins.packer-nvim
-    wget
-    zplug
-    zsh
-  ];
-
-  environment.variables = {
-    EDITOR = "nvim";
-  };
-
-  services.openssh.enable = true;
 
   system.stateVersion = "21.11";
 }

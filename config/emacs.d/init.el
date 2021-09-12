@@ -34,8 +34,8 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(use-package eterm-256color
-  :ensure t)
+;; (use-package eterm-256color
+;;   :ensure t)
 
 ;; https://github.com/dracula/emacs
 (unless (package-installed-p 'dracula-theme)
