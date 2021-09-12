@@ -4,6 +4,7 @@
 
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+  # link = config.lib.file.mkOutOfStoreSymlink;
 in
 {
 
@@ -114,7 +115,6 @@ in
     services.gpg-agent = {
       enable = true;
       enableSshSupport = true;
-
     };
 
     programs.htop = {
@@ -124,10 +124,33 @@ in
     programs.neovim = {
       enable = true;
       extraConfig = ''
+        packadd! packer-nvim
         :lua require(/home/matt/dotfiles/config/nvim/init.lua)
       '';
       plugins = with pkgs.vimPlugins; [
-        packer-nvim
+        # packer-nvim
+        cmp_luasnip
+        cmp-nvim-lsp
+        dracula-vim
+        editorconfig-vim
+        gitsigns-nvim
+        indent-blankline-nvim
+        lightline-vim
+        lspsaga-nvim
+        luasnip
+        nvim-autopairs
+        nvim-cmp
+        nvim-lspconfig
+        nvim-tree-lua
+        nvim-treesitter
+        nvim-treesitter-textobjects
+        nvim-ts-rainbow
+        plenary-nvim
+        telescope-nvim
+        vim-fugitive
+        vim-rhubarb
+        vim-commentary
+        vim-gutentags
       ];
     };
 
@@ -327,6 +350,7 @@ in
   environment.systemPackages = with pkgs; [
     abduco
     bat
+    bc
     cabal-install
     delta
     deno
@@ -376,7 +400,7 @@ in
     samba
     sumneko-lua-language-server
     tmux
-    vimPlugins.packer-nvim
+    # vimPlugins.packer-nvim
     wget
     zplug
     zsh
