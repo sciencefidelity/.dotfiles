@@ -59,13 +59,6 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
-    # (emacsWithPackagesFromUsePackage {
-    #   config = /home/matt/dotfiles/config/emacs.d/init.el;
-    #   alwaysEnsure = true;
-    #   extraEmacsPackages = epkgs: [
-    #     epkgs.dracula-theme
-    #   ];
-    # })
     abduco
     bat
     bc
@@ -147,6 +140,7 @@ in
 
   programs.neovim = {
     enable = true;
+    package = pkgs.neovim-nightly;
     viAlias = true;
     vimAlias = true;
   };
@@ -195,9 +189,9 @@ in
       source = /home/matt/dotfiles/config/emacs.d/init.el;
     };
 
-    home.file.".config/nvim/init.lua" = {
-      source = /home/matt/dotfiles/config/nvim/init.lua;
-    };
+    # home.file.".config/nvim/init.lua" = {
+    #   source = /home/matt/dotfiles/config/nvim/init.lua;
+    # };
 
     programs.bat = {
       enable = true;
@@ -268,33 +262,9 @@ in
     programs.neovim = {
       enable = true;
       package = pkgs.neovim-nightly;
-#       extraConfig = ''
-#
-#       '';
-#       extraPackages = [
-#         pkgs.vimPlugins.cmp_luasnip
-#         pkgs.vimPlugins.cmp-nvim-lsp
-#         pkgs.vimPlugins.dracula-vim
-#         pkgs.vimPlugins.editorconfig-vim
-#         pkgs.vimPlugins.gitsigns-nvim
-#         pkgs.vimPlugins.indent-blankline-nvim
-#         pkgs.vimPlugins.lightline-vim
-#         pkgs.vimPlugins.lspsaga-nvim
-#         pkgs.vimPlugins.luasnip
-#         pkgs.vimPlugins.nvim-autopairs
-#         pkgs.vimPlugins.nvim-cmp
-#         pkgs.vimPlugins.nvim-lspconfig
-#         pkgs.vimPlugins.nvim-tree-lua
-#         pkgs.vimPlugins.nvim-treesitter
-#         pkgs.vimPlugins.nvim-treesitter-textobjects
-#         pkgs.vimPlugins.nvim-ts-rainbow
-#         pkgs.vimPlugins.plenary-nvim
-#         pkgs.vimPlugins.telescope-nvim
-#         pkgs.vimPlugins.vim-fugitive
-#         pkgs.vimPlugins.vim-rhubarb
-#         pkgs.vimPlugins.vim-commentary
-#         pkgs.vimPlugins.vim-gutentags
-#       ];
+      extraConfig = ''
+        :lua require('/home/matt/dotfiles/config/nvim/init.lua')
+      '',
       viAlias = true;
       vimAlias = true;
     };
