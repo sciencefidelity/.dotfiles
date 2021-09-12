@@ -13,17 +13,17 @@
       diminish
       dracula-theme
       editorconfig
-      eterm-256color
+#      eterm-256color
       evil
       evil-nerd-commenter
       helpful
-      highlight-indent-guides
+#      highlight-indent-guides
       ivy
       ivy-rich
       lsp-mode
       magit
       powerline-evil
-      rainbow-delimiters
+#      rainbow-delimiters
       smartparens
       treemacs
       treemacs-magit
