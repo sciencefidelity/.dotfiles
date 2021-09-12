@@ -264,7 +264,7 @@ in
       package = pkgs.neovim-nightly;
       extraConfig = ''
         :lua require('/home/matt/dotfiles/config/nvim/init.lua')
-      '',
+      '';
       viAlias = true;
       vimAlias = true;
     };
