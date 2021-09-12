@@ -1,4 +1,4 @@
-# nix config for Raspberry pi
+# NixOS config for Raspberry pi
 
 { callPackage, config, lib, pkgs, ... }:
 
@@ -189,9 +189,12 @@ in
       source = /home/matt/dotfiles/config/emacs.d/init.el;
     };
 
-    # home.file.".config/nvim/init.lua" = {
-    #   source = /home/matt/dotfiles/config/nvim/init.lua;
-    # };
+    home.sessionVariables = {
+      SPACESHIP_VI_MODE_SHOW = false;
+      SPACESHIP_USER_SHOW = "always";
+      SPACESHIP_HOST_SHOW = "always";
+      SPACESHIP_PROMPT_ADD_NEWLINE = false;
+    };
 
     programs.bat = {
       enable = true;
@@ -244,6 +247,11 @@ in
 
       userName = "sciencefidelity";
       userEmail = "32623301+sciencefidelity@users.noreply.github.com";
+    };
+
+    programs.fzf = {
+      enable = true;
+      enableZshIntegration = true;
     };
 
     programs.gpg = {
@@ -312,7 +320,7 @@ in
     programs.zsh = {
       enable = true;
       autocd = true;
-      defaultKeymap = "vicmd";
+      # defaultKeymap = "vicmd";
       # dotDir = ".config/zsh";
       history = {
         save = 1000;
@@ -320,11 +328,6 @@ in
       };
 
       initExtra = ''
-
-        SPACESHIP_VI_MODE_SHOW=false
-        SPACESHIP_USER_SHOW=always
-        SPACESHIP_HOST_SHOW=always
-        SPACESHIP_PROMPT_ADD_NEWLINE=false
 
         # Basic auto/tab complete
         _comp_options+=(globdots)
@@ -365,8 +368,8 @@ in
         alias ....="cd ../../.."
         alias .....="cd ../../../.."
 
-        eval "$(ssh-agent -s)"
-        ssh-add ~/.ssh/github
+        eval "$(ssh-agent -s)" > /dev/null
+        ssh-add ~/.ssh/github 2> /dev/null
         export GPG_TTY=$(tty)
         gitpush() {
           pull
