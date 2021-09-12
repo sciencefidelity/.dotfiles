@@ -52,7 +52,7 @@ in
       config = {
         theme = "Dracula";
         italic-text = "always";
-        # style = "full";
+        style = "full";
         map-syntax = [ ".eslintignore:Git Ignore" ".prettierignore:Git Ignore" ".prettierrc:JSON" ];
       };
       themes = {
@@ -129,6 +129,44 @@ in
       plugins = with pkgs.vimPlugins; [
         packer-nvim
       ];
+    };
+
+    programs.tmux = {
+      enable = true;
+      clock24 = true;
+      escapeTime = 20;
+      extraConfig = ''
+        set-option -ga terminal-overrides ",xterm-24bits:Tc"
+
+        # unbind default prefix and set it to Ctrl+s
+        set -g prefix C-s
+        unbind C-b
+        bind C-s send-prefix
+
+        # speed up escape in nvim
+        set -g base-index 1
+
+        # custom key bindings
+        bind -n M-h select-pane -L
+        bind -n M-j select-pane -D
+        bind -n M-k select-pane -U
+        bind -n M-l select-pane -R
+
+        bind-key t set-option status
+
+        # status bar options
+        set -g status-bg "#282a36"
+        set -g status-fg "#ff79c6"
+
+        set-option -g status-right ""
+        set-option -ag status-right " #[fg="#f1fa8c",bg=default]#(zsh ~/dotfiles/config/zsh/cpu.sh) "
+        set-option -ag status-right " #[fg="#8be9fd",bg=default]#(free -h | awk '/^Mem/ {print $3}')/#(free -h | awk '/^Mem/ {print $2}') "
+        set-option -ag status-right " #[fg="#50fa7b",bg=default]#(zsh ~/dotfiles/config/zsh/temp.sh) "
+        set-option -ag status-right " #[fg="#ff79c6",bg=default]#(date +"%R") "
+      '';
+      keyMode = "vi";
+      newSession = true;
+      terminal = "xterm-24bits";
     };
 
     programs.zsh = {
@@ -275,7 +313,7 @@ in
       df = "df -kTh";
       free = "free -h";
       du = "du -h -c";
-      cat = "bat -p";
+      cat = "bat";
       grep = "rg";
       fd = "fdfind";
       emacs = "TERM=xterm-24bits emacs -nw";
