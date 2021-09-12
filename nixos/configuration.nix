@@ -47,6 +47,35 @@ in
 
   home-manager.users.matt = {
 
+    programs.bat = {
+      enable = true;
+      config = {
+        theme = "Dracula";
+        italic-text = "always";
+        style = "full";
+        map-syntax = [ ".eslintignore:Git Ignore" ".prettierignore:Git Ignore" ".prettierrc:JSON" ];
+      };
+      themes = {
+        dracula = builtins.readFile (pkgs.fetchFromGitHub {
+          owner = "dracula";
+          repo = "sublime"; # Bat uses sublime syntax for its themes
+          rev = "26c57ec282abcaa76e57e055f38432bd827ac34e";
+          sha256 = "019hfl4zbn4vm4154hh3bwk6hm7bdxbr1hdww83nabxwjn99ndhv";
+        } + "/Dracula.tmTheme");
+      };
+    };
+
+    programs.emacs = {
+      enable = true;
+      extraConfig = ''
+        source ${/home/matt/dotfiles/config/emacs.d/init.el}
+      '';
+      extraPackages = epkgs: [
+        epkgs.dracula-theme
+        epkgs.use-package
+      ];
+    };
+
     programs.gh = {
       enable = true;
       gitProtocol = "ssh";
@@ -70,7 +99,7 @@ in
       extraConfig = { init = { defaultBranch = "main"; } ; };
 
       signing = {
-        key = "9F071448877E6705";
+        key = "FF3B11AF2EB4CA29";
         signByDefault = true;
       };
 
@@ -90,6 +119,11 @@ in
 
     programs.htop = {
       enable = true;
+    };
+
+    programs.neovim = {
+      enable = true;
+
     };
 
     programs.zsh = {
@@ -158,6 +192,7 @@ in
 
         eval "$(ssh-agent -s)"
         ssh-add ~/.ssh/github
+        export GPG_TTY=$(tty)
         gitpush() {
           pull
           git add .
