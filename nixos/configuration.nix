@@ -52,7 +52,7 @@ in
       config = {
         theme = "Dracula";
         italic-text = "always";
-        style = "full";
+        # style = "full";
         map-syntax = [ ".eslintignore:Git Ignore" ".prettierignore:Git Ignore" ".prettierrc:JSON" ];
       };
       themes = {
@@ -123,7 +123,12 @@ in
 
     programs.neovim = {
       enable = true;
-
+      extraConfig = ''
+        :lua require(/home/matt/dotfiles/config/nvim/init.lua)
+      '';
+      plugins = with pkgs.vimPlugins; [
+        packer-nvim
+      ];
     };
 
     programs.zsh = {
@@ -181,14 +186,6 @@ in
         alias ...="cd ../.."
         alias ....="cd ../../.."
         alias .....="cd ../../../.."
-
-        if [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Linux" ]]; then
-            alias emacs="TERM=xterm-24bit emacs -nw"
-        elif [[ "$TERM" == "tmux-256color" ]]; then
-            alias emacs="TERM=xterm-24bits emacs -nw"
-        else
-            alias emacs="emacs"
-        fi
 
         eval "$(ssh-agent -s)"
         ssh-add ~/.ssh/github
@@ -281,6 +278,7 @@ in
       cat = "bat -p";
       grep = "rg";
       fd = "fdfind";
+      emacs = "TERM=xterm-24bits emacs -nw";
       push = "eval '$(ssh-agent -s)'; ssh-add ~/.ssh/github; git push";
       pull="eval '$(ssh-agent -s)'; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main";
       gst = "git status";
@@ -340,6 +338,7 @@ in
     samba
     sumneko-lua-language-server
     tmux
+    vimPlugins.packer-nvim
     wget
     zplug
     zsh
