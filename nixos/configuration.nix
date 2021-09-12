@@ -4,7 +4,7 @@
 
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-  # link = config.lib.file.mkOutOfStoreSymlink;
+  link = config.lib.file.mkOutOfStoreSymlink;
 in
 {
 
@@ -263,7 +263,9 @@ in
       enable = true;
       package = pkgs.neovim-nightly;
       extraConfig = ''
-        :lua require('/home/matt/dotfiles/config/nvim/init.lua')
+        lua << EOF
+        ${builtins.readFile /home/matt/dotfiles/config/nvim/init.lua}
+        EOF
       '';
       viAlias = true;
       vimAlias = true;
