@@ -334,7 +334,7 @@ local saga = require 'lspsaga'
 saga.init_lsp_saga()
 
 -- Enable the following language servers
-local servers = { 'dartls', 'svelte', 'tsserver', 'vuels' }
+local servers = { 'dartls', 'svelte', 'tsserver', 'vuels', 'gopls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -342,17 +342,13 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
-local sumneko_root_path = vim.fn.getenv 'HOME' .. '/.local/bin/lua-language-server'
-local sumneko_binary = sumneko_root_path .. '/bin/Linux/lua-language-server'
-
 -- Make runtime files discoverable to the server
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
 require('lspconfig').sumneko_lua.setup {
-  cmd = { sumneko_binary, '-E', sumneko_root_path .. '/main.lua' },
+  cmd = 'lua-language-server',
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
