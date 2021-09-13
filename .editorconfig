@@ -14,6 +14,11 @@ charset = utf-8
 indent_style = tab
 indent_size = 2
 
+# Nix
+[*.nix]
+indent_style = space
+indent_size = 2
+
 # Neovim
 [*.lua]
 indent_style = space
