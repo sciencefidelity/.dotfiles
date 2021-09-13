@@ -87,6 +87,7 @@ in
     git
     gnupg
     go
+    google-cloud-sdk
     gopls
     htop
     home-manager
@@ -96,6 +97,7 @@ in
     neovim-nightly
     nodejs
     nodePackages.gatsby-cli
+    # nodePackages.pnpm
     nodePackages.svelte-language-server
     nodePackages.typescript
     nodePackages.typescript-language-server
@@ -111,28 +113,6 @@ in
     samba
     sumneko-lua-language-server
     tmux
-    vimPlugins.cmp_luasnip
-    vimPlugins.cmp-nvim-lsp
-    vimPlugins.dracula-vim
-    vimPlugins.editorconfig-vim
-    vimPlugins.gitsigns-nvim
-    vimPlugins.indent-blankline-nvim
-    vimPlugins.lightline-vim
-    vimPlugins.lspsaga-nvim
-    vimPlugins.luasnip
-    vimPlugins.nvim-autopairs
-    vimPlugins.nvim-cmp
-    vimPlugins.nvim-lspconfig
-    vimPlugins.nvim-tree-lua
-    vimPlugins.nvim-treesitter
-    vimPlugins.nvim-treesitter-textobjects
-    vimPlugins.nvim-ts-rainbow
-    vimPlugins.plenary-nvim
-    vimPlugins.telescope-nvim
-    vimPlugins.vim-fugitive
-    vimPlugins.vim-rhubarb
-    vimPlugins.vim-commentary
-    vimPlugins.vim-gutentags
     wget
     zplug
     zsh
@@ -275,6 +255,7 @@ in
         ${builtins.readFile /home/matt/dotfiles/config/nvim/init.lua}
         EOF
       '';
+      withNodeJs = true;
       viAlias = true;
       vimAlias = true;
     };
@@ -320,7 +301,7 @@ in
     programs.zsh = {
       enable = true;
       autocd = true;
-      # defaultKeymap = "vicmd";
+      # defaultKeymap = "vicmd"; # prints a list of keymappings when starting shell
       # dotDir = ".config/zsh";
       history = {
         save = 1000;
@@ -328,7 +309,6 @@ in
       };
 
       initExtra = ''
-
         # Basic auto/tab complete
         _comp_options+=(globdots)
 
