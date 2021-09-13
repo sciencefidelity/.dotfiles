@@ -347,8 +347,17 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
+-- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
+local sumneko_root_path = vim.fn.getenv 'HOME' .. '/.local/bin/lua-language-server'
+local sumneko_binary = sumneko_root_path .. '/bin/Linux/lua-language-server'
+
+-- Make runtime files discoverable to the server
+local runtime_path = vim.split(package.path, ';')
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
+
 require('lspconfig').sumneko_lua.setup {
-  cmd = 'lua-language-server',
+  cmd = { sumneko_binary, '-E', sumneko_root_path .. '/main.lua' },
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
