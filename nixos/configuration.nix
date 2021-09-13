@@ -59,6 +59,7 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
+    (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
     abduco
     bat
     bc
