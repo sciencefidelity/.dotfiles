@@ -63,6 +63,7 @@ in
     bat
     bc
     cabal-install
+    clang
     delta
     deno
     dart
@@ -82,6 +83,7 @@ in
     lua
     luajit
     luarocks
+    gcc10
     gh
     ghc
     git
@@ -97,13 +99,12 @@ in
     neovim-nightly
     nodejs
     nodePackages.gatsby-cli
-    # nodePackages.pnpm
+    nodePackages.pnpm
     nodePackages.svelte-language-server
     nodePackages.typescript
     nodePackages.typescript-language-server
     nodePackages.vue-cli
     nodePackages.vue-language-server
-    nodePackages.yarn
     ocamlPackages.js_of_ocaml
     ocamlPackages.js_of_ocaml-ppx
     ocamlPackages.js_of_ocaml-lwt
