@@ -20,6 +20,12 @@ To install global node modules create a `.npmrc` with the line
 prefix=~/.npm-globals
 ```
 
+Run this in the shell when needed
+
+```shell
+export PATH="$HOME/.npm-globals/bin:$PATH"
+```
+
 ### Won't compile
 `nodePackages.esy`
 
