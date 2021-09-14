@@ -12,5 +12,3 @@ packer_compiled.lua
 
 # secrets
 secrets.*
-keys.*
-users.*
