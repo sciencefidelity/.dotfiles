@@ -334,7 +334,13 @@ local saga = require 'lspsaga'
 saga.init_lsp_saga()
 
 -- Enable the following language servers
-local servers = { 'dartls', 'svelte', 'tsserver', 'vuels', 'gopls' }
+local servers = {
+  'dartls',
+  'gopls',
+  'svelte',
+  'tsserver',
+  'vuels'
+}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
