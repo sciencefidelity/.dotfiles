@@ -11,8 +11,19 @@ in
   imports =
     [ # the results of the hardware scan, do not change
       ./hardware-configuration.nix
+      <nixos-hardware/raspberry-pi/4>
       (import "${home-manager}/nixos")
     ];
+
+  boot = {
+    kernelPackages = pkgs.linuxPackages_rpi4;
+    # tmpOnTmpfs = true;
+    kernelParams = [
+      "8250.nr_uarts=1"
+      "console=ttyAMA0,115200"
+      "console=tty1"
+    ];
+  };
 
   boot.loader.raspberryPi = {
     enable = true;
@@ -22,6 +33,9 @@ in
   boot.loader.generic-extlinux-compatible.enable = true;
 
   hardware.enableRedistributableFirmware = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 
   networking = {
     hostName = "pi";
@@ -30,21 +44,24 @@ in
     };
   };
 
+  time.timeZone = "Europe/London";
+
+  networking.useDHCP = false;
+  networking.interfaces.eth0.useDHCP = true;
+  networking.interfaces.wlan0.useDHCP = true;
+
+  i18n.defaultLocale = "en_GB.UTF-8";
   users = {
     defaultUserShell = pkgs.zsh;
     mutableUsers = false;
     users.matt = {
       isNormalUser = true;
       extraGroups = [ "wheel" ]; # enable ‘sudo’ for the user
-      initialPassword = "nixos";
-      # openssh.authorizedKeys.keys =
-      #   let keys = import /home/matt/.ssh/keys.nix;
-      #   in [ keys.nixos ];
+      openssh.authorizedKeys.keys =
+        let keys = import /home/matt/.ssh/keys.nix;
+        in [ keys.nixos ];
     };
   };
-
-  time.timeZone = "Europe/London";
-  i18n.defaultLocale = "en_GB.UTF-8";
 
   services.emacs.package = pkgs.emacsUnstable;
   services.emacs.enable = true;
@@ -59,7 +76,7 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
-    (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
+    # (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
     abduco
     bat
     bc
