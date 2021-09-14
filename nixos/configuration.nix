@@ -122,7 +122,7 @@ in
     go
     google-cloud-sdk
     gopls
-    haskellPackages.hls
+    haskell-language-server
     htop
     home-manager
     lazygit
@@ -179,8 +179,8 @@ in
       sysclean = "sudo nix-collect-garbage -d; and sudo nix-store --optimise";
       ls = "exa -F --group-directories-first";
       l = "exa -aF --group-directories-first";
-      la = "exa -laF --group-directories-first --git --git-ignore";
-      ll = "exa -lF --group-directories-first --git --git-ignore";
+      la = "exa -laF --group-directories-first --git";
+      ll = "exa -lF --group-directories-first --git";
       lt = "exa -T --git-ignore";
       lr = "exa -R --git-ignore";
       mkdir = "mkdir -p";
@@ -210,6 +210,90 @@ in
     home.file.".emacs.d/init.el" = {
       source = /home/matt/dotfiles/config/emacs.d/init.el;
     };
+
+    home.file."nvim/parser/bash.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-bash}/parser";
+    }
+    home.file."nvim/parser/clojure.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-clojure}/parser";
+    }
+    home.file."nvim/parser/css.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-css}/parser";
+    }
+    # home.file."nvim/parser/dart.so" = {
+    #   source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-dart}/parser";
+    # }
+    home.file."nvim/parser/dockerfile.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-dockerfile}/parser";
+    }
+    home.file."nvim/parser/elixir.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-elixir}/parser";
+    }
+    # home.file."nvim/parser/elm.so" = {
+    #   source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-elm}/parser";
+    # }
+    home.file."nvim/parser/go.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-go}/parser";
+    }
+    home.file."nvim/parser/gomod.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-gomod}/parser";
+    }
+    home.file."nvim/parser/graphql.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-graphql}/parser";
+    }
+    home.file."nvim/parser/haskell.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-haskell}/parser";
+    }
+    home.file."nvim/parser/html.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-html}/parser";
+    }
+    home.file."nvim/parser/javascript.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-javascript}/parser";
+    }
+    home.file."nvim/parser/json.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-json}/parser";
+    }
+    home.file."nvim/parser/lua.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-lua}/parser";
+    }
+    home.file."nvim/parser/nix.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-nix}/parser";
+    }
+    home.file."nvim/parser/ocaml.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-ocaml}/parser";
+    }
+    home.file."nvim/parser/ocaml_interface.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-ocaml_interface}/parser";
+    }
+    home.file."nvim/parser/ocamllex.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-ocamllex}/parser";
+    }
+    # home.file."nvim/parser/scss.so" = {
+    #   source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-scss}/parser";
+    # }
+    home.file."nvim/parser/svelte.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-svelte}/parser";
+    }
+    home.file."nvim/parser/swift.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-swift}/parser";
+    }
+    home.file."nvim/parser/toml.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-toml}/parser";
+    }
+    home.file."nvim/parser/tsx.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-tsx}/parser";
+    }
+    home.file."nvim/parser/typescript.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-typescript}/parser";
+    }
+    # home.file."nvim/parser/vue.so" = {
+    #   source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-vue}/parser";
+    # }
+    home.file."nvim/parser/yaml.so" = {
+      source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-yaml}/parser";
+    }
+
+
 
     home.sessionVariables = {
       SPACESHIP_VI_MODE_SHOW = false;
