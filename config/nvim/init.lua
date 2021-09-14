@@ -335,11 +335,25 @@ saga.init_lsp_saga()
 
 -- Enable the following language servers
 local servers = {
+  'angularls',
+  -- 'clojure_lsp',
+  -- 'cssls',
   'dartls',
+  'denols',
+  -- 'elixirls',
+  'elmls',
   'gopls',
+  -- 'hls',
+  'html',
+  -- 'jsonls',
+  -- 'ocamllsp',
+  -- 'rescriptls',
+  'rnix',
+  -- 'stylelint_lsp',
   'svelte',
   'tsserver',
-  'vuels'
+  'vuels',
+  -- 'yamlls'
 }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
