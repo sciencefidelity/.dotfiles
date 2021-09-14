@@ -76,6 +76,17 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
+    (pkgs.neovim.override {
+      configure = {
+        packages.myPlugins = with pkgs.vimPlugins; {
+          start = [
+            (pkgs.vimPlugins.nvim-treesitter.withPlugins
+              (plugins: pkgs.tree-sitter.allGrammars)
+            )
+          ];
+        };
+      };
+    })
     # (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
     abduco
     bat
