@@ -11,7 +11,14 @@ vue
 
 ### Missing node modules (for global use)
 `@angular/cli`
+`@angular/language-server`
 `@sanity/cli`
+
+To install global node modules create a `.npmrc` with the line
+
+```shell
+prefix=~/.npm-globals
+```
 
 ### Won't compile
 `nodePackages.esy`
