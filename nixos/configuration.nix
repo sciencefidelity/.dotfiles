@@ -81,10 +81,12 @@ in
     bat
     bc
     cabal-install
-    clang
+    clojure
     delta
     deno
     dart
+    elixir
+    elixir_ls
     elmPackages.create-elm-app
     elmPackages.elm
     elmPackages.elm-analyse
@@ -109,26 +111,36 @@ in
     go
     google-cloud-sdk
     gopls
+    haskellPackages.hls
     htop
     home-manager
     lazygit
     lf
     mosh
     neovim-nightly
+    nix-linter
+    nixfmt
     nodejs
     nodePackages.gatsby-cli
     nodePackages.pnpm
+    nodePackages.stylelint
     nodePackages.svelte-language-server
     nodePackages.typescript
     nodePackages.typescript-language-server
+    nodePackages.vscode-langservers-extracted
     nodePackages.vue-cli
     nodePackages.vue-language-server
+    nodePackages.yaml-language-server
+    ocaml
+    ocamlPackages.fmt
     ocamlPackages.js_of_ocaml
     ocamlPackages.js_of_ocaml-ppx
     ocamlPackages.js_of_ocaml-lwt
+    ocamlPackages.lsp
     pinentry
     raspberrypi-eeprom
     ripgrep
+    rnix-lsp
     samba
     sumneko-lua-language-server
     tmux

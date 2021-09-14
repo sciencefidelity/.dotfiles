@@ -49,6 +49,9 @@ pnpm init svelte@next <my-app>
 pnpm add --save-dev snowpack
 ```
 
+### Not available on aarch64
+clojure-lsp
+
 ### Existing but not installed
 `hugo`
 `sass` (is it dart or ruby?)
