@@ -211,85 +211,85 @@ in
       source = /home/matt/dotfiles/config/emacs.d/init.el;
     };
 
-    home.file."nvim/parser/bash.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/bash.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-bash}/parser";
     }
-    home.file."nvim/parser/clojure.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/clojure.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-clojure}/parser";
     }
-    home.file."nvim/parser/css.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/css.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-css}/parser";
     }
-    # home.file."nvim/parser/dart.so" = {
+    # home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/dart.so" = {
     #   source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-dart}/parser";
     # }
-    home.file."nvim/parser/dockerfile.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/dockerfile.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-dockerfile}/parser";
     }
-    home.file."nvim/parser/elixir.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/elixir.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-elixir}/parser";
     }
-    # home.file."nvim/parser/elm.so" = {
+    # home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/elm.so" = {
     #   source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-elm}/parser";
     # }
-    home.file."nvim/parser/go.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/go.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-go}/parser";
     }
-    home.file."nvim/parser/gomod.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/gomod.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-gomod}/parser";
     }
-    home.file."nvim/parser/graphql.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/graphql.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-graphql}/parser";
     }
-    home.file."nvim/parser/haskell.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/haskell.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-haskell}/parser";
     }
-    home.file."nvim/parser/html.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/html.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-html}/parser";
     }
-    home.file."nvim/parser/javascript.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/javascript.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-javascript}/parser";
     }
-    home.file."nvim/parser/json.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/json.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-json}/parser";
     }
-    home.file."nvim/parser/lua.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/lua.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-lua}/parser";
     }
-    home.file."nvim/parser/nix.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/nix.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-nix}/parser";
     }
-    home.file."nvim/parser/ocaml.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/ocaml.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-ocaml}/parser";
     }
-    home.file."nvim/parser/ocaml_interface.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/ocaml_interface.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-ocaml_interface}/parser";
     }
-    home.file."nvim/parser/ocamllex.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/ocamllex.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-ocamllex}/parser";
     }
-    # home.file."nvim/parser/scss.so" = {
+    # home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/scss.so" = {
     #   source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-scss}/parser";
     # }
-    home.file."nvim/parser/svelte.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/svelte.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-svelte}/parser";
     }
-    home.file."nvim/parser/swift.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/swift.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-swift}/parser";
     }
-    home.file."nvim/parser/toml.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/toml.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-toml}/parser";
     }
-    home.file."nvim/parser/tsx.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/tsx.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-tsx}/parser";
     }
-    home.file."nvim/parser/typescript.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/typescript.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-typescript}/parser";
     }
-    # home.file."nvim/parser/vue.so" = {
+    # home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/vue.so" = {
     #   source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-vue}/parser";
     # }
-    home.file."nvim/parser/yaml.so" = {
+    home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/yaml.so" = {
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-yaml}/parser";
     }
 
