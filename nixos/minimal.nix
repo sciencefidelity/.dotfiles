@@ -67,9 +67,12 @@
   users = {
     defaultUserShell = pkgs.zsh;
     mutableUsers = false;
+    users.root = {
+      hashedPassword = "$6$7G8if/Rn$wA9X6NWKQ6zsKkz60zowc6tajW78kKwrvu8HX15jJWDgzLrPWcP2nC0b6uY4r10oEMNL/Alor7phV/wWrfbxc.";
+    };
     users.matt = {
+      hashedPassword = "$6$IhUfSjtK9Ydj$qnXZYlZ5KD61T4L6bvpaV.5yxTV/7Q8t8WEQCeJ2u40a9PlMZoBGaPCXIBfrAtru8Pu.ZRYm591anUMdKfypH/";
       isNormalUser = true;
-      password = "nixos";
       extraGroups = [ "wheel" ];
     };
   };

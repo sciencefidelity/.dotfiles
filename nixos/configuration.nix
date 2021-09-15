@@ -38,6 +38,9 @@ in
   };
 
   networking = {
+    extraHosts = ''
+      127.0.0.2 pi pi.local
+    '';
     firewall.allowedTCPPortRanges = [
       { from = 3000; to = 8000; }
     ];
@@ -56,13 +59,14 @@ in
   users = {
     defaultUserShell = pkgs.zsh;
     mutableUsers = false;
+    users.root = {
+      hashedPassword = "$6$7G8if/Rn$wA9X6NWKQ6zsKkz60zowc6tajW78kKwrvu8HX15jJWDgzLrPWcP2nC0b6uY4r10oEMNL/Alor7phV/wWrfbxc.";
+    };
     users.matt = {
       isNormalUser = true;
       extraGroups = [ "wheel" ]; # enable ‘sudo’ for the user
-      passwordFile = "/home/matt/dotfiles/.secrets/password";
-      openssh.authorizedKeys.keys =
-        let keys = import /home/matt/.ssh/keys.nix;
-        in [ keys.nixos ];
+      hashedPassword = "$6$IhUfSjtK9Ydj$qnXZYlZ5KD61T4L6bvpaV.5yxTV/7Q8t8WEQCeJ2u40a9PlMZoBGaPCXIBfrAtru8Pu.ZRYm591anUMdKfypH/";
+      openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDROPZMB/lhVBpM+aqatLPxRGE++tpKmWp5DDbmP1RLGy0fmEkorRnrsq8OcMEDr3kjJEe++vG1lrMgucScam/AcYX54iD2K+1dHpfkJY0osatsmyrni5rDjPH308+xj9FasS9DjfymZTZOh1owRFb31YJn4GEF07zVfKFrueXN6n/azjnOhOPTZ8dampjx/M5R+WpQ8iMywJe3CQoQKTf4Ofbyn1hLr3+TusildJkGCvLjix2oQtBpxLJdaXNGvt6u0Ogiv9JHwotk1VjYR5mztyZrGrqC/WTCo7uH4rAULQTOyTKUPsRjMOSDoq6SXHtObIdkHnTB7cLqPF1xKiGJM2dM+K4X9fvB/K3eht0cZPSEMkEnNODK+H4Xc6L3MArSyKvV4a1qLN2R+GiIuh7hz9gPtiNYoo9ERXK/yU3rb2Eam0G7WAz1vtIs8Ud2MGMT1Zk36EDwycxK4XIwhwdU4E1h4qcT1qAIoKNlYPGWqyLJX2nUTsgPF3je06rSG3k= matt@pi" ];
     };
   };
 
@@ -178,6 +182,7 @@ in
     autosuggestions.enable = true;
 
     shellAliases = {
+      sudo = "sudo -i";
       sysrs = "sudo nixos-rebuild switch";
       sysup = "sudo nixos-rebuild switch --upgrade";
       sysclean = "sudo nix-collect-garbage -d; and sudo nix-store --optimise";
