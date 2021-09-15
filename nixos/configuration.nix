@@ -297,10 +297,6 @@ in
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-yaml}/parser";
     };
 
-<<<<<<< HEAD
-
-=======
->>>>>>> f0c857db7d6d3bf93df28c3b23a78b8cd7426fc6
     home.sessionVariables = {
       SPACESHIP_VI_MODE_SHOW = false;
       SPACESHIP_USER_SHOW = "always";
