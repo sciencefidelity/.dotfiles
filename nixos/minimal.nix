@@ -1,5 +1,5 @@
 # UltraMinimal NixOS config for Raspberry pi
-# Uncomment lines 10 and 14 to 22 for SSD
+# Comment lines 10 and 14 to 22 for SD
 
 { config, pkgs, ... }:
 
@@ -7,19 +7,19 @@
 
   imports =
     [ # the results of the hardware scan, do not change
-      # <nixos-hardware/raspberry-pi/4>
+      <nixos-hardware/raspberry-pi/4>
       ./hardware-configuration.nix
     ];
 
-  # boot = {
-  #   kernelPackages = pkgs.linuxPackages_rpi4;
-  #   # tmpOnTmpfs = true;
-  #   kernelParams = [
-  #     "8250.nr_uarts=1"
-  #     "console=ttyAMA0,115200"
-  #     "console=tty1"
-  #   ];
-  # };
+  boot = {
+    kernelPackages = pkgs.linuxPackages_rpi4;
+    # tmpOnTmpfs = true;
+    kernelParams = [
+      "8250.nr_uarts=1"
+      "console=ttyAMA0,115200"
+      "console=tty1"
+    ];
+  };
 
   boot.loader.raspberryPi = {
     enable = true;

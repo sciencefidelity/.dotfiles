@@ -38,17 +38,19 @@ in
   };
 
   networking = {
+    firewall.allowedTCPPortRanges = [
+      { from = 3000; to = 8000; }
+    ];
     hostName = "pi";
+    interfaces.eth0.useDHCP = true;
+    interfaces.wlan0.useDHCP = true;
+    useDHCP = false;
     wireless = {
       enable = false;
     };
   };
 
   time.timeZone = "Europe/London";
-
-  networking.useDHCP = false;
-  networking.interfaces.eth0.useDHCP = true;
-  networking.interfaces.wlan0.useDHCP = true;
 
   i18n.defaultLocale = "en_GB.UTF-8";
   users = {
@@ -57,6 +59,7 @@ in
     users.matt = {
       isNormalUser = true;
       extraGroups = [ "wheel" ]; # enable ‘sudo’ for the user
+      passwordFile = "/home/matt/dotfiles/.secrets/password";
       openssh.authorizedKeys.keys =
         let keys = import /home/matt/.ssh/keys.nix;
         in [ keys.nixos ];
@@ -142,6 +145,7 @@ in
     nodePackages.vue-cli
     nodePackages.vue-language-server
     nodePackages.yaml-language-server
+    nodePackages.yarn
     ocaml
     ocamlPackages.fmt
     ocamlPackages.js_of_ocaml
@@ -293,7 +297,10 @@ in
       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-yaml}/parser";
     };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f0c857db7d6d3bf93df28c3b23a78b8cd7426fc6
     home.sessionVariables = {
       SPACESHIP_VI_MODE_SHOW = false;
       SPACESHIP_USER_SHOW = "always";
