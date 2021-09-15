@@ -337,24 +337,24 @@ saga.init_lsp_saga()
 local servers = {
   'angularls',
   -- 'clojure_lsp',
-  -- 'cssls',
+  'cssls',
   'dartls',
   'denols',
-  -- 'elixirls',
+  'elixirls',
   'elmls',
   'gopls',
-  -- 'hls',
+  'hls',
   'html',
-  -- 'jsonls',
-  -- 'ocamllsp',
-  -- 'rescriptls',
+  'jsonls',
+  'ocamllsp',
+  'rescriptls',
   'rls',
   'rnix',
-  -- 'stylelint_lsp',
+  'stylelint_lsp',
   'svelte',
   'tsserver',
   'vuels',
-  -- 'yamlls'
+  'yamlls'
 }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
