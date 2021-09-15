@@ -227,10 +227,10 @@ in
 
   home-manager.users.matt = {
 
-#     home.file.".emacs.d/init.el" = {
-#       source = /home/matt/dotfiles/config/emacs.d/init.el;
-#     };
-#
+    home.file.".emacs.d/init.el" = {
+      source = /home/matt/dotfiles/config/emacs.d/init.el;
+    };
+
 #     home.file."/home/matt/.local/share/nvim/site/pack/packer/start/nvim-treesitter/parser/bash.so" = {
 #       source = "${pkgs.tree-sitter.builtGrammars.tree-sitter-bash}/parser";
 #     };
@@ -365,7 +365,7 @@ in
       extraConfig = { init = { defaultBranch = "main"; } ; };
 
       signing = {
-        key = "8D4F5831C50A233D";
+        key = "F1EC40E6851FF81E";
         signByDefault = true;
       };
 
