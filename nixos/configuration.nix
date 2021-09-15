@@ -263,7 +263,7 @@ in
       extraConfig = { init = { defaultBranch = "main"; } ; };
 
       signing = {
-        key = "FF3B11AF2EB4CA29";
+        key = "8D4F5831C50A233D";
         signByDefault = true;
       };
 
