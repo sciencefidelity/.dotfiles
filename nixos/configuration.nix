@@ -91,22 +91,23 @@ in
   ];
 
   environment.systemPackages = with pkgs; [
-    (pkgs.neovim.override {
-      configure = {
-        packages.myPlugins = with pkgs.vimPlugins; {
-          start = [
-            (pkgs.vimPlugins.nvim-treesitter.withPlugins
-              (plugins: pkgs.tree-sitter.allGrammars)
-            )
-          ];
-        };
-      };
-    })
+    # (pkgs.neovim.override {
+    #   configure = {
+    #     packages.myPlugins = with pkgs.vimPlugins; {
+    #       start = [
+    #         (pkgs.vimPlugins.nvim-treesitter.withPlugins
+    #           (plugins: pkgs.tree-sitter.allGrammars)
+    #         )
+    #       ];
+    #     };
+    #   };
+    # })
     # (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
     abduco
     bat
     bc
     cabal-install
+    cargo
     clojure
     delta
     deno
@@ -167,7 +168,9 @@ in
     pinentry
     raspberrypi-eeprom
     ripgrep
+    rls
     rnix-lsp
+    rustup
     samba
     sumneko-lua-language-server
     tmux

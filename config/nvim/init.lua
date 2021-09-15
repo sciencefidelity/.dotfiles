@@ -348,6 +348,7 @@ local servers = {
   -- 'jsonls',
   -- 'ocamllsp',
   -- 'rescriptls',
+  'rls',
   'rnix',
   -- 'stylelint_lsp',
   'svelte',
