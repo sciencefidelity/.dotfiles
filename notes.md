@@ -4,8 +4,16 @@
 delta
 
 ### Missing tree-sitter languages
+clojure
 dart
+dockerfile
+elixir
 elm
+gomod
+graphql
+ocaml
+ocaml_interface
+ocamllex
 scss
 vue
 
