@@ -9,6 +9,7 @@
 
 # generated
 packer_compiled.lua
+*.so
 
 # secrets
 .secrets

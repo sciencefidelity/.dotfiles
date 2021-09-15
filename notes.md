@@ -17,6 +17,10 @@ ocamllex
 scss
 vue
 
+#### Can't be installed
+elixir
+ocamllex
+
 ### Missing node modules (for global use)
 `@angular/cli`
 `@angular/language-server`
