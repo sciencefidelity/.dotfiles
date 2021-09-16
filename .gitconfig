@@ -23,6 +23,10 @@
 	untracked = red
 [init]
 	defaultBranch = main
+[gpg]
+	program = gpg
+[commit]
+	gpgsign = true
 [user]
 	name = sciencefidelity
 	email = 32623301+sciencefidelity@users.noreply.github.com
