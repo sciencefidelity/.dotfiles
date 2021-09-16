@@ -374,7 +374,7 @@ nvim_lsp.denols.setup {
 }
 
 nvim_lsp.sumneko_lua.setup {
-  cmd = 'lua-language-server';
+  cmd = {"lua-language-server"};
   autostart = true;
   on_attach = on_attach,
   settings = {
