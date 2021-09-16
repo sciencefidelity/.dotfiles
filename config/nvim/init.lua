@@ -335,11 +335,9 @@ saga.init_lsp_saga()
 
 -- Enable the following language servers
 local servers = {
-  'angularls',
   -- 'clojure_lsp',
   'cssls',
   'dartls',
-  'denols',
   'elixirls',
   'elmls',
   'gopls',
