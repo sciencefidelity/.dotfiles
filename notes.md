@@ -25,6 +25,8 @@ ocamllex
 `@angular/cli`
 `@angular/language-server`
 `@sanity/cli`
+`stylelint-lsp`
+`stylelint-config-standard`
 
 To install global node modules create a `.npmrc` with the line
 
