@@ -182,6 +182,8 @@ in
 
     shellAliases = {
       sudo = "sudo -i";
+      poweroff = "sudo poweroff";
+      reboot = "sudo reboot";
       sysrs = "sudo nixos-rebuild switch";
       sysup = "sudo nixos-rebuild switch --upgrade";
       sysclean = "sudo nix-collect-garbage -d; and sudo nix-store --optimise";
