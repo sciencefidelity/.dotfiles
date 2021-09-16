@@ -363,32 +363,32 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-local sumneko_cmd
-if vim.fn.executable("lua-language-server") == 1 then
-  sumneko_cmd = {"lua-language-server"}
-else
-  local sumneko_root_path = vim.fn.getenv("HOME").."/.local/bin/sumneko_lua"
-  sumneko_cmd = {sumneko_root_path.."/bin/macOS/lua-language-server", "-E", sumneko_root_path.."/main.lua" }
-end
+nvim_lsp.angularls.setup {
+  on_attach = on_attach,
+  autostart = false,
+  capabilities = capabilities,
+}
+
+nvim_lsp.denols.setup {
+  on_attach = on_attach,
+  autostart = false,
+  capabilities = capabilities,
+}
 
 nvim_lsp.sumneko_lua.setup {
-  cmd = sumneko_cmd;
-  autostart = false;
+  cmd = 'lua-language-server';
+  autostart = true;
   on_attach = on_attach,
   settings = {
       Lua = {
           runtime = {
-              -- Tell the language server which version of Lua you're using (LuaJIT in the case of Neovim)
               version = 'LuaJIT',
-              -- Setup your lua path
               path = vim.split(package.path, ';'),
           },
           diagnostics = {
-              -- Get the language server to recognize the `vim` global
               globals = {'vim'},
           },
           workspace = {
-              -- Make the server aware of Neovim runtime files
               library = {
                   [vim.fn.expand('$VIMRUNTIME/lua')] = true,
                   [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
