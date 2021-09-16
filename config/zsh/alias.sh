@@ -1,6 +1,6 @@
 # synchronise dotfiles
 pull_dotfiles() {
-  echo 'Updating dotfiles'
+  echo "Updating dotfiles"
   cp ~/dotfiles/.zshrc ~/
   cp -R ~/dotfiles/config/zsh ~/.config/
   cp ~/dotfiles/config/bat/config ~/.config/bat/
@@ -28,15 +28,18 @@ push_dotfiles() {
     cp ~/.gitconfig ~/dotfiles/
   fi
 }
-alias pd='pull_dotfiles'
+alias pd="pull_dotfiles"
+
+alias reboot = "sudo reboot"
+alias poweroff = "sudo poweroff"
 
 # https://the.exa.website/docs/command-line-options
-alias ls='exa -F --group-directories-first'
-alias l='exa -aF --group-directories-first'
-alias la='exa -laF --group-directories-first --git --git-ignore'
-alias ll='exa -lF --group-directories-first --git --git-ignore'
-alias lt='exa -T --git-ignore'
-alias lr='exa -R --git-ignore'
+alias ls="exa -F --group-directories-first"
+alias l="exa -aF --group-directories-first"
+alias la="exa -laF --group-directories-first --git --git-ignore"
+alias ll="exa -lF --group-directories-first --git --git-ignore"
+alias lt="exa -T --git-ignore"
+alias lr="exa -R --git-ignore"
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -45,36 +48,36 @@ alias .....="cd ../../../.."
 alias mkdir="mkdir -p"
 
 # for more human readable results
-alias df='df -kTh'
-alias free='free -h'
-alias du='du -h -c' # calculate disk usage for a folder
+alias df="df -kTh"
+alias free="free -h"
+alias du="du -h -c" # calculate disk usage for a folder
 
 # https://github.com/sharkdp/bat
 if [[ "$(uname)" == "Darwin" ]]; then
-  alias cat='bat'
+  alias cat="bat"
 else
-  alias bat='batcat'
-  alias cat='batcat'
+  alias bat="batcat"
+  alias cat="batcat"
 fi
 
 # https://github.com/BurntSushi/ripgrep
-alias grep='rg'
+alias grep="rg"
 # https://github.com/sharkdp/fd
-alias fd='fdfind'
+alias fd="fdfind"
 
 # always use Neovim
-alias vi='nvim'
-alias vim='nvim'
+alias vi="nvim"
+alias vim="nvim"
 
 # open emacs with truecolor
 if [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Linux" ]]; then
-    alias emacs='TERM=xterm-24bit emacs -nw'
+    alias emacs="TERM=xterm-24bit emacs -nw"
 elif [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Darwin" ]]; then
-    alias emacs='TERM=xterm-emacs emacs -nw'
+    alias emacs="TERM=xterm-emacs emacs -nw"
 elif [[ "$TERM" == "tmux-256color" ]]; then
-    alias emacs='TERM=xterm-24bits emacs -nw'
+    alias emacs="TERM=xterm-24bits emacs -nw"
 else
-    alias emacs='emacs'
+    alias emacs="emacs"
 fi
 
 # macOS specific
@@ -85,14 +88,14 @@ if  [[ "$(uname)" == "Darwin" ]]; then
     # http://www.hammerspoon.org
     alias hs="open -a Hammerspoon"
     # https://docs.brew.sh/Manpage
-    alias bbd='brew bundle dump --file=~/dotfiles/Brewfile --force'
+    alias bbd="brew bundle dump --file=~/dotfiles/Brewfile --force"
     # https://library.panic.com/nova/cli-tool/
     alias -s {cs,js,html}=nova
 fi
 
 # Git aliases
-alias push='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git push'
-alias pull='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main'
+alias push="eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git push"
+alias pull="eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main"
 gitpush() {
   pull
   git add .
@@ -106,7 +109,7 @@ gitupdate() {
 }
 alias gp=gitpush
 alias gu=gitupdate
-alias gst='git status'
+alias gst="git status"
 
 # Prevent typing password too often
 alias sudo="sudo -v; sudo "
