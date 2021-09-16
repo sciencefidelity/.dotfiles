@@ -21,16 +21,9 @@
 	added = yellow
 	changed = green
 	untracked = red
-[commit]
-	gpgsign = false
-[credential]
-	helper = osxkeychain
-[gpg]
-	program = gpg
 [init]
 	defaultBranch = main
 [user]
-	signingkey = 9F071448877E6705
 	name = sciencefidelity
 	email = 32623301+sciencefidelity@users.noreply.github.com
 [pager]
