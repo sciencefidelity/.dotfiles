@@ -72,6 +72,10 @@ export LESS_TERMCAP_mh=$(tput dim)
 [ -f "$HOME/.config/zsh/path.sh" ] && source "$HOME/.config/zsh/path.sh"
 [ -f "$HOME/.config/zsh/tmux.sh" ] && source "$HOME/.config/zsh/tmux.sh"
 
+export GPG_TTY=$(tty)
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/github
+
 # Plugins
 source ~/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
