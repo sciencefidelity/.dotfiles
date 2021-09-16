@@ -94,21 +94,13 @@ if  [[ "$(uname)" == "Darwin" ]]; then
 fi
 
 # Git aliases
-alias push="eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git push"
-alias pull="eval "$(ssh-agent -s)"; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main"
 gitpush() {
-  pull
+  git pull
   git add .
   git commit -m "$*"
   git push
 }
-gitupdate() {
-  eval "$(ssh-agent -s)"
-  ssh-add ~/.ssh/github
-  ssh -T git@github.com
-}
 alias gp=gitpush
-alias gu=gitupdate
 alias gst="git status"
 
 # Prevent typing password too often

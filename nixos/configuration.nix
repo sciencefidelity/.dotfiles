@@ -201,8 +201,8 @@ in
       grep = "rg";
       fd = "fdfind";
       emacs = "TERM=xterm-24bits emacs -nw";
-      push = "eval '$(ssh-agent -s)'; ssh-add ~/.ssh/github; git push";
-      pull="eval '$(ssh-agent -s)'; ssh-add ~/.ssh/github; git fetch origin; git merge origin/main";
+      push = "git push";
+      pull="git fetch origin; git merge origin/main";
       gst = "git status";
       cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
     };
@@ -407,19 +407,15 @@ in
         eval "$(ssh-agent -s)" > /dev/null
         ssh-add ~/.ssh/github 2> /dev/null
         export GPG_TTY=$(tty)
+
+        # Git aliases
         gitpush() {
-          pull
+          git pull
           git add .
           git commit -m "$*"
           git push
         }
-        gitupdate() {
-          eval "$(ssh-agent -s)"
-          ssh-add ~/.ssh/github
-          ssh -T git@github.com
-        }
         alias gp=gitpush
-        alias gu=gitupdate
 
         # archive extractor - usage: ext <file>
         ext ()
