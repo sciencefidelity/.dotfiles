@@ -26,6 +26,7 @@
 [user]
 	name = sciencefidelity
 	email = 32623301+sciencefidelity@users.noreply.github.com
+	signingkey = 3AA5C34371567BD2
 [pager]
 	diff = delta
 	log = delta
