@@ -138,7 +138,7 @@ in
     nodejs
     nodePackages.gatsby-cli
     nodePackages.pnpm
-    nodePackages.stylelint
+    # nodePackages.stylelint
     nodePackages.svelte-language-server
     nodePackages.typescript
     nodePackages.typescript-language-server
