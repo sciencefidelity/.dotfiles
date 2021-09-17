@@ -40,7 +40,7 @@ require('packer').startup(function()
   -- https://github.com/lewis6991/gitsigns.nvim
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   -- https://github.com/nvim-treesitter/nvim-treesitter
-  use 'nvim-treesitter/nvim-treesitter'
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   -- https://github.com/kyazdani42/nvim-tree.lua
@@ -217,6 +217,7 @@ vim.api.nvim_set_keymap('n', '<leader>?', [[<cmd>lua require('telescope.builtin'
 require('nvim-treesitter.configs').setup {
   highlight = {
     enable = true, -- false will disable the whole extension
+    disable = { 'css', 'scss' },
   },
   incremental_selection = {
     enable = true,
