@@ -62,6 +62,12 @@ pnpm init svelte@next <my-app>
 pnpm add --save-dev snowpack
 ```
 
+```shell
+npm init
+npm install --save @assemblyscript/loader
+npm install --save-dev assemblyscript
+```
+
 ### Not available on aarch64
 clojure-lsp
 
