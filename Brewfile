@@ -43,6 +43,8 @@ cask "appcleaner"
 cask "hammerspoon"
 cask "imageoptim"
 cask "karabiner-elements"
+cask "rocket"
+cask "vanilla"
 
 # Entertainment
 cask "anki"

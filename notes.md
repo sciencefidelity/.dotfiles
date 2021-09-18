@@ -26,7 +26,6 @@ ocamllex
 `@angular/language-server`
 `@sanity/cli`
 `stylelint-lsp`
-`stylelint-config-standard`
 
 To install global node modules create a `.npmrc` with the line
 
@@ -61,6 +60,12 @@ pnpm init svelte@next <my-app>
 
 ```shell
 pnpm add --save-dev snowpack
+```
+
+```shell
+npm init
+npm install --save @assemblyscript/loader
+npm install --save-dev assemblyscript
 ```
 
 ### Not available on aarch64

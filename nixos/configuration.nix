@@ -138,7 +138,9 @@ in
     nodejs
     nodePackages.gatsby-cli
     nodePackages.pnpm
-    # nodePackages.stylelint
+    nodePackages.purescript-language-server
+    nodePackages.purescript-psa
+    nodePackages.pscid
     nodePackages.svelte-language-server
     nodePackages.typescript
     nodePackages.typescript-language-server
@@ -146,7 +148,7 @@ in
     nodePackages.vue-cli
     nodePackages.vue-language-server
     nodePackages.yaml-language-server
-    # nodePackages.yarn
+    nodePackages.yarn
     ocaml
     ocamlPackages.fmt
     ocamlPackages.js_of_ocaml
@@ -154,12 +156,14 @@ in
     ocamlPackages.js_of_ocaml-lwt
     ocamlPackages.lsp
     pinentry
+    purescript
     raspberrypi-eeprom
     ripgrep
     rls
     rnix-lsp
     rustup
     samba
+    spago
     sumneko-lua-language-server
     tmux
     wget
