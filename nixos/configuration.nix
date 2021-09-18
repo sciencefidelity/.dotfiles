@@ -44,7 +44,7 @@ in
 
   networking = {
     extraHosts = ''
-      127.0.0.2 pi pi.local
+      127.0.1.1 nothing.local
     '';
     firewall.allowedTCPPortRanges = [
       { from = 2000; to = 9000; }
