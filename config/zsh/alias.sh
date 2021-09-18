@@ -30,14 +30,11 @@ push_dotfiles() {
 }
 alias pd="pull_dotfiles"
 
-alias reboot = "sudo reboot"
-alias poweroff = "sudo poweroff"
-
 # https://the.exa.website/docs/command-line-options
 alias ls="exa -F --group-directories-first"
 alias l="exa -aF --group-directories-first"
-alias la="exa -laF --group-directories-first --git --git-ignore"
-alias ll="exa -lF --group-directories-first --git --git-ignore"
+alias la="exa -laF --group-directories-first --git"
+alias ll="exa -lF --group-directories-first --git"
 alias lt="exa -T --git-ignore"
 alias lr="exa -R --git-ignore"
 
