@@ -43,13 +43,13 @@ in
   };
 
   networking = {
-    # extraHosts = ''
-    #  127.0.0.2 pi.local pi
-    # '';
+    extraHosts = ''
+      127.0.1.1 nothing.local
+    '';
     firewall.allowedTCPPortRanges = [
       { from = 2000; to = 9000; }
     ];
-    hostName = "pi.local";
+    hostName = "pi";
     interfaces.eth0.useDHCP = true;
     interfaces.wlan0.useDHCP = true;
     useDHCP = false;
