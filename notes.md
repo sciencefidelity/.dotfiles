@@ -26,6 +26,7 @@ ocamllex
 `@angular/language-server`
 `@sanity/cli`
 `stylelint-lsp`
+`purescript`
 
 To install global node modules create a `.npmrc` with the line
 
@@ -70,6 +71,7 @@ npm install --save-dev assemblyscript
 
 ### Not available on aarch64
 clojure-lsp
+purescript
 
 ### Existing but not installed
 `hugo`

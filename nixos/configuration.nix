@@ -156,7 +156,6 @@ in
     ocamlPackages.js_of_ocaml-lwt
     ocamlPackages.lsp
     pinentry
-    purescript
     raspberrypi-eeprom
     ripgrep
     rls
