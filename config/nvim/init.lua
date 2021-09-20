@@ -57,6 +57,8 @@ require('packer').startup(function()
   use 'hrsh7th/nvim-cmp'
   -- https://github.com/hrsh7th/cmp-nvim-lsp
   use 'hrsh7th/cmp-nvim-lsp'
+  -- https://github.com/mhartington/formatter.nvim
+  use 'mhartington/formatter.nvim'
   -- https://github.com/hrsh7th/vim-vsnip
   -- use 'hrsh7th/vim-vsnip'
   -- https://github.com/akinsho/flutter-tools.nvim
@@ -349,7 +351,6 @@ local servers = {
   'rescriptls',
   'rls',
   'rnix',
-  'stylelint_lsp',
   'svelte',
   'tsserver',
   'vuels',
@@ -374,8 +375,24 @@ nvim_lsp.denols.setup {
   capabilities = capabilities,
 }
 
+nvim_lsp.stylelint_lsp.setup {
+  on_attach = on_attach,
+  autostart = false,
+  capabilities = capabilities,
+}
+
+-- https://github.com/sumneko/lua-language-server/wiki/Build-and-Run-(Standalone)
+-- local sumneko_root_path = vim.fn.getenv 'HOME' .. '/.local/bin/lua-language-server'
+-- local sumneko_binary = sumneko_root_path .. '/bin/Linux/lua-language-server'
+
+-- Make runtime files discoverable to the server
+-- local runtime_path = vim.split(package.path, ';')
+-- table.insert(runtime_path, 'lua/?.lua')
+-- table.insert(runtime_path, 'lua/?/init.lua')
+
 nvim_lsp.sumneko_lua.setup {
-  cmd = {"lua-language-server"};
+  -- cmd = { sumneko_binary, '-E', sumneko_root_path .. '/main.lua' },
+  cmd = { "lua-language-server" }
   autostart = true;
   on_attach = on_attach,
   settings = {
@@ -391,11 +408,136 @@ nvim_lsp.sumneko_lua.setup {
         library = {
           [vim.fn.expand('$VIMRUNTIME/lua')] = true,
           [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-        },
-      },
-    },
-  },
+        }
+      }
+    }
+  }
 }
+
+nvim_lsp.diagnosticls.setup {
+  filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'css'},
+  init_options = {
+    filetypes = {
+      javascript = 'eslint',
+      typescript = 'eslint',
+      javascriptreact = 'eslint',
+      typescriptreact = 'eslint'
+    },
+    linters = {
+      eslint = {
+        sourceName = 'eslint',
+        command = 'eslint',
+        rootPatterns = {
+          '.eslitrc.js',
+          'package.json'
+        },
+        debounce = 100,
+        args = {
+          '--cache',
+          '--stdin',
+          '--stdin-filename',
+          '%filepath',
+          '--format',
+          'json'
+        },
+        parseJson = {
+          errorsRoot = '[0].messages',
+          line = 'line',
+          column = 'column',
+          endLine = 'endLine',
+          endColumn = 'endColumn',
+          message = '${message} [${ruleId}]',
+          security = 'severity'
+        },
+        securities = {
+          [2] = 'error',
+          [1] = 'warning'
+        }
+      }
+    }
+  }
+}
+
+require('formatter').setup(
+  {
+    logging = true,
+    filetype = {
+      typescriptreact = {
+        -- prettier
+        function()
+          return {
+            exe = 'prettier',
+            args = {'--stdin-filepath', vim.api.nvim_buf_get_name(0)},
+            stdin = true
+          }
+        end
+      },
+      typescript = {
+        -- prettier
+        function()
+          return {
+            exe = 'prettier',
+            args = {'--stdin-filepath', vim.api.nvim_buf_get_name(0)},
+            stdin = true
+          }
+        end
+        -- linter
+        -- function()
+        --   return {
+        --     exe = 'eslint',
+        --     args = {
+        --       '--stdin-filename',
+        --       vim.api.nvim_buf_get_name(0),
+        --       '--fix',
+        --       '--cache'
+        --     },
+        --     stdin = false
+        --   }
+        -- end
+      },
+      javascript = {
+        -- prettier
+        function()
+          return {
+            exe = 'prettier',
+            args = {'--stdin-filepath', vim.api.nvim_buf_get_name(0)},
+            stdin = true
+          }
+        end
+      },
+      javascriptreact = {
+        -- prettier
+        function()
+          return {
+            exe = 'prettier',
+            args = {'--stdin-filepath', vim.api.nvim_buf_get_name(0)},
+            stdin = true
+          }
+        end
+      },
+      json = {
+        -- prettier
+        function()
+          return {
+            exe = 'prettier',
+            args = {'--stdin-filepath', vim.api.nvim_buf_get_name(0)},
+            stdin = true
+          }
+        end
+      }
+      -- lua = {
+      --   -- luafmt
+      --   function()
+      --     return {
+      --       exe = 'luafmt',
+      --       args = {'--indent-count', 2, '--stdin'},
+      --       stdin = true
+      --     }
+      --   end
+      -- }
+    }
+  }
+)
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -444,5 +586,5 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-  },
+  }
 }

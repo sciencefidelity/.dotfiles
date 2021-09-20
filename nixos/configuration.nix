@@ -43,9 +43,6 @@ in
   };
 
   networking = {
-    extraHosts = ''
-      127.0.1.1 nothing.local
-    '';
     firewall.allowedTCPPortRanges = [
       { from = 2000; to = 9000; }
     ];
@@ -136,8 +133,12 @@ in
     nix-linter
     nixfmt
     nodejs
+    nodePackages.diagnostic-languageserver
+    nodePackages.eslint
+    nodePackages.eslint_d
     nodePackages.gatsby-cli
     nodePackages.pnpm
+    nodePackages.prettier
     nodePackages.purescript-language-server
     nodePackages.purescript-psa
     nodePackages.pscid
