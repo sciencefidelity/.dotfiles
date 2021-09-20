@@ -351,6 +351,7 @@ local servers = {
   'rescriptls',
   'rls',
   'rnix',
+  'stylelint_lsp',
   'svelte',
   'tsserver',
   'vuels',
@@ -370,12 +371,6 @@ nvim_lsp.angularls.setup {
 }
 
 nvim_lsp.denols.setup {
-  on_attach = on_attach,
-  autostart = false,
-  capabilities = capabilities,
-}
-
-nvim_lsp.stylelint_lsp.setup {
   on_attach = on_attach,
   autostart = false,
   capabilities = capabilities,
