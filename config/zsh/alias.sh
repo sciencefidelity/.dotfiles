@@ -91,11 +91,12 @@ if  [[ "$(uname)" == "Darwin" ]]; then
 fi
 
 # Git aliases
-gp() {
+gitpush() {
   git add .
   git commit -m "$*"
   git push
 }
+alias gp="gitpush"
 alias gst="git status"
 
 # Prevent typing password too often
