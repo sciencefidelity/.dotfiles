@@ -41,10 +41,10 @@ cask "zoom"
 
 # Utils
 cask "appcleaner"
+cask "bartender"
 cask "hammerspoon"
 cask "imageoptim"
 cask "karabiner-elements"
-cask "rocket"
 cask "vanilla"
 
 # Entertainment
