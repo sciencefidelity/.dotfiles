@@ -45,7 +45,7 @@ cask "bartender"
 cask "hammerspoon"
 cask "imageoptim"
 cask "karabiner-elements"
-cask "vanilla"
+cask "rocket"
 
 # Entertainment
 cask "anki"

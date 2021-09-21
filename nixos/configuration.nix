@@ -164,6 +164,7 @@ in
     rustup
     samba
     spago
+    stack
     sumneko-lua-language-server
     tmux
     wget
