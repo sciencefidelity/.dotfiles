@@ -124,7 +124,6 @@ in
     google-cloud-sdk
     gopls
     haskell-language-server
-    haskellPackages.purescript
     htop
     home-manager
     lazygit
