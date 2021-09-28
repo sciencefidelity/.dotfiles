@@ -7,6 +7,9 @@ delta
 `@angular/cli`
 `@angular/language-server`
 `@sanity/cli`
+`apollo`
+`ember-cli`
+`ghost-cli`
 `stylelint-lsp`
 
 ### Won't install from npm
