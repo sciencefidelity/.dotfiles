@@ -17,7 +17,7 @@ SPACESHIP_PROMPT_ADD_NEWLINE=false
 
 # Basic auto/tab complete
 autoload -U compinit
-zstyle ':completion:*' menu select
+zstyle ":completion:*" menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
@@ -27,11 +27,11 @@ bindkey -v
 export KEYTIMEOUT=1
 
 # Use vim keys in tab complete menu
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
+bindkey -M menuselect "h" vi-backward-char
+bindkey -M menuselect "k" vi-up-line-or-history
+bindkey -M menuselect "l" vi-forward-char
+bindkey -M menuselect "j" vi-down-line-or-history
+bindkey -v "^?" backward-delete-char
 
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
@@ -43,20 +43,20 @@ lfcd () {
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
 }
-bindkey -s '^o' 'lfcd\n'
+bindkey -s "^o" "lfcd\n"
 
 # Edit line in vim with ctrl-e
 autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
+bindkey "^e" edit-command-line
 
-bindkey '^ ' autosuggest-accept
+bindkey "^ " autosuggest-accept
 
 export EDITOR=nvim
 export VISUAL="$EDITOR"
 export BAT_THEME="Dracula"
 
 # add color to man pages
-export MANROFFOPT='-c'
+export MANROFFOPT="-c"
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2)
 export LESS_TERMCAP_md=$(tput bold; tput setaf 6)
 export LESS_TERMCAP_me=$(tput sgr0)
