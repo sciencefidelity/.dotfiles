@@ -44,6 +44,12 @@ npm install --save @assemblyscript/loader
 npm install --save-dev assemblyscript
 ```
 
+#### Remove all dependencies in `package.json` and reinstall (all versions become latest)
+
+```shell
+npx yarn-upgrade-all
+```
+
 ### Not available on aarch64
 clojure-lsp
 purescript
