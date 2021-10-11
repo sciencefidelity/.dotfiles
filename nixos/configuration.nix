@@ -279,7 +279,10 @@ in
 
       delta.enable = true;
 
-      extraConfig = { init = { defaultBranch = "main"; } ; };
+      extraConfig = {
+        init = { defaultBranch = "main"; } ;
+        pull = { rebase = false; } ;
+      };
 
       signing = {
         key = "F1EC40E6851FF81E";

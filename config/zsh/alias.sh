@@ -92,6 +92,7 @@ fi
 
 # Git aliases
 gitpush() {
+  git pull
   git add .
   git commit -m "$*"
   git push
