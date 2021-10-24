@@ -15,9 +15,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
   export PATH="/usr/local/sbin:$PATH"
   # nvm
   export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  # php8.0
-  export PATH="/usr/local/opt/php@8.0/bin:$PATH"
+  [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh"
 else
   # path to Go
   export PATH=$PATH:/usr/local/src/go/bin
