@@ -79,7 +79,6 @@ brew "lf"
 brew "mongosh"
 brew "mosh"
 brew "neovim", args: ["HEAD"]
-brew "node"
 brew "nvm"
 brew "pinentry-mac"
 brew "pnpm"
