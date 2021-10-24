@@ -11,11 +11,13 @@ if [[ "$(uname)" == "Darwin" ]]; then
   export PATH="/Users/matt/.deno/bin:$PATH"
   # flutter
   export PATH="$PATH:/usr/local/flutter/bin"
-  # php8.0
-  export PATH="/usr/local/opt/php@8.0/bin:$PATH"
+  # homebrew
+  export PATH="/usr/local/sbin:$PATH"
   # nvm
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  # php8.0
+  export PATH="/usr/local/opt/php@8.0/bin:$PATH"
 else
   # path to Go
   export PATH=$PATH:/usr/local/src/go/bin
