@@ -45,6 +45,7 @@ cask "bartender"
 cask "hammerspoon"
 cask "imageoptim"
 cask "karabiner-elements"
+cask "onedrive"
 cask "rocket"
 
 # Entertainment
@@ -99,10 +100,9 @@ brew "zplug"
 mas "Apple Configurator 2", id: 1037126344
 mas "Compressor", id: 424390742
 mas "Final Cut Pro", id: 424389933
-mas "iA Writer ", id: 775737590
+mas "iA Writer", id: 775737590
 mas "Logic Pro", id: 634148309
 mas "Motion", id: 434290957
-mas "OneDrive", id: 823766827
 mas "Pocket", id: 568494494
 mas "Refined GitHub", id: 1519867270
 mas "Save to Raindrop.io", id: 1549370672
