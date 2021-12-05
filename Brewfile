@@ -57,6 +57,7 @@ cask "rocket"
 brew "bat"
 brew "cabal-install"
 brew "clojure"
+brew "clojure-lsp"
 brew "clojurescript"
 brew "coreutils"
 brew "deno"
@@ -67,39 +68,55 @@ brew "eslint"
 brew "exa"
 brew "fd"
 brew "fzf"
-brew "gatsby-cli" *
+# brew "gatsby-cli"
 brew "gh"
 brew "ghc"
+brew "git"
 brew "git-delta"
 brew "gnupg"
+brew "go", args: ["HEAD"]
 brew "gopls"
+brew "haskell-language-server"
+brew "haskell-stack"
+# brew "htop"
+# brew "lazygit"
 brew "lf"
+# brew "lua"
+brew "luajit"
+# brew "luarocks"
 brew "mongosh"
 brew "mosh"
 brew "neovim", args: ["HEAD"]
+# brew "node"
 brew "nvm"
+brew "ocaml"
 brew "pinentry-mac"
 brew "pnpm"
 brew "prettier"
 brew "purescript"
 brew "ripgrep"
 brew "rust"
+brew "rustup-init"
+# brew "samba"
 brew "sass/sass/sass"
 brew "subversion"
-brew "vue-cli" *
+brew "tmux"
+# brew "typescript"
+# brew "vue-cli"
 brew "webp"
 brew "wget"
 brew "yarn"
 brew "zplug"
+# brew "zsh"
 
 # App Store
-mas "Compressor", id: 424390742 -
-mas "Final Cut Pro", id: 424389933 -
-mas "iA Writer", id: 775737590 -
-mas "Logic Pro", id: 634148309 -
-mas "Motion", id: 434290957 -
-mas "Pocket", id: 568494494 -
-mas "Refined GitHub", id: 1519867270 -
-mas "Save to Raindrop.io", id: 1549370672 -
-mas "Vimari", id: 1480933944 -
-mas "Xcode", id: 497799835 -
+mas "Compressor", id: 424390742
+mas "Final Cut Pro", id: 424389933
+mas "iA Writer", id: 775737590
+mas "Logic Pro", id: 634148309
+mas "Motion", id: 434290957
+mas "Pocket", id: 568494494
+mas "Refined GitHub", id: 1519867270
+mas "Save to Raindrop.io", id: 1549370672
+mas "Vimari", id: 1480933944
+mas "Xcode", id: 497799835
