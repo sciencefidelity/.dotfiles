@@ -20,10 +20,6 @@ cask "affinity-photo" -
 cask "affinity-publisher" -
 cask "figma" -
 
-# Notes
-cask "miro" -
-cask "notion" -
-
 # Development
 cask "android-studio" -
 cask "dash" -
@@ -32,6 +28,18 @@ cask "google-cloud-sdk"
 cask "insomnia" -
 cask "kitty" -
 cask "nova" -
+
+# Entertainment
+cask "spotify" -
+
+# Notes
+cask "miro" -
+cask "notion" -
+
+# Office
+cask "microsoft-excel" -
+cask "microsoft-powerpoint" -
+cask "microsoft-word" -
 
 # Social
 cask "slack" -
@@ -42,9 +50,6 @@ cask "hammerspoon" -
 cask "karabiner-elements" -
 cask "onedrive" -
 cask "rocket" -
-
-# Entertainment
-cask "spotify" -
 
 # packages
 brew "bat"
