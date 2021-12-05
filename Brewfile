@@ -126,5 +126,6 @@ mas "Motion", id: 434290957
 mas "Pocket", id: 568494494
 mas "Refined GitHub", id: 1519867270
 mas "Save to Raindrop.io", id: 1549370672
+mas "Slack for Desktop", id: 803453959
 mas "Vimari", id: 1480933944
 mas "Xcode", id: 497799835
