@@ -11,50 +11,40 @@ tap "sass/sass"
 brew "mas"
 
 # Browsers
-cask "brave-browser"
-cask "firefox"
+cask "brave-browser" -
+cask "firefox" -
 
 # Design
-cask "affinity-designer"
-cask "affinity-photo"
-cask "affinity-publisher"
-cask "figma"
+cask "affinity-designer" -
+cask "affinity-photo" -
+cask "affinity-publisher" -
+cask "figma" -
 
 # Notes
-cask "miro"
-cask "notion"
-cask "raindropio"
+cask "miro" -
+cask "notion" -
 
 # Development
-cask "android-studio"
-cask "dash"
+cask "android-studio" -
+cask "dash" -
 cask "flutter"
 cask "google-cloud-sdk"
-cask "insomnia"
-cask "kitty"
-cask "nova"
+cask "insomnia" -
+cask "kitty" -
+cask "nova" -
 
 # Social
-cask "microsoft-teams"
-cask "slack"
-cask "zoom"
+cask "slack" -
 
 # Utils
-cask "appcleaner"
-cask "bartender"
-cask "hammerspoon"
-cask "imageoptim"
-cask "karabiner-elements"
-cask "onedrive"
-cask "rocket"
+cask "bartender" -
+cask "hammerspoon" -
+cask "karabiner-elements" -
+cask "onedrive" -
+cask "rocket" -
 
 # Entertainment
-cask "anki"
-cask "spotify"
-
-# Audio
-cask "ableton-live-suite10"
-cask "native-access"
+cask "spotify" -
 
 # packages
 brew "bat"
@@ -97,14 +87,13 @@ brew "yarn"
 brew "zplug"
 
 # App Store
-mas "Apple Configurator 2", id: 1037126344
-mas "Compressor", id: 424390742
-mas "Final Cut Pro", id: 424389933
-mas "iA Writer", id: 775737590
-mas "Logic Pro", id: 634148309
-mas "Motion", id: 434290957
-mas "Pocket", id: 568494494
-mas "Refined GitHub", id: 1519867270
-mas "Save to Raindrop.io", id: 1549370672
-mas "Vimari", id: 1480933944
-mas "Xcode", id: 497799835
+mas "Compressor", id: 424390742 -
+mas "Final Cut Pro", id: 424389933 -
+mas "iA Writer", id: 775737590 -
+mas "Logic Pro", id: 634148309 -
+mas "Motion", id: 434290957 -
+mas "Pocket", id: 568494494 -
+mas "Refined GitHub", id: 1519867270 -
+mas "Save to Raindrop.io", id: 1549370672 -
+mas "Vimari", id: 1480933944 -
+mas "Xcode", id: 497799835 -
