@@ -11,45 +11,47 @@ tap "sass/sass"
 brew "mas"
 
 # Browsers
-cask "brave-browser" -
-cask "firefox" -
+cask "brave-browser"
+cask "firefox"
 
-# Design
-cask "affinity-designer" -
-cask "affinity-photo" -
-cask "affinity-publisher" -
-cask "figma" -
-
-# Development
-cask "android-studio" -
-cask "dash" -
+# CLI
 cask "flutter"
 cask "google-cloud-sdk"
-cask "insomnia" -
-cask "kitty" -
-cask "nova" -
+
+# Design
+cask "affinity-designer"
+cask "affinity-photo"
+cask "affinity-publisher"
+cask "figma"
+
+# Development
+cask "android-studio"
+cask "dash"
+cask "insomnia"
+cask "kitty"
+cask "nova"
 
 # Entertainment
-cask "spotify" -
+cask "spotify"
 
 # Notes
-cask "miro" -
-cask "notion" -
+cask "miro"
+cask "notion"
 
 # Office
-cask "microsoft-excel" -
-cask "microsoft-powerpoint" -
-cask "microsoft-word" -
+cask "microsoft-excel"
+cask "microsoft-powerpoint"
+cask "microsoft-word"
 
 # Social
-cask "slack" -
+cask "slack"
 
 # Utils
-cask "bartender" -
-cask "hammerspoon" -
-cask "karabiner-elements" -
-cask "onedrive" -
-cask "rocket" -
+cask "bartender"
+cask "hammerspoon"
+cask "karabiner-elements"
+cask "onedrive"
+cask "rocket"
 
 # packages
 brew "bat"
@@ -65,7 +67,7 @@ brew "eslint"
 brew "exa"
 brew "fd"
 brew "fzf"
-brew "gatsby-cli"
+brew "gatsby-cli" *
 brew "gh"
 brew "ghc"
 brew "git-delta"
@@ -83,9 +85,8 @@ brew "purescript"
 brew "ripgrep"
 brew "rust"
 brew "sass/sass/sass"
-brew "speedtest-cli"
 brew "subversion"
-brew "vue-cli"
+brew "vue-cli" *
 brew "webp"
 brew "wget"
 brew "yarn"
