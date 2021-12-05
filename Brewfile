@@ -20,9 +20,9 @@ cask "flutter"
 cask "google-cloud-sdk"
 
 # Design
-cask "affinity-designer"
-cask "affinity-photo"
-cask "affinity-publisher"
+# cask "affinity-designer"
+# cask "affinity-photo"
+# cask "affinity-publisher"
 cask "figma"
 
 # Development
@@ -40,9 +40,9 @@ cask "miro"
 cask "notion"
 
 # Office
-cask "microsoft-excel"
-cask "microsoft-powerpoint"
-cask "microsoft-word"
+# cask "microsoft-excel"
+# cask "microsoft-powerpoint"
+# cask "microsoft-word"
 
 # Social
 cask "slack"
@@ -51,7 +51,7 @@ cask "slack"
 cask "bartender"
 cask "hammerspoon"
 cask "karabiner-elements"
-cask "onedrive"
+# cask "onedrive"
 cask "rocket"
 
 # packages
@@ -69,7 +69,7 @@ brew "eslint"
 brew "exa"
 brew "fd"
 brew "fzf"
-# brew "gatsby-cli"
+brew "gatsby-cli"
 brew "gh"
 brew "ghc"
 brew "git"
@@ -79,8 +79,8 @@ brew "go", args: ["HEAD"]
 brew "gopls"
 brew "haskell-language-server"
 brew "haskell-stack"
-# brew "htop"
-# brew "lazygit"
+brew "htop"
+brew "lazygit"
 brew "lf"
 # brew "lua"
 brew "luajit"
@@ -102,8 +102,8 @@ brew "rustup-init"
 brew "sass/sass/sass"
 brew "subversion"
 brew "tmux"
-# brew "typescript"
-# brew "vue-cli"
+brew "typescript"
+brew "vue-cli"
 brew "webp"
 brew "wget"
 brew "yarn"
@@ -111,21 +111,21 @@ brew "zplug"
 # brew "zsh"
 
 # App Store
-# mas "Affinity Designer", id: 824171161
-# mas "Affinity Photo", id: 824183456
-# mas "Affinity Publisher", 881418622
+mas "Affinity Designer", id: 824171161
+mas "Affinity Photo", id: 824183456
+mas "Affinity Publisher", 881418622
 mas "Compressor", id: 424390742
 mas "Final Cut Pro", id: 424389933
 mas "iA Writer", id: 775737590
 mas "Logic Pro", id: 634148309
-# mas "Microsoft Excel", id: 462058435
-# mas "Microsoft PowerPoint", id: 462062816
-# mas "Microsoft Word", id: 462054704
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft PowerPoint", id: 462062816
+mas "Microsoft Word", id: 462054704
 mas "Motion", id: 434290957
-# mas "OneDrive", id: 823766827
+mas "OneDrive", id: 823766827
 mas "Pocket", id: 568494494
 mas "Refined GitHub", id: 1519867270
 mas "Save to Raindrop.io", id: 1549370672
-# mas "Slack for Desktop", id: 803453959
+mas "Slack for Desktop", id: 803453959
 mas "Vimari", id: 1480933944
 mas "Xcode", id: 497799835
