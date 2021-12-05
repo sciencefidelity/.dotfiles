@@ -4,6 +4,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "buo/cask-upgrade"
 
 tap "dart-lang/dart"
 tap "sass/sass"
@@ -110,11 +111,18 @@ brew "zplug"
 # brew "zsh"
 
 # App Store
+# mas "Affinity Designer", id: 824171161
+# mas "Affinity Photo", id: 824183456
+# mas "Affinity Publisher", 881418622
 mas "Compressor", id: 424390742
 mas "Final Cut Pro", id: 424389933
 mas "iA Writer", id: 775737590
 mas "Logic Pro", id: 634148309
+# mas "Microsoft Excel", id: 462058435
+# mas "Microsoft PowerPoint", id: 462062816
+# mas "Microsoft Word", id: 462054704
 mas "Motion", id: 434290957
+# mas "OneDrive", id: 823766827
 mas "Pocket", id: 568494494
 mas "Refined GitHub", id: 1519867270
 mas "Save to Raindrop.io", id: 1549370672
