@@ -8,11 +8,8 @@
     source = /home/matt/dotfiles/config/emacs.d/init.el;
   };
 
-  home.sessionVariables = {
-    SPACESHIP_VI_MODE_SHOW = false;
-    SPACESHIP_USER_SHOW = "always";
-    SPACESHIP_HOST_SHOW = "always";
-    SPACESHIP_PROMPT_ADD_NEWLINE = false;
+  home.file.".npmrc" = {
+    source = /home/matt/dotfiles/config/npm/.npmrc;
   };
 
   programs.bat = {
@@ -30,27 +27,6 @@
         rev = "26c57ec282abcaa76e57e055f38432bd827ac34e";
         sha256 = "019hfl4zbn4vm4154hh3bwk6hm7bdxbr1hdww83nabxwjn99ndhv";
       } + "/Dracula.tmTheme");
-    };
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "sciencefidelity";
-    userEmail = "32623301+sciencefidelity@users.noreply.github.com";
-
-    signing = {
-      key = "9F071448877E6705";
-      signByDefault = true;
-    };
-
-    aliases = {
-      co = "checkout";
-      ci = "commit";
-      st = "status";
-      br = "branch";
-      hist = "log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short";
-      type = "cat-file -t";
-      dump = "cat-file -p";
     };
   };
 
@@ -78,10 +54,13 @@
 
     delta.enable = true;
 
-    extraConfig = { init = { defaultBranch = "main"; } ; };
+    extraConfig = {
+      init = { defaultBranch = "main"; } ;
+      pull = { rebase = false; } ;
+    };
 
     signing = {
-      key = "FF3B11AF2EB4CA29";
+      key = "9F071448877E6705";
       signByDefault = true;
     };
 
@@ -118,6 +97,144 @@
     withNodeJs = true;
     viAlias = true;
     vimAlias = true;
+  };
+
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      add_newline = false;
+
+      format = lib.concatStrings [
+        "$username"
+        "$shlvl"
+        "$singularity"
+        "$kubernetes"
+        "$directory"
+        "$hostname"
+        "$vcsh"
+        "$git_branch"
+        "$git_commit"
+        "$git_state"
+        "$git_metrics"
+        "$git_status"
+        "$hg_branch"
+        "$docker_context"
+        "$package"
+        "$cmake"
+        "$cobol"
+        "$dart"
+        "$deno"
+        "$dotnet"
+        "$elixir"
+        "$elm"
+        "$erlang"
+        "$golang"
+        "$helm"
+        "$java"
+        "$julia"
+        "$kotlin"
+        "$lua"
+        "$nim"
+        "$nodejs"
+        "$ocaml"
+        "$perl"
+        "$php"
+        "$pulumi"
+        "$purescript"
+        "$python"
+        "$rlang"
+        "$red"
+        "$ruby"
+        "$rust"
+        "$scala"
+        "$swift"
+        "$terraform"
+        "$vlang"
+        "$vagrant"
+        "$zig"
+        "$nix_shell"
+        "$conda"
+        "$memory_usage"
+        "$aws"
+        "$gcloud"
+        "$openstack"
+        "$env_var"
+        "$crystal"
+        "$custom"
+        "$cmd_duration"
+        "$line_break"
+        "$jobs"
+        "$battery"
+        "$time"
+        "$status"
+        "$shell"
+        "$character"
+      ];
+
+      aws.disabled = true;
+      battery.disabled = true;
+
+      character = {
+        success_symbol = "[➜](bold green)";
+        error_symbol = "[➜](bold red)";
+        vicmd_symbol = "[➜](bold purple)";
+      };
+
+      cmake.disabled = true;
+      cobol.disabled = true;
+      conda.disabled = true;
+      crystal.disabled = true;
+
+      directory = {
+        format = "in [$path](bold cyan) ";
+      };
+
+      docker_context.disabled = true;
+      dotnet.disabled = true;
+      fill.disabled = true;
+      gcloud.disabled = true;
+      helm.disabled = true;
+
+      hostname = {
+        ssh_only = false;
+        format = "on [$hostname](bold blue) ";
+        trim_at = ".";
+        disabled = false;
+      }
+
+      java.disabled = true;
+      julia.disabled = true;
+      hg_branch.disabled = true;
+      openstack.disabled = true;
+
+      package = {
+        format = "is [$version](bold red) ";
+      }
+
+      perl.disabled = true;
+      php.disabled = true;
+      pulumi.disabled = true;
+      rlang.disabled = true;
+      red.disabled = true;
+      ruby.disabled = true;
+      scala.disabled = true;
+      singularity.disabled = true;
+      terraform.disabled = true;
+
+      username = {
+        style_user = "yellow bold";
+        style_root = "red bold";
+        format = "[$user]($style) ";
+        disabled = false;
+        show_always = true;
+      }
+
+      vagrant.disabled = true;
+      vlang.disabled = true;
+      vcsh.disabled = true;
+      zig.disabled = true;
+    };
   };
 
   programs.tmux = {
@@ -160,6 +277,9 @@
 
   programs.zsh = {
     enable = true;
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    enableSyntaxHighlighting = true;
     autocd = true;
     # defaultKeymap = "vicmd"; # prints a list of keymappings when starting shell
     # dotDir = ".config/zsh";
@@ -260,12 +380,5 @@
           export TERM=xterm-24bits
       fi
     '';
-
-    zplug = {
-      enable = true;
-      plugins = [
-        { name = "spaceship-prompt/spaceship-prompt"; tags = [ use:spaceship.zsh from:github as:theme ]; }
-      ];
-    };
   };
 }
