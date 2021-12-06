@@ -7,6 +7,7 @@ pull_dotfiles() {
   cp ~/dotfiles/.tmux.conf ~/
   cp ~/dotfiles/config/emacs.d/init.el ~/.emacs.d/
   cp ~/dotfiles/config/nvim/init.lua ~/.config/nvim/
+  cp ~/dotfiles/config/starship/starship.toml ~/.config/starship/
   if [[ "$(uname)" == "Darwin" ]]; then
     cp ~/dotfiles/config/kitty/kitty.conf ~/.config/kitty/
     cp ~/dotfiles/config/hammerspoon/init.lua ~/.hammerspoon/
@@ -21,6 +22,7 @@ push_dotfiles() {
   cp ~/.tmux.conf ~/dotfiles/
   cp ~/.emacs.d/init.el ~/dotfiles/config/emacs.d/
   cp ~/.config/nvim/init.lua ~/dotfiles/config/nvim/
+  cp ~/.config/starship/starship.toml ~/dotfiles/config/starship/
   if [[ "$(uname)" == "Darwin" ]]; then
     cp ~/.config/karabiner/karabiner.json ~/dotfiles/config/karabiner/
     cp ~/.config/kitty/kitty.conf ~/dotfiles/config/kitty/
