@@ -407,6 +407,7 @@ in
         character = {
           success_symbol = "[➜](bold green)";
           error_symbol = "[➜](bold red)";
+          vicmd_symbol = "[➜](bold purple)";
         };
 
         cmake.disabled = true;
