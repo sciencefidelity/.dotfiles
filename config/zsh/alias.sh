@@ -1,5 +1,5 @@
 # synchronise dotfiles
-pull_dotfiles() {
+function pull_dotfiles() {
   echo "Updating dotfiles"
   cp ~/dotfiles/.zshrc ~/
   cp -R ~/dotfiles/config/zsh ~/.config/
@@ -15,7 +15,7 @@ pull_dotfiles() {
   fi
   . ~/.zshrc
 }
-push_dotfiles() {
+function push_dotfiles() {
   cp ~/.zshrc ~/dotfiles/
   cp -R ~/.config/zsh ~/dotfiles/config/
   cp ~/.config/bat/config ~/dotfiles/config/bat/
@@ -93,7 +93,7 @@ if  [[ "$(uname)" == "Darwin" ]]; then
 fi
 
 # Git aliases
-gitpush() {
+function gitpush() {
   git pull
   git add .
   git commit -m "$*"
@@ -109,7 +109,7 @@ alias sudo="sudo -v; sudo "
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
 # archive extractor - usage: ext <file>
-ext ()
+function ext ()
 {
   if [ -f $1 ] ; then
     case $1 in
