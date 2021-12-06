@@ -170,7 +170,6 @@ in
     sumneko-lua-language-server
     tmux
     wget
-    zplug
     zsh
     zsh-autosuggestions
     zsh-syntax-highlighting
@@ -334,72 +333,72 @@ in
       settings = {
         add_newline = false;
 
-        format = ''
-          $username\
-          $shlvl\
-          $singularity\
-          $kubernetes\
-          $directory\
-          $hostname\
-          $vcsh\
-          $git_branch\
-          $git_commit\
-          $git_state\
-          $git_metrics\
-          $git_status\
-          $hg_branch\
-          $docker_context\
-          $package\
-          $cmake\
-          $cobol\
-          $dart\
-          $deno\
-          $dotnet\
-          $elixir\
-          $elm\
-          $erlang\
-          $golang\
-          $helm\
-          $java\
-          $julia\
-          $kotlin\
-          $lua\
-          $nim\
-          $nodejs\
-          $ocaml\
-          $perl\
-          $php\
-          $pulumi\
-          $purescript\
-          $python\
-          $rlang\
-          $red\
-          $ruby\
-          $rust\
-          $scala\
-          $swift\
-          $terraform\
-          $vlang\
-          $vagrant\
-          $zig\
-          $nix_shell\
-          $conda\
-          $memory_usage\
-          $aws\
-          $gcloud\
-          $openstack\
-          $env_var\
-          $crystal\
-          $custom\
-          $cmd_duration\
-          $line_break\
-          $jobs\
-          $battery\
-          $time\
-          $status\
-          $shell\
-          $character
-        ''
+        format = lib.concatStrings [
+          "$username"
+          "$shlvl"
+          "$singularity"
+          "$kubernetes"
+          "$directory"
+          "$hostname"
+          "$vcsh"
+          "$git_branch"
+          "$git_commit"
+          "$git_state"
+          "$git_metrics"
+          "$git_status"
+          "$hg_branch"
+          "$docker_context"
+          "$package"
+          "$cmake"
+          "$cobol"
+          "$dart"
+          "$deno"
+          "$dotnet"
+          "$elixir"
+          "$elm"
+          "$erlang"
+          "$golang"
+          "$helm"
+          "$java"
+          "$julia"
+          "$kotlin"
+          "$lua"
+          "$nim"
+          "$nodejs"
+          "$ocaml"
+          "$perl"
+          "$php"
+          "$pulumi"
+          "$purescript"
+          "$python"
+          "$rlang"
+          "$red"
+          "$ruby"
+          "$rust"
+          "$scala"
+          "$swift"
+          "$terraform"
+          "$vlang"
+          "$vagrant"
+          "$zig"
+          "$nix_shell"
+          "$conda"
+          "$memory_usage"
+          "$aws"
+          "$gcloud"
+          "$openstack"
+          "$env_var"
+          "$crystal"
+          "$custom"
+          "$cmd_duration"
+          "$line_break"
+          "$jobs"
+          "$battery"
+          "$time"
+          "$status"
+          "$shell"
+          "$character"
+        ];
 
         aws.disabled = true;
         battery.disabled = true;
@@ -506,6 +505,9 @@ in
 
     programs.zsh = {
       enable = true;
+      enableAutosuggestions = true;
+      enableCompletion = true;
+      enableSyntaxHighlighting = true;
       autocd = true;
       # defaultKeymap = "vicmd"; # prints a list of keymappings when starting shell
       # dotDir = ".config/zsh";
@@ -603,13 +605,6 @@ in
             export TERM=xterm-24bits
         fi
       '';
-
-      zplug = {
-        enable = true;
-        plugins = [
-          { name = "spaceship-prompt/spaceship-prompt"; tags = [ use:spaceship.zsh from:github as:theme ]; }
-        ];
-      };
     };
   };
 
