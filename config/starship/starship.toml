@@ -1,0 +1,49 @@
+# Inserts a blank line between shell prompts
+add_newline = false
+
+# format = """\
+#   $username\
+#   $directory\
+#   $hostname\
+#   $git_branch\
+#   $git_commit\
+#   $git_state\
+#   $git_status\
+#   $package\
+#   $dart\
+#   $go\
+#   $nodejs\
+#   $cmd_duration\
+#   $custom\
+#   $line_break\
+#   $character\
+#   """
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+
+[username]
+style_user = "yellow bold"
+style_root = "red bold"
+format = "[$user]($style) "
+disabled = false
+show_always = true
+
+[directory]
+truncation_length = 2
+format = "in [$path](bold cyan) "
+
+[hostname]
+ssh_only = false
+format = "on [$hostname](bold blue) "
+trim_at = "."
+disabled = false
+
+[package]
+format = "is [$version](bold red) "
+disabled = false
+
+[gcloud]
+disabled = true
