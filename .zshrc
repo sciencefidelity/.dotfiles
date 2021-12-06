@@ -7,14 +7,6 @@ if [[ "$TERM" == "xterm-256color" && "$(uname)" == "Linux" ]]; then
     export TERM=xterm-24bits
 fi
 
-# fpath=( "${ZDOTDIR:-$HOME}/.zfunctions" $fpath )
-# autoload -U promptinit; promptinit
-# prompt spaceship
-# SPACESHIP_VI_MODE_SHOW=false
-# SPACESHIP_USER_SHOW=always
-# SPACESHIP_HOST_SHOW=always
-# SPACESHIP_PROMPT_ADD_NEWLINE=false
-
 eval "$(starship init zsh)"
 source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
@@ -81,6 +73,6 @@ eval "$(ssh-agent -s)" > /dev/null
 ssh-add ~/.ssh/github 2> /dev/null
 
 # Plugins
-source ~/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/dotfiles/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
