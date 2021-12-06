@@ -8,8 +8,9 @@ if [[ "$TERM" == "xterm-256color" && "$(uname)" == "Linux" ]]; then
 fi
 
 eval "$(starship init zsh)"
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
+
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 # Basic auto/tab complete
 autoload -U compinit
