@@ -422,7 +422,7 @@ in
           format = "on [$hostname](bold blue) ";
           trim_at = ".";
           disabled = false;
-        }
+        };
 
         java.disabled = true;
         julia.disabled = true;
@@ -431,7 +431,7 @@ in
 
         package = {
           format = "is [$version](bold red) ";
-        }
+        };
 
         perl.disabled = true;
         php.disabled = true;
@@ -449,7 +449,7 @@ in
           format = "[$user]($style) ";
           disabled = false;
           show_always = true;
-        }
+        };
 
         vagrant.disabled = true;
         vlang.disabled = true;
