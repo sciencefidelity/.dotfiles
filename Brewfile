@@ -20,9 +20,6 @@ cask "flutter"
 cask "google-cloud-sdk"
 
 # Design
-# cask "affinity-designer"
-# cask "affinity-photo"
-# cask "affinity-publisher"
 cask "figma"
 
 # Development
@@ -39,11 +36,6 @@ cask "spotify"
 cask "miro"
 cask "notion"
 
-# Office
-# cask "microsoft-excel"
-# cask "microsoft-powerpoint"
-# cask "microsoft-word"
-
 # Social
 cask "slack"
 
@@ -51,7 +43,6 @@ cask "slack"
 cask "bartender"
 cask "hammerspoon"
 cask "karabiner-elements"
-# cask "onedrive"
 cask "rocket"
 
 # packages
@@ -80,11 +71,12 @@ brew "gopls"
 brew "haskell-language-server"
 brew "haskell-stack"
 brew "htop"
+brew "jq"
 brew "lazygit"
 brew "lf"
-# brew "lua"
+brew "lua"
 brew "luajit"
-# brew "luarocks"
+brew "luarocks"
 brew "mongosh"
 brew "mosh"
 brew "neovim", args: ["HEAD"]
@@ -100,6 +92,8 @@ brew "rust"
 brew "rustup-init"
 # brew "samba"
 brew "sass/sass/sass"
+# brew "spaceship"
+brew "starship", args: ["HEAD"]
 brew "subversion"
 brew "tmux"
 brew "typescript"
@@ -109,6 +103,7 @@ brew "wget"
 brew "yarn"
 brew "zplug"
 # brew "zsh"
+brew "zsh-autosuggestions"
 
 # App Store
 mas "Affinity Designer", id: 824171161
