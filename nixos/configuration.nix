@@ -233,13 +233,6 @@ in
       source = /home/matt/dotfiles/config/npm/.npmrc;
     };
 
-    home.sessionVariables = {
-      SPACESHIP_VI_MODE_SHOW = false;
-      SPACESHIP_USER_SHOW = "always";
-      SPACESHIP_HOST_SHOW = "always";
-      SPACESHIP_PROMPT_ADD_NEWLINE = false;
-    };
-
     programs.bat = {
       enable = true;
       config = {
