@@ -257,7 +257,7 @@ in
 
     programs.gh = {
       enable = true;
-      gitProtocol = "ssh";
+      settings.git_protocol = "ssh";
     };
 
     programs.git = {
@@ -403,7 +403,6 @@ in
         };
 
         cmake.disabled = true;
-        cobol.disabled = true;
         conda.disabled = true;
         crystal.disabled = true;
 
@@ -413,7 +412,6 @@ in
 
         docker_context.disabled = true;
         dotnet.disabled = true;
-        fill.disabled = true;
         gcloud.disabled = true;
         helm.disabled = true;
 
@@ -435,7 +433,6 @@ in
 
         perl.disabled = true;
         php.disabled = true;
-        pulumi.disabled = true;
         rlang.disabled = true;
         red.disabled = true;
         ruby.disabled = true;
