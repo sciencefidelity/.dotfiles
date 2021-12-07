@@ -127,6 +127,9 @@ disabled = true
 [nim]
 disabled = true
 
+[nodejs]
+symbol = "⬢ "
+
 [openstack]
 disabled = true
 

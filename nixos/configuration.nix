@@ -425,6 +425,11 @@ in
         java.disabled = true;
         julia.disabled = true;
         hg_branch.disabled = true;
+
+        nodejs = {
+          symbol = "⬢ ";
+        };
+
         openstack.disabled = true;
 
         package = {
