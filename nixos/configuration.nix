@@ -124,8 +124,8 @@ in
     google-cloud-sdk
     gopls
     haskell-language-server
-    htop
     home-manager
+    htop
     lazygit
     lf
     mosh
