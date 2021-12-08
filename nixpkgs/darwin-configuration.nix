@@ -4,7 +4,7 @@
   users.users.matt = {
     home = "Users/matt";
     description = "Matt Cook";
-    shell. pkgs.zsh;
+    shell = pkgs.zsh;
   };
 
   environment.systemPackages = with pkgs; [
