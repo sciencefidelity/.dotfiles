@@ -8,10 +8,22 @@
   };
 
   environment.systemPackages = with pkgs; [
+    bat
+    delta
+    emacs
+    fzf
+    gh
     git
-    vim
+    home-manager
+    htop
+    lf
+    neovim
+    ripgrep
+    starship
     wget
     zsh
+    zsh-autosuggestions
+    zsh-syntax-highlighting
   ];
   environment.shells = [ pkgs.zsh ];
 
