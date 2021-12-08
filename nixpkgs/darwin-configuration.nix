@@ -25,8 +25,7 @@
   system.defaults.dock.show-recents = false;
   system.defaults.dock.tilesize = 64;
 
-  services.nix-daemon.enable = false;
-  nix.useDaemon = false;
+  services.nix-daemon.enable = true;
   programs.zsh.enable = true;
   system.stateVersion = 4;
 }
