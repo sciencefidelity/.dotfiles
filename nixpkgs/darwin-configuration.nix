@@ -4,7 +4,7 @@
   imports = [ <home-manager/nix-darwin> ];
 
   users.users.matt = {
-    home = "Users/matt";
+    home = "/Users/matt";
     description = "Matt Cook";
     shell = pkgs.zsh;
   };
