@@ -27,7 +27,7 @@
     lazygit
     lf
     neovim
-    pinentry-mac
+    pinentry_mac
     ripgrep
     starship
     tmux
