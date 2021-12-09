@@ -133,11 +133,11 @@
 
   home-manager.users.matt = { pkgs, ... }: {
     home.file.".emacs.d/init.el" = {
-      source = /home/matt/dotfiles/config/emacs.d/init.el;
+      source = /Users/matt/dotfiles/config/emacs.d/init.el;
     };
 
     home.file.".npmrc" = {
-      source = /home/matt/dotfiles/config/npm/.npmrc;
+      source = /Users/matt/dotfiles/config/npm/.npmrc;
     };
 
     programs.bat = {
