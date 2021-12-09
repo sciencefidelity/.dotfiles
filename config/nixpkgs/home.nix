@@ -37,6 +37,10 @@
     enable = true;
   };
 
+  programs.kitty = {
+    enable = true;
+  }
+
   programs.neovim = {
     enable = true;
     extraConfig = ''

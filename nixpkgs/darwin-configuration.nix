@@ -16,6 +16,7 @@
     git
     home-manager
     htop
+    kitty
     lf
     neovim
     ripgrep
