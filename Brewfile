@@ -15,10 +15,6 @@ brew "mas"
 cask "brave-browser"
 cask "firefox"
 
-# CLI
-cask "flutter"
-cask "google-cloud-sdk"
-
 # Design
 cask "figma"
 
@@ -45,70 +41,10 @@ cask "hammerspoon"
 cask "karabiner-elements"
 cask "rocket"
 
-# packages
-brew "bat"
-brew "cabal-install"
-brew "clojure"
-brew "clojure-lsp"
-brew "clojurescript"
-brew "coreutils"
-brew "deno"
-brew "elixir", args: ["HEAD"]
-brew "elm"
-brew "emacs"
-brew "eslint"
-brew "exa"
-brew "fd"
-brew "fzf"
-brew "gatsby-cli"
-brew "gh"
-brew "ghc"
-brew "git"
-brew "git-delta"
-brew "gnupg"
-brew "go", args: ["HEAD"]
-brew "gopls"
-brew "haskell-language-server"
-brew "haskell-stack"
-brew "htop"
-brew "jq"
-brew "lazygit"
-brew "lf"
-brew "lua"
-brew "luajit"
-brew "luarocks"
-brew "mongosh"
-brew "mosh"
-brew "neovim", args: ["HEAD"]
-# brew "node"
-brew "nvm"
-brew "ocaml"
-brew "pinentry-mac"
-brew "pnpm"
-brew "prettier"
-brew "purescript"
-brew "ripgrep"
-brew "rust"
-brew "rustup-init"
-# brew "samba"
-brew "sass/sass/sass"
-# brew "spaceship"
-brew "starship", args: ["HEAD"]
-brew "subversion"
-brew "tmux"
-brew "typescript"
-brew "vue-cli"
-brew "webp"
-brew "wget"
-brew "yarn"
-brew "zplug"
-# brew "zsh"
-brew "zsh-autosuggestions"
-
 # App Store
 mas "Affinity Designer", id: 824171161
 mas "Affinity Photo", id: 824183456
-mas "Affinity Publisher", 881418622
+mas "Affinity Publisher", id: 881418622
 mas "Compressor", id: 424390742
 mas "Final Cut Pro", id: 424389933
 mas "iA Writer", id: 775737590
