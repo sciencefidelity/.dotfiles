@@ -3,7 +3,7 @@
 {
   home.username = "matt";
   home.homeDirectory = "/Users/matt";
-  home.stateVersion = "22.05";
+  home.stateVersion = "21.05";
   programs.home-manager.enable = true;
 
   programs.bat = {
@@ -28,40 +28,6 @@
     enable = true;
   };
 
-  programs.gh = {
-    enable = true;
-    settings.git_protocol = "ssh";
-  };
-
-  programs.git = {
-    enable = true;
-
-    aliases = {
-      co = "checkout";
-      ci = "commit";
-      st = "status";
-      br = "branch";
-      hist = "log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short";
-      type = "cat-file -t";
-      dump = "cat-file -p";
-    };
-
-    delta.enable = true;
-
-    extraConfig = {
-      init = { defaultBranch = "main"; } ;
-      pull = { rebase = false; } ;
-    };
-
-    signing = {
-      key = "F1EC40E6851FF81E";
-      signByDefault = true;
-    };
-
-    userName = "sciencefidelity";
-    userEmail = "32623301+sciencefidelity@users.noreply.github.com";
-  };
-
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
@@ -82,7 +48,6 @@
 
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim-nightly;
     extraConfig = ''
       lua << EOF
       ${builtins.readFile /home/matt/dotfiles/config/nvim/init.lua}
@@ -98,73 +63,6 @@
     enableZshIntegration = true;
     settings = {
       add_newline = false;
-
-      format = lib.concatStrings [
-        "$username"
-        "$shlvl"
-        "$singularity"
-        "$kubernetes"
-        "$directory"
-        "$hostname"
-        "$vcsh"
-        "$git_branch"
-        "$git_commit"
-        "$git_state"
-        "$git_metrics"
-        "$git_status"
-        "$hg_branch"
-        "$docker_context"
-        "$package"
-        "$cmake"
-        "$cobol"
-        "$dart"
-        "$deno"
-        "$dotnet"
-        "$elixir"
-        "$elm"
-        "$erlang"
-        "$golang"
-        "$helm"
-        "$java"
-        "$julia"
-        "$kotlin"
-        "$lua"
-        "$nim"
-        "$nodejs"
-        "$ocaml"
-        "$perl"
-        "$php"
-        "$pulumi"
-        "$purescript"
-        "$python"
-        "$rlang"
-        "$red"
-        "$ruby"
-        "$rust"
-        "$scala"
-        "$swift"
-        "$terraform"
-        "$vlang"
-        "$vagrant"
-        "$zig"
-        "$nix_shell"
-        "$conda"
-        "$memory_usage"
-        "$aws"
-        "$gcloud"
-        "$openstack"
-        "$env_var"
-        "$crystal"
-        "$custom"
-        "$cmd_duration"
-        "$line_break"
-        "$jobs"
-        "$battery"
-        "$time"
-        "$status"
-        "$shell"
-        "$character"
-      ];
 
       aws.disabled = true;
       battery.disabled = true;

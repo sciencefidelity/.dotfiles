@@ -27,8 +27,6 @@
   ];
   environment.shells = [ pkgs.zsh ];
 
-  programs.nix-index.enable = true;
-
   system.defaults.dock.autohide = true;
   system.defaults.dock.launchanim = false;
   system.defaults.dock.mineffect = "scale";
