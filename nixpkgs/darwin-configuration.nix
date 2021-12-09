@@ -111,35 +111,35 @@
       source = /home/matt/dotfiles/config/npm/.npmrc;
     };
 
-    environment = {
-      shells = [ pkgs.zsh ];
-      shellAliases = {
-        sudo = "sudo -i";
-        poweroff = "sudo poweroff";
-        reboot = "sudo reboot";
-        sysrs = "sudo nixos-rebuild switch";
-        sysup = "sudo nixos-rebuild switch --upgrade";
-        sysclean = "sudo nix-collect-garbage -d; and sudo nix-store --optimise";
-        ls = "exa -F --group-directories-first";
-        l = "exa -aF --group-directories-first";
-        la = "exa -laF --group-directories-first --git";
-        ll = "exa -lF --group-directories-first --git";
-        lt = "exa -T --git-ignore";
-        lr = "exa -R --git-ignore";
-        mkdir = "mkdir -p";
-        df = "df -kTh";
-        free = "free -h";
-        du = "du -h -c";
-        cat = "bat";
-        grep = "rg";
-        fd = "fdfind";
-        emacs = "TERM=xterm-24bits emacs -nw";
-        push = "git push";
-        pull="git fetch origin; git merge origin/main";
-        gst = "git status";
-        cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
-      };
-    };
+    # environment = {
+    #   shells = [ pkgs.zsh ];
+    #   shellAliases = {
+    #     sudo = "sudo -i";
+    #     poweroff = "sudo poweroff";
+    #     reboot = "sudo reboot";
+    #     sysrs = "sudo nixos-rebuild switch";
+    #     sysup = "sudo nixos-rebuild switch --upgrade";
+    #     sysclean = "sudo nix-collect-garbage -d; and sudo nix-store --optimise";
+    #     ls = "exa -F --group-directories-first";
+    #     l = "exa -aF --group-directories-first";
+    #     la = "exa -laF --group-directories-first --git";
+    #     ll = "exa -lF --group-directories-first --git";
+    #     lt = "exa -T --git-ignore";
+    #     lr = "exa -R --git-ignore";
+    #     mkdir = "mkdir -p";
+    #     df = "df -kTh";
+    #     free = "free -h";
+    #     du = "du -h -c";
+    #     cat = "bat";
+    #     grep = "rg";
+    #     fd = "fdfind";
+    #     emacs = "TERM=xterm-24bits emacs -nw";
+    #     push = "git push";
+    #     pull="git fetch origin; git merge origin/main";
+    #     gst = "git status";
+    #     cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
+    #   };
+    # };
 
     programs.bat = {
       enable = true;
