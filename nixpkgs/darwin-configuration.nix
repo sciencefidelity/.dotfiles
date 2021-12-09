@@ -37,7 +37,6 @@
     zsh-autosuggestions
     zsh-syntax-highlighting
   ];
-  environment.shells = [ pkgs.zsh ];
 
   environment = {
     shells = [ pkgs.zsh ];
