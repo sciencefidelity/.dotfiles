@@ -1,10 +1,18 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   home.username = "matt";
   home.homeDirectory = "/Users/matt";
   home.stateVersion = "21.05";
   programs.home-manager.enable = true;
+
+  home.file.".emacs.d/init.el" = {
+    source = /home/matt/dotfiles/config/emacs.d/init.el;
+  };
+
+  home.file.".npmrc" = {
+    source = /home/matt/dotfiles/config/npm/.npmrc;
+  };
 
   programs.bat = {
     enable = true;
@@ -38,7 +46,10 @@
   };
 
   programs.kitty = {
-    enable = true;
+    enable = false;
+    extraConfig = ''
+      ${builtins.readFile /Users/matt/dotfiles/config/kitty/kitty.conf}
+    '';
   };
 
   programs.neovim = {
@@ -58,6 +69,73 @@
     enableZshIntegration = true;
     settings = {
       add_newline = false;
+
+      format = lib.concatStrings [
+        "$username"
+        "$shlvl"
+        "$singularity"
+        "$kubernetes"
+        "$directory"
+        "$hostname"
+        "$vcsh"
+        "$git_branch"
+        "$git_commit"
+        "$git_state"
+        "$git_metrics"
+        "$git_status"
+        "$hg_branch"
+        "$docker_context"
+        "$package"
+        "$cmake"
+        "$cobol"
+        "$dart"
+        "$deno"
+        "$dotnet"
+        "$elixir"
+        "$elm"
+        "$erlang"
+        "$golang"
+        "$helm"
+        "$java"
+        "$julia"
+        "$kotlin"
+        "$lua"
+        "$nim"
+        "$nodejs"
+        "$ocaml"
+        "$perl"
+        "$php"
+        "$pulumi"
+        "$purescript"
+        "$python"
+        "$rlang"
+        "$red"
+        "$ruby"
+        "$rust"
+        "$scala"
+        "$swift"
+        "$terraform"
+        "$vlang"
+        "$vagrant"
+        "$zig"
+        "$nix_shell"
+        "$conda"
+        "$memory_usage"
+        "$aws"
+        "$gcloud"
+        "$openstack"
+        "$env_var"
+        "$crystal"
+        "$custom"
+        "$cmd_duration"
+        "$line_break"
+        "$jobs"
+        "$battery"
+        "$time"
+        "$status"
+        "$shell"
+        "$character"
+      ];
 
       aws.disabled = true;
       battery.disabled = true;
