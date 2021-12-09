@@ -41,7 +41,7 @@
     enable = true;
     extraConfig = ''
       lua << EOF
-      ${builtins.readFile /home/matt/dotfiles/config/nvim/init.lua}
+      ${builtins.readFile /Users/matt/dotfiles/config/nvim/init.lua}
       EOF
     '';
     withNodeJs = true;
