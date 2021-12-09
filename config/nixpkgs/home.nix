@@ -12,7 +12,7 @@
       theme = "Dracula";
       italic-text = "always";
       style = "full";
-      map-syntax = [ ".eslintignore:Git Ignore" ".prettierignore:Git Ignore" ".prettierrc:JSON" ];
+      # map-syntax = [ ".eslintignore:Git Ignore" ".prettierignore:Git Ignore" ".prettierrc:JSON" ];
     };
     themes = {
       dracula = builtins.readFile (pkgs.fetchFromGitHub {
