@@ -135,7 +135,6 @@
     enable = true;
     enableAutosuggestions = true;
     enableCompletion = true;
-    enableSyntaxHighlighting = true;
     autocd = true;
     # defaultKeymap = "vicmd"; # prints a list of keymappings when starting shell
     # dotDir = ".config/zsh";
