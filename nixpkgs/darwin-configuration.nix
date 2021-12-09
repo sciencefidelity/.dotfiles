@@ -483,7 +483,7 @@
         fi
       '';
     };
-  }
+  };
 
   system.defaults.dock.autohide = true;
   system.defaults.dock.launchanim = false;
