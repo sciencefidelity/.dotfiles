@@ -14,6 +14,36 @@
     source = /home/matt/dotfiles/config/npm/.npmrc;
   };
 
+  environment = {
+    shells = [ pkgs.zsh ];
+    shellAliases = {
+      sudo = "sudo -i";
+      poweroff = "sudo poweroff";
+      reboot = "sudo reboot";
+      sysrs = "sudo nixos-rebuild switch";
+      sysup = "sudo nixos-rebuild switch --upgrade";
+      sysclean = "sudo nix-collect-garbage -d; and sudo nix-store --optimise";
+      ls = "exa -F --group-directories-first";
+      l = "exa -aF --group-directories-first";
+      la = "exa -laF --group-directories-first --git";
+      ll = "exa -lF --group-directories-first --git";
+      lt = "exa -T --git-ignore";
+      lr = "exa -R --git-ignore";
+      mkdir = "mkdir -p";
+      df = "df -kTh";
+      free = "free -h";
+      du = "du -h -c";
+      cat = "bat";
+      grep = "rg";
+      fd = "fdfind";
+      emacs = "TERM=xterm-24bits emacs -nw";
+      push = "git push";
+      pull="git fetch origin; git merge origin/main";
+      gst = "git status";
+      cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
+    };
+  };
+
   programs.bat = {
     enable = true;
     config = {
@@ -202,6 +232,56 @@
       vcsh.disabled = true;
       zig.disabled = true;
     };
+  };
+
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+    escapeTime = 20;
+    extraConfig = ''
+      # fix colors on truecolor terminals
+      if-shell "uname | grep -q Darwin && echo $TERM | grep -q xterm-256color" {
+        # set -g default-terminal screen-256color
+        # set -ga terminal-overrides ",xterm-256color*:Tc"
+        set-option default-terminal "tmux-256color"
+        set-option -a terminal-overrides ",xterm-256color:RGB"
+      }
+
+      if-shell "uname | grep -q Darwin && echo $TERM | grep -q xterm-kitty" {
+        set-option default-terminal "tmux-256color"
+        set-option -a terminal-overrides ",xterm-256color:RGB"
+      }
+
+      # unbind default prefix and set it to Ctrl+s
+      set -g prefix C-s
+      unbind C-b
+      bind C-s send-prefix
+
+      # speed up escape in nvim
+      set -g base-index 1
+      set -g escape-time 20
+
+      # custom key bindings
+      bind -n M-h select-pane -L
+      bind -n M-j select-pane -D
+      bind -n M-k select-pane -U
+      bind -n M-l select-pane -R
+
+      bind-key t set-option status
+
+      # status bar options
+      set -g status-bg "#282a36"
+      set -g status-fg "#ff79c6"
+
+      set-option -g status-right ""
+      set-option -ag status-right " #[fg="#f1fa8c",bg=default]#(zsh ~/.config/zsh/cpu.sh) "
+      set-option -ag status-right " #[fg="#8be9fd",bg=default]#(free -h | awk '/^Mem/ {print $3}')/#(free -h | awk '/^Mem/ {print $2}') "
+      set-option -ag status-right " #[fg="#50fa7b",bg=default]#(zsh ~/.config/zsh/temp.sh) "
+      set-option -ag status-right " #[fg="#ff79c6",bg=default]#(date +"%R") "
+    '';
+    keyMode = "vi";
+    newSession = true;
+    terminal = "xterm-24bits";
   };
 
   programs.zsh = {
