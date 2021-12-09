@@ -39,7 +39,7 @@
 
   programs.kitty = {
     enable = true;
-  }
+  };
 
   programs.neovim = {
     enable = true;
