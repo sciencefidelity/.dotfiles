@@ -9,17 +9,12 @@ end_of_line = lf
 insert_final_newline = true
 charset = utf-8
 
-# .gitconfig
-[.gitconfig]
-indent_style = tab
-indent_size = 2
-
 # Nix
 [*.nix]
 indent_style = space
 indent_size = 2
 
-# Neovim
+# Neovim, Hammerspoon
 [*.lua]
 indent_style = space
 indent_size = 2
