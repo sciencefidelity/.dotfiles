@@ -597,7 +597,7 @@
   users.users.matt = {
     createHome = true;
     description = "Matt Cook";
-    home = "/Users/Matt";
+    home = "/Users/matt";
     name = "matt";
     shell = pkgs.zsh;
   };
