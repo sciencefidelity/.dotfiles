@@ -57,8 +57,8 @@
       tree
       wget
       zsh
-      zsh-autosuggestions
-      zsh-syntax-highlighting
+      # zsh-autosuggestions
+      # zsh-syntax-highlighting
     ];
     systemPath = [
       "$HOME/.npm-globals/bin:$PATH"
