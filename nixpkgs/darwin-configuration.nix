@@ -86,54 +86,53 @@
       "homebrew/cask-versions"
       "homebrew/core"
       "homebrew/services"
-      # "buo/cask-upgrade"
-      # "dart-lang/dart"
-      # "sass/sass"
+      "buo/cask-upgrade"
+      "sass/sass"
     ];
 
-    # brews = [
-    #   "sass/sass/sass"
-    # ];
+    brews = [
+      "sass/sass/sass"
+    ];
 
     casks = [
-      # "android-studio"
-      # "bartender"
-      # "brave-browser"
-      # "dash"
-      # "figma"
-      # "firefox"
-      # "hammerspoon"
-      # "insomnia"
-      # "karabiner-elements"
+      "android-studio"
+      "bartender"
+      "brave-browser"
+      "dash"
+      "figma"
+      "firefox"
+      "hammerspoon"
+      "insomnia"
+      "karabiner-elements"
       "kitty"
-      # "miro"
+      "miro"
       "notion"
       "nova"
-      # "rocket"
-      # "slack"
-      # "spotify"
+      "rocket"
+      "slack"
+      "spotify"
     ];
 
     masApps = {
-      # "Affinity Designer" = 824171161;
-      # "Affinity Photo" = 824183456;
-      # "Affinity Publisher" = 881418622;
-      # "Compressor" = 424390742;
-      # "Craft - Docs and Notes Editor" = 1487937127;
-      # "Final Cut Pro" = 424389933;
-      # "iA Writer" = 775737590;
-      # "Logic Pro" = 634148309;
-      # "Microsoft Excel" = 462058435;
-      # "Microsoft PowerPoint" = 462062816;
-      # "Microsoft Word" = 462054704;
-      # "Motion" = 434290957;
-      # "OneDrive" = 823766827;
-      # "Pocket" = 568494494;
-      # "Refined GitHub" = 1519867270;
-      # "Save to Raindrop.io" = 1549370672;
-      # "Slack for Desktop" = 803453959;
+      "Affinity Designer" = 824171161;
+      "Affinity Photo" = 824183456;
+      "Affinity Publisher" = 881418622;
+      "Compressor" = 424390742;
+      "Craft - Docs and Notes Editor" = 1487937127;
+      "Final Cut Pro" = 424389933;
+      "iA Writer" = 775737590;
+      "Logic Pro" = 634148309;
+      "Microsoft Excel" = 462058435;
+      "Microsoft PowerPoint" = 462062816;
+      "Microsoft Word" = 462054704;
+      "Motion" = 434290957;
+      "OneDrive" = 823766827;
+      "Pocket" = 568494494;
+      "Refined GitHub" = 1519867270;
+      "Save to Raindrop.io" = 1549370672;
+      "Slack for Desktop" = 803453959;
       "Vimari" = 1480933944;
-      # "Xcode" = 497799835;
+      "Xcode" = 497799835;
     };
   };
 
@@ -622,8 +621,8 @@
   system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
   system.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = true;
   system.defaults.NSGlobalDomain.AppleShowAllExtensions = true;
-  system.defaults.NSGlobalDomain.InitialKeyRepeat = 10;
-  system.defaults.NSGlobalDomain.KeyRepeat = 10;
+  system.defaults.NSGlobalDomain.InitialKeyRepeat = 15;
+  system.defaults.NSGlobalDomain.KeyRepeat = 2;
   system.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
   system.defaults.NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
   system.defaults.NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
@@ -654,13 +653,15 @@
   system.defaults.finder = {
     AppleShowAllExtensions = true;
     FXEnableExtensionChangeWarning = false;
-    _FXShowPosixPathInTitle = true;
   };
   system.defaults.loginwindow.GuestEnabled = false;
   system.defaults.loginwindow.LoginwindowText = "Good morning, Matt!";
   system.defaults.screencapture.location = "/Users/matt/Downloads";
   system.defaults.trackpad.ActuationStrength = 0;
-  system.keyboard.remapCapsLockToControl = true;
+  system.keyboard = {
+    enableKeyMapping = true;
+    remapCapsLockToControl = true;
+  };
   system.stateVersion = 4;
 
   time.timeZone = "Europe/London";
