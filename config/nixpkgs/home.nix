@@ -7,41 +7,23 @@
   programs.home-manager.enable = true;
 
   home.file.".emacs.d/init.el" = {
-    source = /home/matt/dotfiles/config/emacs.d/init.el;
+    source = /Users/matt/Developer/dotfiles/config/emacs.d/init.el;
   };
 
   home.file.".npmrc" = {
-    source = /home/matt/dotfiles/config/npm/.npmrc;
+    source = /Users/matt/Developer/dotfiles/config/npm/.npmrc;
   };
 
-  environment = {
-    shells = [ pkgs.zsh ];
-    shellAliases = {
-      sudo = "sudo -i";
-      poweroff = "sudo poweroff";
-      reboot = "sudo reboot";
-      sysrs = "sudo nixos-rebuild switch";
-      sysup = "sudo nixos-rebuild switch --upgrade";
-      sysclean = "sudo nix-collect-garbage -d; and sudo nix-store --optimise";
-      ls = "exa -F --group-directories-first";
-      l = "exa -aF --group-directories-first";
-      la = "exa -laF --group-directories-first --git";
-      ll = "exa -lF --group-directories-first --git";
-      lt = "exa -T --git-ignore";
-      lr = "exa -R --git-ignore";
-      mkdir = "mkdir -p";
-      df = "df -kTh";
-      free = "free -h";
-      du = "du -h -c";
-      cat = "bat";
-      grep = "rg";
-      fd = "fdfind";
-      emacs = "TERM=xterm-24bits emacs -nw";
-      push = "git push";
-      pull="git fetch origin; git merge origin/main";
-      gst = "git status";
-      cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
-    };
+  home.file.".config/hammerspoon/init.lua" = {
+    source = /Users/matt/Developer/dotfiles/config/hammerspoon/init.lua;
+  };
+
+  home.file.".config/karabiner/karabiner.json" = {
+    source = /Users/matt/Developer/dotfiles/config/karabiner/karabiner.json;
+  };
+
+  home.file."/Pictures/tower.jpg" = {
+    source = /Users/matt/Developer/dotfiles/pictures/tower.jpg;
   };
 
   programs.bat = {
@@ -62,13 +44,43 @@
     };
   };
 
-  programs.emacs = {
-    enable = true;
-  };
-
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
+  };
+
+  programs.gh = {
+    enable = true;
+    settings.git_protocol = "ssh";
+  };
+
+  programs.git = {
+    enable = true;
+
+    aliases = {
+      co = "checkout";
+      ci = "commit";
+      st = "status";
+      br = "branch";
+      hist = "log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short";
+      type = "cat-file -t";
+      dump = "cat-file -p";
+    };
+
+    delta.enable = true;
+
+    extraConfig = {
+      init = { defaultBranch = "main"; } ;
+      pull = { rebase = false; } ;
+    };
+
+    signing = {
+      key = "183D75E092F21FEB";
+      signByDefault = true;
+    };
+
+    userName = "sciencefidelity";
+    userEmail = "32623301+sciencefidelity@users.noreply.github.com";
   };
 
   programs.htop = {
@@ -76,9 +88,9 @@
   };
 
   programs.kitty = {
-    enable = false;
+    enable = true;
     extraConfig = ''
-      ${builtins.readFile /Users/matt/dotfiles/config/kitty/kitty.conf}
+      ${builtins.readFile /Users/matt/Developer/dotfiles/config/kitty/kitty.conf}
     '';
   };
 
@@ -86,7 +98,7 @@
     enable = true;
     extraConfig = ''
       lua << EOF
-      ${builtins.readFile /Users/matt/dotfiles/config/nvim/init.lua}
+      ${builtins.readFile /Users/matt/Developer/dotfiles/config/nvim/init.lua}
       EOF
     '';
     withNodeJs = true;
