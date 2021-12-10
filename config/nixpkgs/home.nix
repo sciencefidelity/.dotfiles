@@ -22,6 +22,10 @@
     source = /Users/matt/Developer/dotfiles/config/karabiner/karabiner.json;
   };
 
+  home.file.".ssh/config" = {
+    source = /Users/matt/Developer/dotfiles/config/ssh/config;
+  };
+
   home.file."/Pictures/tower.jpg" = {
     source = /Users/matt/Developer/dotfiles/pictures/tower.jpg;
   };
