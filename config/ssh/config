@@ -1,0 +1,7 @@
+Host pi
+    HostName 192.168.0.33
+    User matt
+    IdentityFile ~/.ssh/raspi
+Host github
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/github
