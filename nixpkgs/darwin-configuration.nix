@@ -167,10 +167,6 @@
       source = /Users/matt/Developer/dotfiles/config/ssh/config;
     };
 
-    home.file.".ssh/config" = {
-      source = /Users/matt/Developer/dotfiles/config/ssh/config;
-    };
-
     home.file."/Pictures/leaning.heic" = {
       source = /Users/matt/Developer/dotfiles/pictures/leaning.heic;
     };
@@ -182,7 +178,7 @@
 
     home.sessionVariables = {
       ANDROID_SDK = "$HOME/Library/Android/sdk";
-      BAT_THEME = "Dracula"
+      BAT_THEME = "Dracula";
       CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       EDITOR = "nvim";
@@ -576,10 +572,10 @@
 
       shellAliases = {
         sudo = "sudo -i";
-        .. = "cd ..";
-        ... = "cd ../..";
-        .... = "cd ../../..";
-        ..... = "cd ../../../..";
+        ".." = "cd ..";
+        "..." = "cd ../..";
+        "...." = "cd ../../..";
+        "....." = "cd ../../../..";
         ls = "exa -F --group-directories-first";
         l = "exa -aF --group-directories-first";
         la = "exa -laF --group-directories-first --git";
