@@ -3,6 +3,15 @@
 {
   imports = [ <home-manager/nix-darwin> ];
 
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+    }))
+    # (import (builtins.fetchTarball {
+    #   url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+    # }))
+  ];
+
   environment = {
     shells = [ pkgs.zsh ];
     # shellAliases = {
@@ -34,24 +43,83 @@
     systemPackages = with pkgs; [
       bat
       bc
+      cabal-install
+      cargo
+      clojure
       coreutils
       curl
       delta
+      deno
+      dart
+      elixir
+      elixir_ls
+      elmPackages.create-elm-app
+      elmPackages.elm
+      elmPackages.elm-analyse
+      elmPackages.elm-format
+      elmPackages.elm-language-server
+      elmPackages.elm-live
+      elmPackages.elm-review
+      elmPackages.elm-test
       emacs-nox
       exa
       fd
       fzf
+      lua
+      luajit
+      luarocks
+      gcc10
+      ghc
       gh
       git
       gnupg
+      go
+      google-cloud-sdk
+      gopls
+      haskell-language-server
+      home-manager
       htop
       jq
       lazygit
       lf
-      neovim
+      mosh
+      neovim-nightly
+      nix-linter
+      nixfmt
+      nodejs
+      nodePackages.diagnostic-languageserver
+      nodePackages.eslint
+      nodePackages.eslint_d
+      nodePackages.gatsby-cli
+      nodePackages.pnpm
+      nodePackages.prettier
+      nodePackages.purescript-language-server
+      nodePackages.purescript-psa
+      nodePackages.pscid
+      nodePackages.svelte-language-server
+      nodePackages.typescript
+      nodePackages.typescript-language-server
+      nodePackages.vscode-langservers-extracted
+      nodePackages.vue-cli
+      nodePackages.vue-language-server
+      nodePackages.yaml-language-server
+      nodePackages.yarn
+      ocaml
+      ocamlPackages.fmt
+      ocamlPackages.js_of_ocaml
+      ocamlPackages.js_of_ocaml-ppx
+      ocamlPackages.js_of_ocaml-lwt
+      ocamlPackages.lsp
       pinentry
       ripgrep
+      rls
+      rnix-lsp
+      rustup
+      samba
+      spago
+      stack
       starship
+      sumneko-lua-language-server
       tmux
       tree
       wget
