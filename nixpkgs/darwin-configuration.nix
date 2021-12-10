@@ -3,45 +3,6 @@
 {
   imports = [ <home-manager/nix-darwin> ];
 
-  users.users.matt = {
-    home = "/Users/matt";
-    description = "Matt Cook";
-    shell = pkgs.zsh;
-  };
-
-  nixpkgs.config.allowUnfree = true;
-  environment.variables = { EDITOR = "nvim"; };
-
-  environment.systemPackages = with pkgs; [
-    bat
-    bc
-    coreutils
-    curl
-    delta
-    emacs-nox
-    exa
-    fd
-    fzf
-    gh
-    git
-    gnupg
-    home-manager
-    htop
-    jq
-    lazygit
-    lf
-    neovim
-    pinentry
-    ripgrep
-    starship
-    tmux
-    tree
-    wget
-    zsh
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-  ];
-
   environment = {
     shells = [ pkgs.zsh ];
     shellAliases = {
@@ -69,6 +30,45 @@
       pull="git fetch origin; git merge origin/main";
       gst = "git status";
       cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
+    };
+    systemPackages = with pkgs; [
+      bat
+      bc
+      coreutils
+      curl
+      delta
+      emacs-nox
+      exa
+      fd
+      fzf
+      gh
+      git
+      gnupg
+      home-manager
+      htop
+      jq
+      lazygit
+      lf
+      neovim
+      pinentry
+      ripgrep
+      starship
+      tmux
+      tree
+      wget
+      zsh
+      zsh-autosuggestions
+      zsh-syntax-highlighting
+    ];
+    systemPaths [
+      "$HOME/.npm-globals/bin:$PATH"
+      "$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH"
+    ];
+    variables {
+      ANDROID_SDK = "$HOME/Library/Android/sdk";
+      CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      EDITOR = "nvim";
     };
   };
 
@@ -138,7 +138,6 @@
   };
 
   home-manager.useGlobalPkgs = true;
-
   home-manager.users.matt = { config, lib, pkgs, ... }: {
     home.file.".emacs.d/init.el" = {
       source = /Users/matt/Developer/dotfiles/config/emacs.d/init.el;
@@ -472,7 +471,6 @@
             echo "'$1' is not a valid file"
           fi
         }
-        export PATH="$HOME/.npm-globals/bin:$PATH"
       '';
 
       initExtraBeforeCompInit = ''
@@ -488,15 +486,65 @@
     };
   };
 
-  system.defaults.dock.autohide = true;
-  system.defaults.dock.launchanim = false;
-  system.defaults.dock.mineffect = "scale";
-  system.defaults.dock.orientation = "bottom";
-  system.defaults.dock.show-process-indicators = true;
-  system.defaults.dock.show-recents = false;
-  system.defaults.dock.tilesize = 64;
+  networking.hostname = "naen";
+  nix.package = "pkgs.nixUnstable";
+  nixpkgs.config.allowUnfree = true;
 
   services.nix-daemon.enable = true;
-  programs.zsh.enable = true;
+
+  system.defaults.NSGlobalDomain = {
+    AppleKeyboardUIMode = 3;
+    ApplePressAndHoldEnabled = true;
+    AppleShowAllExtensions = true;
+    InitialKeyRepeat = 10;
+    KeyRepeat = 10;
+    NSAutomaticCapitalizationEnabled = false;
+    NSAutomaticDashSubstitutionEnabled = false;
+    NSAutomaticPeriodSubstitutionEnabled = false;
+    NSAutomaticQuoteSubstitutionEnabled = false;
+    NSAutomaticSpellingCorrectionEnabled = true;
+    NSDocumentSaveNewDocumentsToCloud = true;
+    NSNavPanelExpandedStateForSaveMode = true;
+    NSNavPanelExpandedStateForSaveMode2 = true;
+    NSWindowResizeTime = 1;
+    com.apple.keyboard.fnState = false;
+    com.apple.sound.beep.feedback = 0;
+    com.apple.springing.delay = 0;
+    com.apple.springing.enabled = false;
+    com.apple.trackpad.scaling = 2;
+  };
+  system.defaults.alf.globalstate = 0;
+  system.defaults.dock {
+    autohide = true;
+    autohide-delay = 0;
+    autohide-time-modifier = 0;
+    launchanim = false;
+    mineffect = "scale";
+    mouse-over-hilite-stack = false;
+    orientation = "bottom";
+    show-process-indicators = true;
+    show-recents = false;
+    tilesize = 64;
+  };
+  system.defaults.finder {
+    AppleShowAllExtensions = true;
+    FXEnableExtensionChangeWarning = false;
+    _FXShowPosixPathInTitle = true;
+  };
+  system.defaults.loginwindow.GuestEnabled = false;
+  system.defaults.loginwindow.LoginwindowText = "Good morning, Matt!";
+  system.defaults.screencapture.location = "/Users/matt/Downloads";
+  system.defaults.trackpad.ActuationStrength = 0;
+  system.keyboard.remapCapsLockToControl = true;
   system.stateVersion = 4;
+
+  time.timeZone = "Europe/London";
+
+  users.users.matt = {
+    createHome = true;
+    description = "Matt Cook";
+    home = "/Users/Matt";
+    name = "matt";
+    shell = pkgs.zsh;
+  };
 }
