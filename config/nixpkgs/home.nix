@@ -26,8 +26,8 @@
     source = /Users/matt/Developer/dotfiles/config/ssh/config;
   };
 
-  home.file."/Pictures/tower.jpg" = {
-    source = /Users/matt/Developer/dotfiles/pictures/tower.jpg;
+  home.file."/Pictures/leaning.heic" = {
+    source = /Users/matt/Developer/dotfiles/pictures/leaning.heic;
   };
 
   programs.bat = {

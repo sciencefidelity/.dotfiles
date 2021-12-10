@@ -139,12 +139,33 @@
 
   home-manager.useGlobalPkgs = true;
   home-manager.users.matt = { config, lib, pkgs, ... }: {
+    home.username = "matt";
+    home.homeDirectory = "/Users/matt";
+    home.stateVersion = "21.05";
+    programs.home-manager.enable = true;
+
     home.file.".emacs.d/init.el" = {
       source = /Users/matt/Developer/dotfiles/config/emacs.d/init.el;
     };
 
     home.file.".npmrc" = {
       source = /Users/matt/Developer/dotfiles/config/npm/.npmrc;
+    };
+
+    home.file.".config/hammerspoon/init.lua" = {
+      source = /Users/matt/Developer/dotfiles/config/hammerspoon/init.lua;
+    };
+
+    home.file.".config/karabiner/karabiner.json" = {
+      source = /Users/matt/Developer/dotfiles/config/karabiner/karabiner.json;
+    };
+
+    home.file.".ssh/config" = {
+      source = /Users/matt/Developer/dotfiles/config/ssh/config;
+    };
+
+    home.file."/Pictures/leaning.heic" = {
+      source = /Users/matt/Developer/dotfiles/pictures/leaning.heic;
     };
 
     programs.bat = {
@@ -170,12 +191,46 @@
       enableZshIntegration = true;
     };
 
+    programs.gh = {
+      enable = true;
+      settings.git_protocol = "ssh";
+    };
+
+    programs.git = {
+      enable = true;
+
+      aliases = {
+        co = "checkout";
+        ci = "commit";
+        st = "status";
+        br = "branch";
+        hist = "log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short";
+        type = "cat-file -t";
+        dump = "cat-file -p";
+      };
+
+      delta.enable = true;
+
+      extraConfig = {
+        init = { defaultBranch = "main"; } ;
+        pull = { rebase = false; } ;
+      };
+
+      signing = {
+        key = "183D75E092F21FEB";
+        signByDefault = true;
+      };
+
+      userName = "sciencefidelity";
+      userEmail = "32623301+sciencefidelity@users.noreply.github.com";
+    };
+
     programs.htop = {
       enable = true;
     };
 
     programs.kitty = {
-      enable = false;
+      enable = true;
       extraConfig = ''
         ${builtins.readFile /Users/matt/Developer/dotfiles/config/kitty/kitty.conf}
       '';
@@ -471,6 +526,7 @@
             echo "'$1' is not a valid file"
           fi
         }
+        export PATH="$HOME/.npm-globals/bin:$PATH"
       '';
 
       initExtraBeforeCompInit = ''
