@@ -5,32 +5,32 @@
 
   environment = {
     shells = [ pkgs.zsh ];
-    shellAliases = {
-      sudo = "sudo -i";
-      poweroff = "sudo poweroff";
-      reboot = "sudo reboot";
-      sysrs = "sudo nixos-rebuild switch";
-      sysup = "sudo nixos-rebuild switch --upgrade";
-      sysclean = "sudo nix-collect-garbage -d; and sudo nix-store --optimise";
-      ls = "exa -F --group-directories-first";
-      l = "exa -aF --group-directories-first";
-      la = "exa -laF --group-directories-first --git";
-      ll = "exa -lF --group-directories-first --git";
-      lt = "exa -T --git-ignore";
-      lr = "exa -R --git-ignore";
-      mkdir = "mkdir -p";
-      df = "df -kTh";
-      free = "free -h";
-      du = "du -h -c";
-      cat = "bat";
-      grep = "rg";
-      fd = "fdfind";
-      emacs = "TERM=xterm-24bits emacs -nw";
-      push = "git push";
-      pull="git fetch origin; git merge origin/main";
-      gst = "git status";
-      cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
-    };
+    # shellAliases = {
+    #   sudo = "sudo -i";
+    #   poweroff = "sudo poweroff";
+    #   reboot = "sudo reboot";
+    #   sysrs = "sudo nixos-rebuild switch";
+    #   sysup = "sudo nixos-rebuild switch --upgrade";
+    #   sysclean = "sudo nix-collect-garbage -d; and sudo nix-store --optimise";
+    #   ls = "exa -F --group-directories-first";
+    #   l = "exa -aF --group-directories-first";
+    #   la = "exa -laF --group-directories-first --git";
+    #   ll = "exa -lF --group-directories-first --git";
+    #   lt = "exa -T --git-ignore";
+    #   lr = "exa -R --git-ignore";
+    #   mkdir = "mkdir -p";
+    #   df = "df -kTh";
+    #   free = "free -h";
+    #   du = "du -h -c";
+    #   cat = "bat";
+    #   grep = "rg";
+    #   fd = "fdfind";
+    #   emacs = "TERM=xterm-24bits emacs -nw";
+    #   push = "git push";
+    #   pull="git fetch origin; git merge origin/main";
+    #   gst = "git status";
+    #   cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
+    # };
     systemPackages = with pkgs; [
       bat
       bc
@@ -59,17 +59,17 @@
       zsh-autosuggestions
       zsh-syntax-highlighting
     ];
-    systemPath = [
-      "$HOME/.npm-globals/bin:$PATH"
-      "$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH"
-      "/run/current-system/sw/bin"
-    ];
-    variables = {
-      ANDROID_SDK = "$HOME/Library/Android/sdk";
-      CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
-      CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
-      EDITOR = "nvim";
-    };
+    # systemPath = [
+    #   "$HOME/.npm-globals/bin:$PATH"
+    #   "$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH"
+    #   "/run/current-system/sw/bin"
+    # ];
+    # variables = {
+    #   ANDROID_SDK = "$HOME/Library/Android/sdk";
+    #   CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+    #   CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+    #   EDITOR = "nvim";
+    # };
   };
 
   homebrew = {
@@ -137,12 +137,15 @@
     };
   };
 
-  home-manager.useGlobalPkgs = true;
+  home-manager = {
+    backupFileExtension = "bak";
+    useGlobalPkgs = true;
+  };
   home-manager.users.matt = { config, lib, pkgs, ... }: {
     home.username = "matt";
     home.homeDirectory = "/Users/matt";
     home.stateVersion = "21.05";
-    programs.home-manager.enable = true;
+    # programs.home-manager.enable = true;
 
     home.file.".emacs.d/init.el" = {
       source = /Users/matt/Developer/dotfiles/config/emacs.d/init.el;
@@ -170,6 +173,20 @@
 
     home.file."/Pictures/leaning.heic" = {
       source = /Users/matt/Developer/dotfiles/pictures/leaning.heic;
+    };
+
+    home.sessionPath = [
+      "$HOME/.npm-globals/bin:$PATH"
+      "$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH"
+    ];
+
+    home.sessionVariables = {
+      ANDROID_SDK = "$HOME/Library/Android/sdk";
+      BAT_THEME = "Dracula"
+      CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      EDITOR = "nvim";
+      VISUAL = "$EDITOR";
     };
 
     programs.bat = {
@@ -446,6 +463,7 @@
       enable = true;
       enableAutosuggestions = true;
       enableCompletion = true;
+      enableSyntaxHighlighting = true;
       autocd = true;
       # defaultKeymap = "vicmd"; # prints a list of keymappings when starting shell
       # dotDir = ".config/zsh";
@@ -456,6 +474,10 @@
 
       initExtra = ''
         # Basic auto/tab complete
+        autoload -U compinit
+        zstyle ":completion:*" menu select
+        zmodload zsh/complist
+        compinit
         _comp_options+=(globdots)
 
         # vi mode
@@ -487,25 +509,29 @@
 
         bindkey "^ " autosuggest-accept
 
-        export BAT_THEME="Dracula"
-
-        alias ..="cd .."
-        alias ...="cd ../.."
-        alias ....="cd ../../.."
-        alias .....="cd ../../../.."
-
         eval "$(ssh-agent -s)" > /dev/null
         ssh-add ~/.ssh/github 2> /dev/null
         export GPG_TTY=$(tty)
 
-        # Git aliases
-        gitpush() {
+        # open emacs with truecolor
+        if [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Linux" ]]; then
+            alias emacs="TERM=xterm-24bit emacs -nw"
+        elif [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Darwin" ]]; then
+            alias emacs="TERM=xterm-emacs emacs -nw"
+        elif [[ "$TERM" == "tmux-256color" ]]; then
+            alias emacs="TERM=xterm-24bits emacs -nw"
+        else
+            alias emacs="emacs"
+        fi
+
+        alias -s {cs,js,html}=nova
+
+        gp() {
           git pull
           git add .
           git commit -m "$*"
           git push
         }
-        alias gp=gitpush
 
         # archive extractor - usage: ext <file>
         ext ()
@@ -530,6 +556,17 @@
             echo "'$1' is not a valid file"
           fi
         }
+
+        tbtm () {
+          if ! tmux has-session -t $1; then
+            tmux new -s $1 -d
+            tmux split-window -t $1:1 -v -p 10
+            tmux send-keys -t $1:1.0 vim Enter
+            tmux send-keys -t $1:1.1 \
+              "npm run dev" Enter
+          fi
+          tmux attach -t $1
+        }
       '';
 
       initExtraBeforeCompInit = ''
@@ -537,11 +574,33 @@
         zmodload zsh/complist
       '';
 
-      initExtraFirst = ''
-        if [[ "$TERM" == "xterm-256color" ]]; then
-            export TERM=xterm-24bits
-        fi
-      '';
+      shellAliases = {
+        sudo = "sudo -i";
+        .. = "cd ..";
+        ... = "cd ../..";
+        .... = "cd ../../..";
+        ..... = "cd ../../../..";
+        ls = "exa -F --group-directories-first";
+        l = "exa -aF --group-directories-first";
+        la = "exa -laF --group-directories-first --git";
+        ll = "exa -lF --group-directories-first --git";
+        lt = "exa -T --git-ignore";
+        lr = "exa -R --git-ignore";
+        mkdir = "mkdir -p";
+        df = "df -kTh";
+        free = "free -h";
+        du = "du -h -c";
+        cat = "bat";
+        grep = "rg";
+        fd = "fdfind";
+        push = "git push";
+        pull="git fetch origin; git merge origin/main";
+        gst = "git status";
+        cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
+        ios = "open -a Simulator";
+        ssh = "kitty +kitten ssh";
+        hs = "open -a Hammerspoon";
+      };
     };
   };
 
