@@ -60,11 +60,11 @@
       zsh-autosuggestions
       zsh-syntax-highlighting
     ];
-    systemPaths [
+    systemPath = [
       "$HOME/.npm-globals/bin:$PATH"
       "$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH"
     ];
-    variables {
+    variables = {
       ANDROID_SDK = "$HOME/Library/Android/sdk";
       CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
@@ -486,47 +486,45 @@
     };
   };
 
-  networking.hostname = "naen";
-  nix.package = "pkgs.nixUnstable";
+  networking.hostName = "naen";
+  # nix.package = "pkgs.nixUnstable";
   nixpkgs.config.allowUnfree = true;
 
   services.nix-daemon.enable = true;
 
-  system.defaults.NSGlobalDomain = {
-    AppleKeyboardUIMode = 3;
-    ApplePressAndHoldEnabled = true;
-    AppleShowAllExtensions = true;
-    InitialKeyRepeat = 10;
-    KeyRepeat = 10;
-    NSAutomaticCapitalizationEnabled = false;
-    NSAutomaticDashSubstitutionEnabled = false;
-    NSAutomaticPeriodSubstitutionEnabled = false;
-    NSAutomaticQuoteSubstitutionEnabled = false;
-    NSAutomaticSpellingCorrectionEnabled = true;
-    NSDocumentSaveNewDocumentsToCloud = true;
-    NSNavPanelExpandedStateForSaveMode = true;
-    NSNavPanelExpandedStateForSaveMode2 = true;
-    NSWindowResizeTime = 1;
-    com.apple.keyboard.fnState = false;
-    com.apple.sound.beep.feedback = 0;
-    com.apple.springing.delay = 0;
-    com.apple.springing.enabled = false;
-    com.apple.trackpad.scaling = 2;
-  };
+  system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
+  system.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = true;
+  system.defaults.NSGlobalDomain.AppleShowAllExtensions = true;
+  system.defaults.NSGlobalDomain.InitialKeyRepeat = 10;
+  system.defaults.NSGlobalDomain.KeyRepeat = 10;
+  system.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
+  system.defaults.NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
+  system.defaults.NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
+  system.defaults.NSGlobalDomain.NSAutomaticQuoteSubstitutionEnabled = false;
+  system.defaults.NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = true;
+  system.defaults.NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = true;
+  system.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
+  system.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode2 = true;
+  system.defaults.NSGlobalDomain.NSWindowResizeTime = "0";
+  system.defaults.NSGlobalDomain."com.apple.keyboard.fnState" = false;
+  system.defaults.NSGlobalDomain."com.apple.sound.beep.feedback" = 0;
+  system.defaults.NSGlobalDomain."com.apple.springing.delay" = "0";
+  system.defaults.NSGlobalDomain."com.apple.springing.enabled" = false;
+  system.defaults.NSGlobalDomain."com.apple.trackpad.scaling" = "2";
   system.defaults.alf.globalstate = 0;
-  system.defaults.dock {
+  system.defaults.dock = {
     autohide = true;
-    autohide-delay = 0;
-    autohide-time-modifier = 0;
+    autohide-delay = "0";
+    autohide-time-modifier = "0.5";
     launchanim = false;
     mineffect = "scale";
     mouse-over-hilite-stack = false;
     orientation = "bottom";
     show-process-indicators = true;
     show-recents = false;
-    tilesize = 64;
+    tilesize = 32;
   };
-  system.defaults.finder {
+  system.defaults.finder = {
     AppleShowAllExtensions = true;
     FXEnableExtensionChangeWarning = false;
     _FXShowPosixPathInTitle = true;
