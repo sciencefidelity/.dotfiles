@@ -44,7 +44,6 @@
       gh
       git
       gnupg
-      home-manager
       htop
       jq
       lazygit
@@ -57,12 +56,13 @@
       tree
       wget
       zsh
-      # zsh-autosuggestions
-      # zsh-syntax-highlighting
+      zsh-autosuggestions
+      zsh-syntax-highlighting
     ];
     systemPath = [
       "$HOME/.npm-globals/bin:$PATH"
       "$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH"
+      "/run/current-system/sw/bin"
     ];
     variables = {
       ANDROID_SDK = "$HOME/Library/Android/sdk";
@@ -104,7 +104,7 @@
       # "firefox"
       # "hammerspoon"
       # "insomnia"
-      "karabiner-elements"
+      # "karabiner-elements"
       "kitty"
       # "miro"
       "notion"
@@ -127,10 +127,10 @@
       # "Microsoft PowerPoint" = 462062816;
       # "Microsoft Word" = 462054704;
       # "Motion" = 434290957;
-      "OneDrive" = 823766827;
+      # "OneDrive" = 823766827;
       # "Pocket" = 568494494;
-      "Refined GitHub" = 1519867270;
-      "Save to Raindrop.io" = 1549370672;
+      # "Refined GitHub" = 1519867270;
+      # "Save to Raindrop.io" = 1549370672;
       # "Slack for Desktop" = 803453959;
       "Vimari" = 1480933944;
       # "Xcode" = 497799835;
@@ -164,6 +164,10 @@
       source = /Users/matt/Developer/dotfiles/config/ssh/config;
     };
 
+    home.file.".ssh/config" = {
+      source = /Users/matt/Developer/dotfiles/config/ssh/config;
+    };
+
     home.file."/Pictures/leaning.heic" = {
       source = /Users/matt/Developer/dotfiles/pictures/leaning.heic;
     };
@@ -174,7 +178,7 @@
         theme = "Dracula";
         italic-text = "always";
         style = "full";
-        # map-syntax = [ ".eslintignore:Git Ignore" ".prettierignore:Git Ignore" ".prettierrc:JSON" ];
+        map-syntax = [ ".eslintignore:Git Ignore" ".prettierignore:Git Ignore" ".prettierrc:JSON" ];
       };
       themes = {
         dracula = builtins.readFile (pkgs.fetchFromGitHub {
@@ -526,7 +530,6 @@
             echo "'$1' is not a valid file"
           fi
         }
-        export PATH="$HOME/.npm-globals/bin:$PATH"
       '';
 
       initExtraBeforeCompInit = ''
@@ -543,8 +546,21 @@
   };
 
   networking.hostName = "naen";
-  # nix.package = "pkgs.nixUnstable";
+  nix.package = pkgs.nixUnstable;
   nixpkgs.config.allowUnfree = true;
+
+  programs.zsh = {
+    enable = true;
+    enableBashCompletion = true;
+    enableCompletion = true;
+    enableSyntaxHighlighting = true;
+    variables = {
+      ANDROID_SDK = "$HOME/Library/Android/sdk";
+      CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      EDITOR = "nvim";
+    };
+  };
 
   services.nix-daemon.enable = true;
 
@@ -578,7 +594,7 @@
     orientation = "bottom";
     show-process-indicators = true;
     show-recents = false;
-    tilesize = 32;
+    tilesize = 64;
   };
   system.defaults.finder = {
     AppleShowAllExtensions = true;
