@@ -74,3 +74,6 @@ Run Emacs with the command `TERM=xterm-emacs emacs -nw`
 - bat run on Raspberry Pi in Nova (xterm-24bits)
 - bat run on Raspberry Pi in tmux in Nova (xterm-24bits)
 
+### Credits
+
+Desktop images from [Light In The Dark City](https://px3.fr/winners/px3/2020/11231/) by Maik Koerhuis
