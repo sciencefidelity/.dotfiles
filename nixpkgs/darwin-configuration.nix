@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports = [ <home-manager/nix-darwin> ];
@@ -9,25 +9,29 @@
     shell = pkgs.zsh;
   };
 
+  nixpkgs.config.allowUnfree = true;
+  environment.variables = { EDITOR = "nvim"; };
+
   environment.systemPackages = with pkgs; [
     bat
     bc
     coreutils
     curl
     delta
-    emacs
+    emacs-nox
     exa
     fd
     fzf
     gh
     git
     gnupg
+    home-manager
     htop
     jq
     lazygit
     lf
     neovim
-    pinentry_mac
+    pinentry
     ripgrep
     starship
     tmux
@@ -87,6 +91,10 @@
       # "sass/sass"
     ];
 
+    # brews = [
+    #   "sass/sass/sass"
+    # ];
+
     casks = [
       # "android-studio"
       # "bartender"
@@ -119,7 +127,7 @@
       # "Microsoft PowerPoint" = 462062816;
       # "Microsoft Word" = 462054704;
       # "Motion" = 434290957;
-      # "OneDrive" = 823766827;
+      "OneDrive" = 823766827;
       # "Pocket" = 568494494;
       "Refined GitHub" = 1519867270;
       "Save to Raindrop.io" = 1549370672;
@@ -131,13 +139,13 @@
 
   home-manager.useGlobalPkgs = true;
 
-  home-manager.users.matt = { pkgs, ... }: {
+  home-manager.users.matt = { config, lib, pkgs, ... }: {
     home.file.".emacs.d/init.el" = {
-      source = /Users/matt/dotfiles/config/emacs.d/init.el;
+      source = /Users/matt/Developer/dotfiles/config/emacs.d/init.el;
     };
 
     home.file.".npmrc" = {
-      source = /Users/matt/dotfiles/config/npm/.npmrc;
+      source = /Users/matt/Developer/dotfiles/config/npm/.npmrc;
     };
 
     programs.bat = {
@@ -158,10 +166,6 @@
       };
     };
 
-    programs.emacs = {
-      enable = true;
-    };
-
     programs.fzf = {
       enable = true;
       enableZshIntegration = true;
@@ -174,7 +178,7 @@
     programs.kitty = {
       enable = false;
       extraConfig = ''
-        ${builtins.readFile /Users/matt/dotfiles/config/kitty/kitty.conf}
+        ${builtins.readFile /Users/matt/Developer/dotfiles/config/kitty/kitty.conf}
       '';
     };
 
@@ -182,7 +186,7 @@
       enable = true;
       extraConfig = ''
         lua << EOF
-        ${builtins.readFile /Users/matt/dotfiles/config/nvim/init.lua}
+        ${builtins.readFile /Users/matt/Developer/dotfiles/config/nvim/init.lua}
         EOF
       '';
       withNodeJs = true;
@@ -196,72 +200,72 @@
       settings = {
         add_newline = false;
 
-        # format = lib.concatStrings [
-        #   "$username"
-        #   "$shlvl"
-        #   "$singularity"
-        #   "$kubernetes"
-        #   "$directory"
-        #   "$hostname"
-        #   "$vcsh"
-        #   "$git_branch"
-        #   "$git_commit"
-        #   "$git_state"
-        #   "$git_metrics"
-        #   "$git_status"
-        #   "$hg_branch"
-        #   "$docker_context"
-        #   "$package"
-        #   "$cmake"
-        #   "$cobol"
-        #   "$dart"
-        #   "$deno"
-        #   "$dotnet"
-        #   "$elixir"
-        #   "$elm"
-        #   "$erlang"
-        #   "$golang"
-        #   "$helm"
-        #   "$java"
-        #   "$julia"
-        #   "$kotlin"
-        #   "$lua"
-        #   "$nim"
-        #   "$nodejs"
-        #   "$ocaml"
-        #   "$perl"
-        #   "$php"
-        #   "$pulumi"
-        #   "$purescript"
-        #   "$python"
-        #   "$rlang"
-        #   "$red"
-        #   "$ruby"
-        #   "$rust"
-        #   "$scala"
-        #   "$swift"
-        #   "$terraform"
-        #   "$vlang"
-        #   "$vagrant"
-        #   "$zig"
-        #   "$nix_shell"
-        #   "$conda"
-        #   "$memory_usage"
-        #   "$aws"
-        #   "$gcloud"
-        #   "$openstack"
-        #   "$env_var"
-        #   "$crystal"
-        #   "$custom"
-        #   "$cmd_duration"
-        #   "$line_break"
-        #   "$jobs"
-        #   "$battery"
-        #   "$time"
-        #   "$status"
-        #   "$shell"
-        #   "$character"
-        # ];
+        format = lib.concatStrings [
+          "$username"
+          "$shlvl"
+          "$singularity"
+          "$kubernetes"
+          "$directory"
+          "$hostname"
+          "$vcsh"
+          "$git_branch"
+          "$git_commit"
+          "$git_state"
+          "$git_metrics"
+          "$git_status"
+          "$hg_branch"
+          "$docker_context"
+          "$package"
+          "$cmake"
+          "$cobol"
+          "$dart"
+          "$deno"
+          "$dotnet"
+          "$elixir"
+          "$elm"
+          "$erlang"
+          "$golang"
+          "$helm"
+          "$java"
+          "$julia"
+          "$kotlin"
+          "$lua"
+          "$nim"
+          "$nodejs"
+          "$ocaml"
+          "$perl"
+          "$php"
+          "$pulumi"
+          "$purescript"
+          "$python"
+          "$rlang"
+          "$red"
+          "$ruby"
+          "$rust"
+          "$scala"
+          "$swift"
+          "$terraform"
+          "$vlang"
+          "$vagrant"
+          "$zig"
+          "$nix_shell"
+          "$conda"
+          "$memory_usage"
+          "$aws"
+          "$gcloud"
+          "$openstack"
+          "$env_var"
+          "$crystal"
+          "$custom"
+          "$cmd_duration"
+          "$line_break"
+          "$jobs"
+          "$battery"
+          "$time"
+          "$status"
+          "$shell"
+          "$character"
+        ];
 
         aws.disabled = true;
         battery.disabled = true;
