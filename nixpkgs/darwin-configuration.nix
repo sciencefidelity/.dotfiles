@@ -14,37 +14,11 @@
 
   environment = {
     shells = [ pkgs.zsh ];
-    # shellAliases = {
-    #   sudo = "sudo -i";
-    #   poweroff = "sudo poweroff";
-    #   reboot = "sudo reboot";
-    #   sysrs = "sudo nixos-rebuild switch";
-    #   sysup = "sudo nixos-rebuild switch --upgrade";
-    #   sysclean = "sudo nix-collect-garbage -d; and sudo nix-store --optimise";
-    #   ls = "exa -F --group-directories-first";
-    #   l = "exa -aF --group-directories-first";
-    #   la = "exa -laF --group-directories-first --git";
-    #   ll = "exa -lF --group-directories-first --git";
-    #   lt = "exa -T --git-ignore";
-    #   lr = "exa -R --git-ignore";
-    #   mkdir = "mkdir -p";
-    #   df = "df -kTh";
-    #   free = "free -h";
-    #   du = "du -h -c";
-    #   cat = "bat";
-    #   grep = "rg";
-    #   fd = "fdfind";
-    #   emacs = "TERM=xterm-24bits emacs -nw";
-    #   push = "git push";
-    #   pull="git fetch origin; git merge origin/main";
-    #   gst = "git status";
-    #   cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
-    # };
     systemPackages = with pkgs; [
       bat
       bc
       cabal-install
-      cargo
+      # cargo
       clojure
       coreutils
       curl
@@ -66,7 +40,7 @@
       fd
       fzf
       lua
-      luajit
+      # luajit
       luarocks
       gcc10
       ghc
@@ -93,8 +67,8 @@
       nodePackages.gatsby-cli
       nodePackages.pnpm
       nodePackages.prettier
-      nodePackages.purescript-language-server
-      nodePackages.purescript-psa
+      # nodePackages.purescript-language-server
+      # nodePackages.purescript-psa
       nodePackages.pscid
       nodePackages.svelte-language-server
       nodePackages.typescript
@@ -112,14 +86,13 @@
       ocamlPackages.lsp
       pinentry
       ripgrep
-      rls
+      # rls
       rnix-lsp
       rustup
-      samba
       spago
       stack
       starship
-      sumneko-lua-language-server
+      # sumneko-lua-language-server
       tmux
       tree
       wget
@@ -127,17 +100,6 @@
       zsh-autosuggestions
       zsh-syntax-highlighting
     ];
-    # systemPath = [
-    #   "$HOME/.npm-globals/bin:$PATH"
-    #   "$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH"
-    #   "/run/current-system/sw/bin"
-    # ];
-    # variables = {
-    #   ANDROID_SDK = "$HOME/Library/Android/sdk";
-    #   CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
-    #   CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
-    #   EDITOR = "nvim";
-    # };
   };
 
   homebrew = {
@@ -154,7 +116,7 @@
       "homebrew/cask-versions"
       "homebrew/core"
       "homebrew/services"
-      "buo/cask-upgrade"
+      # "buo/cask-upgrade"
       "sass/sass"
     ];
 
@@ -163,6 +125,9 @@
     ];
 
     casks = [
+      "affinity-designer"
+      "affinity-photo"
+      "affinity-publisher"
       "android-studio"
       "bartender"
       "brave-browser"
@@ -182,12 +147,9 @@
     ];
 
     masApps = {
-      "Affinity Designer" = 824171161;
-      "Affinity Photo" = 824183456;
-      "Affinity Publisher" = 881418622;
       "Compressor" = 424390742;
       "Craft - Docs and Notes Editor" = 1487937127;
-      "Final Cut Pro" = 424389933;
+      # "Final Cut Pro" = 424389933;
       "iA Writer" = 775737590;
       "Logic Pro" = 634148309;
       "Microsoft Excel" = 462058435;
@@ -198,9 +160,8 @@
       "Pocket" = 568494494;
       "Refined GitHub" = 1519867270;
       "Save to Raindrop.io" = 1549370672;
-      "Slack for Desktop" = 803453959;
       "Vimari" = 1480933944;
-      "Xcode" = 497799835;
+      # "Xcode" = 497799835;
     };
   };
 
@@ -212,37 +173,30 @@
     home.username = "matt";
     home.homeDirectory = "/Users/matt";
     home.stateVersion = "21.05";
-    # programs.home-manager.enable = true;
 
     home.file.".emacs.d/init.el" = {
       source = /Users/matt/Developer/dotfiles/config/emacs.d/init.el;
     };
-
     home.file.".npmrc" = {
       source = /Users/matt/Developer/dotfiles/config/npm/.npmrc;
     };
-
     home.file.".config/hammerspoon/init.lua" = {
       source = /Users/matt/Developer/dotfiles/config/hammerspoon/init.lua;
     };
-
     home.file.".config/karabiner/karabiner.json" = {
       source = /Users/matt/Developer/dotfiles/config/karabiner/karabiner.json;
     };
-
     home.file.".ssh/config" = {
       source = /Users/matt/Developer/dotfiles/config/ssh/config;
     };
-
     home.file."/Pictures/leaning.heic" = {
-      source = /Users/matt/Developer/dotfiles/pictures/leaning.heic;
+      source = /Users/matt/Developer/dotfiles/pictures/church.heic;
     };
 
     home.sessionPath = [
       "$HOME/.npm-globals/bin:$PATH"
       "$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH"
     ];
-
     home.sessionVariables = {
       ANDROID_SDK = "$HOME/Library/Android/sdk";
       BAT_THEME = "Dracula";
@@ -301,13 +255,15 @@
       };
 
       signing = {
-        key = "183D75E092F21FEB";
+        key = "40E08B1E5B9DE19A";
         signByDefault = true;
       };
 
       userName = "sciencefidelity";
       userEmail = "32623301+sciencefidelity@users.noreply.github.com";
     };
+
+    # programs.home-manager.enable = true;
 
     programs.htop = {
       enable = true;
@@ -668,7 +624,6 @@
   };
 
   networking.hostName = "naen";
-  nix.package = pkgs.nixUnstable;
   nixpkgs.config.allowUnfree = true;
 
   programs.zsh = {
