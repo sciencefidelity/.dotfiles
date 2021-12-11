@@ -189,7 +189,7 @@
     home.file.".ssh/config" = {
       source = /Users/matt/Developer/dotfiles/config/ssh/config;
     };
-    home.file."/Pictures/leaning.heic" = {
+    home.file."/Pictures/church.heic" = {
       source = /Users/matt/Developer/dotfiles/pictures/church.heic;
     };
 
