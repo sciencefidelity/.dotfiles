@@ -266,7 +266,7 @@ in
       userEmail = "32623301+sciencefidelity@users.noreply.github.com";
     };
 
-    # programs.home-manager.enable = true;
+    programs.home-manager.enable = true;
 
     programs.htop = {
       enable = true;
@@ -681,7 +681,10 @@ in
     FXEnableExtensionChangeWarning = false;
   };
   system.defaults.loginwindow.GuestEnabled = false;
-  system.defaults.loginwindow.LoginwindowText = "Good morning, Matt!";
+  system.defaults.loginwindow.LoginwindowText = ''
+    You never change things by fighting the existing reality.\
+    To change something, build a new model that makes the existing model obsolete.
+  '';
   system.defaults.screencapture.location = "/Users/matt/Downloads";
   system.defaults.trackpad.ActuationStrength = 0;
   system.keyboard = {
