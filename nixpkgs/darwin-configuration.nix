@@ -644,25 +644,27 @@ in
 
   services.nix-daemon.enable = true;
 
-  system.defaults.NSGlobalDomain.AppleKeyboardUIMode = 3;
-  system.defaults.NSGlobalDomain.ApplePressAndHoldEnabled = true;
-  system.defaults.NSGlobalDomain.AppleShowAllExtensions = true;
-  system.defaults.NSGlobalDomain.InitialKeyRepeat = 15;
-  system.defaults.NSGlobalDomain.KeyRepeat = 2;
-  system.defaults.NSGlobalDomain.NSAutomaticCapitalizationEnabled = false;
-  system.defaults.NSGlobalDomain.NSAutomaticDashSubstitutionEnabled = false;
-  system.defaults.NSGlobalDomain.NSAutomaticPeriodSubstitutionEnabled = false;
-  system.defaults.NSGlobalDomain.NSAutomaticQuoteSubstitutionEnabled = false;
-  system.defaults.NSGlobalDomain.NSAutomaticSpellingCorrectionEnabled = true;
-  system.defaults.NSGlobalDomain.NSDocumentSaveNewDocumentsToCloud = true;
-  system.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode = true;
-  system.defaults.NSGlobalDomain.NSNavPanelExpandedStateForSaveMode2 = true;
-  system.defaults.NSGlobalDomain.NSWindowResizeTime = "0";
-  system.defaults.NSGlobalDomain."com.apple.keyboard.fnState" = false;
-  system.defaults.NSGlobalDomain."com.apple.sound.beep.feedback" = 0;
-  system.defaults.NSGlobalDomain."com.apple.springing.delay" = "0";
-  system.defaults.NSGlobalDomain."com.apple.springing.enabled" = false;
-  system.defaults.NSGlobalDomain."com.apple.trackpad.scaling" = "2";
+  system.defaults.NSGlobalDomain = {
+    AppleKeyboardUIMode = 3;
+    ApplePressAndHoldEnabled = true;
+    AppleShowAllExtensions = true;
+    InitialKeyRepeat = 15;
+    KeyRepeat = 2;
+    NSAutomaticCapitalizationEnabled = false;
+    NSAutomaticDashSubstitutionEnabled = false;
+    NSAutomaticPeriodSubstitutionEnabled = false;
+    NSAutomaticQuoteSubstitutionEnabled = false;
+    NSAutomaticSpellingCorrectionEnabled = true;
+    NSDocumentSaveNewDocumentsToCloud = true;
+    NSNavPanelExpandedStateForSaveMode = true;
+    NSNavPanelExpandedStateForSaveMode2 = true;
+    NSWindowResizeTime = "0";
+    "com.apple.keyboard.fnState" = false;
+    "com.apple.sound.beep.feedback" = 0;
+    "com.apple.springing.delay" = "0";
+    "com.apple.springing.enabled" = false;
+    "com.apple.trackpad.scaling" = "2";
+  };
   system.defaults.alf.globalstate = 0;
   system.defaults.dock = {
     autohide = true;
@@ -679,12 +681,12 @@ in
   system.defaults.finder = {
     AppleShowAllExtensions = true;
     FXEnableExtensionChangeWarning = false;
+    _FXShowPosixPathInTitle = false;
   };
-  system.defaults.loginwindow.GuestEnabled = false;
-  system.defaults.loginwindow.LoginwindowText = ''
-    You never change things by fighting the existing reality.\
-    To change something, build a new model that makes the existing model obsolete.
-  '';
+  system.defaults.loginwindow = {
+    GuestEnabled = false;
+    LoginwindowText = "You never change things by fighting the existing reality.";
+  };
   system.defaults.screencapture.location = "/Users/matt/Downloads";
   system.defaults.trackpad.ActuationStrength = 0;
   system.keyboard = {
