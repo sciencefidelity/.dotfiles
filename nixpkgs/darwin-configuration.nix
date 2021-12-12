@@ -1,5 +1,8 @@
-  { config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
+let
+  link = config.lib.file.mkOutOfStoreSymlink;
+in
 {
   imports = [ <home-manager/nix-darwin> ];
 
