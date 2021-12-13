@@ -2,6 +2,27 @@
 
 I currently use two platforms, macOS and NixOS on Raspberry Pi. Nix home manager is accessed in different ways depending on the platform. NixOS for a single user can be entirely managed via the main `configuration.nix` file located in `/etc/nixos`. Nix home manager on Darwin is managed from the `home.nix` file located in `~/.config/nixpkgs`. Instead of creating seperate repos for the two platforms, I have put everything in this repo with the appropriate Nix configuration in its respective path for the OS.
 
+## Install
+
+```shell
+curl https://raw.githubusercontent.com/sciencefidelity/dotfiles/main/install.sh -o ~/install.sh
+chmod 755 ~/install.sh
+~/install.sh
+```
+
+To update packages and update the config run:
+
+```shell
+darwin-rebuild switch
+```
+
+The `darwin-rebuild` command will not finish on the Kitty terminal. So while I cannot figure out why this is happening run the command in Terminal.
+
+```shell
+# error in Kitty
+tput: unknown terminal "xterm-kitty"
+```
+
 ### Emacs
 
 First time running emacs do `M-x package-refresh-contents`
