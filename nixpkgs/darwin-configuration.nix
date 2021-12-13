@@ -686,6 +686,7 @@ in
     _FXShowPosixPathInTitle = false;
   };
   system.defaults.loginwindow = {
+    GuestEnabled = false;
     LoginwindowText = "You never change things by fighting the existing reality.";
   };
   system.defaults.screencapture.location = "/Users/matt/Downloads";
