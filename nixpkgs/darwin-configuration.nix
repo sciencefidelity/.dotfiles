@@ -1,19 +1,19 @@
 { callPackage, config, lib, pkgs, ... }:
 
-# let
-#   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-#   link = config.lib.file.mkOutOfStoreSymlink;
-# in
+let
+  # home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+  link = config.lib.file.mkOutOfStoreSymlink;
+in
 {
   imports = [ <home-manager/nix-darwin> ];
 
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
-      url = https://github.com/mjlbach/neovim-nightly-overlay/archive/master.tar.gz;
+      url = "https://github.com/mjlbach/neovim-nightly-overlay/archive/master.tar.gz";
     }))
-    (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
-    }))
+    # (import (builtins.fetchTarball {
+    #   url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+    # }))
   ];
 
   environment = {
@@ -39,8 +39,8 @@
       elmPackages.elm-live
       elmPackages.elm-review
       elmPackages.elm-test
-      # emacs-nox
-      emacsUnstable-nox
+      emacs-nox
+      # emacsUnstable-nox
       exa
       fd
       fzf
@@ -174,8 +174,9 @@
 
   home-manager.backupFileExtension = "bak";
   home-manager.useGlobalPkgs = true;
-  home-manager.users.matt = { callPackage, config, lib, pkgs, ... }: {
-    home.stateVersion = "21.05";
+  home-manager.useUserPackages = true;
+  home-manager.users.matt = { config, lib, pkgs, ... }: {
+    home.stateVersion = "22.05";
 
     home.file.".emacs.d/init.el" = {
       source = /Users/matt/Developer/dotfiles/config/emacs.d/init.el;
@@ -260,7 +261,7 @@
       userEmail = "32623301+sciencefidelity@users.noreply.github.com";
     };
 
-    # programs.home-manager.enable = true;
+    programs.home-manager.enable = true;
 
     programs.htop = {
       enable = true;
@@ -622,8 +623,10 @@
   };
 
   networking.hostName = "naen";
+  nix.useDaemon = true;
   nixpkgs.config.allowUnfree = true;
 
+  programs.nix-index.enable = true;
   programs.zsh = {
     enable = true;
     enableBashCompletion = true;
@@ -640,7 +643,7 @@
   services.nix-daemon.enable = true;
   services.emacs = {
     enable = true;
-    package = pkgs.emacsUnstable-nox;
+    # package = pkgs.emacsUnstable-nox;
   };
 
   system.defaults.NSGlobalDomain = {
@@ -696,7 +699,6 @@
   time.timeZone = "Europe/London";
 
   users.users.matt = {
-    createHome = true;
     description = "Matt Cook";
     home = "/Users/matt";
     name = "matt";
