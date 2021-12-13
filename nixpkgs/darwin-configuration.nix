@@ -1,9 +1,9 @@
 { callPackage, config, lib, pkgs, ... }:
 
-let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-  link = config.lib.file.mkOutOfStoreSymlink;
-in
+# let
+#   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+#   link = config.lib.file.mkOutOfStoreSymlink;
+# in
 {
   imports = [ <home-manager/nix-darwin> ];
 
@@ -56,7 +56,7 @@ in
       google-cloud-sdk
       gopls
       haskell-language-server
-      home-manager
+      # home-manager
       htop
       jq
       lazygit
@@ -76,7 +76,7 @@ in
       nodePackages.prettier
       # nodePackages.purescript-language-server
       # nodePackages.purescript-psa
-      nodePackages.pscid
+      # nodePackages.pscid
       nodePackages.svelte-language-server
       nodePackages.typescript
       nodePackages.typescript-language-server
@@ -173,10 +173,8 @@ in
   };
 
   home-manager.backupFileExtension = "bak";
-  # home-manager.useGlobalPkgs = true;
-  home-manager.users.matt = { config, lib, pkgs, ... }: {
-    home.username = "matt";
-    home.homeDirectory = "/Users/matt";
+  home-manager.useGlobalPkgs = true;
+  home-manager.users.matt = { callPackage, config, lib, pkgs, ... }: {
     home.stateVersion = "21.05";
 
     home.file.".emacs.d/init.el" = {
@@ -185,10 +183,8 @@ in
     home.file.".npmrc" = {
       source = /Users/matt/Developer/dotfiles/config/npm/.npmrc;
     };
-    home.file.".hammerspoon" = {
-      source = /Users/matt/Developer/dotfiles/config/hammerspoon;
-      recursive = true;
-      target = ".hammerspoon";
+    home.file.".hammerspoon/init.lua" = {
+      source = /Users/matt/Developer/dotfiles/config/hammerspoon/init.lua;
     };
     home.file.".config/karabiner/karabiner.json" = {
       source = /Users/matt/Developer/dotfiles/config/karabiner/karabiner.json;
@@ -264,7 +260,7 @@ in
       userEmail = "32623301+sciencefidelity@users.noreply.github.com";
     };
 
-    programs.home-manager.enable = true;
+    # programs.home-manager.enable = true;
 
     programs.htop = {
       enable = true;
@@ -687,7 +683,6 @@ in
     _FXShowPosixPathInTitle = false;
   };
   system.defaults.loginwindow = {
-    GuestEnabled = false;
     LoginwindowText = "You never change things by fighting the existing reality.";
   };
   system.defaults.screencapture.location = "/Users/matt/Downloads";
