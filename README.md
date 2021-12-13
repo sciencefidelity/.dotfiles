@@ -2,47 +2,13 @@
 
 I currently use two platforms, macOS and NixOS on Raspberry Pi. Nix home manager is accessed in different ways depending on the platform. NixOS for a single user can be entirely managed via the main `configuration.nix` file located in `/etc/nixos`. Nix home manager on Darwin is managed from the `home.nix` file located in `~/.config/nixpkgs`. Instead of creating seperate repos for the two platforms, I have put everything in this repo with the appropriate Nix configuration in its respective path for the OS.
 
-### [Bat](https://github.com/sharkdp/bat)
-
-[https://github.com/dracula/sublime](https://github.com/dracula/sublime)
-
-```shell
-mkdir -p "$(bat --config-dir)/themes"
-cd "$(bat --config-dir)/themes"
-git clone https://github.com/dracula/sublime
-bat cache --build
-```
-
 ### Emacs
 
 First time running emacs do `M-x package-refresh-contents`
 
 ### Neovim
 
-[Packer](https://github.com/wbthomason/packer.nvim)
-
-```shell
-git clone https://github.com/wbthomason/packer.nvim \
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-```
-
-[zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-
-```shell
-git clone https://github.com/zsh-users/zsh-syntax-highlighting \
- ~/dotfiles/zsh/zsh-syntax-highlighting
-```
-
-### Homebrew
-
-Setting up on a new Mac.
-
-```shell
-xcode-select --install
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install mas
-```
+First time running neovim do `:PackerInstall`
 
 ### Truecolor Support
 
