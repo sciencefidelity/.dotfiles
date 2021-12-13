@@ -107,7 +107,8 @@ in
     elmPackages.elm-live
     elmPackages.elm-review
     elmPackages.elm-test
-    emacs
+    # emacs-nox
+    emacsUnstable
     exa
     fd
     fzf
@@ -137,6 +138,7 @@ in
     nodePackages.eslint
     nodePackages.eslint_d
     nodePackages.gatsby-cli
+    nodePackages.node2nix
     nodePackages.pnpm
     nodePackages.prettier
     nodePackages.purescript-language-server
@@ -253,6 +255,7 @@ in
 
     programs.emacs = {
       enable = true;
+      package = emacsUnstable;
     };
 
     programs.gh = {
