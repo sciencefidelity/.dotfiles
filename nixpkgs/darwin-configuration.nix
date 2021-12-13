@@ -40,7 +40,7 @@ in
       elmPackages.elm-review
       elmPackages.elm-test
       # emacs-nox
-      emacsUnstable
+      emacsUnstable-nox
       exa
       fd
       fzf
@@ -645,7 +645,7 @@ in
   services.nix-daemon.enable = true;
   services.emacs = {
     enable = true;
-    package = pkgs.emacsUnstable;
+    package = pkgs.emacsUnstable-nox;
   };
 
   system.defaults.NSGlobalDomain = {
