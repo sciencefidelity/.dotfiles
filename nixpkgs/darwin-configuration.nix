@@ -156,7 +156,7 @@ in
     masApps = {
       "Compressor" = 424390742;
       "Craft - Docs and Notes Editor" = 1487937127;
-      # "Final Cut Pro" = 424389933;
+      "Final Cut Pro" = 424389933;
       "iA Writer" = 775737590;
       "Logic Pro" = 634148309;
       "Microsoft Excel" = 462058435;
@@ -168,7 +168,7 @@ in
       "Refined GitHub" = 1519867270;
       "Save to Raindrop.io" = 1549370672;
       "Vimari" = 1480933944;
-      # "Xcode" = 497799835;
+      "Xcode" = 497799835;
     };
   };
 
