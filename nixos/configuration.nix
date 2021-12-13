@@ -75,7 +75,7 @@ in
 
   services.emacs = {
     enable = true;
-    package = pkgs.emacsUnstable;
+    package = pkgs.emacsUnstable-nox;
   };
 
   nixpkgs.overlays = [
