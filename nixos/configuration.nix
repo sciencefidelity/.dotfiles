@@ -143,7 +143,7 @@ in
     nodePackages.prettier
     # nodePackages.purescript-language-server
     # nodePackages.purescript-psa
-    nodePackages.pscid
+    # nodePackages.pscid
     nodePackages.svelte-language-server
     nodePackages.typescript
     nodePackages.typescript-language-server
