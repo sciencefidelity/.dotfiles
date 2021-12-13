@@ -9,7 +9,7 @@ in
 
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+      url = https://github.com/mjlbach/neovim-nightly-overlay/archive/master.tar.gz;
     }))
     (import (builtins.fetchTarball {
       url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
@@ -494,7 +494,6 @@ in
       };
 
       initExtra = ''
-        # hello matt
         # Basic auto/tab complete
         autoload -U compinit
         zstyle ":completion:*" menu select
