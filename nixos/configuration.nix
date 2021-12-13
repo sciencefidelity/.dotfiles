@@ -108,7 +108,7 @@ in
     elmPackages.elm-review
     elmPackages.elm-test
     # emacs-nox
-    emacsUnstable
+    emacsUnstable-nox
     exa
     fd
     fzf
@@ -255,7 +255,7 @@ in
 
     programs.emacs = {
       enable = true;
-      package = emacsUnstable;
+      package = emacsUnstable-nox;
     };
 
     programs.gh = {
