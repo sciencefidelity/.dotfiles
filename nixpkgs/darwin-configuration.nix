@@ -28,7 +28,7 @@ in
       curl
       delta
       deno
-      dart
+      # dart
       elixir
       elixir_ls
       elmPackages.create-elm-app
