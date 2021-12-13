@@ -73,18 +73,18 @@ in
     };
   };
 
-  # services.emacs = {
-  #   enable = true;
-  #   package = pkgs.emacsUnstable-nox;
-  # };
+  services.emacs = {
+    enable = true;
+    package = pkgs.emacsUnstable-nox;
+  };
 
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
       url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
     }))
-    # (import (builtins.fetchTarball {
-    #   url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
-    # }))
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+    }))
   ];
 
   environment.systemPackages = with pkgs; [
@@ -108,7 +108,7 @@ in
     elmPackages.elm-review
     elmPackages.elm-test
     # emacs-nox
-    # emacsUnstable-nox
+    emacsUnstable-nox
     exa
     fd
     fzf
@@ -141,8 +141,8 @@ in
     nodePackages.node2nix
     nodePackages.pnpm
     nodePackages.prettier
-    nodePackages.purescript-language-server
-    nodePackages.purescript-psa
+    # nodePackages.purescript-language-server
+    # nodePackages.purescript-psa
     nodePackages.pscid
     nodePackages.svelte-language-server
     nodePackages.typescript
