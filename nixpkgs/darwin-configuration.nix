@@ -1,6 +1,7 @@
-{ config, lib, pkgs, ... }:
+{ callPackage, config, lib, pkgs, ... }:
 
 let
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
   link = config.lib.file.mkOutOfStoreSymlink;
 in
 {
@@ -10,9 +11,9 @@ in
     (import (builtins.fetchTarball {
       url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
     }))
-    # (import (builtins.fetchTarball {
-    #   url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
-    # }))
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+    }))
   ];
 
   environment = {
@@ -38,7 +39,8 @@ in
       elmPackages.elm-live
       elmPackages.elm-review
       elmPackages.elm-test
-      emacs-nox
+      # emacs-nox
+      emacsUnstable
       exa
       fd
       fzf
@@ -60,6 +62,7 @@ in
       lazygit
       lf
       mosh
+      # neovim
       neovim-nightly
       nix-linter
       nixfmt
@@ -68,6 +71,7 @@ in
       nodePackages.eslint
       nodePackages.eslint_d
       nodePackages.gatsby-cli
+      nodePackages.node2nix
       nodePackages.pnpm
       nodePackages.prettier
       # nodePackages.purescript-language-server
@@ -97,7 +101,7 @@ in
       starship
       # sumneko-lua-language-server
       tmux
-      tree
+      # tree
       wget
       zsh
       zsh-autosuggestions
@@ -168,10 +172,8 @@ in
     };
   };
 
-  home-manager = {
-    backupFileExtension = "bak";
-    useGlobalPkgs = true;
-  };
+  home-manager.backupFileExtension = "bak";
+  # home-manager.useGlobalPkgs = true;
   home-manager.users.matt = { config, lib, pkgs, ... }: {
     home.username = "matt";
     home.homeDirectory = "/Users/matt";
@@ -183,8 +185,10 @@ in
     home.file.".npmrc" = {
       source = /Users/matt/Developer/dotfiles/config/npm/.npmrc;
     };
-    home.file.".config/hammerspoon/init.lua" = {
-      source = /Users/matt/Developer/dotfiles/config/hammerspoon/init.lua;
+    home.file.".hammerspoon" = {
+      source = /Users/matt/Developer/dotfiles/config/hammerspoon;
+      recursive = true;
+      target = ".hammerspoon";
     };
     home.file.".config/karabiner/karabiner.json" = {
       source = /Users/matt/Developer/dotfiles/config/karabiner/karabiner.json;
@@ -275,6 +279,7 @@ in
 
     programs.neovim = {
       enable = true;
+      # package = pkgs.neovim-nightly;
       extraConfig = ''
         lua << EOF
         ${builtins.readFile /Users/matt/Developer/dotfiles/config/nvim/init.lua}
@@ -489,6 +494,7 @@ in
       };
 
       initExtra = ''
+        # hello matt
         # Basic auto/tab complete
         autoload -U compinit
         zstyle ":completion:*" menu select
@@ -637,6 +643,10 @@ in
   };
 
   services.nix-daemon.enable = true;
+  services.emacs = {
+    enable = true;
+    package = pkgs.emacsUnstable;
+  };
 
   system.defaults.NSGlobalDomain = {
     AppleKeyboardUIMode = 3;
