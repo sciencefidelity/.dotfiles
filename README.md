@@ -10,6 +10,16 @@ chmod 755 ~/install.sh
 ~/install.sh
 ```
 
+Add the following to `configuration.nix` during nix-darwin install to stop nix creating extra users:
+
+```nix
+{ config, lib, ... }:
+with lib;
+{
+  users.nix.configureBuildUsers = mkForce false;
+}
+```
+
 To update packages and update the config run:
 
 ```shell
