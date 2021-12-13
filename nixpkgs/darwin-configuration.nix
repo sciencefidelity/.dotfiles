@@ -7,38 +7,38 @@ in
 {
   imports = [ <home-manager/nix-darwin> ];
 
-  # nixpkgs.overlays = [
-  #   (import (builtins.fetchTarball {
-  #     url = "https://github.com/mjlbach/neovim-nightly-overlay/archive/master.tar.gz";
-  #   }))
-  #   (import (builtins.fetchTarball {
-  #     url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-  #   }))
-  # ];
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = "https://github.com/mjlbach/neovim-nightly-overlay/archive/master.tar.gz";
+    }))
+    # (import (builtins.fetchTarball {
+    #   url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+    # }))
+  ];
 
   environment = {
     shells = [ pkgs.zsh ];
     systemPackages = with pkgs; [
       bat
-      bc
-      cabal-install
+      # bc
+      # cabal-install
       # cargo
-      clojure
+      # clojure
       coreutils
       curl
       delta
       deno
       # dart
-      elixir
-      elixir_ls
-      elmPackages.create-elm-app
-      elmPackages.elm
-      elmPackages.elm-analyse
-      elmPackages.elm-format
-      elmPackages.elm-language-server
-      elmPackages.elm-live
-      elmPackages.elm-review
-      elmPackages.elm-test
+      # elixir
+      # elixir_ls
+      # elmPackages.create-elm-app
+      # elmPackages.elm
+      # elmPackages.elm-analyse
+      # elmPackages.elm-format
+      # elmPackages.elm-language-server
+      # elmPackages.elm-live
+      # elmPackages.elm-review
+      # elmPackages.elm-test
       emacs-nox
       # emacsUnstable-nox
       exa
@@ -47,15 +47,15 @@ in
       lua
       # luajit
       luarocks
-      gcc10
-      ghc
+      # gcc10
+      # ghc
       gh
       git
       gnupg
       go
-      google-cloud-sdk
+      # google-cloud-sdk
       gopls
-      haskell-language-server
+      # haskell-language-server
       # home-manager
       htop
       jq
@@ -71,7 +71,7 @@ in
       nodePackages.eslint
       nodePackages.eslint_d
       nodePackages.gatsby-cli
-      nodePackages.node2nix
+      # nodePackages.node2nix
       nodePackages.pnpm
       nodePackages.prettier
       # nodePackages.purescript-language-server
@@ -85,19 +85,19 @@ in
       nodePackages.vue-language-server
       nodePackages.yaml-language-server
       nodePackages.yarn
-      ocaml
-      ocamlPackages.fmt
-      ocamlPackages.js_of_ocaml
-      ocamlPackages.js_of_ocaml-ppx
-      ocamlPackages.js_of_ocaml-lwt
-      ocamlPackages.lsp
+      # ocaml
+      # ocamlPackages.fmt
+      # ocamlPackages.js_of_ocaml
+      # ocamlPackages.js_of_ocaml-ppx
+      # ocamlPackages.js_of_ocaml-lwt
+      # ocamlPackages.lsp
       pinentry
       ripgrep
       # rls
       rnix-lsp
-      rustup
-      spago
-      stack
+      # rustup
+      # spago
+      # stack
       starship
       # sumneko-lua-language-server
       tmux
