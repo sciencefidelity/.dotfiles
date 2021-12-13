@@ -255,7 +255,7 @@ in
 
     programs.emacs = {
       enable = true;
-      package = emacsUnstable-nox;
+      # package = emacsUnstable-nox;
     };
 
     programs.gh = {
