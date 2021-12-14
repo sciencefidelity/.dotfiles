@@ -181,6 +181,9 @@
     home.file.".emacs.d/init.el" = {
       source = /Users/matt/Developer/dotfiles/config/emacs.d/init.el;
     };
+    home.file.".config/kitty/kitty.conf" = {
+      source = /Users/matt/Developer/dotfiles/config/kitty/kitty.conf;
+    };
     home.file.".npmrc" = {
       source = /Users/matt/Developer/dotfiles/config/npm/.npmrc;
     };
@@ -267,12 +270,12 @@
       enable = true;
     };
 
-    programs.kitty = {
-      enable = true;
-      extraConfig = ''
-        ${builtins.readFile /Users/matt/Developer/dotfiles/config/kitty/kitty.conf}
-      '';
-    };
+    # programs.kitty = {
+    #   enable = true;
+    #   extraConfig = ''
+    #     ${builtins.readFile /Users/matt/Developer/dotfiles/config/kitty/kitty.conf}
+    #   '';
+    # };
 
     programs.neovim = {
       enable = true;
