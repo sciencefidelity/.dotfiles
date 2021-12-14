@@ -1,20 +1,20 @@
-{ callPackage, config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
-let
-  # home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-  link = config.lib.file.mkOutOfStoreSymlink;
-in
+# let
+#   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+#   link = config.lib.file.mkOutOfStoreSymlink;
+# in
 {
   imports = [ <home-manager/nix-darwin> ];
 
-  nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-      url = "https://github.com/mjlbach/neovim-nightly-overlay/archive/master.tar.gz";
-    }))
-    # (import (builtins.fetchTarball {
-    #   url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-    # }))
-  ];
+  # nixpkgs.overlays = [
+  #   (import (builtins.fetchTarball {
+  #     url = "https://github.com/mjlbach/neovim-nightly-overlay/archive/master.tar.gz";
+  #   }))
+  #   (import (builtins.fetchTarball {
+  #     url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+  #   }))
+  # ];
 
   environment = {
     shells = [ pkgs.zsh ];
@@ -52,38 +52,38 @@ in
       gh
       git
       gnupg
-      go
+      # go
       # google-cloud-sdk
-      gopls
+      # gopls
       # haskell-language-server
       # home-manager
       htop
-      jq
+      # jq
       lazygit
       lf
       mosh
       neovim
       # neovim-nightly
       nix-linter
-      nixfmt
+      # nixfmt
       nodejs
       nodePackages.diagnostic-languageserver
       nodePackages.eslint
       nodePackages.eslint_d
-      nodePackages.gatsby-cli
+      # nodePackages.gatsby-cli
       # nodePackages.node2nix
       nodePackages.pnpm
       nodePackages.prettier
       # nodePackages.purescript-language-server
       # nodePackages.purescript-psa
       # nodePackages.pscid
-      nodePackages.svelte-language-server
-      nodePackages.typescript
-      nodePackages.typescript-language-server
-      nodePackages.vscode-langservers-extracted
-      nodePackages.vue-cli
-      nodePackages.vue-language-server
-      nodePackages.yaml-language-server
+      # nodePackages.svelte-language-server
+      # nodePackages.typescript
+      # nodePackages.typescript-language-server
+      # nodePackages.vscode-langservers-extracted
+      # nodePackages.vue-cli
+      # nodePackages.vue-language-server
+      # nodePackages.yaml-language-server
       nodePackages.yarn
       # ocaml
       # ocamlPackages.fmt
@@ -94,7 +94,7 @@ in
       pinentry
       ripgrep
       # rls
-      rnix-lsp
+      # rnix-lsp
       # rustup
       # spago
       # stack
@@ -124,33 +124,33 @@ in
       "homebrew/core"
       "homebrew/services"
       # "buo/cask-upgrade"
-      "sass/sass"
+      # "sass/sass"
     ];
 
-    brews = [
-      "sass/sass/sass"
-    ];
+    # brews = [
+    #   "sass/sass/sass"
+    # ];
 
     casks = [
       "affinity-designer"
       "affinity-photo"
       "affinity-publisher"
-      "android-studio"
+      # "android-studio"
       "bartender"
       "brave-browser"
       "dash"
-      "figma"
+      # "figma"
       "firefox"
       "hammerspoon"
       "insomnia"
       "karabiner-elements"
       "kitty"
-      "miro"
-      "notion"
+      # "miro"
+      # "notion"
       "nova"
       "rocket"
-      "slack"
-      "spotify"
+      # "slack"
+      # "spotify"
     ];
 
     masApps = {
