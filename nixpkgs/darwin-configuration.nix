@@ -30,9 +30,6 @@ in
       exa
       fd
       fzf
-      lua
-      luajit
-      luarocks
       ghc
       gh
       git
@@ -46,6 +43,9 @@ in
       jq
       lazygit
       lf
+      lua
+      luajit
+      luarocks
       mosh
       # neovim
       neovim-nightly
