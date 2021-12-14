@@ -1,107 +1,78 @@
 { config, lib, pkgs, ... }:
 
-# let
-#   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-#   link = config.lib.file.mkOutOfStoreSymlink;
-# in
+let
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+  link = config.lib.file.mkOutOfStoreSymlink;
+in
 {
   imports = [ <home-manager/nix-darwin> ];
 
-  # nixpkgs.overlays = [
-  #   (import (builtins.fetchTarball {
-  #     url = "https://github.com/mjlbach/neovim-nightly-overlay/archive/master.tar.gz";
-  #   }))
-  #   (import (builtins.fetchTarball {
-  #     url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-  #   }))
-  # ];
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = "https://github.com/mjlbach/neovim-nightly-overlay/archive/master.tar.gz";
+    }))
+    (import (builtins.fetchTarball {
+      url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+    }))
+  ];
 
   environment = {
     shells = [ pkgs.zsh ];
     systemPackages = with pkgs; [
       bat
-      # bc
-      # cabal-install
-      # cargo
-      # clojure
       coreutils
       curl
       delta
-      # deno
-      # dart
-      # elixir
-      # elixir_ls
-      # elmPackages.create-elm-app
-      # elmPackages.elm
-      # elmPackages.elm-analyse
-      # elmPackages.elm-format
-      # elmPackages.elm-language-server
-      # elmPackages.elm-live
-      # elmPackages.elm-review
-      # elmPackages.elm-test
-      emacs-nox
-      # emacsUnstable-nox
+      deno
+      dart
+      # emacs-nox
+      emacsUnstable-nox
       exa
-      # fd
-      # fzf
-      # lua
-      # luajit
-      # luarocks
-      # gcc10
-      # ghc
-      # gh
+      fd
+      fzf
+      lua
+      luajit
+      luarocks
+      ghc
+      gh
       git
       gnupg
-      # go
-      # google-cloud-sdk
-      # gopls
-      # haskell-language-server
+      go
+      google-cloud-sdk
+      gopls
+      haskell-language-server
       home-manager
-      # htop
-      # jq
-      # lazygit
-      # lf
-      # mosh
-      neovim
-      # neovim-nightly
-      # nix-linter
-      # nixfmt
+      htop
+      jq
+      lazygit
+      lf
+      mosh
+      # neovim
+      neovim-nightly
+      nix-linter
+      nixfmt
       nodejs
-      # nodePackages.diagnostic-languageserver
-      # nodePackages.eslint
-      # nodePackages.eslint_d
-      # nodePackages.gatsby-cli
-      # nodePackages.node2nix
+      nodePackages.diagnostic-languageserver
+      nodePackages.eslint
+      nodePackages.eslint_d
+      nodePackages.gatsby-cli
+      nodePackages.node2nix
       nodePackages.pnpm
-      # nodePackages.prettier
-      # nodePackages.purescript-language-server
-      # nodePackages.purescript-psa
-      # nodePackages.pscid
-      # nodePackages.svelte-language-server
-      # nodePackages.typescript
-      # nodePackages.typescript-language-server
-      # nodePackages.vscode-langservers-extracted
-      # nodePackages.vue-cli
-      # nodePackages.vue-language-server
-      # nodePackages.yaml-language-server
+      nodePackages.prettier
+      nodePackages.svelte-language-server
+      nodePackages.typescript
+      nodePackages.typescript-language-server
+      nodePackages.vscode-langservers-extracted
+      nodePackages.vue-cli
+      nodePackages.vue-language-server
+      nodePackages.yaml-language-server
       nodePackages.yarn
-      # ocaml
-      # ocamlPackages.fmt
-      # ocamlPackages.js_of_ocaml
-      # ocamlPackages.js_of_ocaml-ppx
-      # ocamlPackages.js_of_ocaml-lwt
-      # ocamlPackages.lsp
       pinentry
       ripgrep
-      # rls
-      # rnix-lsp
-      # rustup
-      # spago
-      # stack
+      rustup
+      stack
       starship
       # sumneko-lua-language-server
-      # tmux
-      # tree
       wget
       zsh
       zsh-autosuggestions
@@ -123,45 +94,45 @@
       "homebrew/cask-versions"
       "homebrew/core"
       "homebrew/services"
-      # "buo/cask-upgrade"
-      # "sass/sass"
+      "buo/cask-upgrade"
+      "sass/sass"
     ];
 
-    # brews = [
-    #   "sass/sass/sass"
-    # ];
+    brews = [
+      "sass/sass/sass"
+    ];
 
     casks = [
       "affinity-designer"
       "affinity-photo"
       "affinity-publisher"
-      # "android-studio"
+      "android-studio"
       "bartender"
       "brave-browser"
       "dash"
-      # "figma"
+      "figma"
       "firefox"
       "hammerspoon"
       "insomnia"
       "karabiner-elements"
       "kitty"
-      # "miro"
-      # "notion"
+      "miro"
+      "notion"
       "nova"
       "rocket"
-      # "slack"
-      # "spotify"
+      "slack"
+      "spotify"
     ];
 
     masApps = {
       "Compressor" = 424390742;
       "Craft - Docs and Notes Editor" = 1487937127;
-      "Final Cut Pro" = 424389933;
+      # "Final Cut Pro" = 424389933;
       "iA Writer" = 775737590;
       "Logic Pro" = 634148309;
-      # "Microsoft Excel" = 462058435;
-      # "Microsoft PowerPoint" = 462062816;
-      # "Microsoft Word" = 462054704;
+      "Microsoft Excel" = 462058435;
+      "Microsoft PowerPoint" = 462062816;
+      "Microsoft Word" = 462054704;
       "Motion" = 434290957;
       "OneDrive" = 823766827;
       "Pocket" = 568494494;
@@ -225,15 +196,15 @@
       };
     };
 
-    # programs.fzf = {
-    #   enable = true;
-    #   enableZshIntegration = true;
-    # };
+    programs.fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
 
-    # programs.gh = {
-    #   enable = true;
-    #   settings.git_protocol = "ssh";
-    # };
+    programs.gh = {
+      enable = true;
+      settings.git_protocol = "ssh";
+    };
 
     programs.git = {
       enable = true;
@@ -266,20 +237,20 @@
 
     programs.home-manager.enable = true;
 
-    # programs.htop = {
-    #   enable = true;
-    # };
+    programs.htop = {
+      enable = true;
+    };
 
-    # programs.kitty = {
-    #   enable = true;
-    #   extraConfig = ''
-    #     ${builtins.readFile /Users/matt/Developer/dotfiles/config/kitty/kitty.conf}
-    #   '';
-    # };
+    programs.kitty = {
+      enable = true;
+      extraConfig = ''
+        ${builtins.readFile /Users/matt/Developer/dotfiles/config/kitty/kitty.conf}
+      '';
+    };
 
     programs.neovim = {
       enable = true;
-      # package = pkgs.neovim-nightly;
+      package = pkgs.neovim-nightly;
       extraConfig = ''
         lua << EOF
         ${builtins.readFile /Users/matt/Developer/dotfiles/config/nvim/init.lua}
@@ -430,55 +401,55 @@
       };
     };
 
-#     programs.tmux = {
-#       enable = true;
-#       clock24 = true;
-#       escapeTime = 20;
-#       extraConfig = ''
-#         # fix colors on truecolor terminals
-#         if-shell "uname | grep -q Darwin && echo $TERM | grep -q xterm-256color" {
-#           # set -g default-terminal screen-256color
-#           # set -ga terminal-overrides ",xterm-256color*:Tc"
-#           set-option default-terminal "tmux-256color"
-#           set-option -a terminal-overrides ",xterm-256color:RGB"
-#         }
-#
-#         if-shell "uname | grep -q Darwin && echo $TERM | grep -q xterm-kitty" {
-#           set-option default-terminal "tmux-256color"
-#           set-option -a terminal-overrides ",xterm-256color:RGB"
-#         }
-#
-#         # unbind default prefix and set it to Ctrl+s
-#         set -g prefix C-s
-#         unbind C-b
-#         bind C-s send-prefix
-#
-#         # speed up escape in nvim
-#         set -g base-index 1
-#         set -g escape-time 20
-#
-#         # custom key bindings
-#         bind -n M-h select-pane -L
-#         bind -n M-j select-pane -D
-#         bind -n M-k select-pane -U
-#         bind -n M-l select-pane -R
-#
-#         bind-key t set-option status
-#
-#         # status bar options
-#         set -g status-bg "#282a36"
-#         set -g status-fg "#ff79c6"
-#
-#         set-option -g status-right ""
-#         set-option -ag status-right " #[fg="#f1fa8c",bg=default]#(zsh ~/.config/zsh/cpu.sh) "
-#         set-option -ag status-right " #[fg="#8be9fd",bg=default]#(free -h | awk '/^Mem/ {print $3}')/#(free -h | awk '/^Mem/ {print $2}') "
-#         set-option -ag status-right " #[fg="#50fa7b",bg=default]#(zsh ~/.config/zsh/temp.sh) "
-#         set-option -ag status-right " #[fg="#ff79c6",bg=default]#(date +"%R") "
-#       '';
-#       keyMode = "vi";
-#       newSession = true;
-#       terminal = "xterm-24bits";
-#     };
+    programs.tmux = {
+      enable = true;
+      clock24 = true;
+      escapeTime = 20;
+      extraConfig = ''
+        # fix colors on truecolor terminals
+        if-shell "uname | grep -q Darwin && echo $TERM | grep -q xterm-256color" {
+          # set -g default-terminal screen-256color
+          # set -ga terminal-overrides ",xterm-256color*:Tc"
+          set-option default-terminal "tmux-256color"
+          set-option -a terminal-overrides ",xterm-256color:RGB"
+        }
+
+        if-shell "uname | grep -q Darwin && echo $TERM | grep -q xterm-kitty" {
+          set-option default-terminal "tmux-256color"
+          set-option -a terminal-overrides ",xterm-256color:RGB"
+        }
+
+        # unbind default prefix and set it to Ctrl+s
+        set -g prefix C-s
+        unbind C-b
+        bind C-s send-prefix
+
+        # speed up escape in nvim
+        set -g base-index 1
+        set -g escape-time 20
+
+        # custom key bindings
+        bind -n M-h select-pane -L
+        bind -n M-j select-pane -D
+        bind -n M-k select-pane -U
+        bind -n M-l select-pane -R
+
+        bind-key t set-option status
+
+        # status bar options
+        set -g status-bg "#282a36"
+        set -g status-fg "#ff79c6"
+
+        set-option -g status-right ""
+        set-option -ag status-right " #[fg="#f1fa8c",bg=default]#(zsh ~/.config/zsh/cpu.sh) "
+        set-option -ag status-right " #[fg="#8be9fd",bg=default]#(free -h | awk '/^Mem/ {print $3}')/#(free -h | awk '/^Mem/ {print $2}') "
+        set-option -ag status-right " #[fg="#50fa7b",bg=default]#(zsh ~/.config/zsh/temp.sh) "
+        set-option -ag status-right " #[fg="#ff79c6",bg=default]#(date +"%R") "
+      '';
+      keyMode = "vi";
+      newSession = true;
+      terminal = "xterm-24bits";
+    };
 
     programs.zsh = {
       enable = true;
@@ -646,7 +617,7 @@
   services.nix-daemon.enable = true;
   services.emacs = {
     enable = true;
-    # package = pkgs.emacsUnstable-nox;
+    package = pkgs.emacsUnstable-nox;
   };
 
   system.defaults.NSGlobalDomain = {
