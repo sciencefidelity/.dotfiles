@@ -44,9 +44,9 @@
       exa
       fd
       fzf
-      lua
+      # lua
       # luajit
-      luarocks
+      # luarocks
       # gcc10
       # ghc
       gh
@@ -56,7 +56,7 @@
       # google-cloud-sdk
       # gopls
       # haskell-language-server
-      # home-manager
+      home-manager
       htop
       # jq
       lazygit
@@ -64,16 +64,16 @@
       mosh
       neovim
       # neovim-nightly
-      nix-linter
+      # nix-linter
       # nixfmt
       nodejs
-      nodePackages.diagnostic-languageserver
-      nodePackages.eslint
-      nodePackages.eslint_d
+      # nodePackages.diagnostic-languageserver
+      # nodePackages.eslint
+      # nodePackages.eslint_d
       # nodePackages.gatsby-cli
       # nodePackages.node2nix
       nodePackages.pnpm
-      nodePackages.prettier
+      # nodePackages.prettier
       # nodePackages.purescript-language-server
       # nodePackages.purescript-psa
       # nodePackages.pscid
@@ -100,7 +100,7 @@
       # stack
       starship
       # sumneko-lua-language-server
-      tmux
+      # tmux
       # tree
       wget
       zsh
@@ -159,16 +159,16 @@
       "Final Cut Pro" = 424389933;
       "iA Writer" = 775737590;
       "Logic Pro" = 634148309;
-      "Microsoft Excel" = 462058435;
-      "Microsoft PowerPoint" = 462062816;
-      "Microsoft Word" = 462054704;
+      # "Microsoft Excel" = 462058435;
+      # "Microsoft PowerPoint" = 462062816;
+      # "Microsoft Word" = 462054704;
       "Motion" = 434290957;
       "OneDrive" = 823766827;
       "Pocket" = 568494494;
       "Refined GitHub" = 1519867270;
       "Save to Raindrop.io" = 1549370672;
       "Vimari" = 1480933944;
-      "Xcode" = 497799835;
+      # "Xcode" = 497799835;
     };
   };
 
