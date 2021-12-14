@@ -1,0 +1,184 @@
+# Inserts a blank line between shell prompts
+add_newline = false
+
+format = """
+$username\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$hostname\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$cobol\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$env_var\
+$crystal\
+$custom\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$shell\
+$character"""
+
+[aws]
+disabled = true
+
+[battery]
+disabled = true
+
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+vicmd_symbol = "[➜](bold purple)"
+
+[cmake]
+disabled = true
+
+[cobol]
+disabled = true
+
+[conda]
+disabled = true
+
+[crystal]
+disabled = true
+
+[directory]
+truncation_length = 2
+format = "in [$path](bold cyan) "
+
+[docker_context]
+disabled = true
+
+[dotnet]
+disabled = true
+
+[fill]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[helm]
+disabled = true
+
+[hostname]
+ssh_only = false
+format = "on [$hostname](bold blue) "
+trim_at = "."
+disabled = false
+
+[java]
+disabled = true
+
+[julia]
+disabled = true
+
+[hg_branch]
+disabled = true
+
+[nim]
+disabled = true
+
+[nodejs]
+symbol = "⬢ "
+
+[openstack]
+disabled = true
+
+[package]
+format = "is [$version](bold red) "
+disabled = false
+
+[perl]
+disabled = true
+
+[php]
+disabled = true
+
+[pulumi]
+disabled = true
+
+[rlang]
+disabled = true
+
+[red]
+disabled = true
+
+[ruby]
+disabled = true
+
+[scala]
+disabled = true
+
+[singularity]
+disabled = true
+
+[terraform]
+disabled = true
+
+[username]
+style_user = "yellow bold"
+style_root = "red bold"
+format = "[$user]($style) "
+disabled = false
+show_always = true
+
+[vagrant]
+disabled = true
+
+[vlang]
+disabled = true
+
+[vcsh]
+disabled = true
+
+[zig]
+disabled = true

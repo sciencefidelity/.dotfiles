@@ -1,0 +1,45 @@
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+[color]
+	ui = true
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = red
+[init]
+	defaultBranch = main
+[gpg]
+	program = gpg
+[commit]
+	gpgsign = true
+[user]
+	name = sciencefidelity
+	email = 32623301+sciencefidelity@users.noreply.github.com
+	signingkey = B5197EF9A6D07D4D
+[pager]
+	diff = delta
+	log = delta
+	reflog = delta
+	show = delta
+[delta]
+	syntax-theme = Dracula Extended
+	navigate = true
+[interactive]
+	diffFilter = delta --color-only
+[pull]
+	rebase = false

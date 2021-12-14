@@ -1,0 +1,99 @@
+# https://the.exa.website/docs/command-line-options
+alias ls="exa -F --group-directories-first"
+alias l="exa -aF --group-directories-first"
+alias la="exa -laF --group-directories-first --git"
+alias ll="exa -lF --group-directories-first --git"
+alias lt="exa -T --git-ignore"
+alias lr="exa -R --git-ignore"
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias mkdir="mkdir -p"
+
+# for more human readable results
+alias df="df -kTh"
+alias free="free -h"
+alias du="du -h -c" # calculate disk usage for a folder
+
+# https://github.com/sharkdp/bat
+if [[ "$(uname)" == "Darwin" ]]; then
+  alias cat="bat"
+else
+  alias bat="batcat"
+  alias cat="batcat"
+fi
+
+# https://github.com/BurntSushi/ripgrep
+alias grep="rg"
+# https://github.com/sharkdp/fd
+alias fd="fdfind"
+
+# always use Neovim
+alias vi="nvim"
+alias vim="nvim"
+
+# open emacs with truecolor
+if [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Linux" ]]; then
+    alias emacs="TERM=xterm-24bit emacs -nw"
+elif [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Darwin" ]]; then
+    alias emacs="TERM=xterm-emacs emacs -nw"
+elif [[ "$TERM" == "tmux-256color" ]]; then
+    alias emacs="TERM=xterm-24bits emacs -nw"
+else
+    alias emacs="emacs"
+fi
+
+# macOS specific
+if  [[ "$(uname)" == "Darwin" ]]; then
+    alias ios="open -a Simulator"
+    # https://sw.kovidgoyal.net/kitty/faq/
+    alias ssh="kitty +kitten ssh"
+    # http://www.hammerspoon.org
+    alias hs="open -a Hammerspoon"
+    # https://docs.brew.sh/Manpage
+    alias bbd="brew bundle dump --file=~/dotfiles/Brewfile --force"
+    # https://library.panic.com/nova/cli-tool/
+    alias -s {cs,js,html}=nova
+fi
+
+# Git aliases
+function gitpush() {
+  git pull
+  git add .
+  git commit -m "$*"
+  git push
+}
+alias gp="gitpush"
+alias gst="git status"
+
+# Prevent typing password too often
+alias sudo="sudo -v; sudo "
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
+
+# archive extractor - usage: ext <file>
+function ext ()
+{
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2) tar xjf $1;;
+      *.tar.gz) tar xzf $1;;
+      *.tar.xz) tar xJf $1;;
+      *.bz2) bunzip2 $1;;
+      *.rar) unrar x $1;;
+      *.gz) gunzip $1 ;;
+      *.tar) tar xf $1 ;;
+      *.tbz2) tar xjf $1;;
+      *.tgz) tar xzf $1;;
+      *.zip) unzip $1;;
+      *.Z) uncompress $1;;
+      *.7z) 7z x $1;;
+      *) echo "'$1' cannot be extracted via ex()";;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
