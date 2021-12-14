@@ -1,9 +1,9 @@
-{ callPackage, config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
-let
-  # home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-  link = config.lib.file.mkOutOfStoreSymlink;
-in
+# let
+#   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+#   link = config.lib.file.mkOutOfStoreSymlink;
+# in
 {
   imports = [ <home-manager/nix-darwin> ];
 
@@ -20,87 +20,87 @@ in
     shells = [ pkgs.zsh ];
     systemPackages = with pkgs; [
       bat
-      bc
-      cabal-install
+      # bc
+      # cabal-install
       # cargo
-      clojure
+      # clojure
       coreutils
       curl
       delta
-      deno
+      # deno
       # dart
-      elixir
-      elixir_ls
-      elmPackages.create-elm-app
-      elmPackages.elm
-      elmPackages.elm-analyse
-      elmPackages.elm-format
-      elmPackages.elm-language-server
-      elmPackages.elm-live
-      elmPackages.elm-review
-      elmPackages.elm-test
+      # elixir
+      # elixir_ls
+      # elmPackages.create-elm-app
+      # elmPackages.elm
+      # elmPackages.elm-analyse
+      # elmPackages.elm-format
+      # elmPackages.elm-language-server
+      # elmPackages.elm-live
+      # elmPackages.elm-review
+      # elmPackages.elm-test
       emacs-nox
       # emacsUnstable-nox
       exa
-      fd
-      fzf
-      lua
+      # fd
+      # fzf
+      # lua
       # luajit
-      luarocks
-      gcc10
-      ghc
-      gh
+      # luarocks
+      # gcc10
+      # ghc
+      # gh
       git
       gnupg
-      go
-      google-cloud-sdk
-      gopls
-      haskell-language-server
-      # home-manager
-      htop
-      jq
-      lazygit
-      lf
-      mosh
+      # go
+      # google-cloud-sdk
+      # gopls
+      # haskell-language-server
+      home-manager
+      # htop
+      # jq
+      # lazygit
+      # lf
+      # mosh
       neovim
       # neovim-nightly
-      nix-linter
-      nixfmt
+      # nix-linter
+      # nixfmt
       nodejs
-      nodePackages.diagnostic-languageserver
-      nodePackages.eslint
-      nodePackages.eslint_d
-      nodePackages.gatsby-cli
-      nodePackages.node2nix
+      # nodePackages.diagnostic-languageserver
+      # nodePackages.eslint
+      # nodePackages.eslint_d
+      # nodePackages.gatsby-cli
+      # nodePackages.node2nix
       nodePackages.pnpm
-      nodePackages.prettier
+      # nodePackages.prettier
       # nodePackages.purescript-language-server
       # nodePackages.purescript-psa
       # nodePackages.pscid
-      nodePackages.svelte-language-server
-      nodePackages.typescript
-      nodePackages.typescript-language-server
-      nodePackages.vscode-langservers-extracted
-      nodePackages.vue-cli
-      nodePackages.vue-language-server
-      nodePackages.yaml-language-server
+      # nodePackages.svelte-language-server
+      # nodePackages.typescript
+      # nodePackages.typescript-language-server
+      # nodePackages.vscode-langservers-extracted
+      # nodePackages.vue-cli
+      # nodePackages.vue-language-server
+      # nodePackages.yaml-language-server
       nodePackages.yarn
-      ocaml
-      ocamlPackages.fmt
-      ocamlPackages.js_of_ocaml
-      ocamlPackages.js_of_ocaml-ppx
-      ocamlPackages.js_of_ocaml-lwt
-      ocamlPackages.lsp
+      # ocaml
+      # ocamlPackages.fmt
+      # ocamlPackages.js_of_ocaml
+      # ocamlPackages.js_of_ocaml-ppx
+      # ocamlPackages.js_of_ocaml-lwt
+      # ocamlPackages.lsp
       pinentry
       ripgrep
       # rls
-      rnix-lsp
-      rustup
-      spago
-      stack
+      # rnix-lsp
+      # rustup
+      # spago
+      # stack
       starship
       # sumneko-lua-language-server
-      tmux
+      # tmux
       # tree
       wget
       zsh
@@ -124,33 +124,33 @@ in
       "homebrew/core"
       "homebrew/services"
       # "buo/cask-upgrade"
-      "sass/sass"
+      # "sass/sass"
     ];
 
-    brews = [
-      "sass/sass/sass"
-    ];
+    # brews = [
+    #   "sass/sass/sass"
+    # ];
 
     casks = [
       "affinity-designer"
       "affinity-photo"
       "affinity-publisher"
-      "android-studio"
+      # "android-studio"
       "bartender"
       "brave-browser"
       "dash"
-      "figma"
+      # "figma"
       "firefox"
       "hammerspoon"
       "insomnia"
       "karabiner-elements"
       "kitty"
-      "miro"
-      "notion"
+      # "miro"
+      # "notion"
       "nova"
       "rocket"
-      "slack"
-      "spotify"
+      # "slack"
+      # "spotify"
     ];
 
     masApps = {
@@ -159,16 +159,16 @@ in
       "Final Cut Pro" = 424389933;
       "iA Writer" = 775737590;
       "Logic Pro" = 634148309;
-      "Microsoft Excel" = 462058435;
-      "Microsoft PowerPoint" = 462062816;
-      "Microsoft Word" = 462054704;
+      # "Microsoft Excel" = 462058435;
+      # "Microsoft PowerPoint" = 462062816;
+      # "Microsoft Word" = 462054704;
       "Motion" = 434290957;
       "OneDrive" = 823766827;
       "Pocket" = 568494494;
       "Refined GitHub" = 1519867270;
       "Save to Raindrop.io" = 1549370672;
       "Vimari" = 1480933944;
-      "Xcode" = 497799835;
+      # "Xcode" = 497799835;
     };
   };
 
@@ -180,6 +180,9 @@ in
 
     home.file.".emacs.d/init.el" = {
       source = /Users/matt/Developer/dotfiles/config/emacs.d/init.el;
+    };
+    home.file.".config/kitty/kitty.conf" = {
+      source = /Users/matt/Developer/dotfiles/config/kitty/kitty.conf;
     };
     home.file.".npmrc" = {
       source = /Users/matt/Developer/dotfiles/config/npm/.npmrc;
@@ -222,15 +225,15 @@ in
       };
     };
 
-    programs.fzf = {
-      enable = true;
-      enableZshIntegration = true;
-    };
+    # programs.fzf = {
+    #   enable = true;
+    #   enableZshIntegration = true;
+    # };
 
-    programs.gh = {
-      enable = true;
-      settings.git_protocol = "ssh";
-    };
+    # programs.gh = {
+    #   enable = true;
+    #   settings.git_protocol = "ssh";
+    # };
 
     programs.git = {
       enable = true;
@@ -263,16 +266,16 @@ in
 
     programs.home-manager.enable = true;
 
-    programs.htop = {
-      enable = true;
-    };
+    # programs.htop = {
+    #   enable = true;
+    # };
 
-    programs.kitty = {
-      enable = true;
-      extraConfig = ''
-        ${builtins.readFile /Users/matt/Developer/dotfiles/config/kitty/kitty.conf}
-      '';
-    };
+    # programs.kitty = {
+    #   enable = true;
+    #   extraConfig = ''
+    #     ${builtins.readFile /Users/matt/Developer/dotfiles/config/kitty/kitty.conf}
+    #   '';
+    # };
 
     programs.neovim = {
       enable = true;
@@ -427,55 +430,55 @@ in
       };
     };
 
-    programs.tmux = {
-      enable = true;
-      clock24 = true;
-      escapeTime = 20;
-      extraConfig = ''
-        # fix colors on truecolor terminals
-        if-shell "uname | grep -q Darwin && echo $TERM | grep -q xterm-256color" {
-          # set -g default-terminal screen-256color
-          # set -ga terminal-overrides ",xterm-256color*:Tc"
-          set-option default-terminal "tmux-256color"
-          set-option -a terminal-overrides ",xterm-256color:RGB"
-        }
-
-        if-shell "uname | grep -q Darwin && echo $TERM | grep -q xterm-kitty" {
-          set-option default-terminal "tmux-256color"
-          set-option -a terminal-overrides ",xterm-256color:RGB"
-        }
-
-        # unbind default prefix and set it to Ctrl+s
-        set -g prefix C-s
-        unbind C-b
-        bind C-s send-prefix
-
-        # speed up escape in nvim
-        set -g base-index 1
-        set -g escape-time 20
-
-        # custom key bindings
-        bind -n M-h select-pane -L
-        bind -n M-j select-pane -D
-        bind -n M-k select-pane -U
-        bind -n M-l select-pane -R
-
-        bind-key t set-option status
-
-        # status bar options
-        set -g status-bg "#282a36"
-        set -g status-fg "#ff79c6"
-
-        set-option -g status-right ""
-        set-option -ag status-right " #[fg="#f1fa8c",bg=default]#(zsh ~/.config/zsh/cpu.sh) "
-        set-option -ag status-right " #[fg="#8be9fd",bg=default]#(free -h | awk '/^Mem/ {print $3}')/#(free -h | awk '/^Mem/ {print $2}') "
-        set-option -ag status-right " #[fg="#50fa7b",bg=default]#(zsh ~/.config/zsh/temp.sh) "
-        set-option -ag status-right " #[fg="#ff79c6",bg=default]#(date +"%R") "
-      '';
-      keyMode = "vi";
-      newSession = true;
-      terminal = "xterm-24bits";
-    };
+#     programs.tmux = {
+#       enable = true;
+#       clock24 = true;
+#       escapeTime = 20;
+#       extraConfig = ''
+#         # fix colors on truecolor terminals
+#         if-shell "uname | grep -q Darwin && echo $TERM | grep -q xterm-256color" {
+#           # set -g default-terminal screen-256color
+#           # set -ga terminal-overrides ",xterm-256color*:Tc"
+#           set-option default-terminal "tmux-256color"
+#           set-option -a terminal-overrides ",xterm-256color:RGB"
+#         }
+#
+#         if-shell "uname | grep -q Darwin && echo $TERM | grep -q xterm-kitty" {
+#           set-option default-terminal "tmux-256color"
+#           set-option -a terminal-overrides ",xterm-256color:RGB"
+#         }
+#
+#         # unbind default prefix and set it to Ctrl+s
+#         set -g prefix C-s
+#         unbind C-b
+#         bind C-s send-prefix
+#
+#         # speed up escape in nvim
+#         set -g base-index 1
+#         set -g escape-time 20
+#
+#         # custom key bindings
+#         bind -n M-h select-pane -L
+#         bind -n M-j select-pane -D
+#         bind -n M-k select-pane -U
+#         bind -n M-l select-pane -R
+#
+#         bind-key t set-option status
+#
+#         # status bar options
+#         set -g status-bg "#282a36"
+#         set -g status-fg "#ff79c6"
+#
+#         set-option -g status-right ""
+#         set-option -ag status-right " #[fg="#f1fa8c",bg=default]#(zsh ~/.config/zsh/cpu.sh) "
+#         set-option -ag status-right " #[fg="#8be9fd",bg=default]#(free -h | awk '/^Mem/ {print $3}')/#(free -h | awk '/^Mem/ {print $2}') "
+#         set-option -ag status-right " #[fg="#50fa7b",bg=default]#(zsh ~/.config/zsh/temp.sh) "
+#         set-option -ag status-right " #[fg="#ff79c6",bg=default]#(date +"%R") "
+#       '';
+#       keyMode = "vi";
+#       newSession = true;
+#       terminal = "xterm-24bits";
+#     };
 
     programs.zsh = {
       enable = true;
