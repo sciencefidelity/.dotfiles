@@ -137,7 +137,6 @@ in
 
     programs.neovim = {
       enable = true;
-      package = pkgs.neovim-nightly;
       extraConfig = ''
         lua << EOF
         ${builtins.readFile /Users/matt/Developer/dotfiles/config/nvim/init.lua}
