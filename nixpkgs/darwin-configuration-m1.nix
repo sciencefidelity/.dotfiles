@@ -11,6 +11,7 @@
       curl
       exa
       fd
+      git
       gnupg
       home-manager
       lf
@@ -23,6 +24,27 @@
     ];
   };
 
+  homebrew = {
+    enable = true;
+    autoUpdate = false;
+    global = {
+      brewfile = true;
+      noLock = true;
+    };
+
+    taps = [
+      "homebrew/bundle"
+      "homebrew/services"
+      "homebrew/core"
+      "homebrew/cask"
+    ];
+
+    casks = [
+      "kitty"
+      "nova"
+    ];
+  };
+
   home-manager.backupFileExtension = "bak";
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
@@ -32,6 +54,10 @@
     home.sessionVariables = {
       EDITOR = "vim";
       VISUAL = "$EDITOR";
+    };
+
+    home.file.".config/kitty/kitty.conf" = {
+      source = /Users/matt/Developer/dotfiles/config/kitty/kitty.conf;
     };
 
     programs.bat = {
@@ -75,6 +101,13 @@
     };
 
     programs.home-manager.enable = true;
+
+    programs.kitty = {
+      enable = true;
+      extraConfig = ''
+        ${builtins.readFile /Users/matt/Developer/dotfiles/config/kitty/kitty.conf}
+      '';
+    };
 
     programs.starship = {
       enable = true;
@@ -229,6 +262,8 @@
       };
 
       initExtra = ''
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+
         # Basic auto/tab complete
         autoload -U compinit
         zstyle ":completion:*" menu select
