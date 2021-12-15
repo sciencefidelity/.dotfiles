@@ -1,101 +1,84 @@
-# taps
+# Taps
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-versions"
-tap "homebrew/core"
 tap "homebrew/services"
+tap "homebrew/core"
+tap "homebrew/cask"
+# tap "homebrew/cask-versions"
 tap "buo/cask-upgrade"
-
 tap "dart-lang/dart"
 tap "sass/sass"
 
-# packages
+# Brews
 brew "bat"
 brew "coreutils"
+brew "dart" # from tap "dart-lang/dart"
 brew "deno"
-brew "emacs"
+brew "emacs" #, args: ["HEAD"]
 brew "eslint"
 brew "exa"
 brew "fd"
 brew "fzf"
 brew "gh"
 brew "ghc"
+brew "git" # homebrew version is ahead of Apple
 brew "git-delta"
 brew "gnupg"
 brew "go"
 brew "gopls"
 brew "haskell-language-server"
-brew "haskell-stack"
+brew "haskell-stack" # Monterey not listed
+brew "hlint"
 brew "htop"
 brew "jq"
 brew "lazygit"
 brew "lf"
 brew "lua"
-brew "luajit"
+# brew "luajit", args: ["HEAD"] # not listed for Apple Silicon
 brew "luarocks"
 brew "mas"
 brew "mongosh"
 brew "mosh"
 brew "neovim", args: ["HEAD"]
 brew "nvm"
-brew "pinentry-mac"
+brew "pinentry-mac" # Monterey not listed
 brew "pnpm"
 brew "prettier"
 brew "ripgrep"
 brew "rust"
 brew "rustup-init"
-brew "sass/sass/sass"
-brew "starship", args: ["HEAD"]
+brew "sass/sass/sass" # from tap "sass/sass"
+brew "starship"#, args: ["HEAD"]
 brew "wget"
 brew "yarn"
-brew "zplug"
-brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 
-# Browsers
-cask "brave-browser"
-cask "firefox"
-
-# CLI
-cask "flutter"
-cask "google-cloud-sdk"
-
-# Design
+# Casks
 cask "affinity-designer"
 cask "affinity-photo"
 cask "affinity-publisher"
-cask "figma"
-
-# Development
 cask "android-studio"
+cask "bartender"
+cask "brave-browser"
 cask "dash"
+cask "figma"
+cask "firefox"
+# cask "flutter" # does this work on Apple Silicon
+# cask "google-cloud-sdk"
+cask "hammerspoon"
 cask "insomnia"
+# cask "karabiner-elements" # can I set up a workflow without this?
 cask "kitty"
-cask "nova"
-
-# Entertainment
-cask "spotify"
-
-# Notes
-cask "miro"
-cask "notion"
-
-# Office
 cask "microsoft-excel"
 cask "microsoft-powerpoint"
 cask "microsoft-word"
-
-# Social
-cask "slack"
-
-# Utils
-cask "bartender"
-cask "hammerspoon"
-cask "karabiner-elements"
+cask "miro"
+cask "notion"
 cask "rocket"
+cask "slack"
+cask "spotify"
 
-# App Store
+# Mac App Store
 mas "Compressor", id: 424390742
 mas "Craft - Docs and Notes Editor", id: 1487937127
 mas "Final Cut Pro", id: 424389933
