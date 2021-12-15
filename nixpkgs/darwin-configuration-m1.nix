@@ -135,13 +135,6 @@ in
 
     programs.home-manager.enable = true;
 
-    programs.kitty = {
-      enable = true;
-      extraConfig = ''
-        ${builtins.readFile /Users/matt/Developer/dotfiles/config/kitty/kitty.conf}
-      '';
-    };
-
     programs.neovim = {
       enable = true;
       package = pkgs.neovim-nightly;
