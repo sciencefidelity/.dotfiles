@@ -309,8 +309,6 @@ in
       };
 
       initExtra = ''
-        eval "$(/opt/homebrew/bin/brew shellenv)"
-
         # Basic auto/tab complete
         autoload -U compinit
         zstyle ":completion:*" menu select
