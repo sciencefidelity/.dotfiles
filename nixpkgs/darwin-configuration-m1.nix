@@ -36,13 +36,15 @@ in
 
   homebrew = {
     enable = true;
-    autoUpdate = false;
-    brewPrefix = "/opt/homebrew/bin/brew";
+    autoUpdate = true;
+    brewPrefix = "/opt/homebrew/bin";
     cleanup = "zap";
     global = {
       brewfile = true;
       noLock = true;
     };
+
+    brews = [];
 
     taps = [
       "homebrew/bundle"
