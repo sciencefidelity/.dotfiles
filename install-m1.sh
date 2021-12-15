@@ -20,6 +20,7 @@ ln -s ~/Developer/dotfiles/.terminfo ~/.terminfo
 ln -s ~/Developer/dotfiles/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 ln -s ~/Developer/dotfiles/config/hammerspoon/init.lua ~/.hammerspoon/init.lua
 ln -s ~/Developer/dotfiles/.gitconfig ~/.gitconfig
+mkdir ~/.nvm
 
 echo "copying system files"
 ln -s /Users/matt/Library/Mobile\ Documents/com~apple~CloudDocs/Developer/ssh ~/.ssh

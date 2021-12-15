@@ -16,13 +16,4 @@ if [[ "$(uname)" == "Darwin" ]]; then
   # nvm
   export NVM_DIR="$HOME/.nvm"
   [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh"
-else
-  # path to Go
-  export PATH=$PATH:/usr/local/src/go/bin
-  # path to Dart
-  export PATH=$PATH:/usr/local/src/dart-sdk/bin
-  # path to Hugo
-  export PATH="~/go/bin:$PATH"
-  # path to LF
-  export PATH=$PATH:/usr/local/src/bin
 fi
