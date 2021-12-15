@@ -128,6 +128,11 @@ in
 
       delta.enable = true;
 
+      signing = {
+        key = "22C1322FB7B3F0B2";
+        signByDefault = true;
+      };
+
       extraConfig = {
         init = { defaultBranch = "main"; } ;
         pull = { rebase = false; } ;
