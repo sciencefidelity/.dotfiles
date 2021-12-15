@@ -14,7 +14,7 @@
     home.stateVersion = "22.05";
 
     home.sessionVariables = {
-      EDITOR = "nvim";
+      EDITOR = "vim";
       VISUAL = "$EDITOR";
     };
 
