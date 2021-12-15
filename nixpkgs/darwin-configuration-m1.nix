@@ -1,5 +1,9 @@
 { config, lib, pkgs, ... }:
 
+let
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+  link = config.lib.file.mkOutOfStoreSymlink;
+in
 {
   imports = [ <home-manager/nix-darwin> ];
 
@@ -9,16 +13,22 @@
       bat
       coreutils
       curl
+      delta
+      emacs-nox
       exa
       fd
+      fzf
+      gh
       git
       gnupg
       home-manager
       lf
+      neovim
       pinentry
       ripgrep
       starship
       wget
+      zsh
       zsh-autosuggestions
       zsh-syntax-highlighting
     ];
@@ -43,6 +53,12 @@
       "kitty"
       "nova"
     ];
+
+    masApps = {
+      "Refined GitHub" = 1519867270;
+      "Save to Raindrop.io" = 1549370672;
+      "Vimari" = 1480933944;
+    };
   };
 
   home-manager.backupFileExtension = "bak";
@@ -51,13 +67,18 @@
   home-manager.users.matt = { config, lib, pkgs, ... }: {
     home.stateVersion = "22.05";
 
-    home.sessionVariables = {
-      EDITOR = "vim";
-      VISUAL = "$EDITOR";
+    home.file.".emacs.d/init.el" = {
+      source = /Users/matt/Developer/dotfiles/config/emacs.d/init.el;
     };
-
     home.file.".config/kitty/kitty.conf" = {
       source = /Users/matt/Developer/dotfiles/config/kitty/kitty.conf;
+    };
+
+    home.sessionPath = [];
+    home.sessionVariables = {
+      BAT_THEME = "Dracula";
+      EDITOR = "nvim";
+      VISUAL = "$EDITOR";
     };
 
     programs.bat = {
@@ -78,6 +99,16 @@
       };
     };
 
+    programs.fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
+    programs.gh = {
+      enable = true;
+      settings.git_protocol = "ssh";
+    };
+
     programs.git = {
       enable = true;
 
@@ -90,6 +121,8 @@
         type = "cat-file -t";
         dump = "cat-file -p";
       };
+
+      delta.enable = true;
 
       extraConfig = {
         init = { defaultBranch = "main"; } ;
@@ -107,6 +140,19 @@
       extraConfig = ''
         ${builtins.readFile /Users/matt/Developer/dotfiles/config/kitty/kitty.conf}
       '';
+    };
+
+    programs.neovim = {
+      enable = true;
+      package = pkgs.neovim-nightly;
+      extraConfig = ''
+        lua << EOF
+        ${builtins.readFile /Users/matt/Developer/dotfiles/config/nvim/init.lua}
+        EOF
+      '';
+      withNodeJs = true;
+      viAlias = true;
+      vimAlias = true;
     };
 
     programs.starship = {
@@ -300,6 +346,23 @@
 
         bindkey "^ " autosuggest-accept
 
+        eval "$(ssh-agent -s)" > /dev/null
+        ssh-add ~/.ssh/github 2> /dev/null
+        export GPG_TTY=$(tty)
+
+        # open emacs with truecolor
+        if [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Linux" ]]; then
+            alias emacs="TERM=xterm-24bit emacs -nw"
+        elif [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Darwin" ]]; then
+            alias emacs="TERM=xterm-emacs emacs -nw"
+        elif [[ "$TERM" == "tmux-256color" ]]; then
+            alias emacs="TERM=xterm-24bits emacs -nw"
+        else
+            alias emacs="emacs"
+        fi
+
+        alias -s {cs,js,html}=nova
+
         gp() {
           git pull
           git add .
@@ -359,13 +422,41 @@
         pull="git fetch origin; git merge origin/main";
         gst = "git status";
         cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
+        ios = "open -a Simulator";
+        ssh = "kitty +kitten ssh";
+        hs = "open -a Hammerspoon";
       };
     };
   };
 
   networking.hostName = "macbook";
   nix.useDaemon = true;
+  nixpkgs.config.allowUnfree = true;
+
+  programs.zsh = {
+    enable = true;
+    enableBashCompletion = true;
+    enableCompletion = true;
+    enableSyntaxHighlighting = true;
+    variables = {
+      EDITOR = "nvim";
+    };
+  };
+
   services.nix-daemon.enable = true;
+  services.emacs = {
+    enable = true;
+    package = pkgs.emacsUnstable-nox;
+  };
+
+  system.defaults.dock = {
+    autohide-delay = "0";
+    autohide-time-modifier = "0.5";
+  };
+  system.keyboard = {
+    enableKeyMapping = true;
+    remapCapsLockToControl = true;
+  };
 
   system.stateVersion = 4;
   users.users.matt = {
