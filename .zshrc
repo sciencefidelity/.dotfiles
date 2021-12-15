@@ -10,9 +10,9 @@ fi
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
-source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 # Basic auto/tab complete
 autoload -U compinit
@@ -69,7 +69,6 @@ export LESS_TERMCAP_mh=$(tput dim)
 # Load aliases and shortcuts
 [ -f "$HOME/.config/zsh/alias.sh" ] && source "$HOME/.config/zsh/alias.sh"
 [ -f "$HOME/.config/zsh/path.sh" ] && source "$HOME/.config/zsh/path.sh"
-[ -f "$HOME/.config/zsh/tmux.sh" ] && source "$HOME/.config/zsh/tmux.sh"
 
 export GPG_TTY=$(tty)
 eval "$(ssh-agent -s)" > /dev/null
