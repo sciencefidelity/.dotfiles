@@ -37,6 +37,8 @@ in
   homebrew = {
     enable = true;
     autoUpdate = false;
+    brewPrefix = "/opt/homebrew/bin/brew";
+    cleanup = "zap";
     global = {
       brewfile = true;
       noLock = true;
