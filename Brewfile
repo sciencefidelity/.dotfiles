@@ -5,19 +5,20 @@ tap "homebrew/core"
 tap "homebrew/cask"
 # tap "homebrew/cask-versions"
 tap "buo/cask-upgrade"
-tap "dart-lang/dart"
+# tap "dart-lang/dart"
 tap "sass/sass"
 
 # Brews
 brew "bat"
+brew "cabal-install"
 brew "coreutils"
-brew "dart" # from tap "dart-lang/dart"
+# brew "dart" # from tap "dart-lang/dart" - Flutter SDK includes Dart
 brew "deno"
 brew "emacs" #, args: ["HEAD"]
 brew "eslint"
 brew "exa"
-brew "fd"
-brew "fzf"
+brew "fd" # https://github.com/sharkdp/fd
+brew "fzf" # https://github.com/junegunn/fzf
 brew "gh"
 brew "ghc"
 brew "git" # homebrew version is ahead of Apple
@@ -29,11 +30,12 @@ brew "haskell-language-server"
 brew "haskell-stack" # Monterey not listed
 brew "hlint"
 brew "htop"
-brew "jq"
+brew "jq" # https://stedolan.github.io/jq/
 brew "lazygit"
 brew "lf"
 brew "lua"
 # brew "luajit", args: ["HEAD"] # not listed for Apple Silicon
+brew "lua-language-server"
 brew "luarocks"
 brew "mas"
 brew "mongosh"
@@ -44,10 +46,10 @@ brew "pinentry-mac" # Monterey not listed
 brew "pnpm"
 brew "prettier"
 brew "ripgrep"
-brew "rust"
 brew "rustup-init"
 brew "sass/sass/sass" # from tap "sass/sass"
 brew "starship"#, args: ["HEAD"]
+brew "typescript"
 brew "wget"
 brew "yarn"
 brew "zsh-autosuggestions"
@@ -63,7 +65,7 @@ cask "brave-browser"
 cask "dash"
 cask "figma"
 cask "firefox"
-# cask "flutter" # does this work on Apple Silicon
+cask "flutter" # may require Rosetta
 # cask "google-cloud-sdk"
 cask "hammerspoon"
 cask "insomnia"
