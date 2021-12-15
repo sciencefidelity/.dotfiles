@@ -51,7 +51,7 @@ in
       neovim-nightly
       nix-linter
       nixfmt
-      nodejs
+      nodejs-16_x
       nodePackages.diagnostic-languageserver
       nodePackages.eslint
       nodePackages.eslint_d
@@ -240,13 +240,6 @@ in
 
     programs.htop = {
       enable = true;
-    };
-
-    programs.kitty = {
-      enable = true;
-      extraConfig = ''
-        ${builtins.readFile /Users/matt/Developer/dotfiles/config/kitty/kitty.conf}
-      '';
     };
 
     programs.neovim = {
