@@ -29,7 +29,7 @@ ln -s ~/Developer/dotfiles/nixpkgs/darwin-configuration.nix ~/.nixpkgs/darwin-co
 ln -s /Users/matt/Library/Mobile\ Documents/com~apple~CloudDocs/Developer/ssh ~/.ssh
 
 echo "installing basic system files"
-cp ~/Developer/dotfiles/pictures/desktop/* ~/Pictures/
+cp /Users/matt/Library/Mobile\ Documents/com~apple~CloudDocs/System/Desktop/* ~/Pictures/
 sudo cp ~/Developer/dotfiles/pictures/user/* /Library/User\ Pictures/Fun
 cp /Users/matt/Library/Mobile\ Documents/com~apple~CloudDocs/System/MonoLisa/* /Users/matt/Library/Fonts/
 open /Users/matt/Library/Mobile\ Documents/com~apple~CloudDocs/System/Terminal/Dracula.terminal
