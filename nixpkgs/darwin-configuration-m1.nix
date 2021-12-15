@@ -439,7 +439,6 @@ in
   services.nix-daemon.enable = true;
   services.emacs = {
     enable = true;
-    package = pkgs.emacsUnstable-nox;
   };
 
   system.defaults.dock = {
