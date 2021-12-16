@@ -27,13 +27,12 @@ cd Developer
 git clone https://github.com/sciencefidelity/dotfiles
 cd ..
 
-# TODO: fix symlinking
 echo "preparing nix-darwin build"
-rm ~/.nixpkgs/darwin-configuration.nix
 sudo mv /ect/nix/nix.conf /etc/nix/nix.conf.bak
 sudo mv /etc/shells /etc/shells.bak
 
 echo "symlinking dotfiles"
+rm ~/.nixpkgs/darwin-configuration.nix
 ln -s ~/Developer/dotfiles/nixpkgs/darwin-configuration-m1.nix ~/.nixpkgs/darwin-configuration.nix
 ln -s ~/Developer/dotfiles/.terminfo ~/.terminfo
 ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/Developer/ssh ~/.ssh
