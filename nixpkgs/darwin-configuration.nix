@@ -20,6 +20,7 @@ in
     shells = [ pkgs.zsh ];
     systemPackages = with pkgs; [
       bat
+      cabal-install
       coreutils
       curl
       delta
@@ -30,8 +31,8 @@ in
       exa
       fd
       fzf
-      ghc
       gh
+      ghc
       git
       gnupg
       go
