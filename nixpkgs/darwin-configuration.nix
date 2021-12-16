@@ -43,7 +43,7 @@ in
       jq
       lazygit
       lf
-      lua
+      lua5_4
       luajit
       luarocks
       mosh
