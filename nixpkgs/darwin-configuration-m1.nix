@@ -14,6 +14,7 @@ in
       coreutils
       curl
       delta
+      deno
       emacs-nox
       exa
       fd
@@ -21,10 +22,15 @@ in
       gh
       git
       gnupg
+      go
+      gopls
       home-manager
       lf
+      mosh
       neovim
       nodejs-16_x
+      nodePackages.pnpm
+      nodePackages.yarn
       pinentry
       ripgrep
       starship
@@ -45,8 +51,6 @@ in
       noLock = true;
     };
 
-    brews = [];
-
     taps = [
       "homebrew/bundle"
       "homebrew/services"
@@ -58,14 +62,21 @@ in
       "affinity-designer"
       "affinity-photo"
       "affinity-publisher"
+      "android-studio"
       "bartender"
       "brave-browser"
       "dash"
+      "figma"
       "firefox"
       "hammerspoon"
       "kitty"
+      "miro"
+      "notion"
       "nova"
+      "postman"
       "rocket"
+      "slack"
+      "spotify"
     ];
 
     masApps = {
@@ -94,18 +105,27 @@ in
     home.stateVersion = "22.05";
 
     home.file.".emacs.d/init.el" = {
-      source = /Users/matt/Developer/dotfiles/config/emacs.d/init.el;
+      source = ~/Developer/dotfiles/config/emacs.d/init.el;
     };
     home.file.".config/kitty/kitty.conf" = {
-      source = /Users/matt/Developer/dotfiles/config/kitty/kitty.conf;
+      source = ~/Developer/dotfiles/config/kitty/kitty.conf;
+    };
+    home.file.".npmrc" = {
+      source = ~/Developer/dotfiles/config/npm/.npmrc;
     };
     home.file.".hammerspoon/init.lua" = {
-      source = /Users/matt/Developer/dotfiles/config/hammerspoon/init.lua;
+      source = ~/Developer/dotfiles/config/hammerspoon/init.lua;
     };
 
-    home.sessionPath = [];
+    home.sessionPath = [
+      "~/.npm-globals/bin:$PATH"
+      "$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH"
+    ];
     home.sessionVariables = {
+      ANDROID_SDK = "~/Library/Android/sdk";
       BAT_THEME = "Dracula";
+      CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       EDITOR = "nvim";
       VISUAL = "$EDITOR";
     };
@@ -463,6 +483,9 @@ in
     enableCompletion = true;
     enableSyntaxHighlighting = true;
     variables = {
+      ANDROID_SDK = "~/Library/Android/sdk";
+      CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       BAT_THEME = "Dracula";
       EDITOR = "nvim";
       VISUAL = "$EDITOR";
@@ -470,9 +493,6 @@ in
   };
 
   services.nix-daemon.enable = true;
-  services.emacs = {
-    enable = true;
-  };
 
   system.defaults.dock = {
     autohide-delay = "0";
