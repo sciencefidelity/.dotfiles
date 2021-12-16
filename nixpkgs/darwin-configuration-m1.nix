@@ -26,6 +26,9 @@ in
       gopls
       home-manager
       lf
+      # lua5_4
+      # luajit
+      # luarocks
       mosh
       neovim
       nodejs-16_x
@@ -128,6 +131,7 @@ in
       CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       EDITOR = "nvim";
+      GOPATH= "/Users/matt/Developer/go";
       VISUAL = "$EDITOR";
     };
 
@@ -489,6 +493,7 @@ in
       CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       BAT_THEME = "Dracula";
       EDITOR = "nvim";
+      GOPATH= "/Users/matt/Developer/go";
       VISUAL = "$EDITOR";
     };
   };
