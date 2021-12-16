@@ -24,7 +24,7 @@ in
       curl
       delta
       deno
-      dart
+      # dart
       # emacs-nox
       emacsUnstable-nox
       exa
@@ -114,7 +114,7 @@ in
       "figma"
       "firefox"
       "hammerspoon"
-      "insomnia"
+      "insomnia" # no ARM version
       "karabiner-elements"
       "kitty"
       "miro"
@@ -135,7 +135,7 @@ in
       "Microsoft PowerPoint" = 462062816;
       "Microsoft Word" = 462054704;
       "Motion" = 434290957;
-      "OneDrive" = 823766827;
+      "OneDrive" = 823766827;  # no ARM version
       "Pocket" = 568494494;
       "Refined GitHub" = 1519867270;
       "Save to Raindrop.io" = 1549370672;
