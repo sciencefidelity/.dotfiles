@@ -26,9 +26,6 @@ in
       gopls
       home-manager
       lf
-      # lua5_4
-      # luajit
-      # luarocks
       mosh
       neovim
       nodejs-16_x
@@ -36,6 +33,7 @@ in
       nodePackages.yarn
       pinentry
       ripgrep
+      rustup
       starship
       wget
       zsh
