@@ -11,6 +11,7 @@ in
     shells = [ pkgs.zsh ];
     systemPackages = with pkgs; [
       bat
+      cabal-install
       coreutils
       curl
       delta
@@ -20,10 +21,12 @@ in
       fd
       fzf
       gh
+      ghc
       git
       gnupg
       go
       gopls
+      # haskell-language-server # package broken
       home-manager
       lf
       mosh
@@ -34,6 +37,7 @@ in
       pinentry
       ripgrep
       rustup
+      stack
       starship
       wget
       zsh
