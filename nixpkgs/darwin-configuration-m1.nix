@@ -118,6 +118,9 @@ in
     home.file.".config/kitty/kitty.conf" = {
       source = ~/Developer/dotfiles/config/kitty/kitty.conf;
     };
+    home.file.".config/safari/reboot.css" = {
+      source = ~/Developer/dotfiles/config/safari/reboot.css;
+    };
     home.file.".npmrc" = {
       source = ~/Developer/dotfiles/config/npm/.npmrc;
     };
