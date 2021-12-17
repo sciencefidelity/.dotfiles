@@ -31,6 +31,8 @@ in
       lf
       mosh
       neovim
+      nix-linter
+      nixfmt
       nodejs-16_x
       nodePackages.pnpm
       nodePackages.yarn
