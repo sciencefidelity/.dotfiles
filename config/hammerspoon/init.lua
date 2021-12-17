@@ -21,7 +21,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "a", function()
 end)
 
 -- open Brave with "cmd+ctrl+b"
-hs.hotkey.bind({"cmd", "ctrl"}, "b", function()
+hs.hotkey.bind({"cmd", "ctrl"}, "r", function()
   hs.application.open('Brave Browser.app')
 end)
 
