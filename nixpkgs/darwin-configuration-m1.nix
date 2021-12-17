@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 
 let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+  home-manager = builtins.fetchTarball
+    "https://github.com/nix-community/home-manager/archive/master.tar.gz";
   link = config.lib.file.mkOutOfStoreSymlink;
-in
-{
+in {
   imports = [ <home-manager/nix-darwin> ];
 
   environment = {
@@ -34,6 +34,7 @@ in
       nix-linter
       nixfmt
       nodejs-16_x
+      nodePackages.neovim
       nodePackages.pnpm
       nodePackages.yarn
       pinentry
@@ -58,12 +59,8 @@ in
       noLock = true;
     };
 
-    taps = [
-      "homebrew/bundle"
-      "homebrew/services"
-      "homebrew/core"
-      "homebrew/cask"
-    ];
+    taps =
+      [ "homebrew/bundle" "homebrew/services" "homebrew/core" "homebrew/cask" ];
 
     casks = [
       "affinity-designer"
@@ -121,9 +118,7 @@ in
     home.file.".config/safari/reboot.css" = {
       source = ~/Developer/dotfiles/config/safari/reboot.css;
     };
-    home.file.".npmrc" = {
-      source = ~/Developer/dotfiles/config/npm/.npmrc;
-    };
+    home.file.".npmrc" = { source = ~/Developer/dotfiles/config/npm/.npmrc; };
     home.file.".hammerspoon/init.lua" = {
       source = ~/Developer/dotfiles/config/hammerspoon/init.lua;
     };
@@ -135,10 +130,12 @@ in
     home.sessionVariables = {
       ANDROID_SDK = "~/Library/Android/sdk";
       BAT_THEME = "Dracula";
-      CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
-      CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      CHROME_EXECUTABLE =
+        "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      CHROME_PATH =
+        "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       EDITOR = "nvim";
-      GOPATH= "/Users/matt/Developer/go";
+      GOPATH = "/Users/matt/Developer/go";
       VISUAL = "$EDITOR";
     };
 
@@ -148,7 +145,11 @@ in
         theme = "Dracula";
         italic-text = "always";
         style = "full";
-        map-syntax = [ ".eslintignore:Git Ignore" ".prettierignore:Git Ignore" ".prettierrc:JSON" ];
+        map-syntax = [
+          ".eslintignore:Git Ignore"
+          ".prettierignore:Git Ignore"
+          ".prettierrc:JSON"
+        ];
       };
       themes = {
         dracula = builtins.readFile (pkgs.fetchFromGitHub {
@@ -178,7 +179,8 @@ in
         ci = "commit";
         st = "status";
         br = "branch";
-        hist = "log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short";
+        hist =
+          ''log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'';
         type = "cat-file -t";
         dump = "cat-file -p";
       };
@@ -191,8 +193,8 @@ in
       };
 
       extraConfig = {
-        init = { defaultBranch = "main"; } ;
-        pull = { rebase = false; } ;
+        init = { defaultBranch = "main"; };
+        pull = { rebase = false; };
       };
 
       userName = "sciencefidelity";
@@ -299,9 +301,7 @@ in
         conda.disabled = true;
         crystal.disabled = true;
 
-        directory = {
-          format = "in [$path](bold cyan) ";
-        };
+        directory = { format = "in [$path](bold cyan) "; };
 
         docker_context.disabled = true;
         dotnet.disabled = true;
@@ -319,15 +319,11 @@ in
         julia.disabled = true;
         hg_branch.disabled = true;
 
-        nodejs = {
-          symbol = "⬢ ";
-        };
+        nodejs = { symbol = "⬢ "; };
 
         openstack.disabled = true;
 
-        package = {
-          format = "is [$version](bold red) ";
-        };
+        package = { format = "is [$version](bold red) "; };
 
         perl.disabled = true;
         php.disabled = true;
@@ -475,7 +471,7 @@ in
         cat = "bat";
         fd = "fdfind";
         push = "git push";
-        pull="git fetch origin; git merge origin/main";
+        pull = "git fetch origin; git merge origin/main";
         gst = "git status";
         cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
         ios = "open -a Simulator";
@@ -496,11 +492,13 @@ in
     enableSyntaxHighlighting = true;
     variables = {
       ANDROID_SDK = "~/Library/Android/sdk";
-      CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
-      CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      CHROME_EXECUTABLE =
+        "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      CHROME_PATH =
+        "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       BAT_THEME = "Dracula";
       EDITOR = "nvim";
-      GOPATH= "/Users/matt/Developer/go";
+      GOPATH = "/Users/matt/Developer/go";
       VISUAL = "$EDITOR";
     };
   };

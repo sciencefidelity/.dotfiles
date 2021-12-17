@@ -5,20 +5,16 @@
 
 {
 
-  imports =
-    [ # the results of the hardware scan, do not change
-      <nixos-hardware/raspberry-pi/4>
-      ./hardware-configuration.nix
-    ];
+  imports = [ # the results of the hardware scan, do not change
+    <nixos-hardware/raspberry-pi/4>
+    ./hardware-configuration.nix
+  ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_rpi4;
     # tmpOnTmpfs = true;
-    kernelParams = [
-      "8250.nr_uarts=1"
-      "console=ttyAMA0,115200"
-      "console=tty1"
-    ];
+    kernelParams =
+      [ "8250.nr_uarts=1" "console=ttyAMA0,115200" "console=tty1" ];
   };
 
   boot.loader.raspberryPi = {
@@ -29,15 +25,11 @@
   boot.loader.generic-extlinux-compatible.enable = true;
 
   hardware.enableRedistributableFirmware = true;
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
+  nixpkgs.config = { allowUnfree = true; };
 
   networking = {
     hostName = "pi";
-    wireless = {
-      enable = false;
-    };
+    wireless = { enable = false; };
   };
 
   time.timeZone = "Europe/London";
@@ -56,22 +48,20 @@
     zsh
   ];
 
-  programs.zsh = {
-    enable = true;
-  };
+  programs.zsh = { enable = true; };
 
-  environment.variables = {
-    EDITOR = "vim";
-  };
+  environment.variables = { EDITOR = "vim"; };
 
   users = {
     defaultUserShell = pkgs.zsh;
     mutableUsers = false;
     users.root = {
-      hashedPassword = "$6$7G8if/Rn$wA9X6NWKQ6zsKkz60zowc6tajW78kKwrvu8HX15jJWDgzLrPWcP2nC0b6uY4r10oEMNL/Alor7phV/wWrfbxc.";
+      hashedPassword =
+        "$6$7G8if/Rn$wA9X6NWKQ6zsKkz60zowc6tajW78kKwrvu8HX15jJWDgzLrPWcP2nC0b6uY4r10oEMNL/Alor7phV/wWrfbxc.";
     };
     users.matt = {
-      hashedPassword = "$6$IhUfSjtK9Ydj$qnXZYlZ5KD61T4L6bvpaV.5yxTV/7Q8t8WEQCeJ2u40a9PlMZoBGaPCXIBfrAtru8Pu.ZRYm591anUMdKfypH/";
+      hashedPassword =
+        "$6$IhUfSjtK9Ydj$qnXZYlZ5KD61T4L6bvpaV.5yxTV/7Q8t8WEQCeJ2u40a9PlMZoBGaPCXIBfrAtru8Pu.ZRYm591anUMdKfypH/";
       isNormalUser = true;
       extraGroups = [ "wheel" ];
     };

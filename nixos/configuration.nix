@@ -3,26 +3,22 @@
 { callPackage, config, lib, pkgs, ... }:
 
 let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+  home-manager = builtins.fetchTarball
+    "https://github.com/nix-community/home-manager/archive/master.tar.gz";
   link = config.lib.file.mkOutOfStoreSymlink;
-in
-{
+in {
 
-  imports =
-    [ # the results of the hardware scan, do not change
-      ./hardware-configuration.nix
-      <nixos-hardware/raspberry-pi/4>
-      (import "${home-manager}/nixos")
-    ];
+  imports = [ # the results of the hardware scan, do not change
+    ./hardware-configuration.nix
+    <nixos-hardware/raspberry-pi/4>
+    (import "${home-manager}/nixos")
+  ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_rpi4;
     # tmpOnTmpfs = true;
-    kernelParams = [
-      "8250.nr_uarts=1"
-      "console=ttyAMA0,115200"
-      "console=tty1"
-    ];
+    kernelParams =
+      [ "8250.nr_uarts=1" "console=ttyAMA0,115200" "console=tty1" ];
     kernel.sysctl = {
       "vm.swappiness" = 10;
       "vm.vfs_cache_pressure" = 50;
@@ -38,21 +34,18 @@ in
   };
 
   hardware.enableRedistributableFirmware = true;
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
+  nixpkgs.config = { allowUnfree = true; };
 
   networking = {
-    firewall.allowedTCPPortRanges = [
-      { from = 2000; to = 9000; }
-    ];
+    firewall.allowedTCPPortRanges = [{
+      from = 2000;
+      to = 9000;
+    }];
     hostName = "pi";
     interfaces.eth0.useDHCP = true;
     interfaces.wlan0.useDHCP = true;
     useDHCP = false;
-    wireless = {
-      enable = false;
-    };
+    wireless = { enable = false; };
   };
 
   time.timeZone = "Europe/London";
@@ -63,13 +56,17 @@ in
     defaultUserShell = pkgs.zsh;
     mutableUsers = false;
     users.root = {
-      hashedPassword = "$6$7G8if/Rn$wA9X6NWKQ6zsKkz60zowc6tajW78kKwrvu8HX15jJWDgzLrPWcP2nC0b6uY4r10oEMNL/Alor7phV/wWrfbxc.";
+      hashedPassword =
+        "$6$7G8if/Rn$wA9X6NWKQ6zsKkz60zowc6tajW78kKwrvu8HX15jJWDgzLrPWcP2nC0b6uY4r10oEMNL/Alor7phV/wWrfbxc.";
     };
     users.matt = {
       isNormalUser = true;
       extraGroups = [ "wheel" ]; # enable ‘sudo’ for the user
-      hashedPassword = "$6$IhUfSjtK9Ydj$qnXZYlZ5KD61T4L6bvpaV.5yxTV/7Q8t8WEQCeJ2u40a9PlMZoBGaPCXIBfrAtru8Pu.ZRYm591anUMdKfypH/";
-      openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDROPZMB/lhVBpM+aqatLPxRGE++tpKmWp5DDbmP1RLGy0fmEkorRnrsq8OcMEDr3kjJEe++vG1lrMgucScam/AcYX54iD2K+1dHpfkJY0osatsmyrni5rDjPH308+xj9FasS9DjfymZTZOh1owRFb31YJn4GEF07zVfKFrueXN6n/azjnOhOPTZ8dampjx/M5R+WpQ8iMywJe3CQoQKTf4Ofbyn1hLr3+TusildJkGCvLjix2oQtBpxLJdaXNGvt6u0Ogiv9JHwotk1VjYR5mztyZrGrqC/WTCo7uH4rAULQTOyTKUPsRjMOSDoq6SXHtObIdkHnTB7cLqPF1xKiGJM2dM+K4X9fvB/K3eht0cZPSEMkEnNODK+H4Xc6L3MArSyKvV4a1qLN2R+GiIuh7hz9gPtiNYoo9ERXK/yU3rb2Eam0G7WAz1vtIs8Ud2MGMT1Zk36EDwycxK4XIwhwdU4E1h4qcT1qAIoKNlYPGWqyLJX2nUTsgPF3je06rSG3k= matt@pi" ];
+      hashedPassword =
+        "$6$IhUfSjtK9Ydj$qnXZYlZ5KD61T4L6bvpaV.5yxTV/7Q8t8WEQCeJ2u40a9PlMZoBGaPCXIBfrAtru8Pu.ZRYm591anUMdKfypH/";
+      openssh.authorizedKeys.keys = [
+        "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDROPZMB/lhVBpM+aqatLPxRGE++tpKmWp5DDbmP1RLGy0fmEkorRnrsq8OcMEDr3kjJEe++vG1lrMgucScam/AcYX54iD2K+1dHpfkJY0osatsmyrni5rDjPH308+xj9FasS9DjfymZTZOh1owRFb31YJn4GEF07zVfKFrueXN6n/azjnOhOPTZ8dampjx/M5R+WpQ8iMywJe3CQoQKTf4Ofbyn1hLr3+TusildJkGCvLjix2oQtBpxLJdaXNGvt6u0Ogiv9JHwotk1VjYR5mztyZrGrqC/WTCo7uH4rAULQTOyTKUPsRjMOSDoq6SXHtObIdkHnTB7cLqPF1xKiGJM2dM+K4X9fvB/K3eht0cZPSEMkEnNODK+H4Xc6L3MArSyKvV4a1qLN2R+GiIuh7hz9gPtiNYoo9ERXK/yU3rb2Eam0G7WAz1vtIs8Ud2MGMT1Zk36EDwycxK4XIwhwdU4E1h4qcT1qAIoKNlYPGWqyLJX2nUTsgPF3je06rSG3k= matt@pi"
+      ];
     };
   };
 
@@ -80,10 +77,12 @@ in
 
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+      url =
+        "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
     }))
     (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+      url =
+        "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
     }))
   ];
 
@@ -209,16 +208,13 @@ in
       fd = "fdfind";
       emacs = "TERM=xterm-24bits emacs -nw";
       push = "git push";
-      pull="git fetch origin; git merge origin/main";
+      pull = "git fetch origin; git merge origin/main";
       gst = "git status";
       cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
     };
   };
 
-
-  environment.variables = {
-    EDITOR = "nvim";
-  };
+  environment.variables = { EDITOR = "nvim"; };
 
   services.openssh.enable = true;
 
@@ -228,9 +224,7 @@ in
       source = /home/matt/dotfiles/config/emacs.d/init.el;
     };
 
-    home.file.".npmrc" = {
-      source = /home/matt/dotfiles/config/npm/.npmrc;
-    };
+    home.file.".npmrc" = { source = /home/matt/dotfiles/config/npm/.npmrc; };
 
     programs.bat = {
       enable = true;
@@ -238,7 +232,11 @@ in
         theme = "Dracula";
         italic-text = "always";
         style = "full";
-        map-syntax = [ ".eslintignore:Git Ignore" ".prettierignore:Git Ignore" ".prettierrc:JSON" ];
+        map-syntax = [
+          ".eslintignore:Git Ignore"
+          ".prettierignore:Git Ignore"
+          ".prettierrc:JSON"
+        ];
       };
       themes = {
         dracula = builtins.readFile (pkgs.fetchFromGitHub {
@@ -267,7 +265,8 @@ in
         ci = "commit";
         st = "status";
         br = "branch";
-        hist = "log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short";
+        hist =
+          ''log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'';
         type = "cat-file -t";
         dump = "cat-file -p";
       };
@@ -275,8 +274,8 @@ in
       delta.enable = true;
 
       extraConfig = {
-        init = { defaultBranch = "main"; } ;
-        pull = { rebase = false; } ;
+        init = { defaultBranch = "main"; };
+        pull = { rebase = false; };
       };
 
       signing = {
@@ -293,18 +292,14 @@ in
       enableZshIntegration = true;
     };
 
-    programs.gpg = {
-      enable = true;
-    };
+    programs.gpg = { enable = true; };
 
     services.gpg-agent = {
       enable = true;
       enableSshSupport = true;
     };
 
-    programs.htop = {
-      enable = true;
-    };
+    programs.htop = { enable = true; };
 
     programs.neovim = {
       enable = true;
@@ -405,9 +400,7 @@ in
         conda.disabled = true;
         crystal.disabled = true;
 
-        directory = {
-          format = "in [$path](bold cyan) ";
-        };
+        directory = { format = "in [$path](bold cyan) "; };
 
         docker_context.disabled = true;
         dotnet.disabled = true;
@@ -425,15 +418,11 @@ in
         julia.disabled = true;
         hg_branch.disabled = true;
 
-        nodejs = {
-          symbol = "⬢ ";
-        };
+        nodejs = { symbol = "⬢ "; };
 
         openstack.disabled = true;
 
-        package = {
-          format = "is [$version](bold red) ";
-        };
+        package = { format = "is [$version](bold red) "; };
 
         perl.disabled = true;
         php.disabled = true;

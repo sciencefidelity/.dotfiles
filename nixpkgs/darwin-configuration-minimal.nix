@@ -5,9 +5,7 @@
 
   environment = {
     shells = [ pkgs.zsh ];
-    systemPackages = with pkgs; [
-      home-manager
-    ];
+    systemPackages = with pkgs; [ home-manager ];
   };
 
   home-manager.users.matt = { config, lib, pkgs, ... }: {
@@ -105,7 +103,7 @@
         free = "free -h";
         du = "du -h -c";
         push = "git push";
-        pull="git fetch origin; git merge origin/main";
+        pull = "git fetch origin; git merge origin/main";
         gst = "git status";
         cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
       };

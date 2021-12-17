@@ -1,18 +1,20 @@
 { config, lib, pkgs, ... }:
 
 let
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+  home-manager = builtins.fetchTarball
+    "https://github.com/nix-community/home-manager/archive/master.tar.gz";
   link = config.lib.file.mkOutOfStoreSymlink;
-in
-{
+in {
   imports = [ <home-manager/nix-darwin> ];
 
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
-      url = "https://github.com/mjlbach/neovim-nightly-overlay/archive/master.tar.gz";
+      url =
+        "https://github.com/mjlbach/neovim-nightly-overlay/archive/master.tar.gz";
     }))
     (import (builtins.fetchTarball {
-      url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+      url =
+        "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
     }))
   ];
 
@@ -100,9 +102,7 @@ in
       "sass/sass"
     ];
 
-    brews = [
-      "sass/sass/sass"
-    ];
+    brews = [ "sass/sass/sass" ];
 
     casks = [
       "affinity-designer"
@@ -136,7 +136,7 @@ in
       "Microsoft PowerPoint" = 462062816;
       "Microsoft Word" = 462054704;
       "Motion" = 434290957;
-      "OneDrive" = 823766827;  # no ARM version
+      "OneDrive" = 823766827; # no ARM version
       "Pocket" = 568494494;
       "Refined GitHub" = 1519867270;
       "Save to Raindrop.io" = 1549370672;
@@ -177,8 +177,10 @@ in
     home.sessionVariables = {
       ANDROID_SDK = "$HOME/Library/Android/sdk";
       BAT_THEME = "Dracula";
-      CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
-      CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      CHROME_EXECUTABLE =
+        "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      CHROME_PATH =
+        "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       EDITOR = "nvim";
       VISUAL = "$EDITOR";
     };
@@ -189,7 +191,11 @@ in
         theme = "Dracula";
         italic-text = "always";
         style = "full";
-        map-syntax = [ ".eslintignore:Git Ignore" ".prettierignore:Git Ignore" ".prettierrc:JSON" ];
+        map-syntax = [
+          ".eslintignore:Git Ignore"
+          ".prettierignore:Git Ignore"
+          ".prettierrc:JSON"
+        ];
       };
       themes = {
         dracula = builtins.readFile (pkgs.fetchFromGitHub {
@@ -219,7 +225,8 @@ in
         ci = "commit";
         st = "status";
         br = "branch";
-        hist = "log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short";
+        hist =
+          ''log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'';
         type = "cat-file -t";
         dump = "cat-file -p";
       };
@@ -227,8 +234,8 @@ in
       delta.enable = true;
 
       extraConfig = {
-        init = { defaultBranch = "main"; } ;
-        pull = { rebase = false; } ;
+        init = { defaultBranch = "main"; };
+        pull = { rebase = false; };
       };
 
       signing = {
@@ -242,9 +249,7 @@ in
 
     programs.home-manager.enable = true;
 
-    programs.htop = {
-      enable = true;
-    };
+    programs.htop = { enable = true; };
 
     programs.neovim = {
       enable = true;
@@ -345,9 +350,7 @@ in
         conda.disabled = true;
         crystal.disabled = true;
 
-        directory = {
-          format = "in [$path](bold cyan) ";
-        };
+        directory = { format = "in [$path](bold cyan) "; };
 
         docker_context.disabled = true;
         dotnet.disabled = true;
@@ -365,15 +368,11 @@ in
         julia.disabled = true;
         hg_branch.disabled = true;
 
-        nodejs = {
-          symbol = "⬢ ";
-        };
+        nodejs = { symbol = "⬢ "; };
 
         openstack.disabled = true;
 
-        package = {
-          format = "is [$version](bold red) ";
-        };
+        package = { format = "is [$version](bold red) "; };
 
         perl.disabled = true;
         php.disabled = true;
@@ -584,7 +583,7 @@ in
         grep = "rg";
         fd = "fdfind";
         push = "git push";
-        pull="git fetch origin; git merge origin/main";
+        pull = "git fetch origin; git merge origin/main";
         gst = "git status";
         cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
         ios = "open -a Simulator";
@@ -606,8 +605,10 @@ in
     enableSyntaxHighlighting = true;
     variables = {
       ANDROID_SDK = "$HOME/Library/Android/sdk";
-      CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
-      CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      CHROME_EXECUTABLE =
+        "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      CHROME_PATH =
+        "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       EDITOR = "nvim";
     };
   };
@@ -659,7 +660,8 @@ in
   };
   system.defaults.loginwindow = {
     GuestEnabled = false;
-    LoginwindowText = "You never change things by fighting the existing reality.";
+    LoginwindowText =
+      "You never change things by fighting the existing reality.";
   };
   system.defaults.screencapture.location = "/Users/matt/Downloads";
   system.defaults.trackpad.ActuationStrength = 0;
