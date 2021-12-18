@@ -1,8 +1,7 @@
-{ config, lib, pkgs, ... }:
+{ callPackage, config, lib, pkgs, ... }:
 
 let
-  home-manager = builtins.fetchTarball
-    "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+  # home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
   link = config.lib.file.mkOutOfStoreSymlink;
 in {
   imports = [ <home-manager/nix-darwin> ];
@@ -12,49 +11,62 @@ in {
       url =
         "https://github.com/mjlbach/neovim-nightly-overlay/archive/master.tar.gz";
     }))
-    (import (builtins.fetchTarball {
-      url =
-        "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-    }))
+    # (import (builtins.fetchTarball {
+    #   url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+    # }))
   ];
 
   environment = {
     shells = [ pkgs.zsh ];
     systemPackages = with pkgs; [
       bat
+      bc
       cabal-install
+      # cargo
+      clojure
       coreutils
       curl
       delta
       deno
-      # dart
-      # emacs-nox
-      emacsUnstable-nox
+      dart
+      elixir
+      elixir_ls
+      elmPackages.create-elm-app
+      elmPackages.elm
+      elmPackages.elm-analyse
+      elmPackages.elm-format
+      elmPackages.elm-language-server
+      elmPackages.elm-live
+      elmPackages.elm-review
+      elmPackages.elm-test
+      emacs-nox
+      # emacsUnstable-nox
       exa
       fd
       fzf
-      gh
+      lua
+      # luajit
+      luarocks
+      gcc10
       ghc
+      gh
       git
       gnupg
       go
       google-cloud-sdk
       gopls
       haskell-language-server
-      home-manager
+      # home-manager
       htop
       jq
       lazygit
       lf
-      lua5_4
-      luajit
-      luarocks
       mosh
       # neovim
       neovim-nightly
       nix-linter
       nixfmt
-      nodejs-16_x
+      nodejs
       nodePackages.diagnostic-languageserver
       nodePackages.eslint
       nodePackages.eslint_d
@@ -62,6 +74,9 @@ in {
       nodePackages.node2nix
       nodePackages.pnpm
       nodePackages.prettier
+      # nodePackages.purescript-language-server
+      # nodePackages.purescript-psa
+      # nodePackages.pscid
       nodePackages.svelte-language-server
       nodePackages.typescript
       nodePackages.typescript-language-server
@@ -70,12 +85,23 @@ in {
       nodePackages.vue-language-server
       nodePackages.yaml-language-server
       nodePackages.yarn
+      ocaml
+      ocamlPackages.fmt
+      ocamlPackages.js_of_ocaml
+      ocamlPackages.js_of_ocaml-ppx
+      ocamlPackages.js_of_ocaml-lwt
+      ocamlPackages.lsp
       pinentry
       ripgrep
+      # rls
+      rnix-lsp
       rustup
+      spago
       stack
       starship
       # sumneko-lua-language-server
+      tmux
+      # tree
       wget
       zsh
       zsh-autosuggestions
@@ -86,7 +112,6 @@ in {
   homebrew = {
     enable = true;
     autoUpdate = false;
-    cleanup = "zap";
     global = {
       brewfile = true;
       noLock = true;
@@ -98,7 +123,7 @@ in {
       "homebrew/cask-versions"
       "homebrew/core"
       "homebrew/services"
-      "buo/cask-upgrade"
+      # "buo/cask-upgrade"
       "sass/sass"
     ];
 
@@ -115,7 +140,7 @@ in {
       "figma"
       "firefox"
       "hammerspoon"
-      "insomnia" # no ARM version
+      "insomnia"
       "karabiner-elements"
       "kitty"
       "miro"
@@ -136,7 +161,7 @@ in {
       "Microsoft PowerPoint" = 462062816;
       "Microsoft Word" = 462054704;
       "Motion" = 434290957;
-      "OneDrive" = 823766827; # no ARM version
+      "OneDrive" = 823766827;
       "Pocket" = 568494494;
       "Refined GitHub" = 1519867270;
       "Save to Raindrop.io" = 1549370672;
@@ -153,12 +178,6 @@ in {
 
     home.file.".emacs.d/init.el" = {
       source = /Users/matt/Developer/dotfiles/config/emacs.d/init.el;
-    };
-    home.file.".config/kitty/kitty.conf" = {
-      source = /Users/matt/Developer/dotfiles/config/kitty/kitty.conf;
-    };
-    home.file.".config/safari/reboot.css" = {
-      source = ~/Developer/dotfiles/config/safari/reboot.css;
     };
     home.file.".npmrc" = {
       source = /Users/matt/Developer/dotfiles/config/npm/.npmrc;
@@ -251,9 +270,17 @@ in {
 
     programs.htop = { enable = true; };
 
+    programs.kitty = {
+      enable = true;
+      extraConfig = ''
+        ${builtins.readFile
+        /Users/matt/Developer/dotfiles/config/kitty/kitty.conf}
+      '';
+    };
+
     programs.neovim = {
       enable = true;
-      package = pkgs.neovim-nightly;
+      # package = pkgs.neovim-nightly;
       extraConfig = ''
         lua << EOF
         ${builtins.readFile /Users/matt/Developer/dotfiles/config/nvim/init.lua}
@@ -616,7 +643,7 @@ in {
   services.nix-daemon.enable = true;
   services.emacs = {
     enable = true;
-    package = pkgs.emacsUnstable-nox;
+    # package = pkgs.emacsUnstable-nox;
   };
 
   system.defaults.NSGlobalDomain = {
@@ -659,7 +686,6 @@ in {
     _FXShowPosixPathInTitle = false;
   };
   system.defaults.loginwindow = {
-    GuestEnabled = false;
     LoginwindowText =
       "You never change things by fighting the existing reality.";
   };
