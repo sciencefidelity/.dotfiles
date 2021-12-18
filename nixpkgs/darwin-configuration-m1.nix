@@ -124,6 +124,9 @@ in {
     home.file.".hammerspoon/init.lua" = {
       source = ~/Developer/dotfiles/config/hammerspoon/init.lua;
     };
+    home.file.".config/karabiner/karabiner.json" = {
+      source = /Users/matt/Developer/dotfiles/config/karabiner/karabiner.json;
+    };
 
     home.sessionPath = [
       "~/.npm-globals/bin:$PATH"
