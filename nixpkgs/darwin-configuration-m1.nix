@@ -10,8 +10,10 @@ in {
   environment = {
     shells = [ pkgs.zsh ];
     systemPackages = with pkgs; [
+      android-tools
       bat
       cabal-install
+      cocoapods
       coreutils
       curl
       delta
