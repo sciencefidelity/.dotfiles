@@ -108,6 +108,7 @@ in {
     elmPackages.elm-test
     # emacs-nox
     emacsUnstable-nox
+    erlang_nox
     exa
     fd
     fzf
