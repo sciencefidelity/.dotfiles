@@ -227,6 +227,8 @@ in {
 
     home.file.".npmrc" = { source = /home/matt/dotfiles/config/npm/.npmrc; };
 
+    home.file.".ghci" = { source = /home/matt/dotfiles/config/ghci/.ghci; };
+
     programs.bat = {
       enable = true;
       config = {
