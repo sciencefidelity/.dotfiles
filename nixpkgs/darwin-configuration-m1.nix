@@ -10,7 +10,7 @@ in {
   environment = {
     shells = [ pkgs.zsh ];
     systemPackages = with pkgs; [
-      android-tools
+      # android-tools # refusing to evaluate
       bat
       cabal-install
       cocoapods
@@ -78,6 +78,7 @@ in {
       "flutter"
       "hammerspoon"
       "insomnia"
+      "i1profiler"
       "karabiner-elements"
       "kitty"
       "miro"
