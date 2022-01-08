@@ -72,6 +72,7 @@ in {
       "bartender"
       "brave-browser"
       "dash"
+      "displaycal"
       "figma"
       "firefox"
       "flutter"
