@@ -108,6 +108,7 @@ in {
     elmPackages.elm-test
     # emacs-nox
     emacsUnstable-nox
+    erlang_nox
     exa
     fd
     fzf
@@ -221,10 +222,12 @@ in {
   home-manager.users.matt = {
 
     home.file.".emacs.d/init.el" = {
-      source = /home/matt/dotfiles/config/emacs.d/init.el;
+      source = /home/matt/Developer/dotfiles/config/emacs.d/init.el;
     };
 
-    home.file.".npmrc" = { source = /home/matt/dotfiles/config/npm/.npmrc; };
+    home.file.".npmrc" = { source = /home/matt/Developer/dotfiles/config/npm/.npmrc; };
+
+    home.file.".ghci" = { source = /home/matt/Developer/dotfiles/config/ghci/.ghci; };
 
     programs.bat = {
       enable = true;
@@ -306,7 +309,7 @@ in {
       package = pkgs.neovim-nightly;
       extraConfig = ''
         lua << EOF
-        ${builtins.readFile /home/matt/dotfiles/config/nvim/init.lua}
+        ${builtins.readFile /home/matt/Developer/dotfiles/config/nvim/init.lua}
         EOF
       '';
       withNodeJs = true;
