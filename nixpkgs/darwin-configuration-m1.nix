@@ -78,9 +78,9 @@ in {
       "flutter"
       "hammerspoon"
       "insomnia"
-      "i1profiler"
       "karabiner-elements"
       "kitty"
+      "microsoft-teams"
       "miro"
       "notion"
       "nova"
@@ -88,6 +88,7 @@ in {
       "rocket"
       "slack"
       "spotify"
+      "zoom"
     ];
 
     masApps = {
