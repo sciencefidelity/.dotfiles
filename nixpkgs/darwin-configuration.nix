@@ -95,7 +95,6 @@ in {
     masApps = {
       "Craft - Docs and Notes Editor" = 1487937127;
       "iA Writer" = 775737590;
-      "Logic Pro" = 634148309;
       "Microsoft Excel" = 462058435;
       "Microsoft PowerPoint" = 462062816;
       "Microsoft Word" = 462054704;
