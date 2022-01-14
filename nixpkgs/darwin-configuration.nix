@@ -1,107 +1,52 @@
-{ callPackage, config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
-  # home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+  home-manager = builtins.fetchTarball
+    "https://github.com/nix-community/home-manager/archive/master.tar.gz";
   link = config.lib.file.mkOutOfStoreSymlink;
 in {
   imports = [ <home-manager/nix-darwin> ];
 
-  nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-      url =
-        "https://github.com/mjlbach/neovim-nightly-overlay/archive/master.tar.gz";
-    }))
-    # (import (builtins.fetchTarball {
-    #   url = "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-    # }))
-  ];
-
   environment = {
     shells = [ pkgs.zsh ];
     systemPackages = with pkgs; [
+      android-tools
       bat
-      bc
       cabal-install
-      # cargo
       clojure
       coreutils
       curl
       delta
       deno
-      dart
-      elixir
-      elixir_ls
-      elmPackages.create-elm-app
-      elmPackages.elm
-      elmPackages.elm-analyse
-      elmPackages.elm-format
-      elmPackages.elm-language-server
-      elmPackages.elm-live
-      elmPackages.elm-review
-      elmPackages.elm-test
+      # dart
       emacs-nox
-      # emacsUnstable-nox
       exa
       fd
       fzf
-      lua
-      # luajit
-      luarocks
-      gcc10
-      ghc
       gh
+      ghc
       git
       gnupg
       go
-      google-cloud-sdk
       gopls
       haskell-language-server
-      # home-manager
-      htop
-      jq
-      lazygit
+      home-manager
       lf
       mosh
-      # neovim
-      neovim-nightly
+      neovim
       nix-linter
       nixfmt
-      nodejs
-      nodePackages.diagnostic-languageserver
-      nodePackages.eslint
-      nodePackages.eslint_d
-      nodePackages.gatsby-cli
-      nodePackages.node2nix
+      nodejs-16_x
+      nodePackages.neovim
       nodePackages.pnpm
-      nodePackages.prettier
-      # nodePackages.purescript-language-server
-      # nodePackages.purescript-psa
-      # nodePackages.pscid
-      nodePackages.svelte-language-server
-      nodePackages.typescript
-      nodePackages.typescript-language-server
-      nodePackages.vscode-langservers-extracted
-      nodePackages.vue-cli
-      nodePackages.vue-language-server
-      nodePackages.yaml-language-server
       nodePackages.yarn
-      ocaml
-      ocamlPackages.fmt
-      ocamlPackages.js_of_ocaml
-      ocamlPackages.js_of_ocaml-ppx
-      ocamlPackages.js_of_ocaml-lwt
-      ocamlPackages.lsp
       pinentry
       ripgrep
-      # rls
       rnix-lsp
       rustup
-      spago
       stack
       starship
-      # sumneko-lua-language-server
-      tmux
-      # tree
+      sumneko-lua-language-server
       wget
       zsh
       zsh-autosuggestions
@@ -111,23 +56,16 @@ in {
 
   homebrew = {
     enable = true;
-    autoUpdate = false;
+    autoUpdate = true;
+    brewPrefix = "/opt/homebrew/bin";
+    cleanup = "zap";
     global = {
       brewfile = true;
       noLock = true;
     };
 
-    taps = [
-      "homebrew/bundle"
-      "homebrew/cask"
-      "homebrew/cask-versions"
-      "homebrew/core"
-      "homebrew/services"
-      # "buo/cask-upgrade"
-      "sass/sass"
-    ];
-
-    brews = [ "sass/sass/sass" ];
+    taps =
+      [ "homebrew/bundle" "homebrew/services" "homebrew/core" "homebrew/cask" ];
 
     casks = [
       "affinity-designer"
@@ -137,36 +75,37 @@ in {
       "bartender"
       "brave-browser"
       "dash"
+      "displaycal"
       "figma"
       "firefox"
+      "flutter"
       "hammerspoon"
       "insomnia"
       "karabiner-elements"
       "kitty"
+      "microsoft-teams"
       "miro"
       "notion"
       "nova"
+      "obsidian"
       "rocket"
       "slack"
       "spotify"
+      "zoom"
     ];
 
     masApps = {
-      "Compressor" = 424390742;
       "Craft - Docs and Notes Editor" = 1487937127;
-      # "Final Cut Pro" = 424389933;
       "iA Writer" = 775737590;
       "Logic Pro" = 634148309;
       "Microsoft Excel" = 462058435;
       "Microsoft PowerPoint" = 462062816;
       "Microsoft Word" = 462054704;
-      "Motion" = 434290957;
       "OneDrive" = 823766827;
       "Pocket" = 568494494;
       "Refined GitHub" = 1519867270;
       "Save to Raindrop.io" = 1549370672;
       "Vimari" = 1480933944;
-      # "Xcode" = 497799835;
     };
   };
 
@@ -177,13 +116,17 @@ in {
     home.stateVersion = "22.05";
 
     home.file.".emacs.d/init.el" = {
-      source = /Users/matt/Developer/dotfiles/config/emacs.d/init.el;
+      source = ~/Developer/dotfiles/config/emacs.d/init.el;
     };
-    home.file.".npmrc" = {
-      source = /Users/matt/Developer/dotfiles/config/npm/.npmrc;
+    home.file.".config/kitty/kitty.conf" = {
+      source = ~/Developer/dotfiles/config/kitty/kitty.conf;
     };
+    home.file.".config/safari/reboot.css" = {
+      source = ~/Developer/dotfiles/config/safari/reboot.css;
+    };
+    home.file.".npmrc" = { source = ~/Developer/dotfiles/config/npm/.npmrc; };
     home.file.".hammerspoon/init.lua" = {
-      source = /Users/matt/Developer/dotfiles/config/hammerspoon/init.lua;
+      source = ~/Developer/dotfiles/config/hammerspoon/init.lua;
     };
     home.file.".config/karabiner/karabiner.json" = {
       source = /Users/matt/Developer/dotfiles/config/karabiner/karabiner.json;
@@ -425,56 +368,6 @@ in {
       };
     };
 
-    programs.tmux = {
-      enable = true;
-      clock24 = true;
-      escapeTime = 20;
-      extraConfig = ''
-        # fix colors on truecolor terminals
-        if-shell "uname | grep -q Darwin && echo $TERM | grep -q xterm-256color" {
-          # set -g default-terminal screen-256color
-          # set -ga terminal-overrides ",xterm-256color*:Tc"
-          set-option default-terminal "tmux-256color"
-          set-option -a terminal-overrides ",xterm-256color:RGB"
-        }
-
-        if-shell "uname | grep -q Darwin && echo $TERM | grep -q xterm-kitty" {
-          set-option default-terminal "tmux-256color"
-          set-option -a terminal-overrides ",xterm-256color:RGB"
-        }
-
-        # unbind default prefix and set it to Ctrl+s
-        set -g prefix C-s
-        unbind C-b
-        bind C-s send-prefix
-
-        # speed up escape in nvim
-        set -g base-index 1
-        set -g escape-time 20
-
-        # custom key bindings
-        bind -n M-h select-pane -L
-        bind -n M-j select-pane -D
-        bind -n M-k select-pane -U
-        bind -n M-l select-pane -R
-
-        bind-key t set-option status
-
-        # status bar options
-        set -g status-bg "#282a36"
-        set -g status-fg "#ff79c6"
-
-        set-option -g status-right ""
-        set-option -ag status-right " #[fg="#f1fa8c",bg=default]#(zsh ~/.config/zsh/cpu.sh) "
-        set-option -ag status-right " #[fg="#8be9fd",bg=default]#(free -h | awk '/^Mem/ {print $3}')/#(free -h | awk '/^Mem/ {print $2}') "
-        set-option -ag status-right " #[fg="#50fa7b",bg=default]#(zsh ~/.config/zsh/temp.sh) "
-        set-option -ag status-right " #[fg="#ff79c6",bg=default]#(date +"%R") "
-      '';
-      keyMode = "vi";
-      newSession = true;
-      terminal = "xterm-24bits";
-    };
-
     programs.zsh = {
       enable = true;
       enableAutosuggestions = true;
@@ -624,81 +517,36 @@ in {
   nix.useDaemon = true;
   nixpkgs.config.allowUnfree = true;
 
-  programs.nix-index.enable = true;
   programs.zsh = {
     enable = true;
     enableBashCompletion = true;
     enableCompletion = true;
     enableSyntaxHighlighting = true;
     variables = {
-      ANDROID_SDK = "$HOME/Library/Android/sdk";
+      ANDROID_SDK = "~/Library/Android/sdk";
       CHROME_EXECUTABLE =
         "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       CHROME_PATH =
         "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      BAT_THEME = "Dracula";
       EDITOR = "nvim";
+      GOPATH = "/Users/matt/Developer/go";
+      VISUAL = "$EDITOR";
     };
   };
 
   services.nix-daemon.enable = true;
-  services.emacs = {
-    enable = true;
-    # package = pkgs.emacsUnstable-nox;
-  };
 
-  system.defaults.NSGlobalDomain = {
-    AppleKeyboardUIMode = 3;
-    ApplePressAndHoldEnabled = true;
-    AppleShowAllExtensions = true;
-    InitialKeyRepeat = 15;
-    KeyRepeat = 2;
-    NSAutomaticCapitalizationEnabled = false;
-    NSAutomaticDashSubstitutionEnabled = false;
-    NSAutomaticPeriodSubstitutionEnabled = false;
-    NSAutomaticQuoteSubstitutionEnabled = false;
-    NSAutomaticSpellingCorrectionEnabled = true;
-    NSDocumentSaveNewDocumentsToCloud = true;
-    NSNavPanelExpandedStateForSaveMode = true;
-    NSNavPanelExpandedStateForSaveMode2 = true;
-    NSWindowResizeTime = "0";
-    "com.apple.keyboard.fnState" = false;
-    "com.apple.sound.beep.feedback" = 0;
-    "com.apple.springing.delay" = "0";
-    "com.apple.springing.enabled" = false;
-    "com.apple.trackpad.scaling" = "2";
-  };
-  system.defaults.alf.globalstate = 0;
   system.defaults.dock = {
-    autohide = true;
     autohide-delay = "0";
     autohide-time-modifier = "0.5";
-    launchanim = false;
-    mineffect = "scale";
-    mouse-over-hilite-stack = false;
-    orientation = "bottom";
-    show-process-indicators = true;
-    show-recents = false;
-    tilesize = 64;
   };
-  system.defaults.finder = {
-    AppleShowAllExtensions = true;
-    FXEnableExtensionChangeWarning = false;
-    _FXShowPosixPathInTitle = false;
-  };
-  system.defaults.loginwindow = {
-    LoginwindowText =
-      "You never change things by fighting the existing reality.";
-  };
-  system.defaults.screencapture.location = "/Users/matt/Downloads";
-  system.defaults.trackpad.ActuationStrength = 0;
   system.keyboard = {
     enableKeyMapping = true;
     remapCapsLockToControl = true;
   };
+
   system.stateVersion = 4;
-
-  time.timeZone = "Europe/London";
-
   users.users.matt = {
     description = "Matt Cook";
     home = "/Users/matt";
