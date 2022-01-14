@@ -56,7 +56,6 @@ in {
   homebrew = {
     enable = true;
     autoUpdate = true;
-    brewPrefix = "/opt/homebrew/bin";
     cleanup = "zap";
     global = {
       brewfile = true;
