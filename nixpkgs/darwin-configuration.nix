@@ -46,7 +46,6 @@ in {
       rustup
       stack
       starship
-      sumneko-lua-language-server
       wget
       zsh
       zsh-autosuggestions
