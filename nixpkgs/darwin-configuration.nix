@@ -36,7 +36,7 @@ in {
       neovim
       nix-linter
       nixfmt
-      nodejs-16_x
+      nodejs
       nodePackages.neovim
       nodePackages.pnpm
       nodePackages.yarn
