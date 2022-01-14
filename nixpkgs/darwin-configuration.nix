@@ -10,7 +10,7 @@ in {
   environment = {
     shells = [ pkgs.zsh ];
     systemPackages = with pkgs; [
-      android-tools
+      # android-tools # refusing to evaluate
       bat
       cabal-install
       clojure
