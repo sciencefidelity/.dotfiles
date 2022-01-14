@@ -213,17 +213,8 @@ in {
 
     programs.htop = { enable = true; };
 
-    programs.kitty = {
-      enable = true;
-      extraConfig = ''
-        ${builtins.readFile
-        /Users/matt/Developer/dotfiles/config/kitty/kitty.conf}
-      '';
-    };
-
     programs.neovim = {
       enable = true;
-      # package = pkgs.neovim-nightly;
       extraConfig = ''
         lua << EOF
         ${builtins.readFile /Users/matt/Developer/dotfiles/config/nvim/init.lua}
