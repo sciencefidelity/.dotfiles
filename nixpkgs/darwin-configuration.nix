@@ -35,11 +35,21 @@ in {
       lf
       mosh
       neovim
-      nix-linter
       nixfmt
       nodejs
+      nodePackages.diagnostic-languageserver
+      nodePackages.eslint
+      nodePackages.eslint_d
       nodePackages.neovim
       nodePackages.pnpm
+      nodePackages.prettier
+      nodePackages.stylelint
+      nodePackages.svelte-language-server
+      nodePackages.typescript
+      nodePackages.typescript-language-server
+      nodePackages.vscode-langservers-extracted
+      nodePackages.vue-language-server
+      nodePackages.yaml-language-server
       nodePackages.yarn
       pinentry
       ripgrep
