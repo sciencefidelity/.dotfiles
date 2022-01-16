@@ -15,6 +15,7 @@ in {
       cabal-install
       clojure
       coreutils
+      ctags
       curl
       delta
       deno

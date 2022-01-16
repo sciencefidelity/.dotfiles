@@ -15,6 +15,7 @@ in {
       cabal-install
       cocoapods
       coreutils
+      ctags
       curl
       delta
       deno
