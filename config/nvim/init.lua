@@ -148,8 +148,6 @@ vim.highlight.create('ColorColumn', { ctermbg=0, guibg='#44475A' }, false)
 
 -- tree settings
 vim.g.nvim_tree_width = 25
-vim.g.filters.custom = { '.git', 'node_modules', '.cache' }
-vim.g.lsp_diagnostics = 1
 vim.g.nvim_tree_symlink_arrow = " -> "
 local file = "◦"
 local devIcons = require("nvim-web-devicons")
@@ -179,6 +177,20 @@ vim.g.nvim_tree_icons = {
     symlink = "◇",
     symlink_open = "◇"
   }
+}
+require('nvim-tree').setup {
+  filters = {
+    custom = { '.git', 'node_modules', '.cache' }
+  },
+  diagnostics = {
+    enable = true,
+    icons = {
+      hint = "☼",
+      info = "☾",
+      warning = "☹",
+      error = "☠",
+    }
+  },
 }
 
 -- Gitsigns
