@@ -147,7 +147,7 @@ in {
     };
 
     home.sessionPath = [
-      "~/.npm-globals/bin:$PATH"
+      # "~/.npm-globals/bin:$PATH"
       "$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH"
     ];
     home.sessionVariables = {
@@ -468,6 +468,7 @@ in {
             echo "'$1' is not a valid file"
           fi
         }
+        export PATH="$HOME/.npm-globals/bin:$PATH"
       '';
 
       initExtraBeforeCompInit = ''
