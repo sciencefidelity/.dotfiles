@@ -52,7 +52,7 @@ in {
       nodePackages.yaml-language-server
       nodePackages.yarn
       pinentry
-      rar
+      unrar
       ripgrep
       rnix-lsp
       rustup
