@@ -85,6 +85,7 @@ in {
       "bartender"
       "brave-browser"
       "dash"
+      "discord"
       "displaycal"
       "figma"
       "firefox"
