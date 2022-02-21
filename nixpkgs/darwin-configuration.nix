@@ -101,6 +101,7 @@ in {
       "rocket"
       "slack"
       "spotify"
+      "visual-studio-code"
       "zoom"
     ];
 
