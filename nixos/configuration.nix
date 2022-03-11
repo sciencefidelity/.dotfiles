@@ -235,6 +235,14 @@ in {
       source = /home/matt/Developer/dotfiles/config/ghci/.ghci;
     };
 
+    home.file.".config/zsh/cpu.sh" = {
+      source = /home/matt/Developer/dotfiles/config/zsh/cpu.sh;
+    };
+
+    home.file.".config/zsh/temp.sh" = {
+      source = /home/matt/Developer/dotfiles/config/zsh/temp.sh;
+    };
+
     programs.bat = {
       enable = true;
       config = {
@@ -485,9 +493,9 @@ in {
         set -g status-fg "#ff79c6"
 
         set-option -g status-right ""
-        set-option -ag status-right " #[fg="#f1fa8c",bg=default]#(zsh ~/dotfiles/config/zsh/cpu.sh) "
+        set-option -ag status-right " #[fg="#f1fa8c",bg=default]#(zsh /home/matt/Developer/dotfiles/config/zsh/cpu.sh) "
         set-option -ag status-right " #[fg="#8be9fd",bg=default]#(free -h | awk '/^Mem/ {print $3}')/#(free -h | awk '/^Mem/ {print $2}') "
-        set-option -ag status-right " #[fg="#50fa7b",bg=default]#(zsh ~/dotfiles/config/zsh/temp.sh) "
+        set-option -ag status-right " #[fg="#50fa7b",bg=default]#(zsh /home/matt/Developer/dotfiles/config/zsh/temp.sh) "
         set-option -ag status-right " #[fg="#ff79c6",bg=default]#(date +"%R") "
       '';
       keyMode = "vi";
