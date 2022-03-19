@@ -75,8 +75,15 @@ in {
       noLock = true;
     };
 
-    taps =
-      [ "homebrew/bundle" "homebrew/services" "homebrew/core" "homebrew/cask" ];
+    taps = [
+      "homebrew/bundle"
+      "homebrew/services"
+      "homebrew/core"
+      "homebrew/cask"
+      "sass/sass"
+    ];
+
+    brews = [ "sass/sass/sass" ];
 
     casks = [
       "affinity-designer"
