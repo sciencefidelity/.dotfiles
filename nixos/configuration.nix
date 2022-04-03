@@ -72,7 +72,8 @@ in {
 
   services.emacs = {
     enable = true;
-    package = pkgs.emacsUnstable-nox;
+    # package = pkgs.emacsUnstable-nox;
+    package = pkgs.emacs-nox;
   };
 
   # nixpkgs.overlays = [
@@ -181,7 +182,8 @@ in {
 
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim-nightly;
+    # package = pkgs.neovim-nightly;
+    package = pkgs.neovim;
     viAlias = true;
     vimAlias = true;
   };
