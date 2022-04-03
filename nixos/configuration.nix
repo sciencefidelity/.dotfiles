@@ -136,7 +136,7 @@ in {
     neovim-nightly
     nix-linter
     nixfmt
-    nodejs
+    nodejs-16_x
     nodePackages.diagnostic-languageserver
     nodePackages.eslint
     nodePackages.eslint_d
