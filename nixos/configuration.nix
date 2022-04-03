@@ -72,20 +72,19 @@ in {
 
   services.emacs = {
     enable = true;
-    # package = pkgs.emacsUnstable-nox;
-    package = pkgs.emacs-nox;
+    package = pkgs.emacsUnstable-nox;
   };
 
-  # nixpkgs.overlays = [
-  #   (import (builtins.fetchTarball {
-  #     url =
-  #       "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-  #   }))
-  #   (import (builtins.fetchTarball {
-  #     url =
-  #       "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-  #   }))
-  # ];
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url =
+        "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+    }))
+    (import (builtins.fetchTarball {
+      url =
+        "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+    }))
+  ];
 
   environment.systemPackages = with pkgs; [
     abduco
@@ -109,8 +108,8 @@ in {
     elmPackages.elm-live
     elmPackages.elm-review
     elmPackages.elm-test
-    emacs-nox
-    # emacsUnstable-nox
+    # emacs-nox
+    emacsUnstable-nox
     erlang_nox
     exa
     fd
@@ -133,8 +132,8 @@ in {
     lazygit
     lf
     mosh
-    neovim
-    # neovim-nightly
+    # neovim
+    neovim-nightly
     nix-linter
     nixfmt
     nodejs
@@ -182,7 +181,7 @@ in {
 
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim;
+    package = pkgs.neovim-nightly;
     viAlias = true;
     vimAlias = true;
   };
@@ -324,7 +323,7 @@ in {
 
     programs.neovim = {
       enable = true;
-      package = pkgs.neovim;
+      package = pkgs.neovim-nightly;
       extraConfig = ''
         lua << EOF
         ${builtins.readFile /home/matt/Developer/dotfiles/config/nvim/init.lua}
