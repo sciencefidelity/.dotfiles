@@ -182,7 +182,6 @@ in {
 
   programs.neovim = {
     enable = true;
-    # package = pkgs.neovim-nightly;
     package = pkgs.neovim;
     viAlias = true;
     vimAlias = true;
@@ -325,7 +324,7 @@ in {
 
     programs.neovim = {
       enable = true;
-      package = pkgs.neovim-nightly;
+      package = pkgs.neovim;
       extraConfig = ''
         lua << EOF
         ${builtins.readFile /home/matt/Developer/dotfiles/config/nvim/init.lua}
