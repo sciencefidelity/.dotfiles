@@ -157,6 +157,7 @@ in {
     ocamlPackages.js_of_ocaml-lwt
     ocamlPackages.lsp
     pinentry
+    python3Minimal
     unrar
     raspberrypi-eeprom
     ripgrep
