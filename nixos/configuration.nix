@@ -75,16 +75,16 @@ in {
     package = pkgs.emacsUnstable-nox;
   };
 
-  nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-      url =
-        "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-    }))
-    (import (builtins.fetchTarball {
-      url =
-        "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-    }))
-  ];
+  # nixpkgs.overlays = [
+  #   (import (builtins.fetchTarball {
+  #     url =
+  #       "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+  #   }))
+  #   (import (builtins.fetchTarball {
+  #     url =
+  #       "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+  #   }))
+  # ];
 
   environment.systemPackages = with pkgs; [
     abduco
@@ -92,6 +92,7 @@ in {
     bc
     cabal-install
     cargo
+    chromium
     clojure
     ctags
     delta
@@ -107,8 +108,8 @@ in {
     elmPackages.elm-live
     elmPackages.elm-review
     elmPackages.elm-test
-    # emacs-nox
-    emacsUnstable-nox
+    emacs-nox
+    # emacsUnstable-nox
     erlang_nox
     exa
     fd
@@ -131,7 +132,8 @@ in {
     lazygit
     lf
     mosh
-    neovim-nightly
+    neovim
+    # neovim-nightly
     nix-linter
     nixfmt
     nodejs
