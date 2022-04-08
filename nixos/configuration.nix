@@ -72,7 +72,9 @@ in {
 
   services.cron = {
     enable = true;
-    systemCronJobs = [ "*/5 * * * *      root    date >> /tmp/cron.log" ];
+    systemCronJobs = [
+      "0 * * * *   matt   cd /home/matt/Developer; for d in */; do cd '$d'; git pull; cd ..; done"
+    ];
   };
 
   services.emacs = {
