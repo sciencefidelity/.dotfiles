@@ -362,7 +362,7 @@ local servers = {
   'ocamllsp',
   'rescriptls',
   'rls',
-  'rnix',
+  -- 'rnix',
   'stylelint_lsp',
   'svelte',
   'tsserver',
