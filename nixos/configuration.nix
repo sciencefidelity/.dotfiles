@@ -70,6 +70,11 @@ in {
     };
   };
 
+  services.cron = {
+    enable = true;
+    systemCronJobs = [ "*/5 * * * *      matt    date >> ~/tmp/cron.log" ];
+  };
+
   services.emacs = {
     enable = true;
     package = pkgs.emacsUnstable-nox;
