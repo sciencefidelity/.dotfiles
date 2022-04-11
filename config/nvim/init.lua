@@ -292,7 +292,7 @@ require'nvim-treesitter.configs'.setup {
       "#ffb86c",
       "#8be9fd"
     },
---    termcolors = {}
+    -- termcolors = {}
   }
 }
 
