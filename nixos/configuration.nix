@@ -82,6 +82,12 @@ in {
     package = pkgs.emacsUnstable-nox;
   };
 
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql;
+    dataDir = "/data/postgresql";
+  };
+
   nixpkgs.overlays = [
     (import (builtins.fetchTarball {
       url =
