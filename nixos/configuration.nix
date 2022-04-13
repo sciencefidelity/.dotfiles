@@ -85,7 +85,6 @@ in {
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql;
-    dataDir = "/data/postgresql";
   };
 
   nixpkgs.overlays = [
