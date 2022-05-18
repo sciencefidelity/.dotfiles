@@ -76,6 +76,7 @@ in {
     };
 
     taps = [
+      "dart-lang/dart"
       "homebrew/bundle"
       "homebrew/services"
       "homebrew/core"
