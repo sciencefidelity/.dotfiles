@@ -520,7 +520,7 @@ in {
         ios = "open -a Simulator";
         ssh = "kitty +kitten ssh";
         hs = "open -a Hammerspoon";
-        "go test -w" = "fswatch -o . | (while read; do grc go test; done)";
+        gottd = "fswatch -o . | (while read; do grc go test; done)";
       };
     };
   };
