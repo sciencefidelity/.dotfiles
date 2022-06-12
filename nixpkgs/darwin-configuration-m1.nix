@@ -32,7 +32,7 @@ in {
       go
       gopls
       grc
-      haskell-language-server # package broken
+      # haskell-language-server # package broken
       home-manager
       lf
       mosh
