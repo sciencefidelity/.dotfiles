@@ -158,6 +158,12 @@ in {
     home.file.".config/karabiner/karabiner.json" = {
       source = /Users/matt/Developer/dotfiles/config/karabiner/karabiner.json;
     };
+    home.file.".grc/grc.conf" = {
+      source = ~/Developer/dotfiles/config/grc/grc.conf;
+    };
+    home.file.".grc/conf.gotest" = {
+      source = ~/Developer/dotfiles/config/grc/conf.gotest;
+    };
 
     home.sessionPath = [
       # "~/.npm-globals/bin:$PATH"
