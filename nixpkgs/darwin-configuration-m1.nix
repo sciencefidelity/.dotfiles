@@ -31,7 +31,8 @@ in {
       gnupg
       go
       gopls
-      # haskell-language-server # package broken
+      grc
+      haskell-language-server # package broken
       home-manager
       lf
       mosh
