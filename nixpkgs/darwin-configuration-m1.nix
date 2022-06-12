@@ -23,6 +23,7 @@ in {
       emacs-nox
       exa
       fd
+      fswatch
       fzf
       gh
       ghc
@@ -512,7 +513,7 @@ in {
         ios = "open -a Simulator";
         ssh = "kitty +kitten ssh";
         hs = "open -a Hammerspoon";
-        air = "~/.air";
+        # air = "~/.air";
       };
     };
   };
