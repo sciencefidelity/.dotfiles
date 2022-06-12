@@ -512,6 +512,7 @@ in {
         ios = "open -a Simulator";
         ssh = "kitty +kitten ssh";
         hs = "open -a Hammerspoon";
+        air = "~/.air";
       };
     };
   };
