@@ -22,5 +22,5 @@ colour=yellow,cyan
 regexp=^(FAIL[\s]*)(github.com*[\w\/\-_]*[\s]*)([\d\.s]+)
 color=yellow,red,blue
 -
-regexp=^(FAIL[\s]*)(github.com*[\w\/\-_]*[\s]*)(\[build\sfailed\])
+regexp=^(FAIL[\s]*)(github.com*[\w\/\-_]*[\s]*)(\[build\sfailed\]|\[setup\sfailed\])
 color=red,red,blue
