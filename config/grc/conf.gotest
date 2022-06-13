@@ -1,20 +1,26 @@
 regexp==== RUN .*
-colour=blue
+colour=cyan
 -
-regexp=--- PASS: .*
+regexp=--- PASS:
 colour=green
 -
 regexp=^PASS$
 colour=green
 -
-regexp=^(ok|\?)
-colour=magenta
--
-regexp=--- FAIL:
-colour=red
--
 regexp=^FAIL$
 colour=red
 -
-regexp=[^\s]+\.go(:\d+:\s)
-colour=cyan
+regexp=^(ok\s*)(github.com*[\w\/\-_]*[\s]*)([\d\.s]+)
+colour=yellow,magenta,blue
+-
+regexp=^(--- FAIL:[\s]*)(TestSolution\s)(\()([\d\.s]+)(\))
+colour=white,red,cyan,white,yellow
+-
+regexp=^([\s\wt\.go:\d]*:\s)([\w\s,.-_]+)
+colour=yellow,cyan
+-
+regexp=^(FAIL[\s]*)(github.com*[\w\/\-_]*[\s]*)([\d\.s]+)
+color=yellow,red,blue
+-
+regexp=^(FAIL[\s]*)(github.com*[\w\/\-_]*[\s]*)(\[build\sfailed\])
+color=red,red,blue
