@@ -29,7 +29,7 @@ in {
       ghc
       git
       gnupg
-      go
+      go_1_18
       gopls
       grc
       # haskell-language-server # package broken
