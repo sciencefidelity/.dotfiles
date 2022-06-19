@@ -2,14 +2,15 @@
 
 let
   home-manager = builtins.fetchTarball
-    "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+    "https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz";
   link = config.lib.file.mkOutOfStoreSymlink;
+  pkgsUnstable = import <nixpkgs-unstable> { };
 in {
   imports = [ <home-manager/nix-darwin> ];
 
   environment = {
     shells = [ pkgs.zsh ];
-    systemPackages = with pkgs; [
+    systemPackages = with pkgsUnstable; [
       air
       # android-tools # refusing to evaluate
       bat
@@ -39,7 +40,7 @@ in {
       neovim
       nix-linter
       nixfmt
-      nodejs-16_x
+      nodejs-18_x
       nodePackages.diagnostic-languageserver
       nodePackages.eslint
       nodePackages.eslint_d
@@ -55,7 +56,7 @@ in {
       nodePackages.yaml-language-server
       nodePackages.yarn
       pinentry
-      unrar
+      # unrar
       ripgrep
       rnix-lsp
       rustup
