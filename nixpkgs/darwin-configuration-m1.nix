@@ -10,7 +10,7 @@ in {
 
   environment = {
     shells = [ pkgs.zsh ];
-    systemPackages = with pkgsUnstable; [
+    systemPackages = with pkgs; [
       air
       # android-tools # refusing to evaluate
       bat
@@ -30,7 +30,7 @@ in {
       ghc
       git
       gnupg
-      go_1_18
+      pkgsUnstable.go_1_18
       gopls
       grc
       # haskell-language-server # package broken
@@ -40,7 +40,7 @@ in {
       neovim
       nix-linter
       nixfmt
-      nodejs-18_x
+      nodejs-16_x
       nodePackages.diagnostic-languageserver
       nodePackages.eslint
       nodePackages.eslint_d
@@ -56,7 +56,7 @@ in {
       nodePackages.yaml-language-server
       nodePackages.yarn
       pinentry
-      # unrar
+      unrar
       ripgrep
       rnix-lsp
       rustup
