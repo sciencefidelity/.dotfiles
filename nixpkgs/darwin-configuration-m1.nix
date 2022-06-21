@@ -8,6 +8,17 @@ let
 in {
   imports = [ <home-manager/nix-darwin> ];
 
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url =
+        "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+    }))
+    (import (builtins.fetchTarball {
+      url =
+        "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+    }))
+  ];
+
   environment = {
     shells = [ pkgs.zsh ];
     systemPackages = with pkgs; [
@@ -37,7 +48,8 @@ in {
       home-manager
       lf
       mosh
-      neovim
+      # neovim
+      neovim-nightly
       nix-linter
       nixfmt
       nodejs-16_x
@@ -118,6 +130,7 @@ in {
       "slack"
       "spotify"
       "zoom"
+      "visual-studio-code"
     ];
 
     masApps = {
