@@ -149,7 +149,6 @@ in {
       "Pocket" = 568494494;
       "Refined GitHub" = 1519867270;
       "Save to Raindrop.io" = 1549370672;
-      "Tinted Folders Lite" = 1529818888;
       "Vimari" = 1480933944;
       "Xcode" = 497799835;
     };
