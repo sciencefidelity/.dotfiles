@@ -74,6 +74,7 @@ in {
       ripgrep
       rnix-lsp
       rustup
+      pscale
       stack
       starship
       wget
