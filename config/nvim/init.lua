@@ -148,36 +148,11 @@ vim.highlight.create('ColorColumn', { ctermbg=0, guibg='#44475A' }, false)
 
 -- tree settings
 vim.g.nvim_tree_width = 25
-vim.g.nvim_tree_symlink_arrow = " -> "
 local file = "◦"
 local devIcons = require("nvim-web-devicons")
 local override_icons = devIcons.get_icons()
 for _, icon in pairs(override_icons) do icon.icon = file end
 devIcons.setup({override = override_icons, default = true})
-vim.g.nvim_tree_show_icons = { git = 1, folders = 1, files = 1, folder_arrows = 1 }
-vim.g.nvim_tree_icons = {
-  default = file,
-  symlink = file,
-  git = {
-    unstaged = "☁",
-    staged = "☇",
-    unmerged = "♥",
-    renamed = "☾",
-    untracked = "*",
-    deleted = "☒",
-    ignored = "◌"
-  },
-  folder = {
-    arrow_open = "▼",
-    arrow_closed = "▶",
-    default = "◇",
-    open = "◇",
-    empty = "◇",
-    empty_open = "◇",
-    symlink = "◇",
-    symlink_open = "◇"
-  }
-}
 require('nvim-tree').setup {
   filters = {
     custom = { '.git', 'node_modules', '.cache' }
@@ -191,6 +166,40 @@ require('nvim-tree').setup {
       error = "☠",
     }
   },
+  renderer = {
+    icons = {
+      glyphs = {
+        default = file,
+        symlink = file,
+        git = {
+          unstaged = "☁",
+          staged = "☇",
+          unmerged = "♥",
+          renamed = "☾",
+          untracked = "*",
+          deleted = "☒",
+          ignored = "◌"
+        },
+        folder = {
+          arrow_open = "▼",
+          arrow_closed = "▶",
+          default = "◇",
+          open = "◇",
+          empty = "◇",
+          empty_open = "◇",
+          symlink = "◇",
+          symlink_open = "◇"
+        }
+      },
+      show = {
+        git = 1,
+        folder = 1,
+        file = 1,
+        folder_arrow = 1,
+        symlink_arrow = " -> "
+      }
+    }
+  }
 }
 
 -- Gitsigns
