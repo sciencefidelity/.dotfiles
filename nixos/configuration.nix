@@ -240,6 +240,7 @@ in {
   services.openssh.enable = true;
 
   home-manager.users.matt = {
+    home.stateVersion = "22.11";
 
     home.file.".emacs.d/init.el" = {
       source = /home/matt/Developer/dotfiles/config/emacs.d/init.el;
@@ -627,5 +628,7 @@ in {
   };
 
   system.stateVersion = "22.05";
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = true;
 }
 
