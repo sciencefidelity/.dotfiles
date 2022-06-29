@@ -152,7 +152,6 @@ in {
     nodePackages.diagnostic-languageserver
     nodePackages.eslint
     nodePackages.eslint_d
-    nodePackages.gatsby-cli
     nodePackages.node2nix
     nodePackages.pnpm
     nodePackages.prettier
@@ -160,7 +159,6 @@ in {
     nodePackages.typescript
     nodePackages.typescript-language-server
     nodePackages.vscode-langservers-extracted
-    nodePackages.vue-cli
     nodePackages.vue-language-server
     nodePackages.yaml-language-server
     nodePackages.yarn
