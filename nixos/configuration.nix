@@ -24,7 +24,7 @@ in {
       "vm.vfs_cache_pressure" = 50;
     };
     loader = {
-      generic-extlinux-compatible.enable = true;
+      generic-extlinux-compatible.enable = false;
       grub.enable = false;
       raspberryPi = {
         enable = true;
