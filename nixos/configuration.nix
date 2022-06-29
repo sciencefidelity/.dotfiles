@@ -192,6 +192,8 @@ in {
     zsh-syntax-highlighting
   ];
 
+  programs.mosh.enable = true;
+
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-nightly;
