@@ -143,6 +143,7 @@ in {
     htop
     lazygit
     lf
+    mongodb
     mosh
     # neovim
     neovim-nightly
