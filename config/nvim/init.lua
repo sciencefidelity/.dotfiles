@@ -192,12 +192,12 @@ require('nvim-tree').setup {
         }
       },
       show = {
-        git = 1,
-        folder = 1,
-        file = 1,
-        folder_arrow = 1,
-        symlink_arrow = " -> "
-      }
+        git = true,
+        folder = true,
+        file = true,
+        folder_arrow = true
+      },
+      symlink_arrow = " -> "
     }
   }
 }
