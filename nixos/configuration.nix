@@ -149,8 +149,8 @@ in {
     htop
     lazygit
     lf
-    # mongodb
-    nur.repos.afreakk.mongosh
+    mongodb
+    mongosh
     mosh
     # neovim
     neovim-nightly
