@@ -49,6 +49,7 @@ in {
       # haskell-language-server # package broken
       home-manager
       lf
+      mongodb
       mosh
       # neovim
       neovim-nightly
