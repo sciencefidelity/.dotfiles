@@ -103,7 +103,7 @@ in {
       "sass/sass"
     ];
 
-    brews = [ "vapor" "sass/sass/sass" ];
+    brews = [ "mongosh" "sass/sass/sass" "vapor" ];
 
     casks = [
       "affinity-designer"
