@@ -374,7 +374,7 @@ local servers = {
   -- 'rnix',
   'stylelint_lsp',
   'svelte',
-  'tsserver',
+  -- 'tsserver',
   'vuels',
   'yamlls'
 }
