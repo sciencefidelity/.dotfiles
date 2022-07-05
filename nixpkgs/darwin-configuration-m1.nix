@@ -64,6 +64,7 @@ in {
       nodePackages.prettier
       nodePackages.stylelint
       nodePackages.svelte-language-server
+      nodePackages.ts-node
       nodePackages.typescript
       nodePackages.typescript-language-server
       nodePackages.vscode-langservers-extracted
