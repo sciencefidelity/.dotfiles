@@ -1,13 +1,11 @@
 # EditorConfig is awesome: https://EditorConfig.org
-
-# top-most EditorConfig file
 root = true
 
-# Unix-style newlines with a newline ending every file
 [*]
 end_of_line = lf
-insert_final_newline = true
 charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
 
 # Nix
 [*.nix]
@@ -43,3 +41,13 @@ indent_size = 4
 [config]
 indent_style = space
 indent_size = 4
+
+# Stylesheet
+[*.{css,scss}]
+indent_style = space
+indent_size = 2
+
+# TypeScript, JavaScript
+[*.{ts,tsx,js,jsx,cjs,mjs}]
+indent_style = space
+indent_size = 2
