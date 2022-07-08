@@ -32,7 +32,6 @@ in {
       curl
       delta
       deno
-      docker
       emacs-nox
       elixir
       erlang
@@ -118,6 +117,7 @@ in {
       "dash"
       "discord"
       "displaycal"
+      "docker"
       "figma"
       "firefox"
       "flutter"
