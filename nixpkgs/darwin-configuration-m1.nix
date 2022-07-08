@@ -185,6 +185,9 @@ in {
     home.file.".grc/conf.gotest" = {
       source = ~/Developer/dotfiles/config/grc/conf.gotest;
     };
+    home.file.".docker/config.json" = {
+      source = ~/Developer/dotfiles/config/docker/config.json;
+    };
 
     home.sessionPath = [
       # "~/.npm-globals/bin:$PATH"
