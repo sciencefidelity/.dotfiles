@@ -116,6 +116,7 @@ in {
     delta
     deno
     dart
+    docker
     elixir
     elixir_ls
     elmPackages.create-elm-app
