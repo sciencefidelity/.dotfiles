@@ -76,6 +76,9 @@ in {
       rnix-lsp
       rustup
       pscale
+      python39Packages.autopep8
+      python39Packages.pycodestyle
+      python39Packages.toml
       stack
       starship
       wget
