@@ -124,7 +124,6 @@ in {
       "figma"
       "firefox"
       "flutter"
-      "flux"
       "hammerspoon"
       "insomnia"
       "karabiner-elements"
