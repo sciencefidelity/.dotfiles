@@ -68,6 +68,7 @@ in {
       nodePackages.typescript-language-server
       nodePackages.vscode-langservers-extracted
       nodePackages.vue-language-server
+      nodePackages.yalc
       nodePackages.yaml-language-server
       nodePackages.yarn
       pinentry
