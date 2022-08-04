@@ -25,6 +25,7 @@ in {
       air
       # android-tools # refusing to evaluate
       bat
+      bun
       cabal-install
       cocoapods
       coreutils
