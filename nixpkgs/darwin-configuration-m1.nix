@@ -33,6 +33,7 @@ in {
       curl
       delta
       deno
+      doppler
       emacs-nox
       elixir
       erlang
@@ -61,7 +62,7 @@ in {
       nodePackages.eslint
       nodePackages.eslint_d
       nodePackages.neovim
-      nodePackages.pnpm
+      # nodePackages.pnpm
       nodePackages.prettier
       nodePackages.stylelint
       nodePackages.svelte-language-server
@@ -71,7 +72,7 @@ in {
       nodePackages.vue-language-server
       nodePackages.yalc
       nodePackages.yaml-language-server
-      nodePackages.yarn
+      # nodePackages.yarn
       pinentry
       unrar
       ripgrep
