@@ -178,7 +178,7 @@ in {
     home.file.".config/safari/reboot.css" = {
       source = ~/Developer/dotfiles/config/safari/reboot.css;
     };
-    home.file.".npmrc" = { source = ~/Developer/dotfiles/config/npm/.npmrc; };
+    # home.file.".npmrc" = { source = ~/Developer/dotfiles/config/npm/.npmrc; };
     home.file.".hammerspoon/init.lua" = {
       source = ~/Developer/dotfiles/config/hammerspoon/init.lua;
     };
