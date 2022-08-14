@@ -25,7 +25,7 @@ in {
       air
       # android-tools # not supported on ‘aarch64-darwin’
       bat
-      # bun
+      bun
       cabal-install
       cocoapods
       coreutils
@@ -79,11 +79,6 @@ in {
       rnix-lsp
       rustup
       pscale
-      python310Packages.autopep8
-      python310Packages.pip
-      python310Packages.pycodestyle
-      python310Packages.six
-      python310Packages.toml
       stack
       starship
       wget
@@ -553,6 +548,8 @@ in {
         ssh = "kitty +kitten ssh";
         hs = "open -a Hammerspoon";
         gottd = "fswatch -o . | (while read; do grc go test; done)";
+        python = "python3";
+        pip = "pip3";
       };
     };
   };
