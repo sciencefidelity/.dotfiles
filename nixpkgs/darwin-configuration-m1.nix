@@ -23,7 +23,7 @@ in {
     shells = [ pkgs.zsh ];
     systemPackages = with pkgs; [
       air
-      # android-tools # refusing to evaluate
+      # android-tools # not supported on ‘aarch64-darwin’
       bat
       # bun
       cabal-install
@@ -79,9 +79,11 @@ in {
       rnix-lsp
       rustup
       pscale
-      python39Packages.autopep8
-      python39Packages.pycodestyle
-      python39Packages.toml
+      python310Packages.autopep8
+      python310Packages.pip
+      python310Packages.pycodestyle
+      python310Packages.six
+      python310Packages.toml
       stack
       starship
       wget
