@@ -25,7 +25,7 @@ in {
       air
       # android-tools # not supported on ‘aarch64-darwin’
       bat
-      bun
+      # bun
       cabal-install
       cocoapods
       coreutils
@@ -134,7 +134,6 @@ in {
       "nova"
       "obsidian"
       "rocket"
-      "sketch"
       "slack"
       "spotify"
       "zoom"
