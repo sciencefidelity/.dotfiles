@@ -25,7 +25,7 @@ in {
       air
       # android-tools # not supported on ‘aarch64-darwin’
       bat
-      # bun
+      pkgsUnstable.bun
       cabal-install
       cocoapods
       coreutils
@@ -56,8 +56,8 @@ in {
       neovim-nightly
       nix-linter
       nixfmt
-      # nodejs
-      nodejs-16_x
+      pkgsUnstable.nodejs
+      # pkgsUnstable.nodejs-18_x
       nodePackages.diagnostic-languageserver
       nodePackages.eslint
       nodePackages.eslint_d
