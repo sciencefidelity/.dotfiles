@@ -25,7 +25,6 @@ in {
       air
       # android-tools # not supported on ‘aarch64-darwin’
       bat
-      pkgsUnstable.bun
       cabal-install
       cocoapods
       coreutils
