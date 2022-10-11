@@ -55,7 +55,8 @@ in {
       neovim-nightly
       nix-linter
       nixfmt
-      pkgsUnstable.nodejs
+      # pkgsUnstable.nodejs
+      pkgsUnstable.nodejs-16_x
       # pkgsUnstable.nodejs-18_x
       nodePackages.diagnostic-languageserver
       nodePackages.eslint
