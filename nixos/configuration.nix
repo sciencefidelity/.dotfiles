@@ -183,7 +183,7 @@ in {
     unrar
     raspberrypi-eeprom
     ripgrep
-    rls
+    rust-analyzer
     rnix-lsp
     rustup
     samba
