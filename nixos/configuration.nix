@@ -114,7 +114,7 @@ in {
     clojure
     ctags
     delta
-    deno
+    # deno
     dart
     docker
     elixir
