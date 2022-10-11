@@ -253,9 +253,9 @@ in {
       source = /home/matt/Developer/dotfiles/config/emacs.d/init.el;
     };
 
-    home.file.".npmrc" = {
-      source = /home/matt/Developer/dotfiles/config/npm/.npmrc;
-    };
+    # home.file.".npmrc" = {
+    #   source = /home/matt/Developer/dotfiles/config/npm/.npmrc;
+    # };
 
     home.file.".ghci" = {
       source = /home/matt/Developer/dotfiles/config/ghci/.ghci;
