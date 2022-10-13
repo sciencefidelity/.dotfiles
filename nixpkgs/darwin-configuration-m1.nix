@@ -108,10 +108,9 @@ in {
       "sass/sass"
     ];
 
-    brews = [ "mongosh" "sass/sass/sass" "vapor" ];
+    brews = [ "auth0" "gcc" "mongosh" "sass/sass/sass" "vapor" ];
 
     casks = [
-      "auth0"
       "affinity-designer"
       "affinity-photo"
       "affinity-publisher"
