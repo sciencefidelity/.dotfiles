@@ -99,6 +99,7 @@ in {
     };
 
     taps = [
+      "auth0/auth0-cli"
       "dart-lang/dart"
       "homebrew/bundle"
       "homebrew/services"
@@ -110,6 +111,7 @@ in {
     brews = [ "mongosh" "sass/sass/sass" "vapor" ];
 
     casks = [
+      "auth0"
       "affinity-designer"
       "affinity-photo"
       "affinity-publisher"
