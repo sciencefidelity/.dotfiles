@@ -9,14 +9,14 @@ in {
   imports = [ <home-manager/nix-darwin> ];
 
   nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-      url =
-        "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-    }))
-    (import (builtins.fetchTarball {
-      url =
-        "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-    }))
+    # (import (builtins.fetchTarball {
+    #   url =
+    #     "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+    # }))
+    # (import (builtins.fetchTarball {
+    #   url =
+    #     "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+    # }))
   ];
 
   environment = {
@@ -51,8 +51,8 @@ in {
       home-manager
       lf
       mosh
-      # neovim
-      neovim-nightly
+      neovim
+      # neovim-nightly
       nix-linter
       nixfmt
       # pkgsUnstable.nodejs
