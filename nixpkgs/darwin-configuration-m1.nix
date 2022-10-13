@@ -204,7 +204,7 @@ in {
         "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       CHROME_PATH =
         "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
-      EDITOR = "nvim";
+      EDITOR = "code -w";
       GOPATH = "/Users/matt/Developer/go";
       VISUAL = "$EDITOR";
     };
