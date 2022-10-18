@@ -55,14 +55,11 @@ in {
       # neovim-nightly
       nix-linter
       nixfmt
-      # pkgsUnstable.nodejs
       pkgsUnstable.nodejs-16_x
-      # pkgsUnstable.nodejs-18_x
       nodePackages.diagnostic-languageserver
       nodePackages.eslint
       nodePackages.eslint_d
       nodePackages.neovim
-      # nodePackages.pnpm
       nodePackages.prettier
       nodePackages.stylelint
       nodePackages.svelte-language-server
@@ -121,7 +118,6 @@ in {
       "dash"
       "discord"
       "displaycal"
-      # "docker"
       "figma"
       "firefox"
       "flutter"
@@ -134,6 +130,7 @@ in {
       "notion"
       "nova"
       "obsidian"
+      "raspberry-pi-imager"
       "rocket"
       "slack"
       "spotify"
@@ -570,7 +567,7 @@ in {
       CHROME_PATH =
         "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       BAT_THEME = "Dracula";
-      EDITOR = "nvim";
+      EDITOR = "code -w";
       GOPATH = "/Users/matt/Developer/go";
       VISUAL = "$EDITOR";
     };
