@@ -111,6 +111,7 @@ in {
       "affinity-designer"
       "affinity-photo"
       "affinity-publisher"
+      "alacritty"
       "android-studio"
       "bartender"
       "blender"
