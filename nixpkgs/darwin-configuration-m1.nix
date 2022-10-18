@@ -135,6 +135,7 @@ in {
       "slack"
       "spotify"
       "zoom"
+      "warp"
       "visual-studio-code"
     ];
 
