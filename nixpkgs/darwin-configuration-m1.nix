@@ -8,16 +8,16 @@ let
 in {
   imports = [ <home-manager/nix-darwin> ];
 
-  nixpkgs.overlays = [
-    # (import (builtins.fetchTarball {
-    #   url =
-    #     "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-    # }))
-    # (import (builtins.fetchTarball {
-    #   url =
-    #     "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-    # }))
-  ];
+  # nixpkgs.overlays = [
+  #   (import (builtins.fetchTarball {
+  #     url =
+  #       "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+  #   }))
+  #   (import (builtins.fetchTarball {
+  #     url =
+  #       "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+  #   }))
+  # ];
 
   environment = {
     shells = [ pkgs.zsh ];
@@ -51,7 +51,7 @@ in {
       home-manager
       lf
       mosh
-      neovim
+      pkgsUnstable.neovim
       # neovim-nightly
       nix-linter
       nixfmt
@@ -111,7 +111,6 @@ in {
       "affinity-designer"
       "affinity-photo"
       "affinity-publisher"
-      "alacritty"
       "android-studio"
       "bartender"
       "blender"
@@ -273,6 +272,7 @@ in {
 
     programs.neovim = {
       enable = true;
+      # package = pkgs.neovim-nightly;
       extraConfig = ''
         lua << EOF
         ${builtins.readFile /Users/matt/Developer/dotfiles/config/nvim/init.lua}
@@ -576,6 +576,7 @@ in {
   };
 
   services.nix-daemon.enable = true;
+  services.emacs.package = pkgs.emacsUnstable;
 
   system.defaults.dock = {
     autohide-delay = "0";
