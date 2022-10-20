@@ -71,6 +71,7 @@ in {
       nodePackages.yaml-language-server
       # nodePackages.yarn
       pinentry
+      python3Full
       unrar
       ripgrep
       rnix-lsp
@@ -118,6 +119,7 @@ in {
       "dash"
       "discord"
       "displaycal"
+      "docker"
       "figma"
       "firefox"
       "flutter"
@@ -186,9 +188,9 @@ in {
     home.file.".grc/conf.gotest" = {
       source = ~/Developer/dotfiles/config/grc/conf.gotest;
     };
-    # home.file.".docker/config.json" = {
-    #   source = ~/Developer/dotfiles/config/docker/config.json;
-    # };
+    home.file.".docker/config.json" = {
+      source = ~/Developer/dotfiles/config/docker/config.json;
+    };
 
     home.sessionPath = [
       # "~/.npm-globals/bin:$PATH"
