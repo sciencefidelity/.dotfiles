@@ -69,6 +69,8 @@ require('packer').startup(function()
   use 'L3MON4D3/LuaSnip'
   -- https://github.com/fladson/vim-kitty
   use 'fladson/vim-kitty'
+  -- https://github.com/ThePrimeagen/vim-be-good
+  use 'ThePrimeagen/vim-be-good'
 end)
 
 --Set highlight on search
@@ -76,7 +78,7 @@ vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
--- vim.wo.relativenumber = true
+vim.wo.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -351,7 +353,7 @@ end
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- set up
 local saga = require 'lspsaga'

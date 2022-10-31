@@ -25,6 +25,7 @@ in {
       air
       # android-tools # not supported on ‘aarch64-darwin’
       bat
+      pkgsUnstable.bun
       cabal-install
       cocoapods
       coreutils
@@ -44,7 +45,7 @@ in {
       ghc
       git
       gnupg
-      pkgsUnstable.go_1_18
+      pkgsUnstable.go
       gopls
       grc
       # haskell-language-server # package broken
@@ -52,10 +53,9 @@ in {
       lf
       mosh
       pkgsUnstable.neovim
-      # neovim-nightly
       nix-linter
       nixfmt
-      pkgsUnstable.nodejs-16_x
+      nodejs
       nodePackages.diagnostic-languageserver
       nodePackages.eslint
       nodePackages.eslint_d
@@ -69,7 +69,7 @@ in {
       nodePackages.vue-language-server
       nodePackages.yalc
       nodePackages.yaml-language-server
-      # nodePackages.yarn
+      nodePackages.yarn
       pinentry
       python3Full
       unrar
@@ -88,12 +88,15 @@ in {
 
   homebrew = {
     enable = true;
-    autoUpdate = true;
     brewPrefix = "/opt/homebrew/bin";
-    cleanup = "zap";
     global = {
       brewfile = true;
-      noLock = true;
+      lockfiles = true;
+    };
+    onActivation = {
+      cleanup = "zap";
+      autoUpdate = true;
+      upgrade = true;
     };
 
     taps = [
@@ -274,7 +277,6 @@ in {
 
     programs.neovim = {
       enable = true;
-      # package = pkgs.neovim-nightly;
       extraConfig = ''
         lua << EOF
         ${builtins.readFile /Users/matt/Developer/dotfiles/config/nvim/init.lua}
@@ -581,8 +583,8 @@ in {
   services.emacs.package = pkgs.emacsUnstable;
 
   system.defaults.dock = {
-    autohide-delay = "0";
-    autohide-time-modifier = "0.5";
+    autohide-delay = 0.1;
+    autohide-time-modifier = 0.1;
   };
   system.keyboard = {
     enableKeyMapping = true;
