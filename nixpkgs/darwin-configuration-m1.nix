@@ -36,6 +36,7 @@ in {
       doppler
       emacs-nox
       elixir
+      entr
       erlang
       exa
       fd
@@ -137,6 +138,7 @@ in {
       "obsidian"
       "raspberry-pi-imager"
       "rocket"
+      "sigmaos"
       "slack"
       "spotify"
       "zoom"
