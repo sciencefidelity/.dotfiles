@@ -137,6 +137,7 @@ in {
       "nova"
       "obsidian"
       "raspberry-pi-imager"
+      "roam-research"
       "rocket"
       "sigmaos"
       "slack"
