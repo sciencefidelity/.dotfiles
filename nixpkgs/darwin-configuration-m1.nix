@@ -124,6 +124,7 @@ in {
       "discord"
       "displaycal"
       "docker"
+      "evernote"
       "figma"
       "firefox"
       "flutter"
