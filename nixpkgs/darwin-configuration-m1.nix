@@ -141,6 +141,7 @@ in {
       "roam-research"
       "rocket"
       "sigmaos"
+      "simplenote"
       "slack"
       "spotify"
       "zoom"
@@ -149,12 +150,15 @@ in {
     ];
 
     masApps = {
+      "Bear – Markdown Notes" = 1091189122;
       "Compressor" = 424390742;
       "Craft - Docs and Notes Editor" = 1487937127;
+      "Drafts" = 1435957248;
       "Final Cut Pro" = 424389933;
       "iA Writer" = 775737590;
       "Logic Pro" = 634148309;
       "Microsoft Excel" = 462058435;
+      "Microsoft OneNote" = 784801555;
       "Microsoft PowerPoint" = 462062816;
       "Microsoft Word" = 462054704;
       "Motion" = 434290957;
@@ -162,6 +166,7 @@ in {
       "Pocket" = 568494494;
       "Refined GitHub" = 1519867270;
       "Save to Raindrop.io" = 1549370672;
+      "Ulysses | Writing App" = 1225570693;
       "Vimari" = 1480933944;
       "Xcode" = 497799835;
     };
