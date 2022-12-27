@@ -132,6 +132,7 @@ in {
       "insomnia"
       "karabiner-elements"
       "kitty"
+      "logseq"
       "microsoft-teams"
       "miro"
       "notion"
