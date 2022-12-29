@@ -125,6 +125,7 @@ in {
       "displaycal"
       "docker"
       "evernote"
+      "fantastical"
       "figma"
       "firefox"
       "flutter"
@@ -141,6 +142,7 @@ in {
       "raspberry-pi-imager"
       "roam-research"
       "rocket"
+      "pdf-expert"
       "sigmaos"
       "simplenote"
       "slack"
@@ -167,6 +169,7 @@ in {
       "Pocket" = 568494494;
       "Refined GitHub" = 1519867270;
       "Save to Raindrop.io" = 1549370672;
+      "Save to Reader" = 1640236961;
       "Ulysses | Writing App" = 1225570693;
       "Vimari" = 1480933944;
       "Xcode" = 497799835;
