@@ -20,7 +20,7 @@ in {
   # ];
 
   environment = {
-    shells = [ pkgs.zsh ];
+    # shells = [ pkgs.zsh ];
     systemPackages = with pkgs; [
       air
       # android-tools # not supported on ‘aarch64-darwin’
@@ -117,15 +117,13 @@ in {
       "affinity-photo"
       "affinity-publisher"
       "android-studio"
+      "appcleaner"
       "bartender"
-      # "blender"
       "brave-browser"
       "dash"
       "discord"
       "displaycal"
       "docker"
-      # "evernote"
-      # "fantastical"
       "figma"
       "firefox"
       "flutter"
@@ -133,16 +131,12 @@ in {
       "insomnia"
       "karabiner-elements"
       "kitty"
-      # "logseq"
       "microsoft-teams"
       "miro"
       "notion"
       "nova"
       "obsidian"
-      # "raycast"
       "roam-research"
-      # "rocket"
-      # "pdf-expert"
       "sigmaos"
       "slack"
       "spotify"
