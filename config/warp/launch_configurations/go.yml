@@ -1,0 +1,27 @@
+# Go Launch Configuration
+
+---
+name: Go
+windows:
+  - tabs:
+      - title: Go
+        layout:
+          split_direction: horizontal
+          panes:
+            - split_direction: vertical
+              panes:
+                - cwd: /Users/matt/Developer/go-test
+                  commands:
+                    - exec: vi main.go
+                - cwd: /Users/matt/Developer/go-test
+                  commands:
+                    - exec: air
+            - split_direction: vertical
+              panes:
+                - cwd: /Users/matt/Developer/go-test
+                  commands:
+                    - exec: vi main_test.go
+                - cwd: /Users/matt/Developer/go-test
+                  commands:
+                    - exec: gottd
+

@@ -1,0 +1,27 @@
+# Typescript Configuration
+
+---
+name: Typescript
+windows:
+  - tabs:
+      - title: Typescript
+        layout:
+          split_direction: horizontal
+          panes:
+            - split_direction: vertical
+              panes:
+                - cwd: /Users/matt/Developer/typescript-test
+                  commands:
+                    - exec: vi index.ts
+                - cwd: /Users/matt/Developer/typescript-test
+                  commands:
+                    - exec: yarn dev
+            - split_direction: vertical
+              panes:
+                - cwd: /Users/matt/Developer/typescript-test
+                  commands:
+                    - exec: vi index.test.ts
+                - cwd: /Users/matt/Developer/typescript-test
+                  commands:
+                    - exec: yarn test
+

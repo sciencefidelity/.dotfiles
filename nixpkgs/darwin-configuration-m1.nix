@@ -140,6 +140,7 @@ in {
       "nova"
       "obsidian"
       "raspberry-pi-imager"
+      "raycast"
       "roam-research"
       "rocket"
       "pdf-expert"
@@ -206,6 +207,17 @@ in {
     };
     home.file.".docker/config.json" = {
       source = ~/Developer/dotfiles/config/docker/config.json;
+    };
+    home.file.".warp/launch_configurations/go.yml" = {
+      source = ~/Developer/dotfiles/config/warp/launch_configurations/go.yml;
+    };
+    home.file.".warp/launch_configurations/typescript.yml" = {
+      source =
+        ~/Developer/dotfiles/config/warp/launch_configurations/typescript.yml;
+    };
+    home.file.".warp/launch_configurations/typescript.yml" = {
+      source =
+        ~/Developer/dotfiles/config/warp/launch_configurations/typescript.yml;
     };
 
     home.sessionPath = [

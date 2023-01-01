@@ -1,0 +1,27 @@
+# Peony Launch Configuration
+
+---
+name: Peony
+windows:
+  - tabs:
+      - title: Peony
+        layout:
+          split_direction: horizontal
+          panes:
+            - split_direction: vertical
+              panes:
+                - cwd: /Users/matt/Developer/peony/bouquet
+                  commands:
+                    - exec: yarn svelte-package --watch
+                - cwd: /Users/matt/Developer/peony/bouquet
+                  commands:
+                    - exec: code .
+            - split_direction: vertical
+              panes:
+                - cwd: /Users/matt/Developer/peony/vase/browser
+                  commands:
+                    - exec: yarn dev
+                - cwd: /Users/matt/Developer/peony/vase
+                  commands:
+                    - exec: code .
+
