@@ -118,14 +118,14 @@ in {
       "affinity-publisher"
       "android-studio"
       "bartender"
-      "blender"
+      # "blender"
       "brave-browser"
       "dash"
       "discord"
       "displaycal"
       "docker"
-      "evernote"
-      "fantastical"
+      # "evernote"
+      # "fantastical"
       "figma"
       "firefox"
       "flutter"
@@ -133,19 +133,17 @@ in {
       "insomnia"
       "karabiner-elements"
       "kitty"
-      "logseq"
+      # "logseq"
       "microsoft-teams"
       "miro"
       "notion"
       "nova"
       "obsidian"
-      "raspberry-pi-imager"
-      "raycast"
+      # "raycast"
       "roam-research"
-      "rocket"
-      "pdf-expert"
+      # "rocket"
+      # "pdf-expert"
       "sigmaos"
-      "simplenote"
       "slack"
       "spotify"
       "zoom"
@@ -211,9 +209,8 @@ in {
     home.file.".warp/launch_configurations/go.yml" = {
       source = ~/Developer/dotfiles/config/warp/launch_configurations/go.yml;
     };
-    home.file.".warp/launch_configurations/typescript.yml" = {
-      source =
-        ~/Developer/dotfiles/config/warp/launch_configurations/typescript.yml;
+    home.file.".warp/launch_configurations/peony.yml" = {
+      source = ~/Developer/dotfiles/config/warp/launch_configurations/peony.yml;
     };
     home.file.".warp/launch_configurations/typescript.yml" = {
       source =
