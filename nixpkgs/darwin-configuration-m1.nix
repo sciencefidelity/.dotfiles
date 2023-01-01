@@ -200,6 +200,9 @@ in {
     home.file.".docker/config.json" = {
       source = ~/Developer/dotfiles/config/docker/config.json;
     };
+    home.file.".warp/launch_configurations/dart.yml" = {
+      source = ~/Developer/dotfiles/config/warp/launch_configurations/dart.yml;
+    };
     home.file.".warp/launch_configurations/go.yml" = {
       source = ~/Developer/dotfiles/config/warp/launch_configurations/go.yml;
     };
@@ -212,7 +215,7 @@ in {
     };
 
     home.sessionPath = [
-      # "~/.npm-globals/bin:$PATH"
+      "~/.npm-globals/bin:$PATH"
       "$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH"
     ];
     home.sessionVariables = {
@@ -566,8 +569,14 @@ in {
         ios = "open -a Simulator";
         ssh = "kitty +kitten ssh";
         hs = "open -a Hammerspoon";
-        gottd = "fswatch -o . | (while read; do grc go test; done)";
+        gotdd = "go test && fswatch -o . | (while read; do grc go test; done)";
+        dartwatch =
+          "dart run && fswatch -o -1 -d bin | (while read; do dart run; done)";
+        darttdd =
+          "dart test && fswatch -o -1 -d bin test | (while read; do dart test; done)";
         python = "python3";
+        pywatch =
+          "python challenge.py && fswatch -o . | (while read; do python challenge.py; done)";
         pip = "pip3";
       };
     };

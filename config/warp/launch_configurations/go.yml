@@ -10,18 +10,17 @@ windows:
           panes:
             - split_direction: vertical
               panes:
-                - cwd: /Users/matt/Developer/go-test
+                - cwd: /Users/matt/Developer/sandbox/go
                   commands:
                     - exec: vi main.go
-                - cwd: /Users/matt/Developer/go-test
+                - cwd: /Users/matt/Developer/sandbox/go
                   commands:
                     - exec: air
             - split_direction: vertical
               panes:
-                - cwd: /Users/matt/Developer/go-test
+                - cwd: /Users/matt/Developer/sandbox/go
                   commands:
                     - exec: vi main_test.go
-                - cwd: /Users/matt/Developer/go-test
+                - cwd: /Users/matt/Developer/sandbox/go
                   commands:
-                    - exec: gottd
-
+                    - exec: gotdd

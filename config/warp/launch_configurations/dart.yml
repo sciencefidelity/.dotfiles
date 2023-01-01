@@ -1,0 +1,26 @@
+# Typescript Configuration
+
+---
+name: Dart
+windows:
+  - tabs:
+      - title: Dart
+        layout:
+          split_direction: horizontal
+          panes:
+            - split_direction: vertical
+              panes:
+                - cwd: /Users/matt/Developer/sandbox/dart
+                  commands:
+                    - exec: vi bin/main.dart
+                - cwd: /Users/matt/Developer/sandbox/dart
+                  commands:
+                    - exec: dartwatch
+            - split_direction: vertical
+              panes:
+                - cwd: /Users/matt/Developer/sandbox/dart
+                  commands:
+                    - exec: vi test/main_test.dart
+                - cwd: /Users/matt/Developer/sandbox/dart
+                  commands:
+                    - exec: darttdd

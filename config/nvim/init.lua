@@ -145,7 +145,7 @@ vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
 -- Color column
--- vim.wo.colorcolumn = '80'
+vim.opt.colorcolumn = ''
 vim.highlight.create('ColorColumn', { ctermbg=0, guibg='#44475A' }, false)
 
 -- tree settings
@@ -606,3 +606,6 @@ cmp.setup {
     { name = 'luasnip' },
   }
 }
+
+-- disable editorconfig rules
+vim.g.EditorConfig_disable_rules = { 'max_line_length' }
