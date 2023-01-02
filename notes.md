@@ -18,6 +18,28 @@ delta
 ### Won't compile
 `nodePackages.esy`
 
+### Deleted Casks
+
+- blender
+- evernote
+- fantastical
+- logseq
+- raycast
+- rocket
+- pdf-expert
+
+### Deleted npm globals
+
+- @microsoft/api-extractor
+- @sanity/cli
+- esy (nixpkgs not working)
+- install-peerdeps
+- lighthouse
+- nativescript
+- nodemon (nixpkgs)
+- nvm
+- stylelint-lsp
+
 ### Scaffold with pnpm
 
 ```shell

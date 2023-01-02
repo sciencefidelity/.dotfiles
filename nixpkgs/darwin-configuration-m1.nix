@@ -2,7 +2,7 @@
 
 let
   home-manager = builtins.fetchTarball
-    "https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz";
+    "https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz";
   link = config.lib.file.mkOutOfStoreSymlink;
   pkgsUnstable = import <nixpkgs-unstable> { };
 in {
@@ -57,10 +57,12 @@ in {
       nix-linter
       nixfmt
       nodejs
+      nodePackages.degit
       nodePackages.diagnostic-languageserver
       nodePackages.eslint
       nodePackages.eslint_d
       nodePackages.neovim
+      nodePackages.pnpm
       nodePackages.prettier
       nodePackages.stylelint
       nodePackages.svelte-language-server
@@ -68,6 +70,7 @@ in {
       nodePackages.typescript-language-server
       nodePackages.vscode-langservers-extracted
       nodePackages.vue-language-server
+      nodePackages.wrangler
       nodePackages.yalc
       nodePackages.yaml-language-server
       nodePackages.yarn
@@ -173,7 +176,7 @@ in {
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.matt = { config, lib, pkgs, ... }: {
-    home.stateVersion = "22.05";
+    home.stateVersion = "22.11";
 
     home.file.".emacs.d/init.el" = {
       source = ~/Developer/dotfiles/config/emacs.d/init.el;
