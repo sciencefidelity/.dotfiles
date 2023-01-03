@@ -56,7 +56,7 @@ in {
       pkgsUnstable.neovim
       nix-linter
       nixfmt
-      nodejs-16_x
+      nodejs
       nodePackages.degit
       nodePackages.diagnostic-languageserver
       nodePackages.eslint
