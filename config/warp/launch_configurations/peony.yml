@@ -23,5 +23,5 @@ windows:
                     - exec: yarn dev
                 - cwd: /Users/matt/Developer/peony/vase
                   commands:
-                    - exec: code .
+                    - exec: code . && open -a "Brave Browser" "http://localhost:3000"
 
