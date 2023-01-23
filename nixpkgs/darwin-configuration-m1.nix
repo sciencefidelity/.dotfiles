@@ -56,7 +56,7 @@ in {
       pkgsUnstable.neovim
       nix-linter
       nixfmt
-      nodejs-16_x
+      nodejs
       nodePackages.degit
       nodePackages.diagnostic-languageserver
       nodePackages.eslint
@@ -570,7 +570,7 @@ in {
         gst = "git status";
         cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
         ios = "open -a Simulator";
-        ssh = "kitty +kitten ssh";
+        # ssh = "kitty +kitten ssh";
         hs = "open -a Hammerspoon";
         gotdd = "go test && fswatch -o . | (while read; do grc go test; done)";
         dartwatch =
