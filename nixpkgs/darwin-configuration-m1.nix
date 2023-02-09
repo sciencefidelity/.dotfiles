@@ -143,6 +143,7 @@ in {
       "sigmaos"
       "slack"
       "spotify"
+      "swiftformat-for-xcode"
       "zoom"
       "warp"
       "visual-studio-code"
