@@ -110,10 +110,9 @@ in {
       "homebrew/services"
       "homebrew/core"
       "homebrew/cask"
-      "sass/sass"
     ];
 
-    brews = [ "auth0" "gcc" "mongosh" "sass/sass/sass" "vapor" ];
+    brews = [ "auth0" "gcc" "mongosh" "vapor" ];
 
     casks = [
       "affinity-designer"
@@ -126,20 +125,17 @@ in {
       "dash"
       "discord"
       "displaycal"
-      "docker"
       "figma"
       "firefox"
       "flutter"
       "hammerspoon"
       "insomnia"
       "karabiner-elements"
-      "kitty"
       "microsoft-teams"
       "miro"
       "notion"
       "nova"
       "obsidian"
-      "roam-research"
       "sigmaos"
       "slack"
       "spotify"
@@ -150,7 +146,6 @@ in {
     ];
 
     masApps = {
-      "Bear – Markdown Notes" = 1091189122;
       "Compressor" = 424390742;
       "Craft - Docs and Notes Editor" = 1487937127;
       "Drafts" = 1435957248;
@@ -163,7 +158,6 @@ in {
       "Microsoft Word" = 462054704;
       "Motion" = 434290957;
       "OneDrive" = 823766827;
-      "Pocket" = 568494494;
       "Refined GitHub" = 1519867270;
       "Save to Raindrop.io" = 1549370672;
       "Save to Reader" = 1640236961;
