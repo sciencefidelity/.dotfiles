@@ -136,6 +136,7 @@ in {
       "notion"
       "nova"
       "obsidian"
+      "redisinsight"
       "sigmaos"
       "slack"
       "spotify"
