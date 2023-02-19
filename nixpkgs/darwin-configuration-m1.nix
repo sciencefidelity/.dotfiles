@@ -110,9 +110,10 @@ in {
       "homebrew/services"
       "homebrew/core"
       "homebrew/cask"
+      "twilio/brew"
     ];
 
-    brews = [ "auth0" "gcc" "mongosh" "vapor" ];
+    brews = [ "auth0" "gcc" "mongosh" "twilio" "vapor" ];
 
     casks = [
       "affinity-designer"
