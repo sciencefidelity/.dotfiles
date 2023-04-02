@@ -132,6 +132,7 @@ in {
       "hammerspoon"
       "insomnia"
       "karabiner-elements"
+      "microsoft-edge"
       "microsoft-teams"
       "miro"
       "notion"
