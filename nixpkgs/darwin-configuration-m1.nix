@@ -23,6 +23,7 @@ in {
     # shells = [ pkgs.zsh ];
     systemPackages = with pkgs; [
       air
+      pkgsUnstable.algolia-cli
       # android-tools # not supported on ‘aarch64-darwin’
       bat
       pkgsUnstable.bun
@@ -56,13 +57,13 @@ in {
       pkgsUnstable.neovim
       nix-linter
       nixfmt
-      nodejs
+      pkgsUnstable.nodejs
       nodePackages.degit
       nodePackages.diagnostic-languageserver
       nodePackages.eslint
       nodePackages.eslint_d
       nodePackages.neovim
-      nodePackages.pnpm
+      pkgsUnstable.nodePackages.pnpm
       nodePackages.prettier
       nodePackages.stylelint
       nodePackages.svelte-language-server
@@ -74,6 +75,7 @@ in {
       nodePackages.yalc
       nodePackages.yaml-language-server
       nodePackages.yarn
+      pkgsUnstable.openai
       pinentry
       python3Full
       unrar
