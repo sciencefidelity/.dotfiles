@@ -135,6 +135,7 @@ in {
       "hammerspoon"
       "insomnia"
       "karabiner-elements"
+      "livebook"
       "microsoft-edge"
       "microsoft-teams"
       "miro"
