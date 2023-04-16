@@ -79,6 +79,7 @@ in {
       pinentry
       python3Full
       unrar
+      pkgsUnstable.railway
       ripgrep
       rnix-lsp
       rustup
