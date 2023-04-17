@@ -52,6 +52,8 @@ in {
       grc
       # haskell-language-server # package broken
       home-manager
+      pkgsUnstable.kubectl
+      pkgsUnstable.kubernetes-helm
       lf
       mosh
       pkgsUnstable.neovim
@@ -84,6 +86,7 @@ in {
       rnix-lsp
       rustup
       pscale
+      pkgsUnstable.scaleway-cli
       stack
       starship
       wget
