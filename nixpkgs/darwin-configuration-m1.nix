@@ -40,6 +40,7 @@ in {
       entr
       erlang
       exa
+      # pkgsUnstable.fastly # needs latest version
       fd
       fswatch
       fzf
@@ -112,14 +113,16 @@ in {
     taps = [
       "auth0/auth0-cli"
       "dart-lang/dart"
+      "fastly/tap"
       "homebrew/bundle"
       "homebrew/services"
       "homebrew/core"
       "homebrew/cask"
-      "twilio/brew"
+      "tinygo-org/tools" # nixpkgs is one minor version behind
+      # "twilio/brew"
     ];
 
-    brews = [ "auth0" "gcc" "mongosh" "twilio" "vapor" ];
+    brews = [ "auth0" "fastly" "gcc" "mongosh" "tinygo" "vapor" ]; # "twilio"
 
     casks = [
       "affinity-designer"
