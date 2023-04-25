@@ -49,7 +49,7 @@ in {
       git
       gnupg
       pkgsUnstable.go
-      gopls
+      pkgsUnstable.gopls
       grc
       # haskell-language-server # package broken
       home-manager
