@@ -142,7 +142,6 @@ in {
       "hammerspoon"
       "insomnia"
       "karabiner-elements"
-      "livebook"
       "microsoft-edge"
       "microsoft-teams"
       "miro"
@@ -153,7 +152,6 @@ in {
       "sigmaos"
       "slack"
       "spotify"
-      "swiftformat-for-xcode"
       "zoom"
       "warp"
       "visual-studio-code"
@@ -167,7 +165,6 @@ in {
       "iA Writer" = 775737590;
       "Logic Pro" = 634148309;
       "Microsoft Excel" = 462058435;
-      "Microsoft OneNote" = 784801555;
       "Microsoft PowerPoint" = 462062816;
       "Microsoft Word" = 462054704;
       "Motion" = 434290957;
@@ -176,7 +173,6 @@ in {
       "Save to Raindrop.io" = 1549370672;
       "Save to Reader" = 1640236961;
       "Ulysses | Writing App" = 1225570693;
-      "Vimari" = 1480933944;
       "Xcode" = 497799835;
     };
   };
