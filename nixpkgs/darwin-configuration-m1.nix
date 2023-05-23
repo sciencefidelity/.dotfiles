@@ -186,12 +186,10 @@ in {
     home.file.".emacs.d/init.el" = {
       source = ~/Developer/dotfiles/config/emacs.d/init.el;
     };
-    home.file.".config/kitty/kitty.conf" = {
-      source = ~/Developer/dotfiles/config/kitty/kitty.conf;
-    };
     home.file.".config/safari/reboot.css" = {
       source = ~/Developer/dotfiles/config/safari/reboot.css;
     };
+    # TODO: encrypt data so this file can be committed
     # home.file.".npmrc" = { source = ~/Developer/dotfiles/config/npm/.npmrc; };
     home.file.".hammerspoon/init.lua" = {
       source = ~/Developer/dotfiles/config/hammerspoon/init.lua;
@@ -205,9 +203,10 @@ in {
     home.file.".grc/conf.gotest" = {
       source = ~/Developer/dotfiles/config/grc/conf.gotest;
     };
-    # home.file.".docker/config.json" = {
-    #   source = ~/Developer/dotfiles/config/docker/config.json;
-    # };
+    home.file.".iex.exs" = {
+      source =
+        ~/Developer/dotfiles/config/iex/.iex.exs;
+    };
     home.file.".warp/launch_configurations/dart.yml" = {
       source = ~/Developer/dotfiles/config/warp/launch_configurations/dart.yml;
     };
