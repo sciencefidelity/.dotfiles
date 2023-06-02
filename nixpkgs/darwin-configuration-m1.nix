@@ -204,8 +204,7 @@ in {
       source = ~/Developer/dotfiles/config/grc/conf.gotest;
     };
     home.file.".iex.exs" = {
-      source =
-        ~/Developer/dotfiles/config/iex/.iex.exs;
+      source = ~/Developer/dotfiles/config/iex/.iex.exs;
     };
     home.file.".warp/launch_configurations/dart.yml" = {
       source = ~/Developer/dotfiles/config/warp/launch_configurations/dart.yml;
@@ -569,6 +568,7 @@ in {
         du = "du -h -c";
         cat = "bat";
         fd = "fdfind";
+        c = "code";
         push = "git push";
         pull = "git fetch origin; git merge origin/main";
         gst = "git status";
