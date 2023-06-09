@@ -215,6 +215,9 @@ in {
     home.file.".warp/launch_configurations/peony.yml" = {
       source = ~/Developer/dotfiles/config/warp/launch_configurations/peony.yml;
     };
+    home.file.".warp/launch_configurations/sage.yml" = {
+      source = ~/Developer/dotfiles/config/warp/launch_configurations/sage.yml;
+    };
     home.file.".warp/launch_configurations/typescript.yml" = {
       source =
         ~/Developer/dotfiles/config/warp/launch_configurations/typescript.yml;
