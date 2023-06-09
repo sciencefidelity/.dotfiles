@@ -1,0 +1,25 @@
+# Peony Sage Configuration
+
+---
+name: Sage
+windows:
+  - tabs:
+      - layout:
+          split_direction: horizontal
+          panes:
+            - split_direction: vertical
+              panes:
+                - cwd: /Users/matt/Developer/Peony/clover
+                  commands:
+                    - exec: code . && yarn dev
+                - cwd: /Users/matt/Developer/Peony/sage
+                  commands:
+                    - exec: code . yarn dev
+            - split_direction: vertical
+              panes:
+                - cwd: /Users/matt/Developer/peony/bouquet
+                  commands:
+                    - exec: code . && yarn svelte-package --watch
+                - cwd: /Users/matt/Developer/peony/vase/browser
+                  commands:
+                    - exec: sleep 30 && yarn dev

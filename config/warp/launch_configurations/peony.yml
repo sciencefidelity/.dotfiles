@@ -20,7 +20,7 @@ windows:
               panes:
                 - cwd: /Users/matt/Developer/peony/vase/browser
                   commands:
-                    - exec: yarn dev
+                    - exec: sleep 30 && yarn dev
                 - cwd: /Users/matt/Developer/peony/vase
                   commands:
                     - exec: code . && open -a "Brave Browser" "http://localhost:3000"
