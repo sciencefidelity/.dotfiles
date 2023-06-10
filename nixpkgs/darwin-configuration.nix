@@ -20,7 +20,7 @@ in {
   # ];
 
   environment = {
-    shells = [ pkgs.zsh ];
+    # shells = [ pkgs.zsh ];
     systemPackages = with pkgs; [
       air
       pkgsUnstable.algolia-cli
