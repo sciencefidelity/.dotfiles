@@ -2,46 +2,71 @@
 
 let
   home-manager = builtins.fetchTarball
-    "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+    "https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz";
   link = config.lib.file.mkOutOfStoreSymlink;
+  pkgsUnstable = import <nixpkgs-unstable> { };
 in {
   imports = [ <home-manager/nix-darwin> ];
+
+  # nixpkgs.overlays = [
+  #   (import (builtins.fetchTarball {
+  #     url =
+  #       "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
+  #   }))
+  #   (import (builtins.fetchTarball {
+  #     url =
+  #       "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
+  #   }))
+  # ];
 
   environment = {
     shells = [ pkgs.zsh ];
     systemPackages = with pkgs; [
-      # android-tools # refusing to evaluate
+      air
+      pkgsUnstable.algolia-cli
+      # android-tools # not supported on ‘aarch64-darwin’
       bat
+      pkgsUnstable.bun
       cabal-install
-      clojure
+      cocoapods
       coreutils
       ctags
       curl
       delta
       deno
-      # dart
+      doppler
       emacs-nox
+      elixir
+      entr
+      erlang
       exa
+      # pkgsUnstable.fastly # needs latest version
       fd
+      fswatch
       fzf
       gh
       ghc
       git
       gnupg
-      go
-      gopls
-      haskell-language-server
+      pkgsUnstable.go
+      pkgsUnstable.gopls
+      grc
+      # haskell-language-server # package broken
       home-manager
+      pkgsUnstable.kubectl
+      pkgsUnstable.kubernetes-helm
       lf
       mosh
-      neovim
+      pkgsUnstable.neovim
+      # nix-linter
       nixfmt
-      nodejs
+      pkgsUnstable.nodejs
+      nodePackages.degit
       nodePackages.diagnostic-languageserver
       nodePackages.eslint
       nodePackages.eslint_d
       nodePackages.neovim
-      nodePackages.pnpm
+      pkgsUnstable.nodePackages.pnpm
       nodePackages.prettier
       nodePackages.stylelint
       nodePackages.svelte-language-server
@@ -49,13 +74,20 @@ in {
       nodePackages.typescript-language-server
       nodePackages.vscode-langservers-extracted
       nodePackages.vue-language-server
+      nodePackages.wrangler
+      nodePackages.yalc
       nodePackages.yaml-language-server
       nodePackages.yarn
+      pkgsUnstable.openai
       pinentry
+      python3Full
       unrar
+      pkgsUnstable.railway
       ripgrep
       rnix-lsp
       rustup
+      pscale
+      pkgsUnstable.scaleway-cli
       stack
       starship
       wget
@@ -67,56 +99,81 @@ in {
 
   homebrew = {
     enable = true;
-    autoUpdate = true;
-    cleanup = "zap";
+    brewPrefix = "/opt/homebrew/bin";
     global = {
       brewfile = true;
-      noLock = true;
+      lockfiles = true;
+    };
+    onActivation = {
+      cleanup = "zap";
+      autoUpdate = true;
+      upgrade = true;
     };
 
-    taps =
-      [ "homebrew/bundle" "homebrew/services" "homebrew/core" "homebrew/cask" ];
+    taps = [
+      "auth0/auth0-cli"
+      "dart-lang/dart"
+      "fastly/tap"
+      "homebrew/bundle"
+      "homebrew/services"
+      "homebrew/core"
+      "homebrew/cask"
+      "tinygo-org/tools" # nixpkgs is one minor version behind
+      # "twilio/brew"
+    ];
+
+    brews = [ "auth0" "fastly" "gcc" "mongosh" "tinygo" "vapor" ]; # "twilio"
 
     casks = [
       "affinity-designer"
       "affinity-photo"
       "affinity-publisher"
       "android-studio"
+      "appcleaner"
       "bartender"
       "brave-browser"
       "dash"
       "discord"
       "displaycal"
+      "docker"
       "figma"
       "firefox"
       "flutter"
       "hammerspoon"
       "insomnia"
       "karabiner-elements"
-      "kitty"
+      "microsoft-edge"
       "microsoft-teams"
       "miro"
       "notion"
       "nova"
       "obsidian"
-      "rocket"
+      "redisinsight"
+      "sigmaos"
       "slack"
       "spotify"
-      "visual-studio-code"
       "zoom"
+      "warp"
+      "visual-studio-code"
     ];
 
     masApps = {
+      "Compressor" = 424390742;
       "Craft - Docs and Notes Editor" = 1487937127;
+      "Drafts" = 1435957248;
+      "Final Cut Pro" = 424389933;
       "iA Writer" = 775737590;
+      "Logic Pro" = 634148309;
       "Microsoft Excel" = 462058435;
       "Microsoft PowerPoint" = 462062816;
       "Microsoft Word" = 462054704;
+      "Motion" = 434290957;
       "OneDrive" = 823766827;
-      "Pocket" = 568494494;
       "Refined GitHub" = 1519867270;
       "Save to Raindrop.io" = 1549370672;
-      "Vimari" = 1480933944;
+      "Save to Reader" = 1640236961;
+      "Ulysses | Writing App" = 1225570693;
+      "Xcode" = 497799835;
     };
   };
 
@@ -124,37 +181,61 @@ in {
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.users.matt = { config, lib, pkgs, ... }: {
-    home.stateVersion = "22.05";
+    home.stateVersion = "22.11";
 
     home.file.".emacs.d/init.el" = {
       source = ~/Developer/dotfiles/config/emacs.d/init.el;
     };
-    home.file.".config/kitty/kitty.conf" = {
-      source = ~/Developer/dotfiles/config/kitty/kitty.conf;
-    };
     home.file.".config/safari/reboot.css" = {
       source = ~/Developer/dotfiles/config/safari/reboot.css;
     };
-    home.file.".npmrc" = { source = ~/Developer/dotfiles/config/npm/.npmrc; };
+    # TODO: encrypt data so this file can be committed
+    # home.file.".npmrc" = { source = ~/Developer/dotfiles/config/npm/.npmrc; };
     home.file.".hammerspoon/init.lua" = {
       source = ~/Developer/dotfiles/config/hammerspoon/init.lua;
     };
     home.file.".config/karabiner/karabiner.json" = {
       source = /Users/matt/Developer/dotfiles/config/karabiner/karabiner.json;
     };
+    home.file.".grc/grc.conf" = {
+      source = ~/Developer/dotfiles/config/grc/grc.conf;
+    };
+    home.file.".grc/conf.gotest" = {
+      source = ~/Developer/dotfiles/config/grc/conf.gotest;
+    };
+    home.file.".iex.exs" = {
+      source = ~/Developer/dotfiles/config/iex/.iex.exs;
+    };
+    home.file.".warp/launch_configurations/dart.yml" = {
+      source = ~/Developer/dotfiles/config/warp/launch_configurations/dart.yml;
+    };
+    home.file.".warp/launch_configurations/go.yml" = {
+      source = ~/Developer/dotfiles/config/warp/launch_configurations/go.yml;
+    };
+    home.file.".warp/launch_configurations/peony.yml" = {
+      source = ~/Developer/dotfiles/config/warp/launch_configurations/peony.yml;
+    };
+    home.file.".warp/launch_configurations/sage.yml" = {
+      source = ~/Developer/dotfiles/config/warp/launch_configurations/sage.yml;
+    };
+    home.file.".warp/launch_configurations/typescript.yml" = {
+      source =
+        ~/Developer/dotfiles/config/warp/launch_configurations/typescript.yml;
+    };
 
     home.sessionPath = [
-      "$HOME/.npm-globals/bin:$PATH"
+      "~/.npm-globals/bin:$PATH"
       "$ANDROID_SDK/emulator:$ANDROID_SDK/tools:$PATH"
     ];
     home.sessionVariables = {
-      ANDROID_SDK = "$HOME/Library/Android/sdk";
+      ANDROID_SDK = "~/Library/Android/sdk";
       BAT_THEME = "Dracula";
       CHROME_EXECUTABLE =
         "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       CHROME_PATH =
         "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
-      EDITOR = "nvim";
+      EDITOR = "code -w";
+      GOPATH = "/Users/matt/Developer/go";
       VISUAL = "$EDITOR";
     };
 
@@ -206,14 +287,14 @@ in {
 
       delta.enable = true;
 
+      signing = {
+        key = "22C1322FB7B3F0B2";
+        signByDefault = true;
+      };
+
       extraConfig = {
         init = { defaultBranch = "main"; };
         pull = { rebase = false; };
-      };
-
-      signing = {
-        key = "40E08B1E5B9DE19A";
-        signByDefault = true;
       };
 
       userName = "sciencefidelity";
@@ -221,8 +302,6 @@ in {
     };
 
     programs.home-manager.enable = true;
-
-    programs.htop = { enable = true; };
 
     programs.neovim = {
       enable = true;
@@ -376,8 +455,7 @@ in {
       enableCompletion = true;
       enableSyntaxHighlighting = true;
       autocd = true;
-      # defaultKeymap = "vicmd"; # prints a list of keymappings when starting shell
-      # dotDir = ".config/zsh";
+
       history = {
         save = 1000;
         size = 1000;
@@ -467,17 +545,7 @@ in {
             echo "'$1' is not a valid file"
           fi
         }
-
-        tbtm () {
-          if ! tmux has-session -t $1; then
-            tmux new -s $1 -d
-            tmux split-window -t $1:1 -v -p 10
-            tmux send-keys -t $1:1.0 vim Enter
-            tmux send-keys -t $1:1.1 \
-              "npm run dev" Enter
-          fi
-          tmux attach -t $1
-        }
+        export PATH="$HOME/.npm-globals/bin:$PATH"
       '';
 
       initExtraBeforeCompInit = ''
@@ -502,20 +570,28 @@ in {
         free = "free -h";
         du = "du -h -c";
         cat = "bat";
-        grep = "rg";
         fd = "fdfind";
+        "c ." = "code .";
         push = "git push";
         pull = "git fetch origin; git merge origin/main";
         gst = "git status";
         cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
         ios = "open -a Simulator";
-        ssh = "kitty +kitten ssh";
         hs = "open -a Hammerspoon";
+        gotdd = "go test && fswatch -o . | (while read; do grc go test; done)";
+        dartwatch =
+          "dart run && fswatch -o -1 -d bin | (while read; do dart run; done)";
+        darttdd =
+          "dart test && fswatch -o -1 -d bin test | (while read; do dart test; done)";
+        python = "python3";
+        pywatch =
+          "python challenge.py && fswatch -o . | (while read; do python challenge.py; done)";
+        pip = "pip3";
       };
     };
   };
 
-  networking.hostName = "naen";
+  networking.hostName = "macbook";
   nix.useDaemon = true;
   nixpkgs.config.allowUnfree = true;
 
@@ -531,17 +607,18 @@ in {
       CHROME_PATH =
         "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       BAT_THEME = "Dracula";
-      EDITOR = "nvim";
+      EDITOR = "code -w";
       GOPATH = "/Users/matt/Developer/go";
       VISUAL = "$EDITOR";
     };
   };
 
   services.nix-daemon.enable = true;
+  services.emacs.package = pkgs.emacsUnstable;
 
   system.defaults.dock = {
-    autohide-delay = "0";
-    autohide-time-modifier = "0.5";
+    autohide-delay = 0.1;
+    autohide-time-modifier = 0.1;
   };
   system.keyboard = {
     enableKeyMapping = true;

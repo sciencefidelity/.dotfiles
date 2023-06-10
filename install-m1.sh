@@ -33,7 +33,7 @@ sudo mv /etc/shells /etc/shells.bak
 
 echo "symlinking dotfiles"
 rm ~/.nixpkgs/darwin-configuration.nix
-ln -s ~/Developer/dotfiles/nixpkgs/darwin-configuration-m1.nix ~/.nixpkgs/darwin-configuration.nix
+ln -s ~/Developer/dotfiles/nixpkgs/darwin-configuration.nix ~/.nixpkgs/darwin-configuration.nix
 ln -s ~/Developer/dotfiles/.terminfo ~/.terminfo
 ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/Developer/ssh ~/.ssh
 mkdir ~/.nvm
