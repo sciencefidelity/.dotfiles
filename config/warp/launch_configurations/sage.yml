@@ -14,7 +14,7 @@ windows:
                     - exec: code . && yarn dev
                 - cwd: /Users/matt/Developer/Peony/sage
                   commands:
-                    - exec: code . yarn dev
+                    - exec: code . && yarn dev
             - split_direction: vertical
               panes:
                 - cwd: /Users/matt/Developer/peony/bouquet
@@ -22,4 +22,4 @@ windows:
                     - exec: code . && yarn svelte-package --watch
                 - cwd: /Users/matt/Developer/peony/vase/browser
                   commands:
-                    - exec: sleep 30 && yarn dev
+                    - exec: sleep 15 && yarn dev
