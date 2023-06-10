@@ -571,7 +571,7 @@ in {
         du = "du -h -c";
         cat = "bat";
         fd = "fdfind";
-        "c ." = "code .";
+        c = "code";
         push = "git push";
         pull = "git fetch origin; git merge origin/main";
         gst = "git status";
