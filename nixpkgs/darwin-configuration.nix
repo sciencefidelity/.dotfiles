@@ -572,6 +572,7 @@ in {
         cat = "bat";
         fd = "fdfind";
         c = "code";
+        dv = "npm run dev";
         push = "git push";
         pull = "git fetch origin; git merge origin/main";
         gst = "git status";
