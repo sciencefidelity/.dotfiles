@@ -23,44 +23,32 @@ in {
     # shells = [ pkgs.zsh ];
     systemPackages = with pkgs; [
       air
-      pkgsUnstable.algolia-cli
-      # android-tools # not supported on ‘aarch64-darwin’
       bat
       pkgsUnstable.bun
-      cabal-install
+      pkgsUnstable.clojure
       cocoapods
       coreutils
       ctags
       curl
       delta
-      deno
-      doppler
+      pkgsUnstable.deno
       emacs-nox
       elixir
-      entr
       erlang
       exa
-      # pkgsUnstable.fastly # needs latest version
       fd
       fswatch
       fzf
       gh
-      ghc
       git
       gnupg
       pkgsUnstable.go
       pkgsUnstable.gopls
-      grc
-      # haskell-language-server # package broken
       home-manager
-      pkgsUnstable.kubectl
-      pkgsUnstable.kubernetes-helm
       lf
       mosh
       pkgsUnstable.neovim
-      # nix-linter
-      nixfmt
-      pkgsUnstable.nodejs
+      pkgsUnstable.nodejs_20
       nodePackages.degit
       nodePackages.diagnostic-languageserver
       nodePackages.eslint
@@ -68,12 +56,10 @@ in {
       nodePackages.neovim
       pkgsUnstable.nodePackages.pnpm
       nodePackages.prettier
-      nodePackages.stylelint
       nodePackages.svelte-language-server
       nodePackages.typescript
       nodePackages.typescript-language-server
       nodePackages.vscode-langservers-extracted
-      nodePackages.vue-language-server
       nodePackages.wrangler
       nodePackages.yalc
       nodePackages.yaml-language-server
@@ -84,11 +70,8 @@ in {
       unrar
       pkgsUnstable.railway
       ripgrep
-      rnix-lsp
       rustup
       pscale
-      pkgsUnstable.scaleway-cli
-      stack
       starship
       wget
       zsh
@@ -118,11 +101,10 @@ in {
       "homebrew/services"
       "homebrew/core"
       "homebrew/cask"
-      "tinygo-org/tools" # nixpkgs is one minor version behind
-      # "twilio/brew"
+      "tinygo-org/tools"
     ];
 
-    brews = [ "auth0" "fastly" "gcc" "mongosh" "tinygo" "vapor" ]; # "twilio"
+    brews = [ "auth0" "binaryen" "fastly" "gcc" "leiningen" "mongosh" "tinygo" "vapor" ];
 
     casks = [
       "affinity-designer"
