@@ -51,8 +51,8 @@ require('packer').startup(function()
   use 'p00f/nvim-ts-rainbow'
   -- https://github.com/windwp/nvim-autopairs
   use 'windwp/nvim-autopairs'
-  -- https://github.com/glepnir/lspsaga.nvim
-  use 'glepnir/lspsaga.nvim'
+  -- https://github.com/nvimdev/lspsaga.nvim
+  -- use 'nvimdev/lspsaga.nvim'
   -- https://github.com/hrsh7th/nvim-cmp
   use 'hrsh7th/nvim-cmp'
   -- https://github.com/hrsh7th/cmp-nvim-lsp
@@ -71,6 +71,8 @@ require('packer').startup(function()
   use 'fladson/vim-kitty'
   -- https://github.com/ThePrimeagen/vim-be-good
   use 'ThePrimeagen/vim-be-good'
+  -- https://github.com/github/copilot.vim
+  use 'github/copilot.vim'
 end)
 
 --Set highlight on search
@@ -145,8 +147,8 @@ vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
 -- Color column
-vim.opt.colorcolumn = ''
-vim.highlight.create('ColorColumn', { ctermbg=0, guibg='#44475A' }, false)
+-- vim.opt.colorcolumn = ''
+-- vim.highlight.create('ColorColumn', { ctermbg=0, guibg='#44475A' }, false)
 
 -- tree settings
 vim.g.nvim_tree_width = 25
@@ -203,6 +205,22 @@ require('nvim-tree').setup {
     }
   }
 }
+
+-- lspsaga
+use({
+    "glepnir/lspsaga.nvim",
+    opt = true,
+    branch = "main",
+    event = "LspAttach",
+    config = function()
+        require("lspsaga").setup({})
+    end,
+    requires = {
+        {"nvim-tree/nvim-web-devicons"},
+        --Please make sure you install markdown and markdown_inline parser
+        {"nvim-treesitter/nvim-treesitter"}
+    }
+})
 
 -- Gitsigns
 require('gitsigns').setup {
@@ -362,23 +380,23 @@ saga.init_lsp_saga()
 -- Enable the following language servers
 local servers = {
   -- 'clojure_lsp',
-  'cssls',
+  -- 'cssls',
   'dartls',
   'elixirls',
-  'elmls',
+  -- 'elmls',
   'gopls',
-  'hls',
-  'html',
-  'jsonls',
+  -- 'hls',
+  -- 'html',
+  -- 'jsonls',
   'ocamllsp',
-  'rescriptls',
+  -- 'rescriptls',
   'rls',
   -- 'rnix',
-  'stylelint_lsp',
+  -- 'stylelint_lsp',
   'svelte',
-  -- 'tsserver',
-  'vuels',
-  'yamlls'
+  'tsserver'
+  -- 'vuels',
+  -- 'yamlls'
 }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
@@ -387,11 +405,11 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-nvim_lsp.angularls.setup {
-  on_attach = on_attach,
-  autostart = false,
-  capabilities = capabilities,
-}
+-- nvim_lsp.angularls.setup {
+--   on_attach = on_attach,
+--   autostart = false,
+--   capabilities = capabilities,
+-- }
 
 nvim_lsp.denols.setup {
   on_attach = on_attach,
@@ -408,29 +426,29 @@ nvim_lsp.denols.setup {
 -- table.insert(runtime_path, 'lua/?.lua')
 -- table.insert(runtime_path, 'lua/?/init.lua')
 
-nvim_lsp.sumneko_lua.setup {
-  -- cmd = { sumneko_binary, '-E', sumneko_root_path .. '/main.lua' },
-  cmd = { "lua-language-server" },
-  autostart = true,
-  on_attach = on_attach,
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT',
-        path = vim.split(package.path, ';'),
-      },
-      diagnostics = {
-        globals = {'vim'},
-      },
-      workspace = {
-        library = {
-          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-        }
-      }
-    }
-  }
-}
+-- nvim_lsp.sumneko_lua.setup {
+--   -- cmd = { sumneko_binary, '-E', sumneko_root_path .. '/main.lua' },
+--   cmd = { "lua-language-server" },
+--   autostart = true,
+--   on_attach = on_attach,
+--   settings = {
+--     Lua = {
+--       runtime = {
+--         version = 'LuaJIT',
+--         path = vim.split(package.path, ';'),
+--       },
+--       diagnostics = {
+--         globals = {'vim'},
+--       },
+--       workspace = {
+--         library = {
+--           [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+--           [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+--         }
+--       }
+--     }
+--   }
+-- }
 
 nvim_lsp.diagnosticls.setup {
   filetypes = {'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'css'},

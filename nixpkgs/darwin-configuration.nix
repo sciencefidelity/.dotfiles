@@ -24,6 +24,7 @@ in {
     systemPackages = with pkgs; [
       air
       bat
+      broot
       pkgsUnstable.bun
       pkgsUnstable.clojure
       cocoapods
@@ -32,6 +33,7 @@ in {
       curl
       delta
       pkgsUnstable.deno
+      duf
       emacs-nox
       elixir
       erlang
@@ -73,6 +75,7 @@ in {
       rustup
       pscale
       starship
+      tree # remove if broot is good
       wget
       zsh
       zsh-autosuggestions
@@ -104,7 +107,7 @@ in {
       "tinygo-org/tools"
     ];
 
-    brews = [ "auth0" "binaryen" "fastly" "gcc" "leiningen" "mongosh" "tinygo" "vapor" ];
+    brews = [ "auth0" "binaryen" "fastly" "gcc" "java" "leiningen" "mongosh" "tinygo" "vapor" ];
 
     casks = [
       "affinity-designer"
@@ -504,6 +507,13 @@ in {
           git push
         }
 
+        atouch() {
+          for file_path_info in "$@"; do
+            mkdir -p -- "$(dirname -- "$file_path_info")"
+            touch -- "$file_path_info"
+          done
+        }
+
         # archive extractor - usage: ext <file>
         ext ()
         {
@@ -547,17 +557,27 @@ in {
         ll = "exa -lF --group-directories-first --git";
         lt = "exa -T --git-ignore";
         lr = "exa -R --git-ignore";
-        mkdir = "mkdir -p";
+        mkdir = "mkdir -pv";
+        rmdir = "rmdir -pv";
         df = "df -kTh";
         free = "free -h";
+        touch = "atouch";
         du = "du -h -c";
         cat = "bat";
         fd = "fdfind";
         c = "code";
         dv = "npm run dev";
+        yd = "npm run dev";
+        cn = "cargo new";
+        cr = "cargo run";
+        gm = "go mod init";
+        gr = "go run";
         push = "git push";
         pull = "git fetch origin; git merge origin/main";
         gst = "git status";
+        gci = "git commit";
+        gco = "git checkout";
+        gbr = "git branch";
         cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
         ios = "open -a Simulator";
         hs = "open -a Hammerspoon";

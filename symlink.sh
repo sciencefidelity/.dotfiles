@@ -9,6 +9,7 @@ ln -s ~/Developer/dotfiles/.terminfo ~/.terminfo
 ln -s ~/Developer/dotfiles/config/kitty/kitty.conf ~/.config/kitty/kitty.conf
 ln -s ~/Developer/dotfiles/config/hammerspoon/init.lua ~/.hammerspoon/init.lua
 ln -s ~/Developer/dotfiles/.gitconfig ~/.gitconfig
+ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
 mkdir ~/.nvm
 
 echo "copying system files"
