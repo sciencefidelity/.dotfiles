@@ -24,7 +24,7 @@ in {
     systemPackages = with pkgs; [
       air
       bat
-      broot
+      broot # currently unsure
       pkgsUnstable.bun
       pkgsUnstable.clojure
       cocoapods
@@ -48,6 +48,7 @@ in {
       pkgsUnstable.gopls
       home-manager
       lf
+      moreutils
       mosh
       pkgsUnstable.neovim
       pkgsUnstable.nodejs_20
@@ -568,10 +569,13 @@ in {
         c = "code";
         dv = "npm run dev";
         yd = "npm run dev";
+        sc= "npm create svelte@latest";
         cn = "cargo new";
         cr = "cargo run";
         gm = "go mod init";
         gr = "go run";
+        mn = "mix new";
+        mr = "mix run";
         push = "git push";
         pull = "git fetch origin; git merge origin/main";
         gst = "git status";
@@ -582,13 +586,10 @@ in {
         ios = "open -a Simulator";
         hs = "open -a Hammerspoon";
         gotdd = "go test && fswatch -o . | (while read; do grc go test; done)";
-        dartwatch =
-          "dart run && fswatch -o -1 -d bin | (while read; do dart run; done)";
-        darttdd =
-          "dart test && fswatch -o -1 -d bin test | (while read; do dart test; done)";
+        dartwatch = "dart run && fswatch -o -1 -d bin | (while read; do dart run; done)";
+        darttdd = "dart test && fswatch -o -1 -d bin test | (while read; do dart test; done)";
         python = "python3";
-        pywatch =
-          "python challenge.py && fswatch -o . | (while read; do python challenge.py; done)";
+        pywatch = "python challenge.py && fswatch -o . | (while read; do python challenge.py; done)";
         pip = "pip3";
       };
     };
@@ -605,10 +606,8 @@ in {
     enableSyntaxHighlighting = true;
     variables = {
       ANDROID_SDK = "~/Library/Android/sdk";
-      CHROME_EXECUTABLE =
-        "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
-      CHROME_PATH =
-        "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       BAT_THEME = "Dracula";
       EDITOR = "code -w";
       GOPATH = "/Users/matt/Developer/go";
