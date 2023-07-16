@@ -217,7 +217,7 @@ in {
       BAT_THEME = "Dracula";
       CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
-      EDITOR = "code -w";
+      EDITOR = "nvim";
       GOPATH = "/Users/matt/Developer/go";
       VISUAL = "$EDITOR";
     };
@@ -511,6 +511,8 @@ in {
         gm() { mkdir "$@" && cd "$@" && go mod init github.com/sciencefidelity/"$@" }
         sc() { npm init @svelte-add/kit@latest -y "$@" -- --demos false --with typescript+eslint+prettier && cd "$@" }
 
+        fo() { find . -name "$@"  -not -path './node_modules/*' -not -path './.svelte-kit/*' -not -path ./.histoire -not -path ./.git -exec nvim {} \; }
+
         # archive extractor - usage: ext <file>
         ext()
         {
@@ -567,12 +569,8 @@ in {
         c = "code";
         dv = "npm run dev";
         yd = "npm run dev";
-        # sc= "npm create svelte@latest";
-        # cn = "cargo new";
         cr = "cargo run";
-        # gm = "go mod init";
         gr = "go run";
-        # mn = "mix new";
         mr = "mix run";
         push = "git push";
         pull = "git fetch origin; git merge origin/main";
@@ -608,7 +606,7 @@ in {
       CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       BAT_THEME = "Dracula";
-      EDITOR = "code -w";
+      EDITOR = "nvim";
       GOPATH = "/Users/matt/Developer/go";
       VISUAL = "$EDITOR";
     };
