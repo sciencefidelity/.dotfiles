@@ -24,7 +24,6 @@ in {
     systemPackages = with pkgs; [
       air
       bat
-      broot # currently unsure
       pkgsUnstable.bun
       pkgsUnstable.clojure
       cocoapods
@@ -47,6 +46,7 @@ in {
       pkgsUnstable.go
       pkgsUnstable.gopls
       home-manager
+      lazygit
       lf
       moreutils
       mosh
@@ -76,7 +76,7 @@ in {
       rustup
       pscale
       starship
-      tree # remove if broot is good
+      tree
       wget
       zsh
       zsh-autosuggestions
@@ -205,8 +205,7 @@ in {
       source = ~/Developer/dotfiles/config/warp/launch_configurations/sage.yml;
     };
     home.file.".warp/launch_configurations/typescript.yml" = {
-      source =
-        ~/Developer/dotfiles/config/warp/launch_configurations/typescript.yml;
+      source = ~/Developer/dotfiles/config/warp/launch_configurations/typescript.yml;
     };
 
     home.sessionPath = [
@@ -216,10 +215,8 @@ in {
     home.sessionVariables = {
       ANDROID_SDK = "~/Library/Android/sdk";
       BAT_THEME = "Dracula";
-      CHROME_EXECUTABLE =
-        "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
-      CHROME_PATH =
-        "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
+      CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       EDITOR = "code -w";
       GOPATH = "/Users/matt/Developer/go";
       VISUAL = "$EDITOR";
@@ -376,41 +373,17 @@ in {
 
         aws.disabled = true;
         battery.disabled = true;
-
-        character = {
-          success_symbol = "[➜](bold green)";
-          error_symbol = "[➜](bold red)";
-          vicmd_symbol = "[➜](bold purple)";
-        };
-
         cmake.disabled = true;
         conda.disabled = true;
         crystal.disabled = true;
-
-        directory = { format = "in [$path](bold cyan) "; };
-
         docker_context.disabled = true;
         dotnet.disabled = true;
         gcloud.disabled = true;
         helm.disabled = true;
-
-        hostname = {
-          ssh_only = false;
-          format = "on [$hostname](bold blue) ";
-          trim_at = ".";
-          disabled = false;
-        };
-
         java.disabled = true;
         julia.disabled = true;
         hg_branch.disabled = true;
-
-        nodejs = { symbol = "⬢ "; };
-
         openstack.disabled = true;
-
-        package = { format = "is [$version](bold red) "; };
-
         perl.disabled = true;
         php.disabled = true;
         rlang.disabled = true;
@@ -419,6 +392,29 @@ in {
         scala.disabled = true;
         singularity.disabled = true;
         terraform.disabled = true;
+        vagrant.disabled = true;
+        vlang.disabled = true;
+        vcsh.disabled = true;
+        zig.disabled = true;
+
+        character = {
+          success_symbol = "[➜](bold green)";
+          error_symbol = "[➜](bold red)";
+          vicmd_symbol = "[➜](bold purple)";
+        };
+
+        directory = { format = "in [$path](bold cyan) "; };
+
+        hostname = {
+          ssh_only = false;
+          format = "on [$hostname](bold blue) ";
+          trim_at = ".";
+          disabled = false;
+        };
+
+        nodejs = { symbol = "⬢ "; };
+
+        package = { format = "is [$version](bold red) "; };
 
         username = {
           style_user = "yellow bold";
@@ -427,11 +423,6 @@ in {
           disabled = false;
           show_always = true;
         };
-
-        vagrant.disabled = true;
-        vlang.disabled = true;
-        vcsh.disabled = true;
-        zig.disabled = true;
       };
     };
 
@@ -467,7 +458,7 @@ in {
         bindkey -v "^?" backward-delete-char
 
         # Use lf to switch directories and bind it to ctrl-o
-        lfcd () {
+        lfcd() {
             tmp="$(mktemp)"
             lf -last-dir-path="$tmp" "$@"
             if [ -f "$tmp" ]; then
@@ -515,8 +506,13 @@ in {
           done
         }
 
+        mn() { mix new "$@" && cd "$@" }
+        cn() { cargo new "$@" && cd "$@" }
+        gm() { mkdir "$@" && cd "$@" && go mod init github.com/sciencefidelity/"$@" }
+        sc() { npm init @svelte-add/kit@latest -y "$@" -- --demos false --with typescript+eslint+prettier && cd "$@" }
+
         # archive extractor - usage: ext <file>
-        ext ()
+        ext()
         {
           if [ -f $1 ] ; then
             case $1 in
@@ -558,23 +554,25 @@ in {
         ll = "exa -lF --group-directories-first --git";
         lt = "exa -T --git-ignore";
         lr = "exa -R --git-ignore";
+        df = "df -kTh";
+        touch = "atouch";
         mkdir = "mkdir -pv";
         rmdir = "rmdir -pv";
-        df = "df -kTh";
-        free = "free -h";
-        touch = "atouch";
+        cp = "cp -Rv";
+        mv = "mv -iv";
+        rm = "rm -rIv";
         du = "du -h -c";
         cat = "bat";
         fd = "fdfind";
         c = "code";
         dv = "npm run dev";
         yd = "npm run dev";
-        sc= "npm create svelte@latest";
-        cn = "cargo new";
+        # sc= "npm create svelte@latest";
+        # cn = "cargo new";
         cr = "cargo run";
-        gm = "go mod init";
+        # gm = "go mod init";
         gr = "go run";
-        mn = "mix new";
+        # mn = "mix new";
         mr = "mix run";
         push = "git push";
         pull = "git fetch origin; git merge origin/main";
@@ -582,6 +580,7 @@ in {
         gci = "git commit";
         gco = "git checkout";
         gbr = "git branch";
+        lg = "lazygit";
         cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
         ios = "open -a Simulator";
         hs = "open -a Hammerspoon";
