@@ -1,23 +1,13 @@
-{ config, lib, pkgs, ... }:
+{ /* config, lib, */ pkgs, ... }:
 
 let
   home-manager = builtins.fetchTarball
     "https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz";
-  link = config.lib.file.mkOutOfStoreSymlink;
+  # link = config.lib.file.mkOutOfStoreSymlink;
   pkgsUnstable = import <nixpkgs-unstable> { };
-in {
+in
+{
   imports = [ <home-manager/nix-darwin> ];
-
-  # nixpkgs.overlays = [
-  #   (import (builtins.fetchTarball {
-  #     url =
-  #       "https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz";
-  #   }))
-  #   (import (builtins.fetchTarball {
-  #     url =
-  #       "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-  #   }))
-  # ];
 
   environment = {
     # shells = [ pkgs.zsh ];
@@ -33,9 +23,9 @@ in {
       delta
       pkgsUnstable.deno
       duf
-      emacs-nox
-      elixir
-      erlang
+      pkgsUnstable.elixir_1_15
+      pkgsUnstable.elixir-ls
+      pkgsUnstable.erlang_26
       exa
       fd
       fswatch
@@ -50,22 +40,14 @@ in {
       lf
       moreutils
       mosh
-      pkgsUnstable.neovim
+      neovim-unwrapped
+      nil
+      nixpkgs-fmt
       pkgsUnstable.nodejs_20
       nodePackages.degit
-      nodePackages.diagnostic-languageserver
-      nodePackages.eslint
-      nodePackages.eslint_d
-      nodePackages.neovim
       pkgsUnstable.nodePackages.pnpm
-      nodePackages.prettier
-      nodePackages.svelte-language-server
-      nodePackages.typescript
-      nodePackages.typescript-language-server
-      nodePackages.vscode-langservers-extracted
       nodePackages.wrangler
       nodePackages.yalc
-      nodePackages.yaml-language-server
       nodePackages.yarn
       pkgsUnstable.openai
       pinentry
@@ -78,6 +60,7 @@ in {
       starship
       tree
       wget
+      pkgsUnstable.vimPlugins.lazy-nvim
       zsh
       zsh-autosuggestions
       zsh-syntax-highlighting
@@ -105,6 +88,7 @@ in {
       "homebrew/services"
       "homebrew/core"
       "homebrew/cask"
+      "homebrew/cask-versions"
       "tinygo-org/tools"
     ];
 
@@ -127,6 +111,7 @@ in {
       "flutter"
       "hammerspoon"
       "insomnia"
+      "iterm2-nightly"
       "karabiner-elements"
       "microsoft-edge"
       "microsoft-teams"
@@ -140,6 +125,7 @@ in {
       "spotify"
       "zoom"
       "warp"
+      "wezterm"
       "visual-studio-code"
     ];
 
@@ -169,19 +155,22 @@ in {
   home-manager.users.matt = { config, lib, pkgs, ... }: {
     home.stateVersion = "22.11";
 
-    home.file.".emacs.d/init.el" = {
-      source = ~/Developer/dotfiles/config/emacs.d/init.el;
-    };
     home.file.".config/safari/reboot.css" = {
       source = ~/Developer/dotfiles/config/safari/reboot.css;
     };
     # TODO: encrypt data so this file can be committed
     # home.file.".npmrc" = { source = ~/Developer/dotfiles/config/npm/.npmrc; };
-    home.file.".hammerspoon/init.lua" = {
-      source = ~/Developer/dotfiles/config/hammerspoon/init.lua;
-    };
+    # home.file.".hammerspoon/init.lua" = {
+    #   source = ~/Developer/dotfiles/config/hammerspoon/init.lua;
+    # };
     home.file.".config/karabiner/karabiner.json" = {
       source = /Users/matt/Developer/dotfiles/config/karabiner/karabiner.json;
+    };
+    home.file.".config/iterm2/com.googlecode.iterm2.plist" = {
+      source = /Users/matt/Developer/dotfiles/config/iterm2/com.googlecode.iterm2.plist;
+    };
+    home.file.".wezterm.lua" = {
+      source = /Users/matt/Developer/dotfiles/config/wezterm/.wezterm.lua;
     };
     home.file.".grc/grc.conf" = {
       source = ~/Developer/dotfiles/config/grc/grc.conf;
@@ -192,20 +181,11 @@ in {
     home.file.".iex.exs" = {
       source = ~/Developer/dotfiles/config/iex/.iex.exs;
     };
-    home.file.".warp/launch_configurations/dart.yml" = {
-      source = ~/Developer/dotfiles/config/warp/launch_configurations/dart.yml;
+    home.file.".warp/keybindings.yaml" = {
+      source = ~/Developer/dotfiles/config/warp/keybindings.yaml;
     };
-    home.file.".warp/launch_configurations/go.yml" = {
-      source = ~/Developer/dotfiles/config/warp/launch_configurations/go.yml;
-    };
-    home.file.".warp/launch_configurations/peony.yml" = {
-      source = ~/Developer/dotfiles/config/warp/launch_configurations/peony.yml;
-    };
-    home.file.".warp/launch_configurations/sage.yml" = {
-      source = ~/Developer/dotfiles/config/warp/launch_configurations/sage.yml;
-    };
-    home.file.".warp/launch_configurations/typescript.yml" = {
-      source = ~/Developer/dotfiles/config/warp/launch_configurations/typescript.yml;
+    home.file.".warp/launch_configurations" = {
+      source = ~/Developer/dotfiles/config/warp/launch_configurations;
     };
 
     home.sessionPath = [
@@ -235,12 +215,13 @@ in {
         ];
       };
       themes = {
-        dracula = builtins.readFile (pkgs.fetchFromGitHub {
-          owner = "dracula";
-          repo = "sublime"; # Bat uses sublime syntax for its themes
-          rev = "26c57ec282abcaa76e57e055f38432bd827ac34e";
-          sha256 = "019hfl4zbn4vm4154hh3bwk6hm7bdxbr1hdww83nabxwjn99ndhv";
-        } + "/Dracula.tmTheme");
+        dracula = builtins.readFile (pkgs.fetchFromGitHub
+          {
+            owner = "dracula";
+            repo = "sublime"; # Bat uses sublime syntax for its themes
+            rev = "26c57ec282abcaa76e57e055f38432bd827ac34e";
+            sha256 = "019hfl4zbn4vm4154hh3bwk6hm7bdxbr1hdww83nabxwjn99ndhv";
+          } + "/Dracula.tmTheme");
       };
     };
 
@@ -268,7 +249,14 @@ in {
         dump = "cat-file -p";
       };
 
-      delta.enable = true;
+      delta = {
+        enable = true;
+        # options = {
+        #   line_numbers = true;
+        #   side_by_side = true;
+        #   syntax_theme = "Dracula";
+        # };
+      };
 
       signing = {
         key = "22C1322FB7B3F0B2";
@@ -288,10 +276,9 @@ in {
 
     programs.neovim = {
       enable = true;
-      extraConfig = ''
-        lua << EOF
+      defaultEditor = true;
+      extraLuaConfig = ''
         ${builtins.readFile /Users/matt/Developer/dotfiles/config/nvim/init.lua}
-        EOF
       '';
       withNodeJs = true;
       viAlias = true;
@@ -439,104 +426,7 @@ in {
       };
 
       initExtra = ''
-        # Basic auto/tab complete
-        autoload -U compinit
-        zstyle ":completion:*" menu select
-        zmodload zsh/complist
-        compinit
-        _comp_options+=(globdots)
-
-        # vi mode
-        bindkey -v
-        export KEYTIMEOUT=1
-
-        # Use vim keys in tab complete menu
-        bindkey -M menuselect "h" vi-backward-char
-        bindkey -M menuselect "k" vi-up-line-or-history
-        bindkey -M menuselect "l" vi-forward-char
-        bindkey -M menuselect "j" vi-down-line-or-history
-        bindkey -v "^?" backward-delete-char
-
-        # Use lf to switch directories and bind it to ctrl-o
-        lfcd() {
-            tmp="$(mktemp)"
-            lf -last-dir-path="$tmp" "$@"
-            if [ -f "$tmp" ]; then
-                dir="$(cat "$tmp")"
-                rm -f "$tmp"
-                [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-            fi
-        }
-        bindkey -s "^o" "lfcd\n"
-
-        # Edit line in vim with ctrl-e
-        autoload edit-command-line; zle -N edit-command-line
-        bindkey "^e" edit-command-line
-
-        bindkey "^ " autosuggest-accept
-
-        eval "$(ssh-agent -s)" > /dev/null
-        ssh-add ~/.ssh/github 2> /dev/null
-        export GPG_TTY=$(tty)
-
-        # open emacs with truecolor
-        if [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Linux" ]]; then
-            alias emacs="TERM=xterm-24bit emacs -nw"
-        elif [[ "$TERM" == "xterm-kitty" && "$(uname)" == "Darwin" ]]; then
-            alias emacs="TERM=xterm-emacs emacs -nw"
-        elif [[ "$TERM" == "tmux-256color" ]]; then
-            alias emacs="TERM=xterm-24bits emacs -nw"
-        else
-            alias emacs="emacs"
-        fi
-
-        alias -s {cs,js,html}=nova
-
-        gp() {
-          git pull
-          git add .
-          git commit -m "$*"
-          git push
-        }
-
-        atouch() {
-          for file_path_info in "$@"; do
-            mkdir -p -- "$(dirname -- "$file_path_info")"
-            touch -- "$file_path_info"
-          done
-        }
-
-        mn() { mix new "$@" && cd "$@" }
-        cn() { cargo new "$@" && cd "$@" }
-        gm() { mkdir "$@" && cd "$@" && go mod init github.com/sciencefidelity/"$@" }
-        sc() { npm init @svelte-add/kit@latest -y "$@" -- --demos false --with typescript+eslint+prettier && cd "$@" }
-
-        fo() { find . -name "$@"  -not -path './node_modules/*' -not -path './.svelte-kit/*' -not -path ./.histoire -not -path ./.git -exec nvim {} \; }
-
-        # archive extractor - usage: ext <file>
-        ext()
-        {
-          if [ -f $1 ] ; then
-            case $1 in
-              *.tar.bz2) tar xjf $1;;
-              *.tar.gz) tar xzf $1;;
-              *.tar.xz) tar xJf $1;;
-              *.bz2) bunzip2 $1;;
-              *.rar) unrar x $1;;
-              *.gz) gunzip $1 ;;
-              *.tar) tar xf $1 ;;
-              *.tbz2) tar xjf $1;;
-              *.tgz) tar xzf $1;;
-              *.zip) unzip $1;;
-              *.Z) uncompress $1;;
-              *.7z) 7z x $1;;
-              *) echo "'$1' cannot be extracted via ex()";;
-            esac
-          else
-            echo "'$1' is not a valid file"
-          fi
-        }
-        export PATH="$HOME/.npm-globals/bin:$PATH"
+        ${builtins.readFile /Users/matt/Developer/dotfiles/config/zsh/zshrc}
       '';
 
       initExtraBeforeCompInit = ''
@@ -613,7 +503,6 @@ in {
   };
 
   services.nix-daemon.enable = true;
-  services.emacs.package = pkgs.emacsUnstable;
 
   system.defaults.dock = {
     autohide-delay = 0.1;
