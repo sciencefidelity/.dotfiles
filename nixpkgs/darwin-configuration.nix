@@ -113,6 +113,7 @@ in
       "insomnia"
       "iterm2-nightly"
       "karabiner-elements"
+      "linear-linear"
       "microsoft-edge"
       "microsoft-teams"
       "miro"
