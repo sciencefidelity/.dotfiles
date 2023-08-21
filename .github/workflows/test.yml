@@ -31,3 +31,9 @@ jobs:
         run: |
           echo ${{ env.MATT_ENV }}
           echo ${{ env.PACKAGE_TAG }}
+
+      - name: test 4
+        run: |
+          echo ${{ env.GITHUB_HEAD_REF }}
+          echo ${{ env.GITHUB_REF }}
+          echo ${{ env.GITHUB_REF_NAME }}
