@@ -1,9 +1,12 @@
 name: Package
 on:
   pull_request:
-  push:
-    branches:
-      - main
+  pull_request_target:
+    types:
+      - closed
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   publish:
@@ -27,7 +30,7 @@ jobs:
         run: |
           echo ${{ github.event.pull_request.merged }}
           echo ${{ github.event.pull_request.closed }}
-          echo ${{ github.event.pull_request.closed }}
+          echo ${{ github.event.push }}
           echo ${{ github.head_ref }}
           echo ${{ github.ref }}
           echo ${{ github.ref_name }}
