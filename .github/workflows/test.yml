@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: test 1
         run: |
-          echo ${{ github.event }}
+          echo ${{ github.event.pull_request }}
           echo ${{ github.head_ref }}
           echo ${{ github.ref }}
           echo ${{ github.ref_name }}
