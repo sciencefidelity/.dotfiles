@@ -38,7 +38,7 @@ jobs:
       - name: test 2
         run: |
           echo ${{ (github.event.pull_request.merged == true && github.ref_name == 'main') && 'production' || 'staging' }}
-          echo ${{ (github.event.pull_request.merged == true && github.ref_name == 'main') && '' || '--tag beta' }}
+          echo ${{ (github.event.pull_request.merged == true && github.ref_name == 'main') && 'yarn package' || 'yarn package --tag beta' }}
 
       - name: test 3
         run: |
