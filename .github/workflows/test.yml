@@ -13,13 +13,21 @@ jobs:
       run:
         shell: bash
     env:
-      MATT_ENV: ${{ (github.event.pull_request.merged == true && github.ref == 'main') && 'production' || 'staging' }}
-      PACKAGE_TAG: ${{ (github.event.pull_request.merged == true && github.ref == 'main') && '' || '--tag beta' }}
+      MATT_ENV: ${{ (github.event.pull_request.merged == true && GITHUB_BRANCH == 'main') && 'production' || 'staging' }}
+      PACKAGE_TAG: ${{ (github.event.pull_request.merged == true && GITHUB_BRANCH == 'main') && '' || '--tag beta' }}
 
     steps:
+      - name: Set Environment Variables
+        run: |
+          ref=$(git branch -r --contains ${{ github.sha }})
+          branch=${ref##*/}
+          echo -ne "GITHUB_BRANCH=$branch" >> $GITHUB_ENV
+
       - name: test 1
         run: |
-          echo ${{ github.event.pull_request }}
+          echo ${{ github.event.pull_request.merged }}
+          echo ${{ github.event.pull_request.closed }}
+          echo ${{ github.event.pull_request.closed }}
           echo ${{ github.head_ref }}
           echo ${{ github.ref }}
           echo ${{ github.ref_name }}
@@ -33,3 +41,4 @@ jobs:
         run: |
           echo ${{ env.MATT_ENV }}
           echo ${{ env.PACKAGE_TAG }}
+          echo ${{ env.GITHUB_BRANCH }}
