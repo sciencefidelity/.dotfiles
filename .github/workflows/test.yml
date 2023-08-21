@@ -21,6 +21,8 @@ jobs:
         run: |
           echo ${{ github.event.pull_request.merged }}
           echo ${{ github.head_ref }}
+          echo ${{ github.ref }}
+          echo ${{ github.ref_name }}
 
       - name: test 2
         run: |
@@ -31,9 +33,3 @@ jobs:
         run: |
           echo ${{ env.MATT_ENV }}
           echo ${{ env.PACKAGE_TAG }}
-
-      - name: test 4
-        run: |
-          echo ${{ $GITHUB_HEAD_REF }}
-          echo ${{ $GITHUB_REF }}
-          echo ${{ $GITHUB_REF_NAME }}
