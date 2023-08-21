@@ -34,6 +34,6 @@ jobs:
 
       - name: test 4
         run: |
-          echo ${{ GITHUB_HEAD_REF }}
-          echo ${{ GITHUB_REF }}
-          echo ${{ GITHUB_REF_NAME }}
+          echo ${{ $GITHUB_HEAD_REF }}
+          echo ${{ $GITHUB_REF }}
+          echo ${{ $GITHUB_REF_NAME }}
