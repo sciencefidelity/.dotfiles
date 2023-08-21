@@ -34,8 +34,8 @@ jobs:
 
       - name: test 2
         run: |
-          echo ${{ (github.event.pull_request.merged == true && github.head_ref == 'main') && 'production' || 'staging' }}
-          echo ${{ (github.event.pull_request.merged == true && github.head_ref == 'main') && '' || '--tag beta' }}
+          echo ${{ (github.event.pull_request.merged != false && github.head_ref == 'main') && 'production' || 'staging' }}
+          echo ${{ (github.event.pull_request.merged != false && github.head_ref == 'main') && '' || '--tag beta' }}
 
       - name: test 3
         run: |
