@@ -13,13 +13,13 @@ jobs:
       run:
         shell: bash
     env:
-      MATT_ENV: ${{ (github.event.pull_request.merged == true && github.head_ref == 'main') && 'production' || 'staging' }}
-      PACKAGE_TAG: ${{ (github.event.pull_request.merged == true && github.head_ref == 'main') && '' || '--tag beta' }}
+      MATT_ENV: ${{ (github.event.pull_request.merged == true && github.ref == 'main') && 'production' || 'staging' }}
+      PACKAGE_TAG: ${{ (github.event.pull_request.merged == true && github.ref == 'main') && '' || '--tag beta' }}
 
     steps:
       - name: test 1
         run: |
-          echo ${{ github.event.pull_request.merged }}
+          echo ${{ github.event }}
           echo ${{ github.head_ref }}
           echo ${{ github.ref }}
           echo ${{ github.ref_name }}
