@@ -1,0 +1,33 @@
+name: Package
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    name: Hello
+    defaults:
+      run:
+        shell: bash
+    env:
+      MATT_ENV: ${{ (github.event.pull_request.merged == true && github.head_ref == 'main') && 'production' || 'staging' }}
+      PACKAGE_TAG: ${{ (github.event.pull_request.merged == true && github.head_ref == 'main') && '' || '--tag beta' }}
+
+    steps:
+      - name: test 1
+        run: |
+          echo ${{ github.event.pull_request.merged }}
+          echo ${{ github.head_ref }}
+
+      - name: test 2
+        run: |
+          echo ${{ (github.event.pull_request.merged == true && github.head_ref == 'main') && 'production' || 'staging' }}
+          echo ${{ (github.event.pull_request.merged == true && github.head_ref == 'main') && '' || '--tag beta' }}
+
+      - name: test 3
+        run: |
+          echo ${{ env.MATT_ENV }}
+          echo ${{ env.PACKAGE_TAG }}
