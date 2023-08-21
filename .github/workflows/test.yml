@@ -12,9 +12,6 @@ jobs:
     defaults:
       run:
         shell: bash
-    env:
-      MATT_ENV: ${{ (github.event.pull_request.merged == true && env.GITHUB_BRANCH == 'main') && 'production' || 'staging' }}
-      PACKAGE_TAG: ${{ (github.event.pull_request.merged == true && env.GITHUB_BRANCH == 'main') && '' || '--tag beta' }}
 
     steps:
       - name: Set Environment Variables
@@ -42,3 +39,6 @@ jobs:
           echo ${{ env.MATT_ENV }}
           echo ${{ env.PACKAGE_TAG }}
           echo ${{ env.GITHUB_BRANCH }}
+        env:
+          MATT_ENV: ${{ (github.event.pull_request.merged == true && env.GITHUB_BRANCH == 'main') && 'production' || 'staging' }}
+          PACKAGE_TAG: ${{ (github.event.pull_request.merged == true && env.GITHUB_BRANCH == 'main') && '' || '--tag beta' }}
