@@ -11,7 +11,7 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    name: Hello Everyone
+    name: Hello
     defaults:
       run:
         shell: bash
