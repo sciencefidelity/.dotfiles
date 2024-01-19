@@ -2,7 +2,7 @@
 
 let
   home-manager = builtins.fetchTarball
-    "https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz";
+    "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz";
   # link = config.lib.file.mkOutOfStoreSymlink;
   pkgsUnstable = import <nixpkgs-unstable> { };
 in
@@ -13,31 +13,39 @@ in
     # shells = [ pkgs.zsh ];
     systemPackages = with pkgs; [
       air
+      arrayfire
+      pkgsUnstable.babashka
       bat
       pkgsUnstable.bun
+      pkgsUnstable.cargo-shuttle
       pkgsUnstable.clojure
       cocoapods
       coreutils
       ctags
       curl
       delta
-      pkgsUnstable.deno
+      # pkgsUnstable.deno
       duf
+      emacs29-nox
       pkgsUnstable.elixir_1_15
       pkgsUnstable.elixir-ls
       pkgsUnstable.erlang_26
-      exa
+      eza
       fd
+      pkgsUnstable.flyctl
       fswatch
       fzf
       gh
       git
       gnupg
-      pkgsUnstable.go
+      # pkgsUnstable.go
       pkgsUnstable.gopls
       home-manager
+      # pkgsUnstable.python311Packages.jupyterlab
+      imagemagick
       lazygit
       lf
+      mkcert
       moreutils
       mosh
       neovim-unwrapped
@@ -50,17 +58,25 @@ in
       nodePackages.yalc
       nodePackages.yarn
       pkgsUnstable.openai
+      pango
       pinentry
-      python3Full
+      pv
+      # python311Full
+      # pkgsUnstable.python311Packages.pip
       unrar
       pkgsUnstable.railway
       ripgrep
-      rustup
+      pkgsUnstable.rust-script
+      pkgsUnstable.rustup
       pscale
       starship
       tree
-      wget
       pkgsUnstable.vimPlugins.lazy-nvim
+      pkgsUnstable.wasm-pack
+      pkgsUnstable.wasmer
+      pkgsUnstable.wasmtime
+      wget
+      pkgsUnstable.worker-build
       zsh
       zsh-autosuggestions
       zsh-syntax-highlighting
@@ -92,7 +108,7 @@ in
       "tinygo-org/tools"
     ];
 
-    brews = [ "auth0" "binaryen" "fastly" "gcc" "java" "leiningen" "mongosh" "tinygo" "vapor" ];
+    brews = [ "auth0" "binaryen" "deno" "fastly" "gcc" "go" "java" "leiningen" "mongosh" "nss" "python" "tinygo" "vapor" ];
 
     casks = [
       "affinity-designer"
@@ -120,7 +136,9 @@ in
       "notion"
       "nova"
       "obsidian"
+      "reader"
       "redisinsight"
+      "safari-technology-preview"
       "sigmaos"
       "slack"
       "spotify"
@@ -366,9 +384,7 @@ in
         crystal.disabled = true;
         docker_context.disabled = true;
         dotnet.disabled = true;
-        gcloud.disabled = true;
         helm.disabled = true;
-        java.disabled = true;
         julia.disabled = true;
         hg_branch.disabled = true;
         openstack.disabled = true;
@@ -383,7 +399,6 @@ in
         vagrant.disabled = true;
         vlang.disabled = true;
         vcsh.disabled = true;
-        zig.disabled = true;
 
         character = {
           success_symbol = "[➜](bold green)";
@@ -418,7 +433,7 @@ in
       enable = true;
       enableAutosuggestions = true;
       enableCompletion = true;
-      enableSyntaxHighlighting = true;
+      syntaxHighlighting.enable = true;
       autocd = true;
 
       history = {
@@ -441,12 +456,12 @@ in
         "..." = "cd ../..";
         "...." = "cd ../../..";
         "....." = "cd ../../../..";
-        ls = "exa -F --group-directories-first";
-        l = "exa -aF --group-directories-first";
-        la = "exa -laF --group-directories-first --git";
-        ll = "exa -lF --group-directories-first --git";
-        lt = "exa -T --git-ignore";
-        lr = "exa -R --git-ignore";
+        ls = "eza -F --group-directories-first";
+        l = "eza -aF --group-directories-first";
+        la = "eza -laF --group-directories-first --git";
+        ll = "eza -lF --group-directories-first --git";
+        lt = "eza -T --git-ignore";
+        lr = "eza -R --git-ignore";
         df = "df -kTh";
         touch = "atouch";
         mkdir = "mkdir -pv";
@@ -476,9 +491,9 @@ in
         gotdd = "go test && fswatch -o . | (while read; do grc go test; done)";
         dartwatch = "dart run && fswatch -o -1 -d bin | (while read; do dart run; done)";
         darttdd = "dart test && fswatch -o -1 -d bin test | (while read; do dart test; done)";
-        python = "python3";
+        # python = "python3";
         pywatch = "python challenge.py && fswatch -o . | (while read; do python challenge.py; done)";
-        pip = "pip3";
+        # pip = "pip3";
       };
     };
   };
