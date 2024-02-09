@@ -18,6 +18,7 @@ in
       bat
       pkgsUnstable.bun
       pkgsUnstable.cargo-shuttle
+      pkgsUnstable.clang-tools
       pkgsUnstable.clojure
       cocoapods
       coreutils
@@ -60,6 +61,7 @@ in
       pkgsUnstable.openai
       pango
       pinentry
+      pkg-config
       pv
       # python311Full
       # pkgsUnstable.python311Packages.pip
@@ -102,8 +104,6 @@ in
       "fastly/tap"
       "homebrew/bundle"
       "homebrew/services"
-      "homebrew/core"
-      "homebrew/cask"
       "homebrew/cask-versions"
       "tinygo-org/tools"
     ];
@@ -116,6 +116,7 @@ in
       "affinity-publisher"
       "android-studio"
       "appcleaner"
+      "balenaetcher"
       "bartender"
       "brave-browser"
       "dash"
@@ -136,6 +137,7 @@ in
       "notion"
       "nova"
       "obsidian"
+      "raspberry-pi-imager"
       "reader"
       "redisinsight"
       "safari-technology-preview"
@@ -234,13 +236,15 @@ in
         ];
       };
       themes = {
-        dracula = builtins.readFile (pkgs.fetchFromGitHub
-          {
+        dracula = {
+          src = pkgs.fetchFromGitHub {
             owner = "dracula";
             repo = "sublime"; # Bat uses sublime syntax for its themes
             rev = "26c57ec282abcaa76e57e055f38432bd827ac34e";
             sha256 = "019hfl4zbn4vm4154hh3bwk6hm7bdxbr1hdww83nabxwjn99ndhv";
-          } + "/Dracula.tmTheme");
+          };
+          file = "Dracula.tmTheme";
+        };
       };
     };
 
@@ -485,6 +489,7 @@ in
         gco = "git checkout";
         gbr = "git branch";
         lg = "lazygit";
+        cf = "clang-format -i";
         cleanup = "find . -name '*.DS_Store' -type f -ls -delete";
         ios = "open -a Simulator";
         hs = "open -a Hammerspoon";
