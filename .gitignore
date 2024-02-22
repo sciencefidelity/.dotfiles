@@ -7,6 +7,12 @@
 # generated
 packer_compiled.lua
 *.so
+auto-save-list
+elpa
+transient
+alpine/config/tmux/plugins
+zsh-autosuggestions
+zsh-syntax-highlighting
 
 # secrets
 .secrets
