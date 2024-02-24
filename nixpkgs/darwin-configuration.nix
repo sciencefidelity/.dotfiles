@@ -1,4 +1,4 @@
-{ /* config, lib, */ pkgs, ... }:
+{ pkgs, ... }:
 
 let
   home-manager = builtins.fetchTarball
