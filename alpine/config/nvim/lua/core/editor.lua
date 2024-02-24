@@ -15,7 +15,7 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.scrolloff = 8
-vim.opt.isfname:append("@-@")
+-- vim.opt.isfname:append("@-@")
 
 -- turn on signcolumn by default to prevent right shift
 vim.o.signcolumn = "yes"
