@@ -14,6 +14,7 @@ export VISUAL="$EDITOR"
 export COLORTERM=truecolor
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
+bindkey -v
 bindkey "^ " autosuggest-accept
 
 cn() { cargo new "$@" && cd "$@"; }
