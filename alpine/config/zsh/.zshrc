@@ -32,6 +32,7 @@ alias la='eza -lAF --group-directories-first --git'
 alias ll='eza -lF --group-directories-first --git'
 alias lt='eza -T --git-ignore'
 alias lr='eza -R --git-ignore'
+alias lg='lazygit'
 
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH="$HOME/.cargo/bin:$PATH"
