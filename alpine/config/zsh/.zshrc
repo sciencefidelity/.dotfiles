@@ -14,6 +14,7 @@ export VISUAL="$EDITOR"
 export COLORTERM=truecolor
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
+bindkey -v
 bindkey "^ " autosuggest-accept
 
 cn() { cargo new "$@" && cd "$@"; }
@@ -31,6 +32,7 @@ alias la='eza -lAF --group-directories-first --git'
 alias ll='eza -lF --group-directories-first --git'
 alias lt='eza -T --git-ignore'
 alias lr='eza -R --git-ignore'
+alias lg='lazygit'
 
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH="$HOME/.cargo/bin:$PATH"
