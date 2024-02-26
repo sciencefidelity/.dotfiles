@@ -49,7 +49,7 @@ in
       mkcert
       moreutils
       mosh
-      neovim-unwrapped
+      pkgsUnstable.neovim-unwrapped
       nil
       nixpkgs-fmt
       pkgsUnstable.nodejs_20
@@ -73,7 +73,8 @@ in
       pscale
       starship
       tree
-      pkgsUnstable.vimPlugins.lazy-nvim
+      # pkgsUnstable.vimPlugins.lazy-nvim
+      # pkgsUnstable.vimPlugins.packer-nvim
       pkgsUnstable.wasm-pack
       pkgsUnstable.wasmer
       pkgsUnstable.wasmtime
@@ -306,6 +307,11 @@ in
       withNodeJs = true;
       viAlias = true;
       vimAlias = true;
+    };
+
+    xdg.configFile.nvim = {
+      source = ../config/nvim;
+      recursive = true;
     };
 
     programs.starship = {

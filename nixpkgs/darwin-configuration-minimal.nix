@@ -110,7 +110,7 @@
     };
   };
 
-  networking.hostName = "naen";
+  networking.hostName = "macbook";
   nix.useDaemon = true;
   services.nix-daemon.enable = true;
 
