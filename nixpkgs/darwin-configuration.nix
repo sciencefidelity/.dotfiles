@@ -26,6 +26,7 @@ in
       curl
       delta
       # pkgsUnstable.deno
+      pkgsUnstable.dioxus-cli
       duf
       emacs29-nox
       pkgsUnstable.elixir_1_15
@@ -105,6 +106,7 @@ in
       "fastly/tap"
       "homebrew/bundle"
       "homebrew/services"
+      "homebrew/cask"
       "homebrew/cask-versions"
       "tinygo-org/tools"
     ];
@@ -216,7 +218,7 @@ in
     ];
     home.sessionVariables = {
       ANDROID_SDK = "~/Library/Android/sdk";
-      BAT_THEME = "Dracula";
+      BAT_THEME = "Catppuccin-mocha";
       CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       EDITOR = "nvim";
@@ -227,7 +229,7 @@ in
     programs.bat = {
       enable = true;
       config = {
-        theme = "Dracula";
+        theme = "Catppuccin-mocha";
         italic-text = "always";
         style = "full";
         map-syntax = [
@@ -237,14 +239,14 @@ in
         ];
       };
       themes = {
-        dracula = {
+        Catppuccin-mocha = {
           src = pkgs.fetchFromGitHub {
-            owner = "dracula";
-            repo = "sublime"; # Bat uses sublime syntax for its themes
+            owner = "catppuccin";
+            repo = "bat"; # Bat uses sublime syntax for its themes
             rev = "26c57ec282abcaa76e57e055f38432bd827ac34e";
-            sha256 = "019hfl4zbn4vm4154hh3bwk6hm7bdxbr1hdww83nabxwjn99ndhv";
+            sha256 = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
           };
-          file = "Dracula.tmTheme";
+          file = "Catppuccin-mocha.tmTheme";
         };
       };
     };
@@ -425,7 +427,8 @@ in
           disabled = false;
         };
 
-        nodejs = { symbol = "⬢ "; };
+        # nodejs = { symbol = "⬢ "; };
+        nodejs = { symbol = "🐢 "; };
 
         package = { format = "is [$version](bold red) "; };
 
@@ -480,7 +483,6 @@ in
         mv = "mv -iv";
         rm = "rm -rIv";
         du = "du -h -c";
-        cat = "bat";
         fd = "fdfind";
         c = "code";
         dv = "npm run dev";
@@ -522,7 +524,7 @@ in
       ANDROID_SDK = "~/Library/Android/sdk";
       CHROME_EXECUTABLE = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
       CHROME_PATH = "/Applications/Brave Browser.app/Contents/MacOS/Brave Browser";
-      BAT_THEME = "Dracula";
+      BAT_THEME = "Catppuccin-mocha";
       EDITOR = "nvim";
       GOPATH = "/Users/matt/Developer/go";
       VISUAL = "$EDITOR";
