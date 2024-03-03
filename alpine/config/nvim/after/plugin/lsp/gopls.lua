@@ -1,9 +1,12 @@
 require("lspconfig").gopls.setup({
   settings = {
-    completeUnimported = true,
-    usePlaceholders = true,
-    analyses = {
-      unusedparams = true,
+    gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
     },
   },
 })

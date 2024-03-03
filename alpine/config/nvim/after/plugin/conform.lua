@@ -14,14 +14,6 @@ require("conform").setup({
     lsp_fallback = true,
     timeout_ms = 500,
   },
-  --[[ 
-  formatters = {
-    mix_format = {
-      command = "mix",
-      args = { "format", "$FILENAME" },
-    },
-  },
-   --]]
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
