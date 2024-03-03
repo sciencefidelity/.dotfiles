@@ -1,5 +1,5 @@
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-local cmp = require "cmp"
+local cmp = require("cmp")
 
 local kind_icons = {
   Text = " ",
@@ -31,23 +31,21 @@ local kind_icons = {
 
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
-    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<C-e>"] = cmp.mapping.abort(),
+    ["<CR>"] = cmp.mapping.confirm({ select = true }),
   }),
   sources = cmp.config.sources({
     { name = "nvim_lua" },
     { name = "nvim_lsp" },
     { name = "path" },
     { name = "luasnip" },
-    { name = "buffer",  keyword_length = 5 },
+    { name = "buffer", keyword_length = 5 },
   }),
   snippet = {
-    expand = function(args)
-      require("luasnip").lsp_expand(args.body)
-    end,
+    expand = function(args) require("luasnip").lsp_expand(args.body) end,
   },
   formatting = {
     format = function(entry, vim_item)
@@ -60,7 +58,7 @@ cmp.setup({
         -- path = "[path]",
       })[entry.source.name]
       return vim_item
-    end
+    end,
   },
   experimental = {
     native_menu = false,

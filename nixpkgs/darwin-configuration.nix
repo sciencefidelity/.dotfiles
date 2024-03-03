@@ -20,6 +20,7 @@ in
       pkgsUnstable.cargo-shuttle
       pkgsUnstable.clang-tools
       pkgsUnstable.clojure
+      pkgsUnstable.clojure-lsp
       cocoapods
       coreutils
       ctags
@@ -41,17 +42,25 @@ in
       git
       gnupg
       # pkgsUnstable.go
+      pkgsUnstable.goimports-reviser
+      pkgsUnstable.golines
       pkgsUnstable.gopls
       home-manager
       # pkgsUnstable.python311Packages.jupyterlab
       imagemagick
+      jdk21
+      pkgsUnstable.jdt-language-server
       lazygit
       lf
+      lua5_4_compat
+      # luajit
+      pkgsUnstable.lua-language-server
       mkcert
       moreutils
       mosh
       pkgsUnstable.neovim-unwrapped
       nil
+      pkgsUnstable.nixd
       nixpkgs-fmt
       pkgsUnstable.nodejs_20
       nodePackages.degit
@@ -73,6 +82,7 @@ in
       pkgsUnstable.rustup
       pscale
       starship
+      pkgsUnstable.stylua
       tree
       # pkgsUnstable.vimPlugins.lazy-nvim
       # pkgsUnstable.vimPlugins.packer-nvim
@@ -81,6 +91,8 @@ in
       pkgsUnstable.wasmtime
       wget
       pkgsUnstable.worker-build
+      zig
+      zls
       zsh
       zsh-autosuggestions
       zsh-syntax-highlighting

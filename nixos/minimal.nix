@@ -5,7 +5,8 @@
 
 {
 
-  imports = [ # the results of the hardware scan, do not change
+  imports = [
+    # the results of the hardware scan, do not change
     <nixos-hardware/raspberry-pi/4>
     ./hardware-configuration.nix
   ];

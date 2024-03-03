@@ -1,9 +1,9 @@
-require("nvim-treesitter.configs").setup {
-  ensure_installed = { "c", "cpp", "elixir", "go", "lua", "nix", "rust", "typescript", "zig" },
+require("nvim-treesitter.configs").setup({
+  ensure_installed = { "c", "clojure", "cpp", "elixir", "go", "java", "lua", "nix", "rust", "zig" },
   sync_installed = false,
   auto_install = false,
   highlight = {
     enable = true,
   },
   additional_vim_regex_highlightling = false,
-}
+})
