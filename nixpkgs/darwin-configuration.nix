@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   home-manager = builtins.fetchTarball
@@ -33,6 +33,7 @@ in
       pkgsUnstable.elixir_1_15
       pkgsUnstable.elixir-ls
       pkgsUnstable.erlang_26
+      eslint_d
       eza
       fd
       pkgsUnstable.flyctl
@@ -65,6 +66,8 @@ in
       pkgsUnstable.nodejs_20
       nodePackages.degit
       pkgsUnstable.nodePackages.pnpm
+      pkgsUnstable.nodePackages.svelte-language-server
+      pkgsUnstable.nodePackages.typescript-language-server
       nodePackages.wrangler
       nodePackages.yalc
       nodePackages.yarn
@@ -72,6 +75,7 @@ in
       pango
       pinentry
       pkg-config
+      prettierd
       pv
       # python311Full
       # pkgsUnstable.python311Packages.pip
@@ -84,6 +88,7 @@ in
       starship
       pkgsUnstable.stylua
       tree
+      pkgsUnstable.typescript
       # pkgsUnstable.vimPlugins.lazy-nvim
       # pkgsUnstable.vimPlugins.packer-nvim
       pkgsUnstable.wasm-pack

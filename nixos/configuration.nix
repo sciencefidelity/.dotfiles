@@ -5,7 +5,7 @@
 let
   home-manager = builtins.fetchTarball
     "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-  link = config.lib.file.mkOutOfStoreSymlink;
+  # link = config.lib.file.mkOutOfStoreSymlink;
 in
 {
 
