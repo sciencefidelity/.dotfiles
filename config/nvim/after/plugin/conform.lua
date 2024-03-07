@@ -9,6 +9,8 @@ require("conform").setup({
     lua = { "stylua" },
     nix = { "nixpkgs_fmt" },
     rust = { "rustfmt" },
+    svelte = { "prettier" },
+    typescript = { "prettier" },
     zig = { "zigfmt" },
   },
   format_on_save = {
