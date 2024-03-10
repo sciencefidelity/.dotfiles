@@ -1,5 +1,5 @@
 require("nvim-treesitter.configs").setup({
-  ensure_installed = { "c", "clojure", "cpp", "elixir", "go", "java", "lua", "rust", "zig" },
+  ensure_installed = { "c", "clojure", "cpp", "elixir", "erlang", "go", "java", "lua", "rust", "zig" },
   sync_installed = false,
   auto_install = false,
   highlight = {
