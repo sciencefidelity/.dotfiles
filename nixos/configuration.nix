@@ -5,10 +5,12 @@
 let
   home-manager = builtins.fetchTarball
     "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-  link = config.lib.file.mkOutOfStoreSymlink;
-in {
+  # link = config.lib.file.mkOutOfStoreSymlink;
+in
+{
 
-  imports = [ # the results of the hardware scan, do not change
+  imports = [
+    # the results of the hardware scan, do not change
     ./hardware-configuration.nix
     <nixos-hardware/raspberry-pi/4>
     (import "${home-manager}/nixos")
@@ -36,8 +38,10 @@ in {
   hardware.enableRedistributableFirmware = true;
   nixpkgs.config = { allowUnfree = true; };
   nixpkgs.config.packageOverrides = pkgs: {
-    nur = import (builtins.fetchTarball
-      "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+    nur = import
+      (builtins.fetchTarball
+        "https://github.com/nix-community/NUR/archive/master.tar.gz")
+      {
         inherit pkgs;
       };
   };
@@ -78,9 +82,11 @@ in {
 
   services.cron = {
     enable = true;
-    systemCronJobs = [''
-      0 * * * *      root    cd /home/matt/Developer; for d in */; do cd "$d"; git pull; done
-    ''];
+    systemCronJobs = [
+      ''
+        0 * * * *      root    cd /home/matt/Developer; for d in */; do cd "$d"; git pull; done
+      ''
+    ];
   };
 
   services.emacs = {
@@ -282,12 +288,13 @@ in {
         ];
       };
       themes = {
-        dracula = builtins.readFile (pkgs.fetchFromGitHub {
-          owner = "dracula";
-          repo = "sublime"; # Bat uses sublime syntax for its themes
-          rev = "26c57ec282abcaa76e57e055f38432bd827ac34e";
-          sha256 = "019hfl4zbn4vm4154hh3bwk6hm7bdxbr1hdww83nabxwjn99ndhv";
-        } + "/Dracula.tmTheme");
+        dracula = builtins.readFile (pkgs.fetchFromGitHub
+          {
+            owner = "dracula";
+            repo = "sublime"; # Bat uses sublime syntax for its themes
+            rev = "26c57ec282abcaa76e57e055f38432bd827ac34e";
+            sha256 = "019hfl4zbn4vm4154hh3bwk6hm7bdxbr1hdww83nabxwjn99ndhv";
+          } + "/Dracula.tmTheme");
       };
     };
 

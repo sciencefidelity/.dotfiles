@@ -1,9 +1,28 @@
-require("nvim-treesitter.configs").setup {
-  ensure_installed = { "c", "cpp", "elixir", "go", "lua", "nix", "rust", "typescript", "zig" },
+require("nvim-treesitter.configs").setup({
+  ensure_installed = {
+    "astro",
+    "c",
+    "clojure",
+    "cpp",
+    "css",
+    "elixir",
+    "go",
+    "html",
+    "java",
+    "javascript",
+    "lua",
+    "nix",
+    "rust",
+    "scss",
+    "svelte",
+    "tsx",
+    "typescript",
+    "zig",
+  },
   sync_installed = false,
   auto_install = false,
   highlight = {
     enable = true,
   },
   additional_vim_regex_highlightling = false,
-}
+})

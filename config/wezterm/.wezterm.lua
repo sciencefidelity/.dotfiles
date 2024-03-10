@@ -1,13 +1,13 @@
-local wezterm = require "wezterm"
+local wezterm = require("wezterm")
+local act = wezterm.action
 
 return {
-  font = wezterm.font_with_fallback { "MonoLisa Custom", "Symbols Nerd Font Mono" },
+  font = wezterm.font_with_fallback({ "MonoLisa Custom", "Symbols Nerd Font Mono" }),
   font_size = 13.0,
   line_height = 1.17,
   freetype_load_target = "Light",
   freetype_interpreter_version = 40,
   bold_brightens_ansi_colors = "No",
-  -- color_scheme = "Dracula (Official)",
   color_scheme = "Catppuccin Mocha",
   enable_tab_bar = false,
   tab_bar_at_bottom = true,
@@ -23,6 +23,23 @@ return {
     right = 19,
     top = 80,
     bottom = 10,
+  },
+  keys = {
+    { key = "8", mods = "CTRL", action = act.PaneSelect },
+    {
+      key = "9",
+      mods = "CTRL",
+      action = act.PaneSelect({
+        alphabet = "1234567890",
+      }),
+    },
+    {
+      key = "0",
+      mods = "CTRL",
+      action = act.PaneSelect({
+        mode = "SwapWithActive",
+      }),
+    },
   },
   inactive_pane_hsb = {
     saturation = 1.0,

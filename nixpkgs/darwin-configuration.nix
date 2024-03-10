@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   home-manager = builtins.fetchTarball
@@ -20,10 +20,12 @@ in
       pkgsUnstable.cargo-shuttle
       pkgsUnstable.clang-tools
       pkgsUnstable.clojure
+      pkgsUnstable.clojure-lsp
       cocoapods
       coreutils
       ctags
       curl
+      pkgsUnstable.dart-sass
       delta
       # pkgsUnstable.deno
       pkgsUnstable.dioxus-cli
@@ -32,6 +34,7 @@ in
       pkgsUnstable.elixir_1_15
       pkgsUnstable.elixir-ls
       pkgsUnstable.erlang_26
+      eslint_d
       eza
       fd
       pkgsUnstable.flyctl
@@ -41,21 +44,31 @@ in
       git
       gnupg
       # pkgsUnstable.go
+      pkgsUnstable.goimports-reviser
+      pkgsUnstable.golines
       pkgsUnstable.gopls
       home-manager
       # pkgsUnstable.python311Packages.jupyterlab
       imagemagick
+      jdk21
+      pkgsUnstable.jdt-language-server
       lazygit
       lf
+      lua5_4_compat
+      # luajit
+      pkgsUnstable.lua-language-server
       mkcert
       moreutils
       mosh
       pkgsUnstable.neovim-unwrapped
       nil
+      pkgsUnstable.nixd
       nixpkgs-fmt
       pkgsUnstable.nodejs_20
       nodePackages.degit
       pkgsUnstable.nodePackages.pnpm
+      pkgsUnstable.nodePackages.svelte-language-server
+      pkgsUnstable.nodePackages.typescript-language-server
       nodePackages.wrangler
       nodePackages.yalc
       nodePackages.yarn
@@ -63,6 +76,7 @@ in
       pango
       pinentry
       pkg-config
+      prettierd
       pv
       # python311Full
       # pkgsUnstable.python311Packages.pip
@@ -73,7 +87,9 @@ in
       pkgsUnstable.rustup
       pscale
       starship
+      pkgsUnstable.stylua
       tree
+      pkgsUnstable.typescript
       # pkgsUnstable.vimPlugins.lazy-nvim
       # pkgsUnstable.vimPlugins.packer-nvim
       pkgsUnstable.wasm-pack
@@ -81,6 +97,8 @@ in
       pkgsUnstable.wasmtime
       wget
       pkgsUnstable.worker-build
+      zig
+      zls
       zsh
       zsh-autosuggestions
       zsh-syntax-highlighting
@@ -106,7 +124,6 @@ in
       "fastly/tap"
       "homebrew/bundle"
       "homebrew/services"
-      "homebrew/cask"
       "homebrew/cask-versions"
       "tinygo-org/tools"
     ];

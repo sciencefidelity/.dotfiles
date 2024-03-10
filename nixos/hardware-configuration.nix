@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "usbhid" "uas" ];
@@ -14,18 +15,19 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/abb3b8bf-cfda-4500-99b3-dc14f5034f75";
+    {
+      device = "/dev/disk/by-uuid/abb3b8bf-cfda-4500-99b3-dc14f5034f75";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/349E-09DE";
+    {
+      device = "/dev/disk/by-uuid/349E-09DE";
       fsType = "vfat";
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/f4fcf5fc-ff8f-4a27-b385-0e615c845674"; }
-    ];
+    [{ device = "/dev/disk/by-uuid/f4fcf5fc-ff8f-4a27-b385-0e615c845674"; }];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
 }

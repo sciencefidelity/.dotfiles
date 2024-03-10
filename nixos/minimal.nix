@@ -1,11 +1,12 @@
 # UltraMinimal NixOS config for Raspberry pi
 # Comment lines 10 and 14 to 22 for SD
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
 
-  imports = [ # the results of the hardware scan, do not change
+  imports = [
+    # the results of the hardware scan, do not change
     <nixos-hardware/raspberry-pi/4>
     ./hardware-configuration.nix
   ];
