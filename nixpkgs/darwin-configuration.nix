@@ -25,6 +25,7 @@ in
       coreutils
       ctags
       curl
+      pkgsUnstable.dart-sass
       delta
       # pkgsUnstable.deno
       pkgsUnstable.dioxus-cli
@@ -123,7 +124,6 @@ in
       "fastly/tap"
       "homebrew/bundle"
       "homebrew/services"
-      "homebrew/cask"
       "homebrew/cask-versions"
       "tinygo-org/tools"
     ];

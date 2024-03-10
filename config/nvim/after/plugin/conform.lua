@@ -1,16 +1,21 @@
 require("conform").setup({
   formatters_by_ft = {
+    astro = { "prettierd" },
     c = { "clang_format" },
     clojure = { "cljstyle" },
     cpp = { "clang_format" },
+    css = { "prettierd" },
     elixir = {},
     go = { "gofmt", "golines", "goimports" },
+    html = { "prettierd" },
     java = {},
     lua = { "stylua" },
     nix = { "nixpkgs_fmt" },
     rust = { "rustfmt" },
-    svelte = { "prettier" },
-    typescript = { "prettier" },
+    scss = { "prettierd" },
+    svelte = { "prettierd" },
+    tsx = { "prettierd" },
+    typescript = { "prettierd" },
     zig = { "zigfmt" },
   },
   format_on_save = {
