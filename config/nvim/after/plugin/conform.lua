@@ -8,6 +8,7 @@ require("conform").setup({
     elixir = {},
     go = { "gofmt", "golines", "goimports" },
     html = { "prettierd" },
+    json = { "prettierd" },
     java = {},
     lua = { "stylua" },
     nix = { "nixpkgs_fmt" },
@@ -16,6 +17,7 @@ require("conform").setup({
     svelte = { "prettierd" },
     tsx = { "prettierd" },
     typescript = { "prettierd" },
+    yaml = { "prettierd" },
     zig = { "zigfmt" },
   },
   format_on_save = {
