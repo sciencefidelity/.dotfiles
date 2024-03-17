@@ -47,6 +47,20 @@ in
       eval "$(ssh-agent -s)" > /dev/null
       ssh-add ~/.ssh/github 2> /dev/null
       export GPG_TTY=$(tty)
+      autoload -U colors && colors
+      PROMPTBASE="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+      checkExtraDev(){
+        [ -z ''${extra_dev_shell} ] && return
+        addspace=""
+        [ ! -z ''${extra_packages} ] && addspace=" "
+        echo "$extra_dev_shell$addspace"
+      }
+      updateps1() {
+        PS1="$PROMPTBASE"
+        [ ! -z ''${extra_dev_shell} ] || [ ! -z ''${extra_packages} ] && \
+        PS1="%B$fg[red][$fg[green]$(checkExtraDev)$fg[blue]$extra_packages$fg[red]]$fg[blue] $PROMPTBASE"
+      }
+      updateps1
       bindkey -v
       bindkey "^ " autosuggest-accept
       bindkey -M menuselect "h" vi-backward-char

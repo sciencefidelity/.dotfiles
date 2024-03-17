@@ -26,6 +26,7 @@
       lazygit
       luajit
       lua-language-server
+      neofetch
       neovim-unwrapped
       # nixd
       nixpkgs-fmt
@@ -37,7 +38,13 @@
       zsh-syntax-highlighting
     ];
 
-    file = { };
+    file = {
+      hushlogin = {
+        enable = true;
+        target = ".hushlogin";
+        text = "";
+      };
+    };
 
     sessionVariables = {
       EDITOR = "nvim";
