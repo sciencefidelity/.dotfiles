@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
   aliases = {
@@ -13,7 +13,7 @@ let
     lr = "ls -R";
     df = "df -kTh";
     du = "du -h -c";
-    touch = "atouch";
+    # touch = "atouch";
     mkdir = "mkdir -pv";
     rmdir = "rmdir -pv";
     cp = "cp -Rv";
@@ -29,6 +29,10 @@ in
     packages = with pkgs; [
       zsh-autosuggestions
       zsh-syntax-highlighting
+    ];
+
+    sessionPath = [
+      "${config.home.homeDirectory}/.npm-globals/bin"
     ];
 
     sessionVariables = {

@@ -1,7 +1,10 @@
 # atouch - create file with a folder path
-atouch() {
-  mkdir -p $(sed 's/\(.*\)\/.*/\1/' <<< $1) && touch $1
-}
+# atouch() {
+#   for file_path_info in "$@"; do
+#     mkdir -p -- "$(dirname -- "$file_path_info")"
+#     touch -- "$file_path_info"
+#   done
+# }
 
 # ext = archive extractor
 ext() {

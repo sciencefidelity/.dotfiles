@@ -2,9 +2,7 @@ require("nvim-treesitter.configs").setup({
   ensure_installed = {
     "astro",
     "bash",
-    "c",
     "clojure",
-    "cpp",
     "css",
     "elixir",
     "go",
@@ -27,3 +25,7 @@ require("nvim-treesitter.configs").setup({
   },
   additional_vim_regex_highlightling = false,
 })
+
+require("nvim-treesitter.configs").setup({ ensure_installed = { "c", "cpp" } })
+
+require("nvim-treesitter.configs").setup({ ensure_installed = { "erlang" } })

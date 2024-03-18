@@ -3,7 +3,7 @@
 {
   home = {
     packages = with pkgs; [
-      lua
+      lua5_4_compat
       lua-language-server
       stylua
     ];
