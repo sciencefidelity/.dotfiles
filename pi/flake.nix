@@ -11,22 +11,28 @@
   outputs = { self, home-manager, nixos-hardware, nixpkgs, ... }:
     let
       lib = nixpkgs.lib;
-      system = "aarch64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
     in
     {
       nixosConfigurations = {
         pi = lib.nixosSystem {
-          inherit system;
+          system = "aarch64-linux";
           modules = [
             nixos-hardware.nixosModules.raspberry-pi-4
-            ./configuration.nix
+            ./hosts/pi/configuration.nix
+          ];
+        };
+
+        nixos = lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/nixos/configuration.nix
           ];
         };
       };
+
       homeConfigurations = {
         matt = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+          pkgs = nixpkgs.legacyPackages."aarch64-linux";
           modules = [ ./home.nix ];
         };
       };
