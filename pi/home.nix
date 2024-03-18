@@ -11,6 +11,7 @@
     ./modules/languages/java
     ./modules/languages/lua
     ./modules/languages/rust
+    ./modules/languages/zig
     ./modules/programs/eza
     ./modules/programs/git
     ./modules/programs/gnupg
