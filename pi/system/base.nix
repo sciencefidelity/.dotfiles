@@ -1,36 +1,33 @@
-# UltraMinimal NixOS config for Raspberry pi
-
 { config, lib, pkgs, ... }:
 
-let
-  hostname = "pi";
-  user = "matt";
-in {
-
-  imports = [
-    "${fetchTarball "https://github.com/NixOS/nixos-hardware/tarball/master"}/raspberry-pi/4"
-    ./hardware-configuration.nix
-  ];
-
-  boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
-    kernelParams = [ "8250.nr_uarts=1" "console=ttyAMA0,115200" "console=tty1" ];
-    loader = {
-      grub.enable = false;
-      generic-extlinux-compatible.enable = true;
-    };
-  };
+{
+  imports = [ ./config.nix ];
 
   environment = {
+    pathsToLink = [ "/share/zsh" ];
+
+    shells = with pkgs; [ zsh ];
+
     systemPackages = with pkgs; [
+      autoconf
+      automake
+      clang
+      coreutils
+      curl
+      gcc
       git
-      libraspberrypi
-      neovim-unwrapped
-      raspberrypi-eeprom
+      gnumake
+      htop
+      libtool
+      tree
+      vim
       wget
       zsh
     ];
-    variables = { EDITOR = "nvim"; };
+
+    variables = {
+      EDITOR = "vim";
+    };
   };
 
   hardware = {
@@ -42,13 +39,8 @@ in {
   };
 
   networking = {
-    hostName = hostname;
-    useDHCP = false;
+    hostName = config.hostname;
     wireless.enable = false;
-    interfaces = {
-      eth0.useDHCP = true;
-      wlan0.useDHCP = true;
-    };
   };
 
   nix = {
@@ -82,7 +74,7 @@ in {
       hashedPassword =
         "$6$7G8if/Rn$wA9X6NWKQ6zsKkz60zowc6tajW78kKwrvu8HX15jJWDgzLrPWcP2nC0b6uY4r10oEMNL/Alor7phV/wWrfbxc.";
     };
-    users."${user}" = {
+    users."${config.user}" = {
       hashedPassword =
         "$6$IhUfSjtK9Ydj$qnXZYlZ5KD61T4L6bvpaV.5yxTV/7Q8t8WEQCeJ2u40a9PlMZoBGaPCXIBfrAtru8Pu.ZRYm591anUMdKfypH/";
       isNormalUser = true;
@@ -90,4 +82,3 @@ in {
     };
   };
 }
-

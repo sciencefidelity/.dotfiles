@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   home = {
@@ -52,10 +52,10 @@
       pull = { rebase = false; };
     };
     signing = {
-      key = "0x6D04AAF40371DB76";
+      key = config.gh_key;
       signByDefault = true;
     };
-    userName = "sciencefidelity";
-    userEmail = "32623301+sciencefidelity@users.noreply.github.com";
+    userName = config.org;
+    userEmail = config.gh_email;
   };
 }

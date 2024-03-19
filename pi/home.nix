@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./system/config.nix
     ./modules/files/hushlogin
     ./modules/languages/c
     ./modules/languages/clojure

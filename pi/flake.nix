@@ -1,5 +1,5 @@
 {
-  description = "Raspberry Pi system configuration";
+  description = "Matt's NixOS Configuration";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -14,26 +14,39 @@
     in
     {
       nixosConfigurations = {
+        nixos = lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/nixos/config.nix
+            ./hosts/nixos/configuration.nix
+          ];
+        };
+
         pi = lib.nixosSystem {
           system = "aarch64-linux";
           modules = [
             nixos-hardware.nixosModules.raspberry-pi-4
+            ./hosts/pi/config.nix
             ./hosts/pi/configuration.nix
-          ];
-        };
-
-        nixos = lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./hosts/nixos/configuration.nix
           ];
         };
       };
 
       homeConfigurations = {
-        matt = home-manager.lib.homeManagerConfiguration {
+        "matt@nixos" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          modules = [
+            ./hosts/nixos/config.nix
+            ./home.nix
+          ];
+        };
+
+        "matt@pi" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."aarch64-linux";
-          modules = [ ./home.nix ];
+          modules = [
+            ./hosts/pi/config.nix
+            ./home.nix
+          ];
         };
       };
     };
