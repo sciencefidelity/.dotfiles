@@ -19,7 +19,13 @@
 
   programs.zsh = {
     initExtra = ''
-      ${builtins.readFile ./functions.sh}
+      ${builtins.readFile ./go.sh}
+    '';
+  };
+
+  programs.neovim = {
+    extraLuaConfig = ''
+      ${builtins.readFile ./go.lua}
     '';
   };
 }

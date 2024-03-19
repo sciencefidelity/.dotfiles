@@ -3,13 +3,14 @@
 {
   home = {
     packages = with pkgs; [
-      # nixd
-      nixpkgs-fmt
       fd
       lemonade
       lf
       neofetch
+      # nixd
+      nixpkgs-fmt
       p7zip
+      prettierd
       ripgrep
       unrar-free
       unzip

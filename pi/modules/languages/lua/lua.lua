@@ -1,3 +1,7 @@
+require("nvim-treesitter.configs").setup({
+  ensure_installed = { "lua" },
+})
+
 require("lspconfig").lua_ls.setup({
   settings = {
     Lua = {
@@ -8,3 +12,11 @@ require("lspconfig").lua_ls.setup({
     },
   },
 })
+
+require("conform").setup({
+  formatters_by_ft = {
+    lua = { "stylua" },
+  },
+})
+
+require("Comment.ft").set("lua", { "--%s", "--[[%s--]]" })

@@ -10,7 +10,13 @@
 
   programs.zsh = {
     initExtra = ''
-      ${builtins.readFile ./functions.sh}
+      ${builtins.readFile ./zig.sh}
+    '';
+  };
+
+  programs.neovim = {
+    extraLuaConfig = ''
+      ${builtins.readFile ./zig.lua}
     '';
   };
 }

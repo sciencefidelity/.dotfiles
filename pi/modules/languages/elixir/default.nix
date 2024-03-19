@@ -5,7 +5,7 @@
     file.iex = {
       enable = true;
       target = ".iex.exs";
-      source = ./config/iex.exs;
+      source = ./iex.exs;
     };
 
     packages = with pkgs; [
@@ -17,7 +17,13 @@
 
   programs.zsh = {
     initExtra = ''
-      ${builtins.readFile ./config/functions.sh}
+      ${builtins.readFile ./elixir.sh}
+    '';
+  };
+
+  programs.neovim = {
+    extraLuaConfig = ''
+      ${builtins.readFile ./elixir.lua}
     '';
   };
 }

@@ -12,7 +12,13 @@
 
   programs.zsh = {
     initExtra = ''
-      ${builtins.readFile ./functions.sh}
+      ${builtins.readFile ./clojure.sh}
+    '';
+  };
+
+  programs.neovim = {
+    extraLuaConfig = ''
+      ${builtins.readFile ./clojure.lua}
     '';
   };
 }

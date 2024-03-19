@@ -11,7 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-return require("lazy").setup({
+require("lazy").setup({
   "nvim-lua/plenary.nvim",
   { "catppuccin/nvim", name = "catppuccin" },
   "windwp/nvim-autopairs",

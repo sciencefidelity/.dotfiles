@@ -9,7 +9,13 @@
 
   programs.zsh = {
     initExtra = ''
-      ${builtins.readFile ./functions.sh}
+      ${builtins.readFile ./rust.sh}
+    '';
+  };
+
+  programs.neovim = {
+    extraLuaConfig = ''
+      ${builtins.readFile ./rust.lua}
     '';
   };
 }

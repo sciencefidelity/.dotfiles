@@ -1,5 +1,0 @@
-require("core.remap")
-require("core.lazy")
-require("core.editor")
-require("core.colorscheme")
-require("core.spell")

@@ -15,7 +15,13 @@
 
   programs.zsh = {
     initExtra = ''
-      ${builtins.readFile ./functions.sh}
+      ${builtins.readFile ./java.sh}
+    '';
+  };
+
+  programs.neovim = {
+    extraLuaConfig = ''
+      ${builtins.readFile ./java.lua}
     '';
   };
 }

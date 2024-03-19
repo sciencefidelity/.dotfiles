@@ -7,7 +7,6 @@
     ./modules/languages/clojure
     ./modules/languages/elixir
     ./modules/languages/go
-    ./modules/languages/lua
     ./modules/languages/java
     ./modules/languages/lua
     ./modules/languages/rust
