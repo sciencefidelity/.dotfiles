@@ -71,12 +71,11 @@
     defaultUserShell = pkgs.zsh;
     mutableUsers = false;
     users.root = {
-      hashedPassword =
-        "$6$7G8if/Rn$wA9X6NWKQ6zsKkz60zowc6tajW78kKwrvu8HX15jJWDgzLrPWcP2nC0b6uY4r10oEMNL/Alor7phV/wWrfbxc.";
+      hashedPassword = config.root_pass;
     };
+
     users."${config.user}" = {
-      hashedPassword =
-        "$6$IhUfSjtK9Ydj$qnXZYlZ5KD61T4L6bvpaV.5yxTV/7Q8t8WEQCeJ2u40a9PlMZoBGaPCXIBfrAtru8Pu.ZRYm591anUMdKfypH/";
+      hashedPassword = config.user_pass;
       isNormalUser = true;
       extraGroups = [ "wheel" ];
     };

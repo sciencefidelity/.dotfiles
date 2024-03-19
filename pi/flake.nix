@@ -14,6 +14,15 @@
     in
     {
       nixosConfigurations = {
+        nixbook = lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            nixos-hardware.nixosModules.apple-macbook-pro-12-1
+            ./hosts/nixos/config.nix
+            ./hosts/nixos/configuration.nix
+          ];
+        };
+
         nixos = lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
@@ -33,6 +42,14 @@
       };
 
       homeConfigurations = {
+        "matt@nixbook" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          modules = [
+            ./hosts/nixos/config.nix
+            ./home.nix
+          ];
+        };
+
         "matt@nixos" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           modules = [
