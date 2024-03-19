@@ -2,9 +2,9 @@
 
 {
   options = with lib; with types; {
-    root_pass {type = str};
+    root_pass = mkOption { type = str; };
     user = mkOption { type = str; };
-    user_pass {type = str};
+    user_pass = mkOption { type = str; };
     org = mkOption { type = str; };
     gh_email = mkOption { type = str; };
   };
