@@ -7,6 +7,6 @@
   };
   config = {
     hostname = "nixbook";
-    gh_key = null;
+    gh_key = "0x4C752BECEDAD41CC";
   };
 }
