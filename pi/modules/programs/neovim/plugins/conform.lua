@@ -1,7 +1,6 @@
 require("conform").setup({
   formatters_by_ft = {
     json = { "prettierd" },
-    nix = { "nixpkgs_fmt" },
     yaml = { "prettierd" },
   },
   format_on_save = {

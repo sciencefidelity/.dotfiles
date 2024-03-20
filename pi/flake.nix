@@ -46,7 +46,7 @@
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           modules = [
             ./hosts/nixos/config.nix
-            ./home.nix
+            ./hosts/nixbook/home.nix
           ];
         };
 
