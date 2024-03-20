@@ -16,8 +16,8 @@
       "vm.vsf_cache_pressure" = 50;
     };
     tmp.cleanOnBoot = true;
-    kernalParams = [
-      "hid_apple.fnmode= 2"
+    kernelParams = [
+      "hid_apple.fnmode=2"
       "hid_apple.swap_fn_leftctrl=1"
     ];
   };
