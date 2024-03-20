@@ -34,7 +34,18 @@
     fontDir.enable = true;
     enableDefaultPackages = true;
     packages = with pkgs; [
-      inconsolata
+      (stdenv.mkDerivation {
+        name = "MonoLisa";
+        src = fetchGit {
+          url = "git@github.com:sciencefidelity/fonts.git";
+          ref = "main";
+        };
+        installPhase = ''
+          mkdir -p $out/share/fonts/truetype
+          cp -a $src/monolisa/*.ttf $src/MonoLisa $out/share/fonts/truetype
+        '';
+      })
+      (nerdfonts.override { fonts = [ "SymbolsNerdFontMono" ]; })
     ];
   };
 
