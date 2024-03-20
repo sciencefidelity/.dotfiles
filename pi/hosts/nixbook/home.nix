@@ -3,6 +3,7 @@
 {
   imports = [
     ../../system/config.nix
+    ../../modules/applications/hyprland
     ../../modules/applications/kitty
     ../../modules/files/hushlogin
     ../../modules/languages/c

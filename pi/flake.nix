@@ -18,8 +18,8 @@
           system = "x86_64-linux";
           modules = [
             nixos-hardware.nixosModules.apple-macbook-pro-12-1
-            ./hosts/nixos/config.nix
-            ./hosts/nixos/configuration.nix
+            ./hosts/nixbook/config.nix
+            ./hosts/nixbook/configuration.nix
           ];
         };
 
@@ -45,7 +45,7 @@
         "matt@nixbook" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           modules = [
-            ./hosts/nixos/config.nix
+            ./hosts/nixbook/config.nix
             ./hosts/nixbook/home.nix
           ];
         };
