@@ -72,7 +72,7 @@
             ./hosts/nixbook/config.nix
             ./hosts/nixbook/home.nix
           ];
-          specialArgs = { inherit inputs; };
+          extraSpecialArgs = { inherit inputs; };
         };
 
         "matt@nixos" = home-manager.lib.homeManagerConfiguration {
@@ -81,7 +81,7 @@
             ./hosts/nixos/config.nix
             ./home.nix
           ];
-          specialArgs = { inherit inputs; };
+          extraSpecialArgs = { inherit inputs; };
         };
 
         "matt@pi" = home-manager.lib.homeManagerConfiguration {
@@ -90,7 +90,7 @@
             ./hosts/pi/config.nix
             ./home.nix
           ];
-          specialArgs = { inherit inputs; };
+          extraSpecialArgs = { inherit inputs; };
         };
       };
     };
