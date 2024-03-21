@@ -4,7 +4,7 @@ let
   username = config.username;
   homeDirectory = "/home/${username}";
   stateVersion = "24.05";
-{
+  {
   imports = [
     ./system/config.nix
     ./modules/files/hushlogin
@@ -30,4 +30,4 @@ let
     homeDirectory = homeDirectory;
     stateVersion = stateVersion;
   };
-}
+  }

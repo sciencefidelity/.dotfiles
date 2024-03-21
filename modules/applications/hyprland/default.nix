@@ -1,4 +1,4 @@
-{ config, catppuccin-hyprland, ... }:
+{ config, inputs, ... }:
 
 let
   terminal = config.terminal || "wezterm";
@@ -7,7 +7,7 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = ''
-      ${builtins.readFile "${catppuccin-hyprland}/themes/mocha.conf"}
+      ${builtins.readFile "${inputs.catppuccin-hyprland}/themes/mocha.conf"}
 
       monitor=,preferred,auto,auto
 

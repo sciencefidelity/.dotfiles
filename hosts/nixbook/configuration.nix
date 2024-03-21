@@ -58,7 +58,7 @@
   # hardware = {
   #   enableAllFirmware = true;
   # };
-  
+
   networking = {
     hostName = config.hostname;
     enableB43Firmware = true;
@@ -82,7 +82,7 @@
         export GPG_TTY=$(tty)
       '';
     };
-  }; 
+  };
 
   # users = {
   #   users."${config.user}" = {

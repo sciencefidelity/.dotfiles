@@ -14,10 +14,10 @@
     };
   };
 
-  outputs = { self, home-manager, nix-darwin, nixos-hardware, nixpkgs, ... }:
-    # let
-    #   lib = nixpkgs.lib;
-    # in
+  outputs = inputs @ { self, home-manager, nix-darwin, nixos-hardware, nixpkgs, ... }:
+    let
+      lib = nixpkgs.lib;
+    in
     {
       darwinConfigurations = {
         macbook = nix-darwin.lib.darwinSystem {
@@ -29,16 +29,17 @@
         };
       };
       nixosConfigurations = {
-        nixbook = nixpkgs.lib.nixosSystem {
+        nixbook = lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             nixos-hardware.nixosModules.apple-macbook-pro-12-1
             ./hosts/nixbook/config.nix
             ./hosts/nixbook/configuration.nix
           ];
+
         };
 
-        nixos = nixpkgs.lib.nixosSystem {
+        nixos = lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./hosts/nixos/config.nix
@@ -46,7 +47,7 @@
           ];
         };
 
-        pi = nixpkgs.lib.nixosSystem {
+        pi = lib.nixosSystem {
           system = "aarch64-linux";
           modules = [
             nixos-hardware.nixosModules.raspberry-pi-4
@@ -71,6 +72,7 @@
             ./hosts/nixbook/config.nix
             ./hosts/nixbook/home.nix
           ];
+          specialArgs = { inherit inputs; };
         };
 
         "matt@nixos" = home-manager.lib.homeManagerConfiguration {
@@ -79,6 +81,7 @@
             ./hosts/nixos/config.nix
             ./home.nix
           ];
+          specialArgs = { inherit inputs; };
         };
 
         "matt@pi" = home-manager.lib.homeManagerConfiguration {
@@ -87,6 +90,7 @@
             ./hosts/pi/config.nix
             ./home.nix
           ];
+          specialArgs = { inherit inputs; };
         };
       };
     };
