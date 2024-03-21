@@ -6,17 +6,27 @@
     nixos-hardware.url = "nixos-hardware/master";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     catppuccin-hyprland = {
       url = "github:catppuccin/hyprland";
       flake = false;
     };
   };
 
-  outputs = { self, home-manager, nixos-hardware, nixpkgs, ... }:
+  outputs = { self, home-manager, nix-darwin, nixos-hardware, nixpkgs, ... }:
     let
       lib = nixpkgs.lib;
     in
     {
+      darwinConfigurations = {
+        macbook = nix-darwin.lib.darwinSystem {
+          modules = [
+            ./hosts/macbook/config.nix
+            ./hosts/macbook/configuration.nix
+          ];
+        };
+      };
       nixosConfigurations = {
         nixbook = lib.nixosSystem {
           system = "x86_64-linux";
@@ -46,6 +56,14 @@
       };
 
       homeConfigurations = {
+        "matt@macbook" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."aarch64-darwin";
+          modules = [
+            ./hosts/macbook/config.nix
+            ./hosts/macbook/home.nix
+          ];
+        };
+
         "matt@nixbook" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           modules = [

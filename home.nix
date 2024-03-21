@@ -1,5 +1,9 @@
-{ ... }:
+{ config, ... }:
 
+let
+  username = config.username;
+  homeDirectory = "/home/${username}";
+  stateVersion = "24.05";
 {
   imports = [
     ./system/config.nix
@@ -22,8 +26,8 @@
   ];
 
   home = {
-    username = "matt";
-    homeDirectory = "/home/matt";
-    stateVersion = "23.11";
+    username = config.username;
+    homeDirectory = homeDirectory;
+    stateVersion = stateVersion;
   };
 }

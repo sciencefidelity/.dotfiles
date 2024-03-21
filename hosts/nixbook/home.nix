@@ -1,5 +1,10 @@
-{ ... }:
+{ config, ... }:
 
+let
+  username = config.username;
+  homeDirectory = "/home/${username}";
+  stateVersion = "24.05";
+in
 {
   imports = [
     ../../system/config.nix
@@ -24,9 +29,9 @@
   ];
 
   home = {
-    username = "matt";
-    homeDirectory = "/home/matt";
-    stateVersion = "23.11";
+    username = username;
+    homeDirectory = homeDirectory;
+    stateVersion = stateVersion;
   };
 
   # TODO: make this conditional with a global variable to switch it.

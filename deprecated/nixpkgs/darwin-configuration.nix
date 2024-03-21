@@ -14,89 +14,83 @@ in
     systemPackages = with pkgs; [
       air
       arrayfire
-      pkgsUnstable.babashka
+      babashka
       bat
-      pkgsUnstable.bun
-      pkgsUnstable.cargo-shuttle
-      pkgsUnstable.clang-tools
-      pkgsUnstable.clojure
-      pkgsUnstable.clojure-lsp
+      bun
+      cargo-shuttle
+      clang-tools
+      clojure
+      clojure-lsp
       cocoapods
       coreutils
       ctags
       curl
-      pkgsUnstable.dart-sass
+      dart-sass
       delta
-      # pkgsUnstable.deno
-      pkgsUnstable.dioxus-cli
+      deno
+      dioxus-cli
       duf
       emacs29-nox
-      pkgsUnstable.elixir_1_15
-      pkgsUnstable.elixir-ls
-      pkgsUnstable.erlang_26
+      elixir_1_15
+      elixir-ls
+      erlang_26
       eslint_d
       eza
       fd
-      pkgsUnstable.flyctl
+      flyctl
       fswatch
       fzf
       gh
       git
       gnupg
-      # pkgsUnstable.go
-      pkgsUnstable.goimports-reviser
-      pkgsUnstable.golines
-      pkgsUnstable.gopls
+      go
+      goimports-reviser
+      golines
+      gopls
       home-manager
-      # pkgsUnstable.python311Packages.jupyterlab
       imagemagick
       jdk21
-      pkgsUnstable.jdt-language-server
+      jdt-language-server
       lazygit
       lf
       lua5_4_compat
-      # luajit
-      pkgsUnstable.lua-language-server
+      lua-language-server
       mkcert
       moreutils
       mosh
-      pkgsUnstable.neovim-unwrapped
+      neovim-unwrapped
       nil
-      pkgsUnstable.nixd
+      nixd
       nixpkgs-fmt
-      pkgsUnstable.nodejs_20
+      nodejs_20
       nodePackages.degit
-      pkgsUnstable.nodePackages.pnpm
-      pkgsUnstable.nodePackages.svelte-language-server
-      pkgsUnstable.nodePackages.typescript-language-server
+      nodePackages.pnpm
+      nodePackages.svelte-language-server
+      nodePackages.typescript-language-server
       nodePackages.wrangler
       nodePackages.yalc
       nodePackages.yarn
-      pkgsUnstable.openai
+      openai
       pango
       pinentry
       pkg-config
       prettierd
       pv
-      # python311Full
-      # pkgsUnstable.python311Packages.pip
       unrar
-      pkgsUnstable.railway
+      railway
       ripgrep
-      pkgsUnstable.rust-script
-      pkgsUnstable.rustup
+      rust-script
+      rustup
       pscale
       starship
-      pkgsUnstable.stylua
+      stylua
       tree
-      pkgsUnstable.typescript
-      # pkgsUnstable.vimPlugins.lazy-nvim
-      # pkgsUnstable.vimPlugins.packer-nvim
-      pkgsUnstable.wasm-pack
-      pkgsUnstable.wasmer
-      pkgsUnstable.wasmtime
+      typescript
+      wasm-pack
+      wasmer
+      wasmtime
       wget
-      pkgsUnstable.worker-build
+      worker-build
       zig
       zls
       zsh
@@ -128,21 +122,18 @@ in
       "tinygo-org/tools"
     ];
 
-    brews = [ "auth0" "binaryen" "deno" "fastly" "gcc" "go" "java" "leiningen" "mongosh" "nss" "python" "tinygo" "vapor" ];
+    brews = [ "binaryen" "fastly" "gcc" "java" "leiningen" "nss" "tinygo" ];
 
     casks = [
       "affinity-designer"
       "affinity-photo"
       "affinity-publisher"
-      "android-studio"
       "appcleaner"
       "balenaetcher"
       "bartender"
       "brave-browser"
-      "dash"
       "discord"
       "displaycal"
-      "docker"
       "figma"
       "firefox"
       "flutter"
@@ -150,14 +141,12 @@ in
       "insomnia"
       "iterm2-nightly"
       "karabiner-elements"
-      "linear-linear"
       "microsoft-edge"
       "microsoft-teams"
       "miro"
       "notion"
       "nova"
       "obsidian"
-      "raspberry-pi-imager"
       "reader"
       "redisinsight"
       "safari-technology-preview"
@@ -521,9 +510,7 @@ in
         gotdd = "go test && fswatch -o . | (while read; do grc go test; done)";
         dartwatch = "dart run && fswatch -o -1 -d bin | (while read; do dart run; done)";
         darttdd = "dart test && fswatch -o -1 -d bin test | (while read; do dart test; done)";
-        # python = "python3";
         pywatch = "python challenge.py && fswatch -o . | (while read; do python challenge.py; done)";
-        # pip = "pip3";
       };
     };
   };
