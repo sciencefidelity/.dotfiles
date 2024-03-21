@@ -1,11 +1,6 @@
 { config, lib, pkgs, ... }:
 
-let
-  hostname = "pi";
-  user = "matt";
-in
 {
-
   imports = [
     ./hardware-configuration.nix
     ../../system/base.nix

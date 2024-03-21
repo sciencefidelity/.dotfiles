@@ -9,7 +9,8 @@
 
   programs.zsh = {
     initExtra = ''
-      ${builtins.readFile ./rust.sh}
+      # cn = cargo new <app-name>
+      cn() { cargo new --bin "$@" && cd "$@"; }
     '';
   };
 

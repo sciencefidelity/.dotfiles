@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 
 return {
   font = wezterm.font_with_fallback({ "MonoLisa Script", "Symbols Nerd Font Mono" }),
-  font_size = 7.5,
+  font_size = font_size,
   line_height = 1.17,
   freetype_load_target = "Light",
   freetype_interpreter_version = 40,

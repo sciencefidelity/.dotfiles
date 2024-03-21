@@ -1,8 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, ... }:
 
 let
   catppuccin = import ./catppuccin.nix;
-in {
+  font_size = config.terminal_font_size or 13;
+in
+{
   programs.alacritty = {
     enable = true;
     settings = {
@@ -18,7 +20,7 @@ in {
         };
       };
       font = {
-        size = 7.5;
+        size = font_size;
         normal = {
           family = "MonoLisa Script";
           style = "Regular Italic";

@@ -17,7 +17,8 @@
 
   programs.zsh = {
     initExtra = ''
-      ${builtins.readFile ./elixir.sh}
+      # mn - mix new <app-name>
+      mn() { mix new "$@" && cd "$@"; }
     '';
   };
 
