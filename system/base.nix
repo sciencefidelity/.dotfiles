@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 
+let
+  root_pass = config.root_pass;
+  username = config.username;
+  user_pass = config.user_pass;
+in
 {
   imports = [ ./config.nix ];
 
@@ -66,11 +71,11 @@
     defaultUserShell = pkgs.zsh;
     mutableUsers = false;
     users.root = {
-      hashedPassword = config.root_pass;
+      hashedPassword = root_pass;
     };
 
-    users."${config.user}" = {
-      hashedPassword = config.user_pass;
+    users."${username}" = {
+      hashedPassword = user_pass;
       isNormalUser = true;
       extraGroups = [ "wheel" ];
     };
