@@ -1,7 +1,7 @@
 { config, inputs, ... }:
 
 let
-  terminal = config.terminal || "wezterm";
+  terminal = config.terminal;
 in
 {
   wayland.windowManager.hyprland = {
