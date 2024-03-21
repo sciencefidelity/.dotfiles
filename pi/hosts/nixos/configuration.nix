@@ -16,5 +16,10 @@
       efi.canTouchEfiVariables = true;
     };
   };
+
+  networking = {
+    hostName = config.hostname;
+    wireless.enable = false;
+  };
 }
 

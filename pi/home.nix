@@ -10,6 +10,7 @@
     ./modules/languages/go
     ./modules/languages/java
     ./modules/languages/lua
+    ./modules/languages/nix
     ./modules/languages/rust
     ./modules/languages/zig
     ./modules/programs/eza

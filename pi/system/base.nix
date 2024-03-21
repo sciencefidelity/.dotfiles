@@ -38,11 +38,6 @@
     defaultLocale = "en_GB.UTF-8";
   };
 
-  networking = {
-    hostName = config.hostname;
-    wireless.enable = false;
-  };
-
   nix = {
     settings.experimental-features = [ "nix-command" "flakes" ];
   };

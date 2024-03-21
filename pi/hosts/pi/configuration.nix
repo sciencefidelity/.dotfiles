@@ -30,4 +30,9 @@ in
       raspberrypi-eeprom
     ];
   };
+
+  networking = {
+    hostName = config.hostname;
+    wireless.enable = false;
+  };
 }
