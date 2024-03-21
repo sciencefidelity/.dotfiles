@@ -15,12 +15,13 @@
   };
 
   outputs = { self, home-manager, nix-darwin, nixos-hardware, nixpkgs, ... }:
-    let
-      lib = nixpkgs.lib;
-    in
+    # let
+    #   lib = nixpkgs.lib;
+    # in
     {
       darwinConfigurations = {
         macbook = nix-darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
           modules = [
             ./hosts/macbook/config.nix
             ./hosts/macbook/configuration.nix
@@ -28,7 +29,7 @@
         };
       };
       nixosConfigurations = {
-        nixbook = lib.nixosSystem {
+        nixbook = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             nixos-hardware.nixosModules.apple-macbook-pro-12-1
@@ -37,7 +38,7 @@
           ];
         };
 
-        nixos = lib.nixosSystem {
+        nixos = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./hosts/nixos/config.nix
@@ -45,7 +46,7 @@
           ];
         };
 
-        pi = lib.nixosSystem {
+        pi = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
           modules = [
             nixos-hardware.nixosModules.raspberry-pi-4
