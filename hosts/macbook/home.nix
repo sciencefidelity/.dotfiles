@@ -19,6 +19,7 @@ in
     ../../modules/languages/zig
     ../../modules/programs/eza
     ../../modules/programs/git
+    ../../modules/programs/karabiner
     ../../modules/programs/neovim
     ../../modules/programs/zsh
   ];
@@ -46,5 +47,7 @@ in
     username = username;
   };
 
-  programs.home-manager.enable = true;
+  programs = {
+    home-manager.enable = true;
+  };
 }

@@ -5,12 +5,12 @@
     hostname = mkOption { type = str; };
     gh_key = mkOption { type = str; };
     terminal = mkOption { type = strMatching "(alacritty|kitty|wezterm)"; };
-    terminal_font_size = mkOption { type = numbers.nonnegative; };
+    opacity = mkOption { type = number; };
   };
   config = {
     hostname = "nixbook";
     gh_key = "0x4C752BECEDAD41CC";
     terminal = "wezterm";
-    terminal_font_size = 7.5;
+    opacity = 0.9;
   };
 }

@@ -33,12 +33,4 @@ in
     homeDirectory = homeDirectory;
     stateVersion = stateVersion;
   };
-
-  # TODO: make this conditional with a global variable to switch it.
-  programs.neovim = {
-    extraLuaConfig = ''
-      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-    '';
-  };
 }
