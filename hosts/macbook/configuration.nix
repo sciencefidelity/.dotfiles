@@ -8,6 +8,10 @@ let
   stateVersion = 4;
 in
 {
+  imports = [
+    ../../modules/services/skhd
+    ../../modules/services/yabai
+  ];
   environment = {
     # shells = with pkgs; [ pkgs.zsh ];
 
