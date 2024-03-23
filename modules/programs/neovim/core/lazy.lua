@@ -29,4 +29,5 @@ require("lazy").setup({
   "hrsh7th/cmp-nvim-lsp",
   "saadparwaiz1/cmp_luasnip",
   "numToStr/Comment.nvim",
+  "xiyaowong/transparent.nvim",
 })
