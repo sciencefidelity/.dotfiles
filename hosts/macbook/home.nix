@@ -3,12 +3,14 @@
 let
   username = config.username;
   homeDirectory = "/Users/${config.username}";
-  stateVersion = "24.05";
+  stateVersion = config.stateVersion;
 in
 {
   imports = [
     ../../system/config.nix
     ../../modules/applications/wezterm
+    ../../modules/files/hushlogin
+    ../../modules/files/karabiner
     ../../modules/languages/clojure
     ../../modules/languages/elixir
     ../../modules/languages/go
@@ -17,9 +19,9 @@ in
     ../../modules/languages/nix
     ../../modules/languages/rust
     ../../modules/languages/zig
+    ../../modules/packages/homebrew
     ../../modules/programs/eza
     ../../modules/programs/git
-    ../../modules/programs/karabiner
     ../../modules/programs/neovim
     ../../modules/programs/zsh
   ];

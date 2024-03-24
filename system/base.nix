@@ -1,9 +1,10 @@
 { config, pkgs, ... }:
 
 let
-  root_pass = config.root_pass;
+  stateVersion = config.stateVersion;
+  rootPassword = config.rootPassword;
   username = config.username;
-  user_pass = config.user_pass;
+  password = config.password;
 in
 {
   imports = [ ./config.nix ];
@@ -27,16 +28,11 @@ in
       tree
       vim
       wget
-      zsh
     ];
 
     variables = {
       EDITOR = "vim";
     };
-  };
-
-  hardware = {
-    enableRedistributableFirmware = true;
   };
 
   i18n = {
@@ -52,6 +48,7 @@ in
   };
 
   programs = {
+    git.enable = true;
     zsh.enable = true;
   };
 
@@ -60,7 +57,7 @@ in
   };
 
   system = {
-    stateVersion = "24.05";
+    stateVersion = stateVersion;
   };
 
   time = {
@@ -71,11 +68,11 @@ in
     defaultUserShell = pkgs.zsh;
     mutableUsers = false;
     users.root = {
-      hashedPassword = root_pass;
+      hashedPassword = rootPassword;
     };
 
     users."${username}" = {
-      hashedPassword = user_pass;
+      hashedPassword = password;
       isNormalUser = true;
       extraGroups = [ "wheel" ];
     };

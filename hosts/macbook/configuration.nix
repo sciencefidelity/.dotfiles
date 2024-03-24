@@ -1,26 +1,27 @@
 { config, lib, pkgs, ... }:
 
 let
-  hostname = "macbook";
-  username = "matt";
-  description = "Matt Cook";
+  hostname = config.hostname;
+  username = config.username;
+  description = config.description;
   homeDirectory = "/Users/${username}";
   stateVersion = 4;
 in
 {
   imports = [
+    ../../modules/packages/homebrew
     ../../modules/services/skhd
     ../../modules/services/yabai
+    ../../modules/services/karabiner
   ];
   environment = {
-    # shells = with pkgs; [ pkgs.zsh ];
+    shells = with pkgs; [ pkgs.zsh ];
 
     systemPackages = with pkgs; [
       coreutils
       curl
       git
       wget
-      zsh
     ];
   };
 

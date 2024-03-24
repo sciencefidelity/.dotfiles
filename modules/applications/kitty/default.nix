@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  font_size = config.terminal_font_size or 13;
+  fontSize = (toString config.terminal.fontSize ? 7.5);
 in
 {
   programs.kitty = {
@@ -12,11 +12,11 @@ in
       bold_font            MonoLisa Script Medium
       italic_font          MonoLisa Script Regular Italic
       bold_italic_font     MonoLisa Script Medium Italic
-      font_size            ${toString font_size}
+      font_size            ${fontSize}
       adjust_line_height   117%
       adjust_column_width  90%
       window_padding_width 5
-      background_opacity   0.9
+      background_opacity   ${opacity}
     '';
   };
 }

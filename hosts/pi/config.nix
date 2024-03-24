@@ -3,10 +3,10 @@
 {
   options = with lib; with types; {
     hostname = mkOption { type = str; };
-    gh_key = mkOption { type = str; };
+    git.key = mkOption { type = str; };
   };
   config = {
     hostname = "pi";
-    gh_key = "0x6D04AAF40371DB76";
+    git.key = "0x6D04AAF40371DB76";
   };
 }

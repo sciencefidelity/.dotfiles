@@ -2,6 +2,8 @@ require("nvim-treesitter.configs").setup({
   ensure_installed = {
     "bash",
     "json",
+    "markdown",
+    "markdown_inline",
     "toml",
     "yaml",
   },

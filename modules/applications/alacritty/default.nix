@@ -2,7 +2,8 @@
 
 let
   catppuccin = import ./catppuccin.nix;
-  font_size = config.terminal_font_size or 13;
+  fontSize = config.terminal.font_size ? 7.5;
+  opacity = config.terminal.opacity ? 0.9;
 in
 {
   programs.alacritty = {
@@ -44,7 +45,7 @@ in
         builtin_box_drawing = false;
       };
       window = {
-        opacity = 0.9;
+        opacity = opacity;
         decorations = "none";
         padding = {
           x = 10;

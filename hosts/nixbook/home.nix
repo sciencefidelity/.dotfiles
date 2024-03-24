@@ -3,7 +3,7 @@
 let
   username = config.username;
   homeDirectory = "/home/${username}";
-  stateVersion = "24.05";
+  stateVersion = config.stateVersion;
 in
 {
   imports = [
@@ -20,12 +20,12 @@ in
     ../../modules/languages/nix
     ../../modules/languages/rust
     ../../modules/languages/zig
+    ../../modules/packages/nixpkgs
     ../../modules/programs/eza
     ../../modules/programs/git
     ../../modules/programs/gnupg
     ../../modules/programs/neovim
     ../../modules/programs/zsh
-    ../../modules/utils
   ];
 
   home = {

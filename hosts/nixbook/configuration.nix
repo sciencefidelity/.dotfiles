@@ -14,21 +14,12 @@
     # initrd.kernelModules = [ "wl" ];
     # kernelModules = [ "kvm-intel" "wl" ];
     # extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
-    kernel.sysctl = {
-      "vm.swappiness" = 10;
-      "vm.vsf_cache_pressure" = 50;
-    };
     tmp.cleanOnBoot = true;
-    kernelParams = [
-      "hid_apple.fnmode=2"
-      "hid_apple.swap_fn_leftctrl=1"
-    ];
   };
 
   environment = {
     systemPackages = with pkgs; [
       alacritty
-      hyprland
       kitty
       pciutils
       swww

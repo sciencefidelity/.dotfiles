@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 
+let
+  email = config.git.email;
+  org = config.git.org;
+  key = config.git.key;
+in
 {
   home = {
     packages = with pkgs; [
@@ -52,10 +57,10 @@
       pull = { rebase = false; };
     };
     signing = {
-      key = config.gh_key;
+      key = key;
       signByDefault = true;
     };
-    userName = config.org;
-    userEmail = config.gh_email;
+    userName = org;
+    userEmail = email;
   };
 }
