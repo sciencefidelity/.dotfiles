@@ -1,12 +1,12 @@
 { config, lib, pkgs, ... }:
 
 let
-  font_size = toString (config.terminal.fontSize ? 7.5);
-  paddingLeft = toString (config.terminal.paddingLeft ? 10);
-  paddingRight = toString (config.terminal.paddingRight ? 10);
-  paddingTop = toString (config.terminal.paddingTop ? 10);
-  paddingBottom = toString (config.terminal.paddingBottom ? 10);
-  opacity = toString (config.terminal.opacity ? 1);
+  fontSize = toString (config.terminal.fontSize or 7.5);
+  paddingLeft = toString (config.terminal.paddingLeft or 10);
+  paddingRight = toString (config.terminal.paddingRight or 10);
+  paddingTop = toString (config.terminal.paddingTop or 10);
+  paddingBottom = toString (config.terminal.paddingBottom or 10);
+  opacity = toString (config.terminal.opacity or 1);
 in
 {
   home.file.options = {

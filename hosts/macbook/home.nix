@@ -19,7 +19,6 @@ in
     ../../modules/languages/nix
     ../../modules/languages/rust
     ../../modules/languages/zig
-    ../../modules/packages/homebrew
     ../../modules/programs/eza
     ../../modules/programs/git
     ../../modules/programs/neovim
