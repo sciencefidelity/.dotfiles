@@ -7,7 +7,7 @@ in
   home = {
     packages = with pkgs; [
       gnupg
-    ] ++ (if platform == "darwin" then [ pkgs.pinentry_mac ] else [ pkgs.pinentry-curses ]);
+    ] ++ (if platform == "darwin" then [ pkgs.pinentry_mac ] else if platform == "linux" then [ pkgs.pinentry-curses ] else [ ]);
   };
 
   programs.gpg = {

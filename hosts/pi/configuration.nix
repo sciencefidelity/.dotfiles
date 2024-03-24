@@ -4,7 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./config.nix
-    ../../system/base.nix
+    ../../base/configuration.nix
   ];
 
   boot = {
