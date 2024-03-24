@@ -2,6 +2,7 @@
 
 {
   options = with lib; with types; {
+    platform = mkOption { type = strMatching "(darwin|linux)"; };
     hostname = mkOption { type = str; };
     git.key = mkOption { type = str; };
     terminal = {
@@ -14,6 +15,7 @@
     };
   };
   config = {
+    platform = "darwin";
     hostname = "macbook";
     git.key = "22C1322FB7B3F0B2";
     terminal = {

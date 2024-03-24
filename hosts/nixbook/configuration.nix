@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ./config.nix
     ../../base/configuration.nix
+    ../../modules/assets/fonts
   ];
 
   boot = {
@@ -30,21 +31,6 @@
 
   fonts = {
     fontconfig.enable = true;
-    packages = with pkgs; [
-      (stdenv.mkDerivation {
-        name = "monolisa";
-        src = fetchGit {
-          url = "git@github.com:sciencefidelity/fonts.git";
-          ref = "main";
-          rev = "48eecf2ef0e3b97897480995f90b14b796f8799b";
-        };
-        installPhase = ''
-          mkdir -p $out/share/fonts/truetype
-          cp -a $src/monolisa-script/*.ttf $out/share/fonts/truetype
-        '';
-      })
-      (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
-    ];
   };
 
   # hardware = {
