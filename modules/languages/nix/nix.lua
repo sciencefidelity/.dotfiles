@@ -12,8 +12,10 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+require("lspconfig").nixd.setup({})
+
 require("conform").setup({
   formatters_by_ft = {
-    nix = { "nixpkgs_format" },
+    nix = { "nixpkgs_fmt" },
   },
 })

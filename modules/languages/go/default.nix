@@ -3,6 +3,7 @@
 {
   home = {
     packages = with pkgs; [
+      air
       go
       goimports-reviser
       golines

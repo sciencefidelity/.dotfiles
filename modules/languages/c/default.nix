@@ -1,12 +1,13 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
+let
+  platform = config.platform;
+in
 {
   home = {
     packages = with pkgs; [
       clang-tools
-      gdb
-      valgrind
-    ];
+    ] ++ (if platform == "linux" then with pkgs; [ gdb valgrind ] else [ ]);
   };
 
   programs.neovim = {

@@ -12,6 +12,7 @@ in
     ../../modules/applications/wezterm
     ../../modules/files/hushlogin
     ../../modules/files/karabiner
+    ../../modules/languages/c
     ../../modules/languages/clojure
     ../../modules/languages/elixir
     ../../modules/languages/go
@@ -21,6 +22,7 @@ in
     ../../modules/languages/rust
     ../../modules/languages/typescript
     ../../modules/languages/zig
+    ../../modules/packages/nixpkgs
     ../../modules/programs/eza
     ../../modules/programs/git
     ../../modules/programs/neovim
@@ -29,21 +31,6 @@ in
 
   home = {
     homeDirectory = homeDirectory;
-
-    packages = with pkgs; [
-      fd
-      gnupg
-      lf
-      neofetch
-      # nixd
-      nixpkgs-fmt
-      p7zip
-      pinentry_mac
-      prettierd
-      ripgrep
-      # unrar-free
-      unzip
-    ];
 
     stateVersion = stateVersion;
 

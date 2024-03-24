@@ -1,11 +1,13 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
+let
+  platform = config.platform;
+in
 {
   home = {
     packages = with pkgs; [
       gnupg
-      pinentry-curses
-    ];
+    ] ++ (if platform == "darwin" then [ pkgs.pinentry_mac ] else [ pkgs.pinentry-curses ]);
   };
 
   programs.gpg = {

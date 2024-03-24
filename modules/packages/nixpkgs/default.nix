@@ -1,22 +1,21 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
+let
+  platform = config.platform;
+in
 {
   home = {
     packages = with pkgs; [
       fd
-      lemonade
       lf
       neofetch
-      # nixd
-      nixpkgs-fmt
       p7zip
       prettierd
       ripgrep
-      unrar-free
       unzip
-      xclip
-      xsel
-    ];
+    ] ++ (if platform == "darwin" then with pkgs; [ ]
+    else if platform == "linux" then with pkgs; [ lemonade unrar-free xclip xsel ]
+    else [ ]);
   };
 
   programs.home-manager.enable = true;
