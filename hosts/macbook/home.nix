@@ -7,7 +7,8 @@ let
 in
 {
   imports = [
-    ../../system/config.nix
+    ./config.nix
+    ../../base/config.nix
     ../../modules/applications/wezterm
     ../../modules/files/hushlogin
     ../../modules/files/karabiner
@@ -18,6 +19,7 @@ in
     ../../modules/languages/lua
     ../../modules/languages/nix
     ../../modules/languages/rust
+    ../../modules/languages/typescript
     ../../modules/languages/zig
     ../../modules/programs/eza
     ../../modules/programs/git

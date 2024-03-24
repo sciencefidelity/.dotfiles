@@ -23,7 +23,6 @@
         macbook = nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           modules = [
-            ./hosts/macbook/config.nix
             ./hosts/macbook/configuration.nix
           ];
         };
@@ -33,7 +32,6 @@
           system = "x86_64-linux";
           modules = [
             nixos-hardware.nixosModules.apple-macbook-pro-12-1
-            ./hosts/nixbook/config.nix
             ./hosts/nixbook/configuration.nix
           ];
 
@@ -42,7 +40,6 @@
         nixos = lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./hosts/nixos/config.nix
             ./hosts/nixos/configuration.nix
           ];
         };
@@ -51,7 +48,6 @@
           system = "aarch64-linux";
           modules = [
             nixos-hardware.nixosModules.raspberry-pi-4
-            ./hosts/pi/config.nix
             ./hosts/pi/configuration.nix
           ];
         };
@@ -61,7 +57,6 @@
         "matt@macbook" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."aarch64-darwin";
           modules = [
-            ./hosts/macbook/config.nix
             ./hosts/macbook/home.nix
           ];
         };
@@ -69,7 +64,6 @@
         "matt@nixbook" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           modules = [
-            ./hosts/nixbook/config.nix
             ./hosts/nixbook/home.nix
           ];
           extraSpecialArgs = { inherit inputs; };
@@ -78,8 +72,7 @@
         "matt@nixos" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           modules = [
-            ./hosts/nixos/config.nix
-            ./home.nix
+            ./hosts/nixos/home.nix
           ];
           extraSpecialArgs = { inherit inputs; };
         };
@@ -87,8 +80,7 @@
         "matt@pi" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."aarch64-linux";
           modules = [
-            ./hosts/pi/config.nix
-            ./home.nix
+            ./hosts/pi/home.nix
           ];
           extraSpecialArgs = { inherit inputs; };
         };

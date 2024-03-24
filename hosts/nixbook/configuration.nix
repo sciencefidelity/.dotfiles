@@ -3,7 +3,8 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../system/base.nix
+    ./config.nix
+    ../../base/configuration.nix
   ];
 
   boot = {

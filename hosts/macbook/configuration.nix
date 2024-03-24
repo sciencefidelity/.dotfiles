@@ -9,7 +9,8 @@ let
 in
 {
   imports = [
-    ../../system/config.nix
+    ./config.nix
+    ../../base/config.nix
     ../../modules/packages/homebrew
     ../../modules/services/karabiner
     ../../modules/services/skhd

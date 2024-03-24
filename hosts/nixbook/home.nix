@@ -7,25 +7,10 @@ let
 in
 {
   imports = [
-    ../../system/config.nix
+    ./config.nix
+    ../../base/home.nix
     ../../modules/applications/hyprland
     ../../modules/applications/wezterm
-    ../../modules/files/hushlogin
-    ../../modules/languages/c
-    ../../modules/languages/clojure
-    ../../modules/languages/elixir
-    ../../modules/languages/go
-    ../../modules/languages/java
-    ../../modules/languages/lua
-    ../../modules/languages/nix
-    ../../modules/languages/rust
-    ../../modules/languages/zig
-    ../../modules/packages/nixpkgs
-    ../../modules/programs/eza
-    ../../modules/programs/git
-    ../../modules/programs/gnupg
-    ../../modules/programs/neovim
-    ../../modules/programs/zsh
   ];
 
   home = {

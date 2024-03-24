@@ -7,9 +7,8 @@ let
 in
 {
   imports = [
-    ./system/config.nix
+    ./config.nix
     ./modules/files/hushlogin
-    ./modules/packages/nixpkgs
     ./modules/languages/c
     ./modules/languages/clojure
     ./modules/languages/elixir
@@ -18,7 +17,9 @@ in
     ./modules/languages/lua
     ./modules/languages/nix
     ./modules/languages/rust
+    ./modules/languages/typescript
     ./modules/languages/zig
+    ./modules/packages/nixpkgs
     ./modules/programs/eza
     ./modules/programs/git
     ./modules/programs/gnupg
