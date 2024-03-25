@@ -1,8 +1,10 @@
 { lib, ... }:
 
 {
-  platform = with lib; with types; {
-    system = mkOption { type = strMatching "(darwin|linux)"; };
+  imports = [ ../../base/config.nix ];
+
+  options = with lib; with types; {
+    platform = mkOption { type = strMatching "(darwin|linux)"; };
     hostname = mkOption { type = str; };
     git.key = mkOption { type = str; };
   };

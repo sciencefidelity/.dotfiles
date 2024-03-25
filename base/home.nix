@@ -7,24 +7,23 @@ let
 in
 {
   imports = [
-    ./config.nix
-    ./modules/files/hushlogin
-    ./modules/languages/c
-    ./modules/languages/clojure
-    ./modules/languages/elixir
-    ./modules/languages/go
-    ./modules/languages/java
-    ./modules/languages/lua
-    ./modules/languages/nix
-    ./modules/languages/rust
-    ./modules/languages/typescript
-    ./modules/languages/zig
-    ./modules/packages/nixpkgs
-    ./modules/programs/eza
-    ./modules/programs/git
-    ./modules/programs/gnupg
-    ./modules/programs/neovim
-    ./modules/programs/zsh
+    ../modules/files/hushlogin
+    ../modules/languages/c
+    ../modules/languages/clojure
+    ../modules/languages/elixir
+    ../modules/languages/go
+    ../modules/languages/java
+    ../modules/languages/lua
+    ../modules/languages/nix
+    ../modules/languages/rust
+    ../modules/languages/typescript
+    ../modules/languages/zig
+    ../modules/packages/nixpkgs
+    ../modules/programs/eza
+    ../modules/programs/git
+    ../modules/programs/gnupg
+    ../modules/programs/neovim
+    ../modules/programs/zsh
   ];
 
   home = {
@@ -32,4 +31,6 @@ in
     homeDirectory = homeDirectory;
     stateVersion = stateVersion;
   };
+
+  programs.home-manager.enable = true;
 }

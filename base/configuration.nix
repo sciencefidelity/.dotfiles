@@ -7,8 +7,6 @@ let
   password = config.password;
 in
 {
-  imports = [ ./config.nix ];
-
   environment = {
     pathsToLink = [ "/share/zsh" ];
 

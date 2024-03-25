@@ -13,10 +13,8 @@ in
       prettierd
       ripgrep
       unzip
-    ] ++ (if platform == "darwin" then with pkgs; [ ]
-    else if platform == "linux" then with pkgs; [ lemonade unrar-free xclip xsel ]
+    ] ++ (if platform == "darwin" then [ ]
+    else if platform == "linux" then [ pkgs.lemonade pkgs.unrar-free pkgs.xclip pkgs.xsel ]
     else [ ]);
   };
-
-  programs.home-manager.enable = true;
 }
