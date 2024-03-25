@@ -2,8 +2,8 @@
 
 let
   catppuccin = import ./catppuccin.nix;
-  fontSize = config.terminal.font_size ? 7.5;
-  opacity = config.terminal.opacity ? 0.9;
+  fontSize = config.terminal.fontSize or 7.5;
+  opacity = config.terminal.opacity or 0.9;
 in
 {
   programs.alacritty = {
@@ -21,7 +21,7 @@ in
         };
       };
       font = {
-        size = font_size;
+        size = fontSize;
         normal = {
           family = "MonoLisa Script";
           style = "Regular Italic";

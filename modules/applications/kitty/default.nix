@@ -1,7 +1,8 @@
 { config, lib, pkgs, ... }:
 
 let
-  fontSize = (toString config.terminal.fontSize ? 7.5);
+  fontSize = (toString config.terminal.fontSize or 7.5);
+  opacity = (toString config.terminal.opacity or 1);
 in
 {
   programs.kitty = {
