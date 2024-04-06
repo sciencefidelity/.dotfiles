@@ -11,6 +11,8 @@ in
 {
   imports = [
     ./config.nix
+    ../../base/config.nix
+    ../../modules/applications/iterm
     ../../modules/assets/fonts
     ../../modules/packages/homebrew
     ../../modules/services/karabiner
