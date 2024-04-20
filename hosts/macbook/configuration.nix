@@ -15,7 +15,7 @@ in
     ../../modules/applications/iterm
     ../../modules/assets/fonts
     ../../modules/packages/homebrew
-    ../../modules/services/karabiner
+    # ../../modules/services/karabiner
     ../../modules/services/skhd
     ../../modules/services/yabai
   ];
