@@ -13,6 +13,7 @@ in
       prettierd
       ripgrep
       unzip
+      vscode-langservers-extracted
     ] ++ (if platform == "darwin" then [ ]
     else if platform == "linux" then [ pkgs.lemonade pkgs.unrar-free pkgs.xclip pkgs.xsel ]
     else [ ]);

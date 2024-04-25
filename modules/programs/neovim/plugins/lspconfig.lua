@@ -24,3 +24,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "<space>f", function() vim.lsp.buf.format({ async = true }) end, opts)
   end,
 })
+
+-- TODO: possibly move css and html support to language module
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+require("lspconfig").cssls.setup({
+  capabilities = capabilities,
+})
