@@ -3,18 +3,14 @@
 {
   home = {
     packages = with pkgs; with nodePackages; [
-      nodejs_20
       eslint_d
+      nodejs_22
+      pnpm
       typescript
       typescript-language-server
-      pnpm
+      yarn
     ];
   };
-
-  # programs.zsh = {
-  #   initExtra = ''
-  #   '';
-  # };
 
   programs.neovim = {
     extraLuaConfig = ''

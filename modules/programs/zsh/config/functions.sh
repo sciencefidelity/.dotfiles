@@ -42,7 +42,7 @@ lfcd() {
 }
 
 # sc - svelte create <app-name>
-sc() { 
+sc() {
   npm init @svelte-add/kit@latest -y "$@" \
     -- --demos false \
     --with typescript+eslint+prettiercd

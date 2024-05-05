@@ -6,6 +6,6 @@ require("lspconfig").svelte.setup({})
 
 require("conform").setup({
   formatters_by_ft = {
-    svelte = { "prettier" },
+    svelte = { "prettierd" },
   },
 })
