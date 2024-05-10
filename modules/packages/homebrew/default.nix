@@ -28,7 +28,6 @@
       "balenaetcher"
       "bartender"
       "brave-browser"
-      "canon-eos-utility"
       "discord"
       "displaycal"
       "figma"
