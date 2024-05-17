@@ -3,6 +3,9 @@
 {
   home = {
     packages = with pkgs; [
+      cargo-audit
+      cargo-expand
+      cargo-tarpaulin
       rustup
     ];
   };
