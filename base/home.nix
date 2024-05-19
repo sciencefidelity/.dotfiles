@@ -23,6 +23,7 @@ in
     ../modules/programs/git
     ../modules/programs/gnupg
     ../modules/programs/neovim
+    ../modules/programs/redis
     ../modules/programs/zsh
   ];
 

@@ -9,7 +9,9 @@ in
       fd
       lf
       neofetch
+      openssl
       p7zip
+      pkg-config
       prettierd
       ripgrep
       unzip

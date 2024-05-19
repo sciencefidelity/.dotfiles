@@ -38,6 +38,7 @@ in
     sessionVariables = {
       COLORTERM = "truecolor";
       KEYTIMEOUT = "1";
+      PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
     };
   };
 
