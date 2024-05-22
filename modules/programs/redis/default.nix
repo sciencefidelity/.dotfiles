@@ -6,4 +6,9 @@
       redis
     ];
   };
+
+  services.redis = {
+    package = pkgs.redis;
+    vmOverCommit = true;
+  };
 }
