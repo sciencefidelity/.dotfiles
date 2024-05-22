@@ -7,6 +7,7 @@ in
   home = {
     packages = with pkgs; [
       fd
+      jq
       lf
       neofetch
       openssl
