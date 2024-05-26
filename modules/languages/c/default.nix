@@ -13,7 +13,9 @@ in
       gdbinit = {
         enable = true;
         target = ".gdbinit";
-        text = "set dis intel";
+        text = ''
+          set disassembly intel
+        '';
       };
     };
   };
