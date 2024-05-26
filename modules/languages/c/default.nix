@@ -7,17 +7,19 @@ in
   home = {
     packages = with pkgs; [
       clang-tools
+      lldb
     ] ++ (if platform == "linux" then with pkgs; [ gdb valgrind ] else [ ]);
 
-    file = {
-      gdbinit = {
-        enable = true;
-        target = ".gdbinit";
-        text = ''
-          set disassembly intel
-        '';
-      };
-    };
+    file =
+      if platform == "linux" then {
+        gdbinit = {
+          enable = true;
+          target = ".gdbinit";
+          text = ''
+            set disassembly intel
+          '';
+        };
+      } else { };
   };
 
   programs.neovim = {
