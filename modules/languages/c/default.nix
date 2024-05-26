@@ -8,6 +8,14 @@ in
     packages = with pkgs; [
       clang-tools
     ] ++ (if platform == "linux" then with pkgs; [ gdb valgrind ] else [ ]);
+
+    file = {
+      gdbinit = {
+        enable = true;
+        target = ".gdbinit";
+        text = "set dis intel";
+      };
+    };
   };
 
   programs.neovim = {
