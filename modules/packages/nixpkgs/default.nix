@@ -6,12 +6,14 @@ in
 {
   home = {
     packages = with pkgs; [
+      bc
       fd
       jq
       lf
       neofetch
       openssl
       p7zip
+      pcalc
       pkg-config
       prettierd
       ripgrep

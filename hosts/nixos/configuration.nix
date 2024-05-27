@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ./config.nix
     ../../base/configuration.nix
+    ../../modules/services/postgresql
     ../../modules/services/redis
   ];
 
