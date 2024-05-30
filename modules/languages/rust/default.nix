@@ -6,6 +6,7 @@
       cargo-audit
       cargo-expand
       cargo-tarpaulin
+      cargo-udeps
       rustup
     ];
   };
