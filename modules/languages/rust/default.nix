@@ -3,6 +3,7 @@
 {
   home = {
     packages = with pkgs; [
+      bunyan-rs
       cargo-audit
       cargo-expand
       cargo-tarpaulin
