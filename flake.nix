@@ -12,9 +12,13 @@
       url = "github:catppuccin/hyprland";
       flake = false;
     };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = inputs @ { self, home-manager, nix-darwin, nixos-hardware, nixpkgs, ... }:
+  outputs = inputs @ { self, home-manager, nix-darwin, nixos-hardware, nixpkgs, rust-overlay, ... }:
     let
       lib = nixpkgs.lib;
     in
@@ -27,6 +31,7 @@
           ];
         };
       };
+
       nixosConfigurations = {
         nixbook = lib.nixosSystem {
           system = "x86_64-linux";
@@ -34,7 +39,6 @@
             nixos-hardware.nixosModules.apple-macbook-pro-12-1
             ./hosts/nixbook/configuration.nix
           ];
-
         };
 
         nixos = lib.nixosSystem {
@@ -44,13 +48,14 @@
           ];
         };
 
-        pi = lib.nixosSystem {
-          system = "aarch64-linux";
-          modules = [
-            nixos-hardware.nixosModules.raspberry-pi-4
-            ./hosts/pi/configuration.nix
-          ];
-        };
+        pi = lib.nixosSystem
+          {
+            system = "aarch64-linux";
+            modules = [
+              nixos-hardware.nixosModules.raspberry-pi-4
+              ./hosts/pi/configuration.nix
+            ];
+          };
       };
 
       homeConfigurations = {
@@ -73,6 +78,9 @@
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           modules = [
             ./hosts/nixos/home.nix
+            {
+              nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
+            }
           ];
           extraSpecialArgs = { inherit inputs; };
         };

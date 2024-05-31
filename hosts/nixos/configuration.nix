@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -20,6 +20,14 @@
       };
     };
   };
+
+  # nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
+  # environment.systemPackages = [
+  #   pkgs.rust-bin.selectLatestNightlyWith
+  #   (toolchain: toolchain.default.override {
+  #     extensions = [ "rust-src" ];
+  #   })
+  # ];
 
   networking = {
     hostName = config.hostname;

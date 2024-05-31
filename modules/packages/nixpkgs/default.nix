@@ -10,6 +10,7 @@ in
       fd
       jq
       lf
+      lld
       neofetch
       openssl
       p7zip
