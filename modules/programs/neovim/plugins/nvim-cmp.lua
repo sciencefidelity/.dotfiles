@@ -39,9 +39,9 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = "nvim_lua" },
+    { name = "luasnip" },
     { name = "nvim_lsp" },
     { name = "path" },
-    { name = "luasnip" },
     { name = "buffer", keyword_length = 5 },
   }),
   snippet = {
@@ -66,5 +66,15 @@ cmp.setup({
     ghost_text = true,
   },
 })
+
+local ls = require("luasnip")
+
+vim.keymap.set({ "i", "s" }, "<A-k>", function()
+  if ls.expand_or_jumpable() then ls.expand_or_jump() end
+end)
+
+vim.keymap.set({ "i", "s" }, "<A-j>", function()
+  if ls.jumpable(-1) then ls.jump(-1) end
+end)
 
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())

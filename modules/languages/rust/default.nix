@@ -41,6 +41,7 @@
   programs.neovim = {
     extraLuaConfig = ''
       ${builtins.readFile ./rust.lua}
+      ${builtins.readFile ./snippets.lua}
     '';
   };
 }
