@@ -63,6 +63,9 @@
           pkgs = nixpkgs.legacyPackages."aarch64-darwin";
           modules = [
             ./hosts/macbook/home.nix
+            {
+              nixpkgs.overlays = [ rust-overlay.overlays.default ];
+            }
           ];
         };
 
@@ -70,6 +73,9 @@
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           modules = [
             ./hosts/nixbook/home.nix
+            {
+              nixpkgs.overlays = [ rust-overlay.overlays.default ];
+            }
           ];
           extraSpecialArgs = { inherit inputs; };
         };
@@ -79,7 +85,7 @@
           modules = [
             ./hosts/nixos/home.nix
             {
-              nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
+              nixpkgs.overlays = [ rust-overlay.overlays.default ];
             }
           ];
           extraSpecialArgs = { inherit inputs; };
@@ -89,6 +95,9 @@
           pkgs = nixpkgs.legacyPackages."aarch64-linux";
           modules = [
             ./hosts/pi/home.nix
+            {
+              nixpkgs.overlays = [ rust-overlay.overlays.default ];
+            }
           ];
           extraSpecialArgs = { inherit inputs; };
         };
