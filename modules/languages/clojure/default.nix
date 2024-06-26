@@ -11,14 +11,14 @@
   };
 
   programs.zsh = {
-    initExtra = ''
+    initExtra = /*bash*/ ''
       # ln - lein new app <app-name>
       ln() { lein new app "$@" && cd "$@"; }
     '';
   };
 
   programs.neovim = {
-    extraLuaConfig = ''
+    extraLuaConfig = /*lua*/ ''
       ${builtins.readFile ./clojure.lua}
     '';
   };

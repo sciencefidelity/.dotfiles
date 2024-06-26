@@ -4,9 +4,16 @@ let
   terminal = config.terminal;
 in
 {
+  programs.neovim = {
+    extraLuaConfig = /*lua*/ ''
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = { "rust" },
+      })
+    '';
+  };
   wayland.windowManager.hyprland = {
     enable = true;
-    extraConfig = ''
+    extraConfig = /*hyprlang*/ ''
       ${builtins.readFile "${inputs.catppuccin-hyprland}/themes/mocha.conf"}
 
       monitor=,preferred,auto,auto

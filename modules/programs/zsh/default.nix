@@ -53,12 +53,12 @@ in
       expireDuplicatesFirst = true;
       ignoreAllDups = true;
     };
-    initExtra = ''
+    initExtra = /*lua*/ ''
       ${builtins.readFile ./config/init.sh}
       ${builtins.readFile ./config/functions.sh}
       ${builtins.readFile ./config/keybindings.sh}
     '';
-    initExtraBeforeCompInit = ''
+    initExtraBeforeCompInit = /*bash*/ ''
       zstyle ':completion:*' menu select
       zmodload zsh/complist
     '';

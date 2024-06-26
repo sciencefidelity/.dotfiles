@@ -14,7 +14,7 @@
   };
 
   programs.zsh = {
-    initExtra = ''
+    initExtra = /*bash*/ ''
       # mvg - mvn generate
       mvg() {
         mvn -B archetype:generate \
@@ -28,7 +28,7 @@
   };
 
   programs.neovim = {
-    extraLuaConfig = ''
+    extraLuaConfig = /*lua*/ ''
       ${builtins.readFile ./java.lua}
     '';
   };

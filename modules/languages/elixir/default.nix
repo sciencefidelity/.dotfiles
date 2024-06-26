@@ -16,14 +16,14 @@
   };
 
   programs.zsh = {
-    initExtra = ''
+    initExtra = /*bash*/ ''
       # mn - mix new <app-name>
       mn() { mix new "$@" && cd "$@"; }
     '';
   };
 
   programs.neovim = {
-    extraLuaConfig = ''
+    extraLuaConfig = /*lua*/ ''
       ${builtins.readFile ./elixir.lua}
     '';
   };

@@ -13,7 +13,7 @@
   };
 
   programs.neovim = {
-    extraLuaConfig = ''
+    extraLuaConfig = /*lua*/ ''
       ${builtins.readFile ./typescript.lua}
     '';
   };

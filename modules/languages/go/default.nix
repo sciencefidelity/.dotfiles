@@ -19,14 +19,14 @@
   };
 
   programs.zsh = {
-    initExtra = ''
+    initExtra = /*bash*/ ''
       # gm - go mod init <module-name>
       gm() { mkdir "$@" && cd "$@" && go mod init github.com/sciencefidelity/"$@"; }
     '';
   };
 
   programs.neovim = {
-    extraLuaConfig = ''
+    extraLuaConfig = /*lua*/ ''
       ${builtins.readFile ./go.lua}
     '';
   };

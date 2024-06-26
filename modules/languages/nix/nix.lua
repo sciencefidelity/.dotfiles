@@ -1,5 +1,5 @@
 require("nvim-treesitter.configs").setup({
-  ensure_installed = { "nix" },
+  ensure_installed = { "hyprlang", "nix" },
 })
 
 vim.api.nvim_create_autocmd("FileType", {

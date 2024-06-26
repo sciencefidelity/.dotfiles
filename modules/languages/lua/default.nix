@@ -10,7 +10,7 @@
   };
 
   programs.neovim = {
-    extraLuaConfig = ''
+    extraLuaConfig = /*lua*/ ''
       ${builtins.readFile ./lua.lua}
     '';
   };

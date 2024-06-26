@@ -33,14 +33,14 @@
   };
 
   programs.zsh = {
-    initExtra = ''
+    initExtra = /*bash*/ ''
       # cn = cargo new <app-name>
       cn() { cargo new --bin "$@" && cd "$@"; }
     '';
   };
 
   programs.neovim = {
-    extraLuaConfig = ''
+    extraLuaConfig = /*lua*/ ''
       ${builtins.readFile ./rust.lua}
       ${builtins.readFile ./snippets.lua}
     '';

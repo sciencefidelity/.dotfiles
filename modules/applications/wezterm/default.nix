@@ -12,7 +12,7 @@ in
   home.file.options = {
     enable = true;
     target = ".config/wezterm/options.lua";
-    text = ''
+    text = /*lua*/ ''
       local options = {
         font_size = ${fontSize},
         padding_left = ${paddingLeft},
@@ -27,7 +27,7 @@ in
 
   programs.wezterm = {
     enable = true;
-    extraConfig = ''
+    extraConfig = /*lua*/ ''
       ${builtins.readFile ./wezterm.lua}
     '';
   };

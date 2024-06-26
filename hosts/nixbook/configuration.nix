@@ -54,7 +54,7 @@
 
     zsh = {
       enable = true;
-      shellInit = ''
+      shellInit = /*bash*/ ''
         eval "$(ssh-agent -s)" > /dev/null
         ssh-add ~/.ssh/github 2> /dev/null
         export GPG_TTY=$(tty)

@@ -15,7 +15,7 @@ in
         gdbinit = {
           enable = true;
           target = ".gdbinit";
-          text = ''
+          text = /*bash*/ ''
             set disassembly intel
           '';
         };
@@ -23,7 +23,7 @@ in
   };
 
   programs.neovim = {
-    extraLuaConfig = ''
+    extraLuaConfig = /*lua*/ ''
       ${builtins.readFile ./c.lua}
     '';
   };

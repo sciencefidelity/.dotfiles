@@ -8,7 +8,7 @@
   };
 
   programs.neovim = {
-    extraLuaConfig = ''
+    extraLuaConfig = /*lua*/ ''
       ${builtins.readFile ./svelte.lua}
     '';
   };

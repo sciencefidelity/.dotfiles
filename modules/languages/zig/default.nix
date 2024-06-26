@@ -9,7 +9,7 @@
   };
 
   programs.zsh = {
-    initExtra = ''
+    initExtra = /*bash*/ ''
       # zie = zig init-exe <app-name>
       zie() { mkdir "$@" && cd "$@" && zig init-exe; }
 
@@ -19,7 +19,7 @@
   };
 
   programs.neovim = {
-    extraLuaConfig = ''
+    extraLuaConfig = /*lua*/ ''
       ${builtins.readFile ./zig.lua}
     '';
   };
