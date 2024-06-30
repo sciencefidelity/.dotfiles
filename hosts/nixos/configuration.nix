@@ -7,7 +7,6 @@
     ../../base/configuration.nix
     ../../modules/services/postgresql
     ../../modules/services/redis
-    ../../modules/services/kubernetes
     ../../modules/virtualization/docker
   ];
 
@@ -22,14 +21,6 @@
       };
     };
   };
-
-  # nixpkgs.overlays = [ inputs.rust-overlay.overlays.default ];
-  # environment.systemPackages = [
-  #   pkgs.rust-bin.selectLatestNightlyWith
-  #   (toolchain: toolchain.default.override {
-  #     extensions = [ "rust-src" ];
-  #   })
-  # ];
 
   networking = {
     hostName = config.hostname;
