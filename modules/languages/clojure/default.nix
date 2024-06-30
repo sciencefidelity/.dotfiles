@@ -13,7 +13,7 @@
   programs.zsh = {
     initExtra = /*bash*/ ''
       # ln - lein new app <app-name>
-      ln() { lein new app "$@" && cd "$@"; }
+      # ln() { lein new app "$@" && cd "$@"; }
     '';
   };
 
