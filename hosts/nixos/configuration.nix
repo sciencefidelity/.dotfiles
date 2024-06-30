@@ -7,6 +7,7 @@
     ../../base/configuration.nix
     ../../modules/services/postgresql
     ../../modules/services/redis
+    ../../modules/services/kubernetes
     ../../modules/virtualization/docker
   ];
 
