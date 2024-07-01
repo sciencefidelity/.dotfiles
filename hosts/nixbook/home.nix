@@ -11,6 +11,7 @@ in
     ../../base/home.nix
     ../../modules/applications/hyprland
     ../../modules/applications/wezterm
+    ../../modules/programs/direnv
   ];
 
   home = {
