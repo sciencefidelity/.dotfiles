@@ -12,7 +12,9 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-require("lspconfig").clangd.setup({})
+require("lspconfig").clangd.setup({
+  filetypes = { "c", "cpp", "objc", "objcpp" },
+})
 
 require("conform").setup({
   formatters_by_ft = {
