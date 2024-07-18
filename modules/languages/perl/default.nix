@@ -1,9 +1,9 @@
 { pkgs, ... }:
 
 {
-  # home = {
-  #   packages = with pkgs; [
-  #     perl
-  #   ];
-  # };
+  home = {
+    packages = with pkgs; [
+      perl
+    ];
+  };
 }
