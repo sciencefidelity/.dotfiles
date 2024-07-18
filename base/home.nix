@@ -15,11 +15,11 @@ in
     ../modules/languages/java
     ../modules/languages/lua
     ../modules/languages/nix
-    ../modules/languages/perl
     ../modules/languages/rust
     ../modules/languages/typescript
     ../modules/languages/zig
     ../modules/packages/nixpkgs
+    ../modules/programs/direnv
     ../modules/programs/eza
     ../modules/programs/git
     ../modules/programs/gnupg

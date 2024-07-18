@@ -15,12 +15,11 @@ in
     ../../modules/applications/iterm
     ../../modules/assets/fonts
     ../../modules/packages/homebrew
-    # ../../modules/services/karabiner
     ../../modules/services/skhd
     ../../modules/services/yabai
   ];
   environment = {
-    shells = with pkgs; [ pkgs.zsh ];
+    shells = [ pkgs.zsh ];
 
     systemPackages = with pkgs; [
       coreutils

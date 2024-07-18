@@ -5,10 +5,10 @@ let
 in
 {
   home = {
-    packages = with pkgs; [
-      clang-tools
-      lldb
-    ] ++ (if platform == "linux" then with pkgs; [ gdb valgrind ] else [ ]);
+    packages = [
+      pkgs.clang-tools
+      pkgs.lldb
+    ] ++ (if platform == "linux" then [ pkgs.gdb pkgs.valgrind ] else [ ]);
 
     file =
       if platform == "linux" then {
