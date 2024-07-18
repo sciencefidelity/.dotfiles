@@ -21,7 +21,7 @@ in
     ../../modules/languages/rust
     ../../modules/languages/svelte
     ../../modules/languages/typescript
-    # ../../modules/languages/zig
+    ../../modules/languages/zig
     ../../modules/packages/nixpkgs
     ../../modules/programs/eza
     ../../modules/programs/git

@@ -3,7 +3,6 @@
 {
   programs.go = {
     enable = false;
-    packages = { };
     goBin = ".local/bin.go";
     goPath = null;
   };
