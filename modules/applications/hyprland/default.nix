@@ -4,13 +4,6 @@ let
   terminal = config.terminal;
 in
 {
-  programs.neovim = {
-    extraLuaConfig = /*lua*/ ''
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = { "rust" },
-      })
-    '';
-  };
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = /*hyprlang*/ ''

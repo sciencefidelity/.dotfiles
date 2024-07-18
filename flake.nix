@@ -12,13 +12,9 @@
       url = "github:catppuccin/hyprland";
       flake = false;
     };
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = inputs @ { self, home-manager, nix-darwin, nixos-hardware, nixpkgs, rust-overlay, ... }:
+  outputs = inputs @ { self, home-manager, nix-darwin, nixos-hardware, nixpkgs, ... }:
     let
       lib = nixpkgs.lib;
     in
@@ -63,9 +59,6 @@
           pkgs = nixpkgs.legacyPackages."aarch64-darwin";
           modules = [
             ./hosts/macbook/home.nix
-            {
-              nixpkgs.overlays = [ rust-overlay.overlays.default ];
-            }
           ];
         };
 
@@ -73,9 +66,6 @@
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           modules = [
             ./hosts/nixbook/home.nix
-            {
-              nixpkgs.overlays = [ rust-overlay.overlays.default ];
-            }
           ];
           extraSpecialArgs = { inherit inputs; };
         };
@@ -84,9 +74,6 @@
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           modules = [
             ./hosts/nixos/home.nix
-            {
-              nixpkgs.overlays = [ rust-overlay.overlays.default ];
-            }
           ];
           extraSpecialArgs = { inherit inputs; };
         };
@@ -95,9 +82,6 @@
           pkgs = nixpkgs.legacyPackages."aarch64-linux";
           modules = [
             ./hosts/pi/home.nix
-            {
-              nixpkgs.overlays = [ rust-overlay.overlays.default ];
-            }
           ];
           extraSpecialArgs = { inherit inputs; };
         };

@@ -13,7 +13,6 @@ let
     lr = "ls -R";
     df = "df -kTh";
     du = "du -h -c";
-    # touch = "atouch";
     mkdir = "mkdir -pv";
     rmdir = "rmdir -pv";
     cp = "cp -Rv";
@@ -22,6 +21,9 @@ let
     sysclean = "sudo nix-collect-garbage -d; and sudo nix-store --optimise";
     syshs = "home-manager switch --flake .";
     sysrs = "sudo nixos-rebuild switch --flake .";
+    projects = "cd ~/developer/projects/rust";
+    learning = "cd ~/developer/learning/rust";
+    testing = "cd ~/developer/testing/rust";
   };
 in
 {

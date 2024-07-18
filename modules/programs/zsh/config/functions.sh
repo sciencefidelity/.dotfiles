@@ -1,11 +1,3 @@
-# atouch - create file with a folder path
-# atouch() {
-#   for file_path_info in "$@"; do
-#     mkdir -p -- "$(dirname -- "$file_path_info")"
-#     touch -- "$file_path_info"
-#   done
-# }
-
 # ext = archive extractor
 ext() {
   if [ -f $1 ] ; then
@@ -31,14 +23,8 @@ ext() {
 
 
 # lfcd - use lf to switch directories (bound to ctrl-o)
-lfcd() {
-  tmp="$(mktemp)"
-  lf -last-dir-path="$tmp" "$@"
-  if [ -f "$tmp" ]; then
-    dir="$(cat "$tmp")"
-    rm -f "$tmp"
-    [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-  fi
+lfcd () {
+    cd "$(command lf -print-last-dir "$@")"
 }
 
 # sc - svelte create <app-name>

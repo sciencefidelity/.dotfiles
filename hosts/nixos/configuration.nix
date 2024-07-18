@@ -1,13 +1,10 @@
-{ config, pkgs, inputs, ... }:
+{ config, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
     ./config.nix
     ../../base/configuration.nix
-    ../../modules/services/postgresql
-    ../../modules/services/redis
-    ../../modules/virtualization/docker
   ];
 
   boot = {
