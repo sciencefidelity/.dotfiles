@@ -12,6 +12,7 @@
       url = "github:catppuccin/hyprland";
       flake = false;
     };
+    wezterm.url = "github:wez/wezterm?dir=nix";
   };
 
   outputs = inputs @ { self, home-manager, nix-darwin, nixos-hardware, nixpkgs, ... }:
