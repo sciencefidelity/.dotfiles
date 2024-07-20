@@ -11,7 +11,8 @@ in
     ../../base/home.nix
     ../../modules/applications/hyprland
     ../../modules/applications/waybar
-    ../../modules/applications/wezterm
+    # ../../modules/applications/wezterm
+    ../../modules/applications/alacritty
   ];
 
   home = {

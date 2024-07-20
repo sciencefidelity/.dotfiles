@@ -6,6 +6,7 @@ in
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    xwayland.enable = true;
     extraConfig = /*hyprlang*/ ''
       ${builtins.readFile "${inputs.catppuccin-hyprland}/themes/mocha.conf"}
 
@@ -15,16 +16,18 @@ in
       $fileManager = dolphin
       $menu = wofi --show drun
 
+      exec-once=waybar
+
       env = XCURSOR_SIZE,96
       env = HYPRCURSOR_SIZE,96
       env = QT_QPA_PLATFORMTHEME,qt5ct # change to qt6ct if you have that
 
       general {
-          gaps_in = 5
+          gaps_in = 2.5
           gaps_out = 5
-          border_size = 2
-          col.active_border = 0xFF $blueAlpha
-          col.inactive_border = 0x66 $overlay0Alpha
+          border_size = 1
+          col.active_border = 0xFF$blueAlpha
+          col.inactive_border = 0x66$overlay0Alpha
           allow_tearing = false
           layout = dwindle
       }
@@ -129,8 +132,7 @@ in
     systemd = {
       enable = true;
       extraCommands = [
-        "swww init"
-        "waybar"
+        "swww-daemon"
         "${terminal}"
       ];
     };

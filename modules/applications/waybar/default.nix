@@ -4,50 +4,67 @@
   programs = {
     waybar = {
       enable = true;
-      settings = [
-        {
-          mainBar = {
-            layer = "top";
-            position = "top";
-            margin-top = 14;
-            margin-bottom = 0;
-            height = 30;
+      settings = {
+        main = {
+          layer = "top";
+          position = "top";
+          margin-top = 5;
+          margin-bottom = 0;
+          height = 15;
 
-            output = [
-              "eDP-1"
-              "HDMI-A-1"
-            ];
-            modules-left = [ "hyprland/workspaces" "hyprland/window" ];
-            modules-center = [ "custom/hello-from-waybar" ];
-            modules-right = [ "bluetooth" "network" "clock" ];
+          output = [
+            "eDP-1"
+            "HDMI-A-1"
+          ];
+          modules-left = [ "hyprland/workspaces" "hyprland/window" ];
+          modules-center = [ "custom/hello-from-waybar" ];
+          modules-right = [ "group/hardware" "clock" ];
 
-            "group/hardware" = {
-              orientation = "horizontal";
-              modules = [ "disk" "cpu" "memory" ];
-            };
-
-            "custom/hello-from-waybar" = {
-              format = "hello {}";
-              max-length = 40;
-              interval = "once";
-              exec = pkgs.writeShellScript "hello-from-waybar" ''
-                echo "from within waybar"
-              '';
-            };
+          "group/hardware" = {
+            orientation = "horizontal";
+            modules = [ "disk" "cpu" "memory" ];
           };
-        }
-      ];
+
+          "custom/hello-from-waybar" = {
+            format = "hello {}";
+            max-length = 40;
+            interval = "once";
+            exec = pkgs.writeShellScript "hello-from-waybar" ''
+              echo "from within waybar"
+            '';
+          };
+        };
+      };
+
       style = /*css*/ ''
         * {
           border: none;
           border-radius: 0;
-          font-family: Source Code Pro;
+          font-family: 'Fira Code';
         }
         window#waybar {
-          background: #16191C;
-          color: #AAB2BF;
+          font-size: 10px;
+          padding: 0 5px;
+          background: transparent;
+          color: #fff;
         }
-        #workspaces button {
+        #workspaces,
+        #window,
+        #custom-hello-from-waybar,
+        #hardware,
+        #clock {
+          padding: 0 10px;
+          border-radius: 5px;
+          background: rgba(0, 0, 0, 0.3);
+          color: #ffffff;
+          margin-right: 5px;
+        }
+        #workspaces {
+          margin-left: 5px;
+        }
+        #disk,
+        #cpu,
+        #memory {
           padding: 0 5px;
         }
       '';

@@ -2,7 +2,7 @@
 
 let
   catppuccin = import ./catppuccin.nix;
-  fontSize = config.terminal.fontSize or 7.5;
+  # fontSize = config.terminal.fontSize or 7.5;
   opacity = config.terminal.opacity or 0.9;
 in
 {
@@ -21,26 +21,42 @@ in
         };
       };
       font = {
-        size = fontSize;
+        size = 8;
         normal = {
-          family = "MonoLisa Script";
-          style = "Regular Italic";
+          family = "Fira Code";
+          style = "Light";
         };
         bold = {
-          family = "MonoLisa Script";
+          family = "Fira Code";
           style = "Medium";
         };
         italic = {
-          family = "MonoLisa Script";
-          style = "Regular Italic";
+          family = "Fira Code";
+          style = "Light";
         };
         bold_italic = {
-          family = "MonoLisa Script";
-          style = "Medium Italic";
+          family = "Fira Code";
+          style = "Medium";
         };
+        # normal = {
+        #   family = "MonoLisa Script";
+        #   style = "Regular Italic";
+        # };
+        # bold = {
+        #   family = "MonoLisa Script";
+        #   style = "Medium";
+        # };
+        # italic = {
+        #   family = "MonoLisa Script";
+        #   style = "Regular Italic";
+        # };
+        # bold_italic = {
+        #   family = "MonoLisa Script";
+        #   style = "Medium Italic";
+        # };
         offset = {
-          x = -1;
-          y = 1;
+          x = 0;
+          y = 3;
         };
         builtin_box_drawing = false;
       };
@@ -48,8 +64,8 @@ in
         opacity = opacity;
         decorations = "none";
         padding = {
-          x = 10;
-          y = 10;
+          x = 7;
+          y = 7;
         };
       };
     };

@@ -3,7 +3,8 @@ local act = wezterm.action
 local options = require("options")
 
 return {
-  font = wezterm.font_with_fallback({ "MonoLisa Script", "Symbols Nerd Font Mono" }),
+  -- font = wezterm.font_with_fallback({ "MonoLisa Script", "Symbols Nerd Font Mono" }),
+  font = wezterm.font_with_fallback({ "Fira Code", "Symbols Nerd Font Mono" }),
   font_size = options.font_size,
   line_height = 1.17,
   freetype_load_target = "Light",

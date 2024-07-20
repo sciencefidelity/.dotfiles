@@ -14,7 +14,7 @@
     platform = "linux";
     hostname = "nixbook";
     git.key = "0x4C752BECEDAD41CC";
-    terminal = "wezterm";
-    opacity = 0.9;
+    terminal = "alacritty";
+    opacity = 0.8;
   };
 }
