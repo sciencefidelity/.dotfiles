@@ -73,9 +73,9 @@
             format-icons = {
               default = [ "" "" " " ];
             };
-            on-click:="pavucontrol";
-            };
-            "custom/lock" = {
+            on-click = "pavucontrol";
+          };
+          "custom/lock" = {
             tooltip = false;
             on-click = "sh -c '(sleep 0.5s; swaylock --grace 0)' & disown";
             format = "";
