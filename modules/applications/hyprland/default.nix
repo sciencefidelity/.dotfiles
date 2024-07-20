@@ -15,7 +15,7 @@ in
       # $fileManager = dolphin
       # $menu = wofi --show drun
 
-      exec-once $terminal
+      exec-once = $terminal
       # exec-once = waybar
 
       env = XCURSOR_SIZE,96
