@@ -22,6 +22,7 @@
   networking = {
     hostName = config.hostname;
     wireless.enable = false;
+    firewall.allowedTCPPorts = [ 22 80 3000 5173 8000 8080 3030 ];
   };
 }
 

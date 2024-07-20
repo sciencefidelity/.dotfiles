@@ -124,8 +124,12 @@ in
       bindm = $mainMod, mouse:272, movewindow
       bindm = $mainMod, mouse:273, resizewindow
     '';
-    systemd.extraCommands = [
-      "swww init"
-    ];
+    systemd = {
+      enable = true;
+      extraCommands = [
+        "swww init"
+        "waybar"
+      ];
+    };
   };
 }
