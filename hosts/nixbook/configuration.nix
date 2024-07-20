@@ -5,7 +5,7 @@
     ./hardware-configuration.nix
     ./config.nix
     ../../base/configuration.nix
-    # ../../modules/assets/fonts
+    ../../modules/assets/fonts
   ];
 
   boot = {
@@ -21,11 +21,8 @@
 
   environment = {
     systemPackages = with pkgs; [
-      alacritty
-      kitty
       pciutils
       swww
-      wezterm
     ];
   };
 
