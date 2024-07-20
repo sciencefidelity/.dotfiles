@@ -89,7 +89,7 @@
       };
 
       style = /*css*/ ''
-        @import "${inputs.waybar-catppuccin}/themes/mocha.css";
+        @import "${inputs.catppuccin-waybar}/themes/mocha.css";
 
         * {
           font-family: "MonoLisa Script", "Fira Code", "Symbols Nerd Font Mono";
