@@ -12,6 +12,10 @@
       url = "github:catppuccin/hyprland";
       flake = false;
     };
+    catppuccin-waybar = {
+      url = "github:catppuccin/waybar";
+      flake = false;
+    };
     wezterm.url = "github:wez/wezterm?dir=nix";
   };
 
