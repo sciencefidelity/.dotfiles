@@ -41,7 +41,6 @@ in
       COLORTERM = "truecolor";
       KEYTIMEOUT = "1";
       PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
-      WAYLAND_DISPLAY = "1";
     };
   };
 

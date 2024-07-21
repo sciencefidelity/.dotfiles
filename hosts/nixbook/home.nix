@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 let
   username = config.username;
@@ -13,6 +13,7 @@ in
     ../../modules/applications/waybar
     # ../../modules/applications/wezterm
     ../../modules/applications/alacritty
+    ../../modules/applications/kitty
   ];
 
   home = {

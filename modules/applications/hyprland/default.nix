@@ -6,17 +6,18 @@ in
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    xwayland.enable = true;
+    # xwayland.enable = true;
     extraConfig = /*hyprlang*/ ''
       ${builtins.readFile "${inputs.catppuccin-hyprland}/themes/mocha.conf"}
 
-      monitor=,preferred,auto,auto
+      # monitor=,preferred,auto,1
+      monitor=Apple Computer Inc Color LCD,2560x1600@59.97200,0x0,0.75
 
       $terminal = ${terminal}
       $fileManager = dolphin
       $menu = wofi --show drun
-
-      exec-once=waybar
+      $notes = OBSIDIAN_USE_WAYLAND=1 obsidian --ozone-platform-hint=auto
+      $browser = qutebrowser
 
       env = XCURSOR_SIZE,96
       env = HYPRCURSOR_SIZE,96
@@ -82,6 +83,8 @@ in
       bind = $mainMod, C, killactive,
       bind = $mainMod, M, exit,
       bind = $mainMod, E, exec, $fileManager
+      bind = $mainMod, O, exec, $notes
+      bind = $mainMod, B, exec, $browser
       bind = $mainMod, V, togglefloating,
       bind = $mainMod, R, exec, $menu
       bind = $mainMod, P, pseudo, # dwindle
@@ -133,7 +136,6 @@ in
       enable = true;
       extraCommands = [
         "swww-daemon"
-        "${terminal}"
       ];
     };
   };

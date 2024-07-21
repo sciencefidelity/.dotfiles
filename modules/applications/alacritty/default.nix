@@ -2,7 +2,7 @@
 
 let
   catppuccin = import ./catppuccin.nix;
-  # fontSize = config.terminal.fontSize or 7.5;
+  fontSize = config.terminal.fontSize or 7.5;
   opacity = config.terminal.opacity or 0.9;
 in
 {
@@ -21,42 +21,42 @@ in
         };
       };
       font = {
-        size = 8;
-        normal = {
-          family = "Fira Code";
-          style = "Light";
-        };
-        bold = {
-          family = "Fira Code";
-          style = "Medium";
-        };
-        italic = {
-          family = "Fira Code";
-          style = "Light";
-        };
-        bold_italic = {
-          family = "Fira Code";
-          style = "Medium";
-        };
+        size = fontSize;
         # normal = {
-        #   family = "MonoLisa Script";
-        #   style = "Regular Italic";
+        #   family = "Fira Code";
+        #   style = "Light";
         # };
         # bold = {
-        #   family = "MonoLisa Script";
+        #   family = "Fira Code";
         #   style = "Medium";
         # };
         # italic = {
-        #   family = "MonoLisa Script";
-        #   style = "Regular Italic";
+        #   family = "Fira Code";
+        #   style = "Light";
         # };
         # bold_italic = {
-        #   family = "MonoLisa Script";
-        #   style = "Medium Italic";
+        #   family = "Fira Code";
+        #   style = "Medium";
         # };
+        normal = {
+          family = "MonoLisa Script";
+          style = "Regular";
+        };
+        bold = {
+          family = "MonoLisa Script";
+          style = "Medium";
+        };
+        italic = {
+          family = "MonoLisa Script";
+          style = "Regular Italic";
+        };
+        bold_italic = {
+          family = "MonoLisa Script";
+          style = "Medium Italic";
+        };
         offset = {
-          x = 0;
-          y = 3;
+          x = -1;
+          y = 1;
         };
         builtin_box_drawing = false;
       };

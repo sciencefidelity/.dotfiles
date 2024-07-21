@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, ... }:
 
 {
   programs = {
@@ -8,82 +8,38 @@
         main = {
           layer = "top";
           position = "top";
-          # margin-top = 5;
-          # margin-bottom = 0;
-          # height = 15;
+          margin-top = 5;
+          margin-bottom = -1;
+          margin-left = 5;
+          margin-right = 5;
 
-          modules-left = [ "wlr/workspaces" ];
+          modules-left = [ "hyprland/workspaces" ];
           modules-center = [ "hyprland/window" ];
           modules-right = [
-            "pulseaudio"
-            "backlight"
+            "memory"
+            "cpu"
+            "temperature"
             "battery"
+            "backlight"
             "clock"
-            "tray"
-            "custom/lock"
-            "custom/power"
           ];
-          "wlr/workspaces" = {
+          "hyprland/workspaces" = {
             disable-scroll = true;
             sort-by-name = true;
-            format = " {icon} ";
-            format-icons = {
-              default = "";
-            };
-          };
-          tray = {
-            icon-size = 21;
-            spacing = 20;
-          };
-          "custom/music" = {
-            format = "  {}";
-            escape = true;
-            interval = 5;
-            tooltip = false;
-            exec = "playerctl metadata --format='{{ title }}'";
-            on-click = "playerctl play-pause";
-            max-length = 50;
           };
           clock = {
             timezone = "Europe/London";
-            tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-            format-alt = " {:%d/%m/%Y}";
-            format = " {:%H:%M}";
+            format = "{:%d/%m/%Y %H:%M}";
           };
           backlight = {
-            device = "intel_backlight";
-            format = "{icon}";
-            format-icons = [ "" "" "" "" "" "" "" "" "" ];
+            format = "{percent}%";
           };
           battery = {
             states = {
               warning = 30;
               critical = 15;
             };
-            format = "{icon}";
-            format-charging = "";
-            format-plugged = "";
-            format-alt = "{icon}";
-            format-icons = [ "" "" "" "" "" "" "" "" "" "" "" "" ];
-          };
-          pulseaudio = {
-            # "scroll-step": 1, #  %, can be a float
-            format = "{icon} {volume}%";
-            format-muted = "";
-            format-icons = {
-              default = [ "" "" " " ];
-            };
-            on-click = "pavucontrol";
-          };
-          "custom/lock" = {
-            tooltip = false;
-            on-click = "sh -c '(sleep 0.5s; swaylock --grace 0)' & disown";
-            format = "";
-          };
-          "custom/power" = {
-            tooltip = false;
-            on-click = "wlogout &";
-            format = "襤";
+            format = "{capacity}%";
           };
         };
       };
@@ -92,50 +48,58 @@
         @import "${inputs.catppuccin-waybar}/themes/mocha.css";
 
         * {
-          font-family: "MonoLisa Script", "Fira Code", "Symbols Nerd Font Mono";
-          font-size: 17px;
+          font-family: "Symbols Nerd Font Mono", "MonoLisa Script";
+          font-size: 10px;
           min-height: 0;
         }
         #waybar {
-          background: transparent;
+          background-color: alpha(@base, 0.9);
+          border: 1px solid alpha(@overlay0, 0.9);
+          border-radius: 5px;
           color: @text;
-          margin: 5px 5px;
+        }
+        #workspaces,
+        #window,
+        #memory,
+        #cpu,
+        #temperature,
+        #battery,
+        #backlight,
+        #clock {
+          margin-left: 0;
+          padding-left: 0;
+          padding-right: 10px;
         }
         #workspaces {
-          border-radius: 1rem;
-          margin: 5px;
-          background-color: @surface0;
-          margin-left: 1rem;
+          padding-right: 15px;
         }
         #workspaces button {
-          color: @lavender;
-          border-radius: 1rem;
-          padding: 0.4rem;
+          background: transparent;
+        }
+        #workspaces button.visible,
+        #workspaces button.empty {
+          color: @surface0;
         }
         #workspaces button.active {
-          color: @sky;
-          border-radius: 1rem;
+          background: transparent;
+          color: @blue;
         }
         #workspaces button:hover {
-          color: @sapphire;
-          border-radius: 1rem;
+          background: transparent;
+          border: none;
+          color: @mauve;
         }
-        #custom-music,
-        #tray,
-        #backlight,
-        #clock,
-        #battery,
-        #pulseaudio,
-        #custom-lock,
-        #custom-power {
-          background-color: @surface0;
-          padding: 0.5rem 1rem;
-          margin: 5px 0;
+        #memory {
+          color: @pink;
         }
-        #clock {
-          color: @blue;
-          border-radius: 0px 1rem 1rem 0px;
-          margin-right: 1rem;
+        #cpu {
+          color: @sky;
+        }
+        #temperature {
+          color: @teal;
+        }
+        #backlight {
+          color: @yellow;
         }
         #battery {
           color: @green;
@@ -146,33 +110,8 @@
         #battery.warning:not(.charging) {
           color: @red;
         }
-        #backlight {
-          color: @yellow;
-        }
-        #backlight, #battery {
-            border-radius: 0;
-        }
-        #pulseaudio {
-          color: @maroon;
-          border-radius: 1rem 0px 0px 1rem;
-          margin-left: 1rem;
-        }
-        #custom-music {
-          color: @mauve;
-          border-radius: 1rem;
-        }
-        #custom-lock {
-            border-radius: 1rem 0px 0px 1rem;
-            color: @lavender;
-        }
-        #custom-power {
-            margin-right: 1rem;
-            border-radius: 0px 1rem 1rem 0px;
-            color: @red;
-        }
-        #tray {
-          margin-right: 1rem;
-          border-radius: 1rem;
+        #clock {
+          color: @blue;
         }
       '';
       systemd = {

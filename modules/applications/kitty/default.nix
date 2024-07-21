@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, ... }:
 
 let
   fontSize = (toString config.terminal.fontSize or 7.5);
@@ -9,10 +9,10 @@ in
     enable = true;
     theme = "Catppuccin-Mocha";
     extraConfig = ''
-      font_family          Fira Code Regular
-      bold_font            Fira Code SemiBold
-      italic_font          Fira Code Regular
-      bold_italic_font     Fira Code SemiBold
+      font_family          MonoLisa Script Regular
+      bold_font            MonoLisa Script Medium
+      italic_font          MonoLisa Script Regular Italic
+      bold_italic_font     MonoLisa Script Medium Italic
       font_size            ${fontSize}
       adjust_line_height   117%
       adjust_column_width  90%

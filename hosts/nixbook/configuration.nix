@@ -21,7 +21,11 @@
 
   environment = {
     systemPackages = with pkgs; [
+      brave
+      firefox
+      obsidian
       pciutils
+      qutebrowser
       swww
     ];
   };
