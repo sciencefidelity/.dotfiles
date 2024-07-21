@@ -6,6 +6,7 @@
     ./config.nix
     ../../base/configuration.nix
     ../../modules/assets/fonts
+    ../../modules/scripts/bl
   ];
 
   boot = {
@@ -13,9 +14,6 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-    # initrd.kernelModules = [ "wl" ];
-    # kernelModules = [ "kvm-intel" "wl" ];
-    # extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
     tmp.cleanOnBoot = true;
   };
 
@@ -34,16 +32,11 @@
     fontconfig.enable = true;
   };
 
-  # hardware = {
-  #   enableAllFirmware = true;
-  # };
-
   networking = {
     hostName = config.hostname;
     enableB43Firmware = true;
-    # networkmanager.enable = true;
-    # networkmanager.wifi.backend = "iwd";
-    wireless.enable = true;
+    networkmanager.enable = true;
+    networkmanager.wifi.backend = "iwd";
   };
 
   powerManagement = {
@@ -62,11 +55,5 @@
       '';
     };
   };
-
-  # users = {
-  #   users."${config.user}" = {
-  #     extraGroups = [ "networkmanager" ];
-  #   };
-  # };
 }
 

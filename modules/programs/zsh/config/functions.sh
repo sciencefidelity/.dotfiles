@@ -22,7 +22,7 @@ ext() {
 }
 
 
-# lfcd - use lf to switch directories (bound to ctrl-o)
+# lfcd - use lf to switch directories (bound to ctrl-o).
 lfcd () {
     cd "$(command lf -print-last-dir "$@")"
 }
@@ -34,3 +34,4 @@ sc() {
     --with typescript+eslint+prettiercd
   cd "$@";
 }
+
