@@ -10,6 +10,9 @@
     terminal = mkOption { type = strMatching "(alacritty|kitty|wezterm)"; };
     opacity = mkOption { type = number; };
     maxBrightness = mkOption { type = number; };
+    browser = mkOption {
+      type = strMatching "(brave|firefox)";
+    };
   };
   config = {
     platform = "linux";
@@ -18,5 +21,6 @@
     terminal = "alacritty";
     opacity = 0.8;
     maxBrightness = 1388;
+    browser = "brave";
   };
 }

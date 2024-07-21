@@ -19,17 +19,30 @@
 
   environment = {
     systemPackages = with pkgs; [
+      alsa-firmware
+      alsa-utils
       brave
       firefox
       obsidian
       pciutils
-      qutebrowser
       swww
+      wofi
     ];
   };
 
   fonts = {
     fontconfig.enable = true;
+  };
+
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+
+    pulseaudio = {
+      enable = true;
+    };
   };
 
   networking = {

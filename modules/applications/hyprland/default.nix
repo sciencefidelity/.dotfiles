@@ -1,6 +1,7 @@
 { config, inputs, ... }:
 
 let
+  browser = config.browser;
   terminal = config.terminal;
 in
 {
@@ -17,7 +18,7 @@ in
       $fileManager = dolphin
       $menu = wofi --show drun
       $notes = OBSIDIAN_USE_WAYLAND=1 obsidian --ozone-platform-hint=auto
-      $browser = qutebrowser
+      $browser = ${browser}
 
       env = XCURSOR_SIZE,96
       env = HYPRCURSOR_SIZE,96

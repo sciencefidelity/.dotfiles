@@ -72,7 +72,7 @@ in
     users."${username}" = {
       hashedPassword = password;
       isNormalUser = true;
-      extraGroups = [ "wheel" ];
+      extraGroups = [ "audio" "wheel" ];
     };
   };
 }
