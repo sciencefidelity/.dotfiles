@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }:
+{ config, ... }:
 
 let
   fontSize = toString (config.terminal.fontSize or 7.5);
@@ -27,7 +27,6 @@ in
 
   programs.wezterm = {
     enable = true;
-    package = inputs.wezterm.packages.${pkgs.system}.default;
     extraConfig = /*lua*/ ''
       ${builtins.readFile ./wezterm.lua}
     '';

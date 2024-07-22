@@ -16,7 +16,6 @@
       url = "github:catppuccin/waybar";
       flake = false;
     };
-    wezterm.url = "github:wez/wezterm?dir=nix";
   };
 
   outputs = inputs @ { self, home-manager, nix-darwin, nixos-hardware, nixpkgs, ... }:

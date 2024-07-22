@@ -4,7 +4,6 @@ let
   hostname = config.hostname;
   username = config.username;
   description = config.description;
-  org = config.git.org;
   homeDirectory = "/Users/${username}";
   stateVersion = 4;
 in
@@ -27,10 +26,6 @@ in
       git
       wget
     ];
-  };
-
-  fonts = {
-    fontDir.enable = true;
   };
 
   networking = {
