@@ -19,7 +19,7 @@ return {
   initial_cols = 223,
   initial_rows = 52,
   window_background_opacity = options.opacity,
-  -- cell_width = 0.9,
+  cell_width = 0.9,
   window_padding = {
     left = options.padding_left,
     right = options.padding_right,
