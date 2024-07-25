@@ -51,7 +51,11 @@ in
   };
 
   services = {
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      passwordAuthentication = false;
+      services.openssh.ports = [ 22 7422 ];
+    };
   };
 
   system = {
