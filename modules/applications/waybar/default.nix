@@ -16,23 +16,23 @@
           modules-left = [ "hyprland/workspaces" ];
           modules-center = [ "hyprland/window" ];
           modules-right = [
+            "backlight"
+            "battery"
+            "temperature"
+            "disk"
             "memory"
             "cpu"
-            "temperature"
-            "battery"
-            "backlight"
+            "network"
+            "clock#date"
             "clock"
           ];
           "hyprland/workspaces" = {
             disable-scroll = true;
             sort-by-name = true;
           };
-          clock = {
-            timezone = "Europe/London";
-            format = "{:%d/%m/%Y %H:%M}";
-          };
           backlight = {
             format = "{percent}%";
+            # format-icons = [ "" "" "" "" "" "" "" "" "" ];
           };
           battery = {
             states = {
@@ -40,6 +40,35 @@
               critical = 15;
             };
             format = "{capacity}%";
+            # format-icons = [ "" "" "" "" "" ];
+          };
+          temperature = {
+            format = "{temperatureC}°C";
+          };
+          disk = {
+            format = "{free}";
+            # format-icons = [ "󰋊" ];
+          };
+          memory = {
+            # format = "MEMORY {}%"
+            format = "{used:0.1f}G/{total:0.1f}G";
+          };
+          cpu = {
+            format = "{usage}%";
+            # format-icons = [ "󰍛" ];
+          };
+          network = {
+            format-wifi = "N {signalStrength}%";
+            # format-wifi = " {signalStrength}%";
+            # format-ethernet = " {signalStrength}%";
+            # format-disconnected = "󰤭";
+          };
+          "clock#date" = {
+            format = "{:%d/%m/%Y}";
+          };
+          clock = {
+            timezone = "Europe/London";
+            format = "{:%H:%M}";
           };
         };
       };
@@ -60,11 +89,14 @@
         }
         #workspaces,
         #window,
+        #backlight,
+        #battery,
+        #temperature,
+        #disk,
         #memory,
         #cpu,
-        #temperature,
-        #battery,
-        #backlight,
+        #network,
+        #clock-date,
         #clock {
           margin-left: 0;
           padding-left: 0;
@@ -82,36 +114,45 @@
         }
         #workspaces button.active {
           background: transparent;
-          color: @blue;
+          color: @pink;
         }
         #workspaces button:hover {
           background: transparent;
           border: none;
           color: @mauve;
         }
-        #memory {
-          color: @pink;
-        }
-        #cpu {
-          color: @sky;
-        }
-        #temperature {
-          color: @teal;
-        }
-        #backlight {
-          color: @yellow;
-        }
         #battery {
-          color: @green;
+          color: @red;
         }
         #battery.charging {
-          color: @green;
+          color: @maroon;
         }
         #battery.warning:not(.charging) {
           color: @red;
         }
-        #clock {
+        #backlight {
+          color: @peach;
+        }
+        #temperature {
+          color: @yellow;
+        }
+        #disk {
+          color: @green;
+        }
+        #memory {
+          color: @teal;
+        }
+        #cpu {
+          color: @sky;
+        }
+        #network {
+          color: @sapphire;
+        }
+        #clock.date {
           color: @blue;
+        }
+        #clock {
+          color: @lavender;
         }
       '';
       systemd = {
