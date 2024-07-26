@@ -6,7 +6,7 @@ in
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    # xwayland.enable = true;
+    xwayland.enable = true;
     extraConfig = /*hyprlang*/ ''
       ${builtins.readFile "${inputs.catppuccin-hyprland}/themes/mocha.conf"}
 
@@ -60,8 +60,9 @@ in
       }
 
       input {
-          kb_layout = gb
-          kb_options = caps:swapescape
+          kb_layout = au
+          kb_variant = mac,nodeadkeys
+          kb_options = caps:ctrl_modifier
           follow_mouse = 1
           touchpad {
               natural_scroll = true
