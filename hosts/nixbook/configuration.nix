@@ -75,9 +75,11 @@
               EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
       '';
     };
-    logind = {
-      lidSwitch = "ignore";
-    };
+
+    # Keeps machine running with the lid closed (screen will always be on).
+    # logind = {
+    #   lidSwitch = "ignore";
+    # };
 
     mbpfan = {
       enable = true;

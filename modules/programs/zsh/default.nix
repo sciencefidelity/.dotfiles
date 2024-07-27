@@ -24,6 +24,7 @@ let
     projects = "cd ~/developer/projects/rust";
     learning = "cd ~/developer/learning/rust";
     testing = "cd ~/developer/testing/rust";
+    dots = "cd ~/.dotfiles";
   };
 in
 {

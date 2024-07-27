@@ -11,7 +11,7 @@ in
       ${builtins.readFile "${inputs.catppuccin-hyprland}/themes/mocha.conf"}
 
       # monitor=,preferred,auto,1
-      monitor=Apple Computer Inc Color LCD,2560x1600@59.97200,0x0,0.75
+      monitor=Apple Computer Inc Color LCD,2560x1600@59.97200,0x0,0.5
 
       $terminal = ${terminal}
       $fileManager = dolphin
@@ -63,6 +63,8 @@ in
           kb_layout = au
           kb_variant = mac,nodeadkeys
           kb_options = caps:ctrl_modifier
+          # repeat_delay = 400
+          # repeat_rate = 400
           follow_mouse = 1
           touchpad {
               natural_scroll = true
@@ -82,14 +84,18 @@ in
 
       bind = $mainMod, Q, exec, $terminal
       bind = $mainMod, C, killactive,
-      bind = $mainMod, M, exit,
+      # bind = $mainMod, M, exit,
       bind = $mainMod, E, exec, $fileManager
       bind = $mainMod, O, exec, $notes
       bind = $mainMod, B, exec, $browser
       bind = $mainMod, V, togglefloating,
-      bind = $mainMod, R, exec, $menu
+      bind = $mainMod, M, exec, $menu
       bind = $mainMod, P, pseudo, # dwindle
-      bind = $mainMod, F, togglesplit, # dwindle
+      bind = $mainMod, R, togglesplit, # dwindle
+      bind = $mainMod, F, fullscreen, 1
+      bind = $mainMod, X, swapwindow, u
+      bind = $mainMod, Y, swapwindow, l
+      bind = $mainMod, S, swapnext, l
 
       # Move focus with mainMod + arrow keys
       bind = $mainMod, H, movefocus, l
@@ -122,8 +128,8 @@ in
       bind = $mainMod SHIFT, 0, movetoworkspace, 10
 
       # Example special workspace (scratchpad)
-      bind = $mainMod, S, togglespecialworkspace, magic
-      bind = $mainMod SHIFT, S, movetoworkspace, special:magic
+      # bind = $mainMod, S, togglespecialworkspace, magic
+      # bind = $mainMod SHIFT, S, movetoworkspace, special:magic
 
       # Scroll through existing workspaces with mainMod + scroll
       bind = $mainMod, mouse_down, workspace, e+1
