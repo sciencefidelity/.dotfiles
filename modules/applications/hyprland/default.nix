@@ -65,19 +65,20 @@ in
           kb_options = caps:ctrl_modifier
           # repeat_delay = 400
           # repeat_rate = 400
-          follow_mouse = 1
-          touchpad {
-              natural_scroll = true
-          }
+          follow_mouse = 0
+      }
+
+      device {
+        name = bcm5974
+        accel_profile = adaptive
+        natural_scroll = true
+        sensitivity = 0
+        disable_while_typing = true
       }
 
       gestures {
           workspace_swipe = true
-      }
-
-      device {
-          name = epic-mouse-v1
-          sensitivity = -0.5
+          workspace_swipe_create_new = true
       }
 
       $mainMod = SUPER
