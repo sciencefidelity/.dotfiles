@@ -55,17 +55,22 @@ in
       }
 
       misc {
-          force_default_wallpaper = 0
-          disable_hyprland_logo = true
+        force_default_wallpaper = 0
+        disable_hyprland_logo = true
       }
 
       input {
-          kb_layout = au
-          kb_variant = mac,nodeadkeys
-          kb_options = caps:ctrl_modifier
-          # repeat_delay = 400
-          # repeat_rate = 400
-          follow_mouse = 0
+        kb_layout = au
+        kb_variant = mac,nodeadkeys
+        kb_options = caps:ctrl_modifier
+        # repeat_delay = 400
+        # repeat_rate = 400
+        follow_mouse = 0
+        touchpad {
+          disable_while_typing = true
+          clickfinger_behavior = true
+          tap-to-click = false
+        }
       }
 
       device {
@@ -74,11 +79,13 @@ in
         natural_scroll = true
         sensitivity = 0
         disable_while_typing = true
+        clickfinger_behavior = true
+        tap-to-click = false
       }
 
       gestures {
-          workspace_swipe = true
-          workspace_swipe_create_new = true
+        workspace_swipe = true
+        workspace_swipe_create_new = true
       }
 
       $mainMod = SUPER

@@ -41,10 +41,10 @@
           ];
         };
 
-        nixos = lib.nixosSystem {
+        titan = lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./hosts/nixos/configuration.nix
+            ./hosts/titan/configuration.nix
           ];
         };
 

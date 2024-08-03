@@ -23,7 +23,6 @@ in
     ../../modules/languages/typescript
     ../../modules/languages/zig
     ../../modules/packages/nixpkgs
-    ../../modules/programs/direnv
     ../../modules/programs/eza
     ../../modules/programs/git
     ../../modules/programs/neovim
