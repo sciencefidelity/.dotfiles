@@ -36,7 +36,7 @@
         sao = lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./hosts/titan/configuration.nix
+            ./hosts/sao/configuration.nix
           ];
         };
 
