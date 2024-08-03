@@ -24,68 +24,68 @@
     in
     {
       darwinConfigurations = {
-        macbook = nix-darwin.lib.darwinSystem {
+        europa = nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           modules = [
-            ./hosts/macbook/configuration.nix
+            ./hosts/europa/configuration.nix
           ];
         };
       };
 
       nixosConfigurations = {
-        nixbook = lib.nixosSystem {
+        enceladus = lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             nixos-hardware.nixosModules.apple-macbook-pro-12-1
-            ./hosts/nixbook/configuration.nix
+            ./hosts/enceladus/configuration.nix
           ];
         };
 
-        nixos = lib.nixosSystem {
+        titan = lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./hosts/nixos/configuration.nix
+            ./hosts/titan/configuration.nix
           ];
         };
 
-        pi = lib.nixosSystem
+        io = lib.nixosSystem
           {
             system = "aarch64-linux";
             modules = [
               nixos-hardware.nixosModules.raspberry-pi-4
-              ./hosts/pi/configuration.nix
+              ./hosts/io/configuration.nix
             ];
           };
       };
 
       homeConfigurations = {
-        "matt@macbook" = home-manager.lib.homeManagerConfiguration {
+        "matt@europa" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."aarch64-darwin";
           modules = [
-            ./hosts/macbook/home.nix
+            ./hosts/europa/home.nix
           ];
         };
 
-        "matt@nixbook" = home-manager.lib.homeManagerConfiguration {
+        "matt@enceladus" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           modules = [
-            ./hosts/nixbook/home.nix
+            ./hosts/enceladus/home.nix
           ];
           extraSpecialArgs = { inherit inputs; };
         };
 
-        "matt@nixos" = home-manager.lib.homeManagerConfiguration {
+        "matt@titan" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           modules = [
-            ./hosts/nixos/home.nix
+            ./hosts/titan/home.nix
           ];
           extraSpecialArgs = { inherit inputs; };
         };
 
-        "matt@pi" = home-manager.lib.homeManagerConfiguration {
+        "matt@io" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."aarch64-linux";
           modules = [
-            ./hosts/pi/home.nix
+            ./hosts/io/home.nix
           ];
           extraSpecialArgs = { inherit inputs; };
         };

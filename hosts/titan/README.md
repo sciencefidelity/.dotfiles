@@ -1,4 +1,4 @@
-# nixos
+# titan
 
 hardware: HP 8055
 

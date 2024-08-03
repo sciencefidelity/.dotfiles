@@ -18,7 +18,7 @@
   };
   config = {
     platform = "darwin";
-    hostname = "macbook";
+    hostname = "europa";
     git.key = "22C1322FB7B3F0B2";
     terminal = {
       fontSize = 13;
