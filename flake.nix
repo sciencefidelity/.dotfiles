@@ -24,68 +24,67 @@
     in
     {
       darwinConfigurations = {
-        europa = nix-darwin.lib.darwinSystem {
+        dia = nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           modules = [
-            ./hosts/europa/configuration.nix
+            ./hosts/dia/configuration.nix
           ];
         };
       };
 
       nixosConfigurations = {
-        triton = lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            nixos-hardware.nixosModules.apple-macbook-pro-12-1
-            ./hosts/triton/configuration.nix
-          ];
-        };
-
-        titan = lib.nixosSystem {
+        sao = lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./hosts/titan/configuration.nix
           ];
         };
 
-        io = lib.nixosSystem
-          {
-            system = "aarch64-linux";
-            modules = [
-              nixos-hardware.nixosModules.raspberry-pi-4
-              ./hosts/io/configuration.nix
-            ];
-          };
+        eris = lib.nixosSystem {
+          system = "aarch64-linux";
+          modules = [
+            nixos-hardware.nixosModules.raspberry-pi-4
+            ./hosts/eris/configuration.nix
+          ];
+        };
+
+        rhea = lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            nixos-hardware.nixosModules.apple-macbook-pro-12-1
+            ./hosts/rhea/configuration.nix
+          ];
+        };
       };
 
       homeConfigurations = {
-        "matt@europa" = home-manager.lib.homeManagerConfiguration {
+        "matt@dia" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."aarch64-darwin";
           modules = [
-            ./hosts/europa/home.nix
+            ./hosts/dia/home.nix
           ];
         };
 
-        "matt@triton" = home-manager.lib.homeManagerConfiguration {
+        "matt@sao" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           modules = [
-            ./hosts/triton/home.nix
+            ./hosts/sao/home.nix
           ];
           extraSpecialArgs = { inherit inputs; };
         };
 
-        "matt@titan" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          modules = [
-            ./hosts/titan/home.nix
-          ];
-          extraSpecialArgs = { inherit inputs; };
-        };
-
-        "matt@io" = home-manager.lib.homeManagerConfiguration {
+        "matt@eris" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."aarch64-linux";
           modules = [
-            ./hosts/io/home.nix
+            ./hosts/eris/home.nix
+          ];
+          extraSpecialArgs = { inherit inputs; };
+        };
+
+        "matt@rhea" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          modules = [
+            ./hosts/rhea/home.nix
           ];
           extraSpecialArgs = { inherit inputs; };
         };

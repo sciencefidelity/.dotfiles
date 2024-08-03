@@ -10,7 +10,7 @@
   };
   config = {
     platform = "linux";
-    hostname = "titan";
+    hostname = "sao";
     git.key = "0x5D677EB50DA594C9";
   };
 }

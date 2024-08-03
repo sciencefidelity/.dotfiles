@@ -10,7 +10,7 @@
   };
   config = {
     platform = "linux";
-    hostname = "io";
+    hostname = "eris";
     git.key = "0x6D04AAF40371DB76";
   };
 }
