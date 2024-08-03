@@ -13,7 +13,7 @@
   };
   config = {
     platform = "linux";
-    hostname = "enceladus";
+    hostname = "triton";
     git.key = "0x4C752BECEDAD41CC";
     terminal = "alacritty";
     opacity = 0.8;

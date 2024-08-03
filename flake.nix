@@ -33,11 +33,11 @@
       };
 
       nixosConfigurations = {
-        enceladus = lib.nixosSystem {
+        triton = lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             nixos-hardware.nixosModules.apple-macbook-pro-12-1
-            ./hosts/enceladus/configuration.nix
+            ./hosts/triton/configuration.nix
           ];
         };
 
@@ -66,10 +66,10 @@
           ];
         };
 
-        "matt@enceladus" = home-manager.lib.homeManagerConfiguration {
+        "matt@triton" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           modules = [
-            ./hosts/enceladus/home.nix
+            ./hosts/triton/home.nix
           ];
           extraSpecialArgs = { inherit inputs; };
         };
