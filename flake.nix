@@ -33,6 +33,13 @@
       };
 
       nixosConfigurations = {
+        io = lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/io/configuration.nix
+          ];
+        };
+
         sao = lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
@@ -63,6 +70,14 @@
           modules = [
             ./hosts/dia/home.nix
           ];
+        };
+
+        "matt@io" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          modules = [
+            ./hosts/io/home.nix
+          ];
+          extraSpecialArgs = { inherit inputs; };
         };
 
         "matt@sao" = home-manager.lib.homeManagerConfiguration {
