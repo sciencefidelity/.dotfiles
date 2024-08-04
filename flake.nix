@@ -20,15 +20,14 @@
       url = "github:quantumfate/wofi";
       flake = false;
     };
-    rose-pine-hyprcursor = {
-      url = "github:ndom91/rose-pine-hyprcursor";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    bibata-modern-classic-hyprcursor = {
-      url = "github:javigomezo/bibata-modern-classic-hyprcursor";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    wezterm.url = "github:wez/wezterm?dir=nix";
+    # rose-pine-hyprcursor = {
+    #   url = "github:ndom91/rose-pine-hyprcursor";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # bibata-modern-classic-hyprcursor = {
+    #   url = "github:javigomezo/bibata-modern-classic-hyprcursor";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs = inputs @ { self, home-manager, nix-darwin, nixos-hardware, nixpkgs, ... }:

@@ -28,7 +28,6 @@ in
 
   programs.wezterm = {
     enable = true;
-    package = inputs.wezterm.packages.${pkgs.system}.default;
     extraConfig = /*lua*/ ''
       ${builtins.readFile ./wezterm.lua}
     '';

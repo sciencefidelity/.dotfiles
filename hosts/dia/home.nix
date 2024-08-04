@@ -31,9 +31,7 @@ in
 
   home = {
     homeDirectory = homeDirectory;
-
     stateVersion = stateVersion;
-
     username = username;
   };
 

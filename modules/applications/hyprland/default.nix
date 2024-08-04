@@ -31,14 +31,8 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
-    xwayland.enable = true;
     systemd = {
       enable = true;
-      extraCommands = lib.mkBefore [
-        "systmectl --user stop graphical-session.target"
-        "systmectl --user start hyprland-session.target"
-      ];
-      variables = [ "--all" ];
     };
     settings = {
       source = "${inputs.catppuccin-hyprland}/themes/mocha.conf";
