@@ -22,22 +22,6 @@ in
       };
       font = {
         size = fontSize;
-        # normal = {
-        #   family = "Fira Code";
-        #   style = "Light";
-        # };
-        # bold = {
-        #   family = "Fira Code";
-        #   style = "Medium";
-        # };
-        # italic = {
-        #   family = "Fira Code";
-        #   style = "Light";
-        # };
-        # bold_italic = {
-        #   family = "Fira Code";
-        #   style = "Medium";
-        # };
         normal = {
           family = "MonoLisa Script";
           style = "Regular";
@@ -54,8 +38,12 @@ in
           family = "MonoLisa Script";
           style = "Medium Italic";
         };
+        # offset = {
+        #   x = -1;
+        #   y = 1;
+        # };
         offset = {
-          x = -1;
+          x = 0;
           y = 1;
         };
         builtin_box_drawing = false;

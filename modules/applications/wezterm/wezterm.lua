@@ -15,6 +15,7 @@ return {
   use_fancy_tab_bar = false,
   tab_max_width = 8,
   hide_tab_bar_if_only_one_tab = true,
+  enable_wayland = true,
   window_decorations = "INTEGRATED_BUTTONS|RESIZE",
   initial_cols = 223,
   initial_rows = 52,
