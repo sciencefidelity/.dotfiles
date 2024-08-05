@@ -60,10 +60,6 @@ in
       ${builtins.readFile ./config/init.sh}
       ${builtins.readFile ./config/functions.sh}
       ${builtins.readFile ./config/keybindings.sh}
-      TTY1=$(tty)
-      if [ "$TTY1" = "/dev/tty1" ]; then
-        exec Hyprland
-      fi
     '';
     initExtraBeforeCompInit = /*bash*/ ''
       zstyle ':completion:*' menu select
