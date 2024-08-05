@@ -4,10 +4,34 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixos-hardware.url = "nixos-hardware/master";
-    home-manager.url = "github:nix-community/home-manager/master";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nix-darwin.url = "github:LnL7/nix-darwin";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprcursor = {
+      url = "github:hyprwm/hyprcursor";
+      inputs = {
+        hyprlang.follows = "hyprlang";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+    hyprlang = {
+      url = "github:hyprwm/hyprlang";
+      inputs = {
+        hyprutils.follows = "hyprutils";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+    hyprutils = {
+      url = "github:hyprwm/hyprutils";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
     catppuccin-hyprland = {
       url = "github:catppuccin/hyprland";
       flake = false;
@@ -20,14 +44,6 @@
       url = "github:quantumfate/wofi";
       flake = false;
     };
-    # rose-pine-hyprcursor = {
-    #   url = "github:ndom91/rose-pine-hyprcursor";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    # bibata-modern-classic-hyprcursor = {
-    #   url = "github:javigomezo/bibata-modern-classic-hyprcursor";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
   };
 
   outputs = inputs @ { self, home-manager, nix-darwin, nixos-hardware, nixpkgs, ... }:

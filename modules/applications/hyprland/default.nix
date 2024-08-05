@@ -4,7 +4,7 @@ let
   terminal = config.terminal.app;
   borderSize = config.hypr.borderSize or 2;
   cursorSize = config.hypr.cursorSize or 96;
-  cursorTheme = config.hypr.cursorTheme or "bibata-modern-classic-hyprcursor";
+  cursorTheme = config.hypr.cursorTheme or "catpuccin-cursors";
   gapsIn = config.hypr.gapsIn or 5;
   gapsOut = config.hypr.gapsOut or 10;
   rounding = config.hypr.rounding or 10;
@@ -17,7 +17,7 @@ in
 {
   home = {
     packages = [
-      inputs.bibata-modern-classic-hyprcursor.packages.${pkgs.system}.default
+      pkgs.catppuccin-cursors.mochaDark
     ];
     sessionVariables = {
       HYPRCURSOR_THEME = cursorTheme;

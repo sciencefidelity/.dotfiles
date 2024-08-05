@@ -6,6 +6,7 @@
     ./config.nix
     ../../base/configuration.nix
     ../../modules/assets/fonts
+    ../../modules/utilities/webcam
   ];
 
   boot = {
@@ -27,6 +28,7 @@
       obsidian
       swww
       wofi
+      zoom-us
     ];
 
     variables = {
