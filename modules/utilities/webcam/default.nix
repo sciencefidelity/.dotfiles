@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  startWebcam = pkgs.writeShellScriptBin "cam" /*bash*/ ''
+  startWebcam = pkgs.writeShellScriptBin "start-webcam" /*bash*/ ''
     systemctl restart webcam
     # debug
     # echo "hello" &> /home/matt/test.txt
@@ -16,8 +16,8 @@ in
     '';
   };
 
-  environment = {
-    systemPackages = with pkgs; [
+  environment = with pkgs; {
+    systemPackages = [
       ffmpeg
       gphoto2
       mpv
@@ -28,15 +28,14 @@ in
     ACTION=="add",  \
     SUBSYSTEM=="usb", \
     ATTR{idVendor}=="04a9", \
-    ATTR{idProduct}=="317b",  \
+    ATTR{idProduct}=="32e7",  \
     RUN+="${startWebcam}/bin/start-webcam"
   '';
 
   systemd.services.webcam = {
     enable = true;
     script = /*bash*/''
-      ${pkgs.gphoto2}/bin/gphoto2 --stdout --capture-movie | \
-      ${pkgs.ffmpeg}/bin/ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420 v4l2 /dev/video0
+      ${pkgs.gphoto2}/bin/gphoto2 --stdout --capture-movie | ${pkgs.ffmpeg}/bin/ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -f v4l2 /dev/video0
     '';
   };
 }

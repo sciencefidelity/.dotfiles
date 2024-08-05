@@ -26,6 +26,7 @@
       brave
       firefox
       obsidian
+      obs-studio
       swww
       wofi
       zoom-us

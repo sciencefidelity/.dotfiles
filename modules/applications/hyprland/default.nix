@@ -13,15 +13,21 @@ let
   browser = "firefox";
   launcher = "wofi --conf ${inputs.catppuccin-wofi}/config/config --style ${inputs.catppuccin-wofi}/src/mocha/style.css";
   host = config.hostname;
+  exit = pkgs.writeShellScriptBin "exit-hyprland" /*bash*/ ''
+    HYPRCMDS=$(hyprctl -j clients | jp -j '.[] | "dispatch closewindow address:\(.address); "')
+    hyprctl --batch "$HYPRCMDS"
+    hyprctl dispatch exit
+  '';
 in
 {
   home = {
     packages = [
-      pkgs.catppuccin-cursors.mochaDark
+      # pkgs.catppuccin-cursors.mochaDark
+      exit
     ];
     sessionVariables = {
-      HYPRCURSOR_THEME = cursorTheme;
-      HYPRCURSOR_SIZE = cursorSize;
+      # HYPRCURSOR_THEME = cursorTheme;
+      # HYPRCURSOR_SIZE = cursorSize;
       XDG_CURRENT_DESKTOP = "Hyprland";
       XDG_SESSION_TYPE = "wayland";
       XDG_SESSION_DESKTOP = "Hyprland";
@@ -38,10 +44,11 @@ in
       source = "${inputs.catppuccin-hyprland}/themes/mocha.conf";
       monitor =
         if host == "io" then [
-          "monitor=DP-5,preferred,0x0,1"
-          "monitor=DP-6,preferred,3840x0,1.2"
+          "DP-5,preferred,0x0,1"
+          "DP-6,preferred,3840x0,1.2"
+          "HDMI-A-7,preferred,auto,1,mirror,DP-6"
         ] else if host == "rhea" then [
-          "monitor=Apple Computer Inc Color LCD,2560x1600@59.97200,0x0,0.5"
+          "Apple Computer Inc Color LCD,2560x1600@59.97200,0x0,0.5"
         ] else [
           ",preferred,auto,auto"
         ];
@@ -115,10 +122,11 @@ in
         "${mod}, O, exec, ${notes}"
         "${mod}, B, exec, ${browser}"
         "${mod}, V, togglefloating"
-        "${mod}, M, exec, ${launcher}"
+        "${mod}, Space, exec, ${launcher}"
         "${mod}, P, pseudo"
         "${mod}, R, togglesplit"
         "${mod}, F, fullscreen, 1"
+        "${mod}, F11, exec, ${exit}"
         "${mod}, X, swapwindow, u"
         "${mod}, Y, swapwindow, l"
         "${mod}, S, swapnext, l"
