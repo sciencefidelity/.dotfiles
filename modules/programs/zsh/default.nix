@@ -57,9 +57,29 @@ in
       ignoreAllDups = true;
     };
     initExtra = /*bash*/ ''
-      ${builtins.readFile ./config/init.sh}
-      ${builtins.readFile ./config/functions.sh}
-      ${builtins.readFile ./config/keybindings.sh}
+      autoload -U colors && colors
+      PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%(3~|./%2~|%~)%{$fg[red]%}]%{$reset_color%}$%b "
+
+      eval "$(ssh-agent -s)" > /dev/null
+      ssh-add ~/.ssh/github 2> /dev/null
+      export GPG_TTY=$(tty)
+
+      autoload edit-command-line; zle -N edit-command-line
+
+      # lfcd - use lf to switch directories (bound to ctrl-o).
+      lfcd () {
+        cd "$(command lf -print-last-dir "$@")"
+      }
+
+      bindkey -v
+      bindkey "^ " autosuggest-accept
+      bindkey -M menuselect "h" vi-backward-char
+      bindkey -M menuselect "k" vi-up-line-or-history
+      bindkey -M menuselect "l" vi-forward-char
+      bindkey -M menuselect "j" vi-down-line-or-history
+      bindkey -v "^?" backward-delete-char
+      bindkey -s "^o" "lfcd\n"
+      bindkey "^e" edit-command-line
     '';
     initExtraBeforeCompInit = /*bash*/ ''
       zstyle ':completion:*' menu select
