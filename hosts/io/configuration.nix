@@ -6,6 +6,7 @@
     ./config.nix
     ../../base/configuration.nix
     ../../modules/assets/fonts
+    ../../modules/services/pipewire
     ../../modules/utilities/webcam
   ];
 

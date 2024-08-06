@@ -5,21 +5,21 @@ let
 in
 {
   home = {
-    packages = with pkgs; [
-      bc
-      fd
-      jq
-      lf
-      lld
-      neofetch
-      openssl
-      p7zip
-      pcalc
-      pkg-config
-      prettierd
-      ripgrep
-      unzip
-      vscode-langservers-extracted
+    packages = [
+      pkgs.bc
+      pkgs.fd
+      pkgs.jq
+      pkgs.lf
+      pkgs.lld
+      pkgs.neofetch
+      pkgs.openssl
+      pkgs.p7zip
+      pkgs.pcalc
+      pkgs.pkg-config
+      pkgs.prettierd
+      pkgs.ripgrep
+      pkgs.unzip
+      pkgs.vscode-langservers-extracted
     ] ++ (if platform == "darwin" then [ ]
     else if platform == "linux" then [ pkgs.lemonade pkgs.tcpdump pkgs.unrar-free pkgs.xclip pkgs.xsel ]
     else [ ]);

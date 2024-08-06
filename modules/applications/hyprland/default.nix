@@ -14,8 +14,8 @@ let
   launcher = "wofi --conf ${inputs.catppuccin-wofi}/config/config --style ${inputs.catppuccin-wofi}/src/mocha/style.css";
   host = config.hostname;
   exit = pkgs.writeShellScriptBin "exit-hyprland" /*bash*/ ''
-    HYPRCMDS=$(hyprctl -j clients | jp -j '.[] | "dispatch closewindow address:\(.address); "')
-    hyprctl --batch "$HYPRCMDS"
+    HYPRCMDS=$(hyprctl -j clients | jq -j '.[] | "dispatch closewindow address:\(.address); "')
+    hyprctl --batch "$HYPRCMDS" 2>&1
     hyprctl dispatch exit
   '';
 in
@@ -54,7 +54,8 @@ in
         ];
       exec-once = [
         "swww-daemon"
-        "hyprctl setcursor ${cursorTheme} ${toString cursorSize}"
+        # "hyprctl setcursor ${cursorTheme} ${toString cursorSize}"
+        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       ];
       env = [
         "HYPRCURSOR_THEME,${cursorTheme}"
