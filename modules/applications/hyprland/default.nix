@@ -15,7 +15,7 @@ let
   host = config.hostname;
   exit = pkgs.writeShellScriptBin "exit-hyprland" /*bash*/ ''
     HYPRCMDS=$(hyprctl -j clients | jq -j '.[] | "dispatch closewindow address:\(.address); "')
-    hyprctl --batch "$HYPRCMDS" 2>&1
+    hyprctl --batch "$HYPRCMDS"
     hyprctl dispatch exit
   '';
 in
