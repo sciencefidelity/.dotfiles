@@ -57,8 +57,10 @@
   networking = {
     hostName = config.hostname;
     enableB43Firmware = true;
-    networkmanager.enable = true;
-    networkmanager.wifi.backend = "iwd";
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+    };
     firewall.allowedTCPPorts = [ 22 80 3000 3030 5173 5432 8000 8080 ];
   };
 
