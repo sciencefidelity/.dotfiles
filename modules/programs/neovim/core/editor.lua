@@ -33,16 +33,12 @@ vim.o.breakindent = true
 vim.opt.list = true
 vim.opt.listchars = { eol = "¬", tab = "→ ", trail = "·", extends = ">", precedes = "<", space = "·" }
 
-vim.api.nvim_create_autocmd('BufWinEnter', {
-  pattern = { '*.md' },
-  callback = function()
-    vim.opt.wrap = true
-  end,
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  pattern = { "*.md" },
+  callback = function() vim.opt.wrap = true end,
 })
 
-vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
-  pattern = { '*.md' },
-  callback = function()
-    vim.opt.wrap = false
-  end,
+vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
+  pattern = { "*.md" },
+  callback = function() vim.opt.wrap = false end,
 })
