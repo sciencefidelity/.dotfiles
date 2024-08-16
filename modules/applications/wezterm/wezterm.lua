@@ -56,9 +56,9 @@ return {
       name = "io",
       remote_address = "192.168.1.122",
       username = "matt",
-      ssh_option = {
-        identityfile = "~/.ssh/io.pub",
-      },
+      -- ssh_option = {
+      --   identityfile = "~/.ssh/io.pub",
+      -- },
     },
   },
 }
