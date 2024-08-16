@@ -51,4 +51,9 @@ return {
   default_cursor_style = "SteadyUnderline",
   animation_fps = 1,
   audible_bell = "Disabled",
+  ssh_domains = {
+    name = "io",
+    remote_address = "192.168.1.122",
+    username = "matt",
+  },
 }
