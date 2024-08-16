@@ -20,9 +20,16 @@ in
       pkgs.ripgrep
       pkgs.unzip
       pkgs.vscode-langservers-extracted
-      inputs.rnix.packages.${pkgs.system}.default
+
     ] ++ (if platform == "darwin" then [ ]
-    else if platform == "linux" then [ pkgs.lemonade pkgs.tcpdump pkgs.unrar-free pkgs.xclip pkgs.xsel ]
+    else if platform == "linux" then [
+      pkgs.lemonade
+      pkgs.tcpdump
+      pkgs.unrar-free
+      pkgs.xclip
+      pkgs.xsel
+      inputs.rnix.packages.${pkgs.system}.default
+    ]
     else [ ]);
   };
 }
