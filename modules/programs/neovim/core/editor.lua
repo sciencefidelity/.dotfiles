@@ -1,3 +1,8 @@
+vim.opt.timeout = true
+vim.opt.ttimeout = true
+vim.opt.timeoutlen = 500
+vim.opt.ttimeoutlen = 10
+
 -- make line numbers default
 vim.wo.number = true
 vim.wo.relativenumber = true

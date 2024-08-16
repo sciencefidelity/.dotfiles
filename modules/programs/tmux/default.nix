@@ -7,15 +7,16 @@
     clock24 = true;
     escapeTime = 0;
     extraConfig = ''
+      set-option -sa terminal-overrides ",xterm*:Tc"
       set -g status-bg "#1e1e2e"
     '';
     keyMode = "vi";
     mouse = false;
     newSession = true;
     plugins = [ ];
-    prefix = "C-a";
+    prefix = "C-s";
     shell = "${pkgs.zsh}/bin/zsh";
-    shortcut = "a";
+    shortcut = "s";
     terminal = "screen-256color";
   };
 }
