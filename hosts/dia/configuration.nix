@@ -57,6 +57,10 @@ in
       autohide-time-modifier = 0.1;
     };
 
+    activationScripts.keyboard.text = ''
+      hidutil property --set '{"CapsLockDelayOverride":0}'
+    '';
+
     keyboard = {
       enableKeyMapping = true;
       remapCapsLockToControl = true;
