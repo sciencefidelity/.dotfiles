@@ -17,7 +17,6 @@
     taps = [
       "homebrew/bundle"
       "homebrew/services"
-      "homebrew/cask-versions"
     ];
 
     casks = [
@@ -25,7 +24,6 @@
       "affinity-photo"
       "affinity-publisher"
       "appcleaner"
-      "bartender"
       "brave-browser"
       "discord"
       "firefox"
@@ -47,7 +45,6 @@
       "Save to Raindrop.io" = 1549370672;
       "Save to Reader" = 1640236961;
       "Ulysses | Writing App" = 1225570693;
-      "Xcode" = 497799835;
     };
   };
 }

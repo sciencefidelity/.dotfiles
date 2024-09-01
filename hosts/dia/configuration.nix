@@ -13,7 +13,7 @@ in
     ../../base/config.nix
     ../../modules/assets/fonts
     ../../modules/packages/homebrew
-    ../../modules/programs/direnv
+    # ../../modules/programs/direnv
     ../../modules/services/skhd
     ../../modules/services/yabai
   ];
@@ -67,7 +67,7 @@ in
         mineffect = "scale";
         mru-spaces = false;
         orientation = "bottom";
-        persistent-others = [ "~/Downloads/" ];
+        persistent-others = [ "/Users/matt/Downloads/" ];
         show-process-indicators = true;
         show-recents = false;
         showhidden = false;
@@ -99,18 +99,18 @@ in
         askForPassword = true;
       };
 
+      trackpad = {
+        ActuationStrength = 0;
+        FirstClickThreshold = 0;
+        SecondClickThreshold = 0;
+        TrackpadRightClick = true;
+      };
 
       WindowManager = {
         EnableStandardClickToShowDesktop = false;
       };
     };
 
-    trackpad = {
-      ActuationStrength = 0;
-      FirstClickThreshold = 0;
-      SecondClickThreshold = 0;
-      TrackpadRightClick = true;
-    };
 
     activationScripts.keyboard.text = ''
       hidutil property --set '{"CapsLockDelayOverride":0}'

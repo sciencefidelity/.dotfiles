@@ -25,6 +25,7 @@ in
     ../../modules/packages/nixpkgs
     ../../modules/programs/eza
     ../../modules/programs/git
+    ../../modules/programs/gnupg
     ../../modules/programs/neovim
     ../../modules/programs/zsh
   ];

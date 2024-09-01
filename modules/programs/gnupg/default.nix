@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   platform = config.platform;
@@ -14,7 +14,7 @@ in
     enable = true;
   };
 
-  services = {
+  services = lib.mkIf (platform == "linux") {
     gpg-agent = {
       enable = true;
       enableSshSupport = true;

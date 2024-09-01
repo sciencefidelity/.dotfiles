@@ -19,7 +19,7 @@
   config = {
     platform = "darwin";
     hostname = "dia";
-    git.key = "22C1322FB7B3F0B2";
+    git.key = "4142C2E2";
     terminal = {
       fontSize = 13;
       paddingLeft = 19;
