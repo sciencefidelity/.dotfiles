@@ -13,6 +13,7 @@ in
     ../../base/config.nix
     ../../modules/assets/fonts
     ../../modules/packages/homebrew
+    ../../modules/programs/direnv
     ../../modules/services/skhd
     ../../modules/services/yabai
   ];
@@ -22,7 +23,6 @@ in
     systemPackages = with pkgs; [
       coreutils
       curl
-      git
       wget
     ];
   };
@@ -51,9 +51,65 @@ in
   };
 
   system = {
-    defaults.dock = {
-      autohide-delay = 0.1;
-      autohide-time-modifier = 0.1;
+    defaults = {
+      NSGlobalDomain = {
+        "com.apple.springing.delay" = 0.5;
+        "com.apple.trackpad.scaling" = 1.5;
+        "com.apple.keyboard.fnState" = false;
+      };
+
+      dock = {
+        autohide = true;
+        autohide-delay = 0.1;
+        autohide-time-modifier = 0.1;
+        magnification = false;
+        mouse-over-hilite-stack = false;
+        mineffect = "scale";
+        mru-spaces = false;
+        orientation = "bottom";
+        persistent-others = [ "~/Downloads/" ];
+        show-process-indicators = true;
+        show-recents = false;
+        showhidden = false;
+        tilesize = 46;
+        wvous-bl-corner = 1;
+        wvous-br-corner = 1;
+        wvous-tl-corner = 5;
+        wvous-tr-corner = 1;
+      };
+
+      finder = {
+        AppleShowAllExtensions = true;
+        CreateDesktop = false;
+        FXPreferredViewStyle = "Nlsv";
+        QuitMenuItem = true;
+        ShowPathbar = true;
+        ShowStatusBar = true;
+      };
+
+      loginwindow = {
+        GuestEnabled = false;
+      };
+
+      menuExtraClock = {
+        Show24Hour = true;
+      };
+
+      screensaver = {
+        askForPassword = true;
+      };
+
+
+      WindowManager = {
+        EnableStandardClickToShowDesktop = false;
+      };
+    };
+
+    trackpad = {
+      ActuationStrength = 0;
+      FirstClickThreshold = 0;
+      SecondClickThreshold = 0;
+      TrackpadRightClick = true;
     };
 
     activationScripts.keyboard.text = ''
@@ -64,6 +120,8 @@ in
       enableKeyMapping = true;
       remapCapsLockToControl = true;
     };
+
+    startup.chime = false;
 
     stateVersion = stateVersion;
   };
