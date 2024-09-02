@@ -13,7 +13,6 @@ in
     ../../base/config.nix
     ../../modules/assets/fonts
     ../../modules/packages/homebrew
-    # ../../modules/programs/direnv
     ../../modules/services/skhd
     ../../modules/services/yabai
   ];

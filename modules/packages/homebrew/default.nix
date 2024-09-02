@@ -20,10 +20,7 @@
     ];
 
     casks = [
-      "affinity-designer"
-      "affinity-photo"
-      "affinity-publisher"
-      "appcleaner"
+      "affinity-publisher@1"
       "brave-browser"
       "discord"
       "firefox"
