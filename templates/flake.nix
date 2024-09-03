@@ -17,6 +17,13 @@
           Nothing in this world is difficult, it is only our thoughts that make is seem so.
         '';
       };
+      terraform = {
+        path = ./terraform;
+        description = "A Terraform template";
+        welcomeText = ''
+          Nothing in this world is difficult, it is only our thoughts that make is seem so.
+        '';
+      };
     };
     templates.default = self.templates.empty;
   };
