@@ -6,8 +6,11 @@
     ./config.nix
     ../../base/configuration.nix
     ../../modules/assets/fonts
+    ../../modules/services/interception-tools
     ../../modules/services/pipewire
     ../../modules/utilities/webcam
+    # ../../modules/windowmanager/dwm
+    ../../modules/windowmanager/hyprland
   ];
 
   boot = {
@@ -28,14 +31,8 @@
       firefox
       obsidian
       obs-studio
-      swww
-      wofi
       zoom-us
     ];
-
-    variables = {
-      NIXOS_OZONE_WL = "1";
-    };
   };
 
   fonts = {
@@ -49,34 +46,8 @@
   };
 
   services = {
-    interception-tools = {
-      enable = true;
-      plugins = with pkgs; [
-        interception-tools-plugins.caps2esc
-      ];
-      udevmonConfig = ''
-        - JOB: "${pkgs.interception-tools}/bin/intercept -g $DEVNODE | ${pkgs.interception-tools-plugins.caps2esc}/bin/caps2esc -m 1 | ${pkgs.interception-tools}/bin/uinput -d $DEVNODE"
-          DEVICE:
-            EVENTS:
-              EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
-      '';
-    };
-
     openssh = {
       ports = [ 22 7425 ];
-    };
-  };
-
-  programs = {
-    hyprland.enable = true;
-
-    zsh = {
-      enable = true;
-      shellInit = /*bash*/ ''
-        eval "$(ssh-agent -s)" > /dev/null
-        ssh-add ~/.ssh/github 2> /dev/null
-        export GPG_TTY=$(tty)
-      '';
     };
   };
 }

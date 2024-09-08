@@ -7,6 +7,8 @@
     ../../base/configuration.nix
     ../../modules/assets/fonts
     ../../modules/scripts/bl
+    ../../modules/services/interception-tools
+    ../../modules/windowmanager/hyprland
   ];
 
   boot = {
@@ -28,13 +30,7 @@
       firefox
       obsidian
       pciutils
-      swww
-      wofi
     ];
-
-    variables = {
-      NIXOS_OZONE_WL = "1";
-    };
   };
 
   fonts = {
@@ -65,19 +61,6 @@
   };
 
   services = {
-    interception-tools = {
-      enable = true;
-      plugins = with pkgs; [
-        interception-tools-plugins.caps2esc
-      ];
-      udevmonConfig = ''
-        - JOB: "${pkgs.interception-tools}/bin/intercept -g $DEVNODE | ${pkgs.interception-tools-plugins.caps2esc}/bin/caps2esc -m 1 | ${pkgs.interception-tools}/bin/uinput -d $DEVNODE"
-          DEVICE:
-            EVENTS:
-              EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
-      '';
-    };
-
     # Keeps machine running with the lid closed (screen will always be on).
     # logind = {
     #   lidSwitch = "ignore";
@@ -101,19 +84,6 @@
 
   powerManagement = {
     enable = true;
-  };
-
-  programs = {
-    hyprland.enable = true;
-
-    zsh = {
-      enable = true;
-      shellInit = /*bash*/ ''
-        eval "$(ssh-agent -s)" > /dev/null
-        ssh-add ~/.ssh/github 2> /dev/null
-        export GPG_TTY=$(tty)
-      '';
-    };
   };
 }
 
