@@ -10,6 +10,13 @@
           Nothing in this world is difficult, it is only our thoughts that make is seem so.
         '';
       };
+      go = {
+        path = ./go;
+        description = "A Go template";
+        welcomeText = ''
+          Nothing in this world is difficult, it is only our thoughts that make is seem so.
+        '';
+      };
       rust = {
         path = ./rust;
         description = "A Rust template";
