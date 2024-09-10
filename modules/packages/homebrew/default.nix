@@ -26,6 +26,7 @@
       "firefox"
       "karabiner-elements"
       "obsidian"
+      "readwise-ibooks"
       "slack"
       "spotify"
       "zoom"
@@ -33,6 +34,7 @@
     ];
 
     masApps = {
+      "AdBlock for Safari" = 1402042596;
       "Craft - Docs and Notes Editor" = 1487937127;
       "iA Writer" = 775737590;
       "Microsoft Excel" = 462058435;
