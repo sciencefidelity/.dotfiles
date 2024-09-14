@@ -4,6 +4,7 @@ require("conform").setup({
     html = { "prettierd" },
     json = { "prettierd" },
     yaml = { "prettierd" },
+    toml = { "taplo" },
   },
   format_on_save = {
     lsp_fallback = true,
