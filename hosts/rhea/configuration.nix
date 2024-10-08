@@ -45,9 +45,9 @@
 
     facetimehd.enable = true;
 
-    pulseaudio = {
-      enable = true;
-    };
+    # pulseaudio = {
+    #   enable = true;
+    # };
   };
 
   networking = {
