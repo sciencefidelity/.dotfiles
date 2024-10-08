@@ -7,7 +7,6 @@ require("nvim-treesitter.configs").setup({
     "json",
     "markdown",
     "markdown_inline",
-    "proto",
     "toml",
     "yaml",
   },

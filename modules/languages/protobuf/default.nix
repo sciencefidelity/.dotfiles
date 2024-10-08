@@ -1,21 +1,14 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
-  home = {
-    packages = with pkgs; [
-      nixd
-      nixpkgs-fmt
-    ];
-  };
-
   programs.neovim = {
     extraLuaConfig = /*lua*/ ''
       require("nvim-treesitter.configs").setup({
-        ensure_installed = { "hyprlang", "nix" },
+        ensure_installed = { "proto" },
       })
 
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "nix" },
+        pattern = { "proto" },
         callback = function()
           vim.opt_local.tabstop = 2
           vim.opt_local.softtabstop = 2
@@ -24,11 +17,11 @@
         end,
       })
 
-      require("lspconfig").nixd.setup({})
+      require("lspconfig").bufls.setup({})
 
       require("conform").setup({
         formatters_by_ft = {
-          nix = { "nixpkgs_fmt" },
+          proto = { "buf" },
         },
       })
     '';
