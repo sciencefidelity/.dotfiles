@@ -8,6 +8,7 @@ require("nvim-treesitter.configs").setup({
     "markdown",
     "markdown_inline",
     "proto",
+    "scss",
     "toml",
     "yaml",
   },

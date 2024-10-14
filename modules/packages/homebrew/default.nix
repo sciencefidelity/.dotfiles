@@ -29,8 +29,9 @@
       "readwise-ibooks"
       "slack"
       "spotify"
-      "zoom"
+      "visual-studio-code"
       "wezterm"
+      "zoom"
     ];
 
     masApps = {
