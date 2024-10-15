@@ -7,7 +7,7 @@
         ensure_installed = { "javascript", "tsx", "typescript" },
       })
 
-      require("lspconfig").ts_ls.setup({})
+      require("lspconfig").tsserver.setup({})
 
       require("conform").setup({
         formatters_by_ft = {
