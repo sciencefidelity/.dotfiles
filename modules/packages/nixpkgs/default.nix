@@ -25,7 +25,7 @@ in
       pkgs.tcpdump
       pkgs.xclip
       pkgs.xsel
-      inputs.rnix.packages.${pkgs.system}.default
+      inputs.rhea.packages.${pkgs.system}.default
     ]
     else [ ]);
   };

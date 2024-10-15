@@ -28,6 +28,7 @@ in
     ../modules/programs/git
     ../modules/programs/gnupg
     ../modules/programs/neovim
+    ../modules/programs/rhea
     ../modules/programs/tmux
     ../modules/programs/zsh
   ];

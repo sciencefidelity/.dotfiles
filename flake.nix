@@ -44,7 +44,7 @@
       url = "github:quantumfate/wofi";
       flake = false;
     };
-    rnix.url = "github:sciencefidelity/rnix";
+    rhea.url = "github:sciencefidelity/rhea";
   };
 
   outputs = inputs @ { self, home-manager, nix-darwin, nixos-hardware, nixpkgs, ... }:
