@@ -36,8 +36,6 @@
         shift + alt - 5 : yabai -m window --space 5
         shift + alt - 6 : yabai -m window --space 6
         shift + alt - 7 : yabai -m window --space 7
-        ctrl + alt - q : brew services stop yabai
-        ctrl + alt - s : brew services start yabai
       '';
     };
   };
