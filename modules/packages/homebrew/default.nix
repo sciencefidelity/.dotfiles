@@ -21,31 +21,30 @@
 
     casks = [
       # "affinity-publisher@1"
-      "arc"
-      # "brave-browser"
-      # "discord"
-      # "firefox"
+      "brave-browser"
+      "discord"
+      "firefox"
       "karabiner-elements"
       "obsidian"
-      # "readwise-ibooks"
+      "readwise-ibooks"
       "slack"
       "spotify"
       # "visual-studio-code"
       "wezterm"
-      # "zoom"
+      "zoom"
     ];
 
     masApps = {
       "AdBlock for Safari" = 1402042596;
       "Craft - Docs and Notes Editor" = 1487937127;
-      # "iA Writer" = 775737590;
+      "iA Writer" = 775737590;
       # "Microsoft Excel" = 462058435;
       # "Microsoft PowerPoint" = 462062816;
       # "Microsoft Word" = 462054704;
       "Refined GitHub" = 1519867270;
       "Save to Raindrop.io" = 1549370672;
       "Save to Reader" = 1640236961;
-      # "Ulysses | Writing App" = 1225570693;
+      "Ulysses | Writing App" = 1225570693;
     };
   };
 }
