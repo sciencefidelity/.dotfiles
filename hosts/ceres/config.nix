@@ -19,7 +19,7 @@
   config = {
     platform = "darwin";
     hostname = "ceres";
-    git.key = "4142C2E2";
+    git.key = "5A95F7F6";
     terminal = {
       fontSize = 13;
       paddingLeft = 19;
