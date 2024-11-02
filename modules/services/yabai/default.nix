@@ -4,6 +4,7 @@
   services = {
     yabai = {
       enable = true;
+      enableScriptingAddition = true;
       config = {
         layout = "bsp";
         focus_follows_mouse = "off";
