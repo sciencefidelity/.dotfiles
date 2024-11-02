@@ -59,6 +59,13 @@
             ./hosts/dia/configuration.nix
           ];
         };
+
+        ceres = nix-darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          modules = [
+            ./hosts/ceres/configuration.nix
+          ];
+        };
       };
 
       nixosConfigurations = {
@@ -98,6 +105,13 @@
           pkgs = nixpkgs.legacyPackages."aarch64-darwin";
           modules = [
             ./hosts/dia/home.nix
+          ];
+        };
+
+        "matt@ceres" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."aarch64-darwin";
+          modules = [
+            ./hosts/ceres/home.nix
           ];
         };
 
