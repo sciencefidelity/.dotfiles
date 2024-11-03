@@ -17,6 +17,7 @@ in
     ../../modules/languages/nix
     ../../modules/languages/rust
     ../../modules/languages/svelte
+    ../../modules/languages/terraform
     ../../modules/languages/typescript
     ../../modules/packages/nixpkgs
     ../../modules/programs/direnv
