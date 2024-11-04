@@ -18,6 +18,7 @@ in
     ../modules/languages/protobuf
     ../modules/languages/python
     ../modules/languages/rust
+    ../modules/languages/sql
     ../modules/languages/svelte
     ../modules/languages/terraform
     ../modules/languages/typescript
