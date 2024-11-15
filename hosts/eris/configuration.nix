@@ -5,7 +5,6 @@
     ./hardware-configuration.nix
     ./config.nix
     ../../base/configuration.nix
-    ../../modules/services/postgresql
   ];
 
   boot = {

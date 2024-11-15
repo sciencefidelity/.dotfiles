@@ -1,8 +1,0 @@
-{
-  "apexskier.eslint.config.fixOnSave" : "Disable",
-  "hansjhoffman.nix.config.formatOnSave" : true,
-  "hansjhoffman.nix.config.nixFormatPath" : "\/run\/current-system\/sw\/bin\/nixfmt",
-  "workspace.art_style" : 1,
-  "workspace.color" : 1,
-  "workspace.name" : "Dotfiles"
-}
