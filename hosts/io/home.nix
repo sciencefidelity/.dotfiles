@@ -6,6 +6,5 @@
     ../../base/home.nix
     ../../modules/applications/alacritty
     ../../modules/applications/hyprland
-    # ../../modules/applications/wezterm
   ];
 }

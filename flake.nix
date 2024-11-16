@@ -45,9 +45,13 @@
       flake = false;
     };
     rhea.url = "github:sciencefidelity/rhea";
+    # wezterm = {
+    #   url = "github:wez/wezterm/main?dir=nix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
-  outputs = inputs @ { self, home-manager, nix-darwin, nixos-hardware, nixpkgs, ... }:
+  outputs = { self, home-manager, nix-darwin, nixos-hardware, nixpkgs, ... } @inputs:
     let
       lib = nixpkgs.lib;
     in

@@ -24,7 +24,7 @@
   config = {
     platform = "linux";
     hostname = "rhea";
-    git.key = "0x4C752BECEDAD41CC";
+    git.key = "EDAD41CC";
     terminal = {
       app = "alacritty";
       opacity = 0.8;
