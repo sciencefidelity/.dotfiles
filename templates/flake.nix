@@ -38,6 +38,13 @@
           Nothing in this world is difficult, it is only our thoughts that make is seem so.
         '';
       };
+      python = {
+        path = ./python;
+        description = "A Python template";
+        welcomeText = ''
+          Nothing in this world is difficult, it is only our thoughts that make is seem so.
+        '';
+      };
       rust = {
         path = ./rust;
         description = "A Rust template";

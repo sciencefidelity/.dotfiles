@@ -1,0 +1,6 @@
+.direnv
+.env
+.env.*
+.DS_Store
+target
+
