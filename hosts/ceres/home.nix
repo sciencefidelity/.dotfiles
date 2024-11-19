@@ -16,6 +16,7 @@ in
     ../../modules/languages/lua
     ../../modules/languages/nix
     ../../modules/languages/rust
+    ../../modules/languages/python
     ../../modules/languages/svelte
     ../../modules/languages/terraform
     ../../modules/languages/typescript
