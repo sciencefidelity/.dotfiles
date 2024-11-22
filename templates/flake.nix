@@ -3,6 +3,13 @@
 
   outputs = { self, ... }: {
     templates = {
+      bun = {
+        path = ./bun;
+        description = "A Bun template";
+        welcomeText = ''
+          Nothing in this world is difficult, it is only our thoughts that make is seem so.
+        '';
+      };
       clojure = {
         path = ./clojure;
         description = "A Clojure template";
