@@ -17,6 +17,7 @@
           typescript = { "prettierd" },
         },
       })
+      ${builtins.readFile ./snippets.lua}
     '';
   };
 }
