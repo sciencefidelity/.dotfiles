@@ -66,6 +66,13 @@
           Nothing in this world is difficult, it is only our thoughts that make is seem so.
         '';
       };
+      tauri = {
+        path = ./tauri;
+        description = "A Tauri template";
+        welcomeText = ''
+          Nothing in this world is difficult, it is only our thoughts that make is seem so.
+        '';
+      };
       terraform = {
         path = ./terraform;
         description = "A Terraform template";
