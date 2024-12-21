@@ -46,6 +46,7 @@
       "Save to Raindrop.io" = 1549370672;
       "Save to Reader" = 1640236961;
       "Ulysses | Writing App" = 1225570693;
+      "Xcode" = 497799835;
     };
   };
 }
