@@ -21,6 +21,7 @@
 
     casks = [
       # "affinity-publisher@1"
+      # "affinity-designer@1"
       "brave-browser"
       "discord"
       "firefox"
