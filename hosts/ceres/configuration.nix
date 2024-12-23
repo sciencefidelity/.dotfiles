@@ -26,6 +26,15 @@ in
     ];
   };
 
+  homebrew = {
+    casks = [
+      "linear-linear"
+    ];
+    masApps = {
+      "Xcode" = 497799835;
+    };
+  };
+
   networking = {
     hostName = hostname;
   };

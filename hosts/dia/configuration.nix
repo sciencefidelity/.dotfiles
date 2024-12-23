@@ -26,6 +26,18 @@ in
     ];
   };
 
+  homebrew = {
+    casks = [
+      "affinity-publisher@1"
+      "affinity-designer@1"
+    ];
+    masApps = {
+      "Microsoft Excel" = 462058435;
+      "Microsoft PowerPoint" = 462062816;
+      "Microsoft Word" = 462054704;
+    };
+  };
+
   networking = {
     hostName = hostname;
   };
