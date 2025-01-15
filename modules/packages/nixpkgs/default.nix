@@ -13,9 +13,8 @@ in
       pkgs.lld
       pkgs.neofetch
       pkgs.openssl
-      pkgs.pcalc
       pkgs.pkg-config
-      pkgs.prettierd
+      pkgs.nodePackages.prettier
       pkgs.ripgrep
       pkgs.vscode-langservers-extracted
 

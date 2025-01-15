@@ -11,10 +11,10 @@
 
       require("conform").setup({
         formatters_by_ft = {
-          jsx = { "prettierd" },
-          javascript = { "prettierd" },
-          tsx = { "prettierd" },
-          typescript = { "prettierd" },
+          jsx = { "prettier" },
+          javascript = { "prettier" },
+          tsx = { "prettier" },
+          typescript = { "prettier" },
         },
       })
       ${builtins.readFile ./snippets.lua}
