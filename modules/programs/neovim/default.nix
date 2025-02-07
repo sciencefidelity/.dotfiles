@@ -31,7 +31,7 @@
       ${builtins.readFile ./plugins/telescope.lua}
       ${builtins.readFile ./plugins/treesitter.lua}
     '';
-    withNodeJs = true;
+    # withNodeJs = true;
     viAlias = true;
     vimAlias = true;
   };
