@@ -7,7 +7,7 @@ in
   home = {
     packages = [
       pkgs.clang-tools
-      pkgs.lldb
+      # pkgs.lldb
     ] ++ (if platform == "linux" then [ pkgs.gdb pkgs.valgrind ] else [ ]);
 
     file =
