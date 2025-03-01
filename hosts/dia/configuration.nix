@@ -5,7 +5,7 @@ let
   username = config.username;
   description = config.description;
   homeDirectory = "/Users/${username}";
-  stateVersion = 4;
+  stateVersion = 5;
 in
 {
   imports = [
@@ -44,7 +44,6 @@ in
 
   nix = {
     settings.experimental-features = [ "nix-command" "flakes" ];
-    useDaemon = true;
   };
 
   nixpkgs = {
@@ -55,10 +54,6 @@ in
     zsh = {
       enable = true;
     };
-  };
-
-  services = {
-    nix-daemon.enable = true;
   };
 
   system = {
