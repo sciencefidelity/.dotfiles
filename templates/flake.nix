@@ -17,6 +17,13 @@
           Nothing in this world is difficult, it is only our thoughts that make is seem so.
         '';
       };
+      deno = {
+        path = ./deno;
+        description = "A Deno template";
+        welcomeText = ''
+          Nothing in this world is difficult, it is only our thoughts that make is seem so.
+        '';
+      };
       elixir = {
         path = ./elixir;
         description = "An Elixir template";
