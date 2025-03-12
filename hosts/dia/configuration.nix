@@ -30,6 +30,7 @@ in
     casks = [
       "affinity-publisher@1"
       "affinity-designer@1"
+      "affinity-photo@1"
     ];
     masApps = {
       "Microsoft Excel" = 462058435;
