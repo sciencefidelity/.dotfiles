@@ -9,7 +9,7 @@
 
   services.redis = {
     package = pkgs.redis;
-    servers."augementaero" = {
+    servers."augmentaero" = {
       enable = true;
       port = 6379;
     };
