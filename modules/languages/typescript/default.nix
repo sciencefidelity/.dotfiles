@@ -14,7 +14,7 @@
           jsx = { "prettier" },
           javascript = { "prettier" },
           tsx = { "prettier" },
-          typescript = { "prettier" },
+          typescript = { "prettier", "deno_fmt" },
         },
       })
       ${builtins.readFile ./snippets.lua}

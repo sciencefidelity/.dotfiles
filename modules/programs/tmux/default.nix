@@ -9,6 +9,7 @@
     extraConfig = ''
       set-option -sa terminal-overrides ",xterm*:Tc"
       set -g status-bg "#1e1e2e"
+      setw -g mouse on
     '';
     keyMode = "vi";
     mouse = false;
