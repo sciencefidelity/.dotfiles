@@ -124,6 +124,8 @@ in
       remapCapsLockToControl = true;
     };
 
+    primaryUser = config.username;
+
     startup.chime = false;
 
     stateVersion = stateVersion;
