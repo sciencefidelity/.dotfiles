@@ -42,7 +42,10 @@
   networking = {
     hostName = config.hostname;
     wireless.enable = false;
-    firewall.allowedTCPPorts = [ 22 80 3000 3030 5173 5432 8000 8080 8675 ];
+    firewall = {
+      allowedTCPPorts = [ 22 80 3000 3030 5173 5432 8000 8080 8675 ];
+      allowedUDPPorts = [ 51820 ];
+    };
   };
 
   services = {
