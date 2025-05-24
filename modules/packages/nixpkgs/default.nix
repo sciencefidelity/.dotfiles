@@ -22,6 +22,7 @@ in
     else if platform == "linux" then [
       pkgs.lemonade
       pkgs.tcpdump
+      pkgs.tshark
       pkgs.xclip
       pkgs.xsel
       inputs.rhea.packages.${pkgs.system}.default
