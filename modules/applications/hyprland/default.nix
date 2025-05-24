@@ -75,7 +75,7 @@ in
         blur = {
           enabled = false;
         };
-        drop_shadow = false;
+        # drop_shadow = false;
       };
       animations = {
         enabled = false;
