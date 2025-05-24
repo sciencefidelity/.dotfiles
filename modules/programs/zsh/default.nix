@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   aliases = {
@@ -56,7 +56,7 @@ in
       expireDuplicatesFirst = true;
       ignoreAllDups = true;
     };
-    initExtra = /*bash*/ ''
+    initContent = /*bash*/ ''
       autoload -U colors && colors
       PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%(3~|./%2~|%~)%{$fg[red]%}]%{$reset_color%}$%b "
 
@@ -80,8 +80,7 @@ in
       bindkey -v "^?" backward-delete-char
       bindkey -s "^o" "lfcd\n"
       bindkey "^e" edit-command-line
-    '';
-    initExtraBeforeCompInit = /*bash*/ ''
+
       zstyle ':completion:*' menu select
       zmodload zsh/complist
     '';

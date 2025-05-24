@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   hostname = config.hostname;
@@ -31,6 +31,7 @@ in
       "affinity-publisher@1"
       "affinity-designer@1"
       "affinity-photo@1"
+      "anki"
     ];
     masApps = {
       "Microsoft Excel" = 462058435;
@@ -46,6 +47,8 @@ in
   nix = {
     settings.experimental-features = [ "nix-command" "flakes" ];
   };
+
+  ids.gids.nixbld = 30000;
 
   nixpkgs = {
     config.allowUnfree = true;
@@ -127,6 +130,8 @@ in
       enableKeyMapping = true;
       remapCapsLockToControl = true;
     };
+
+    primaryUser = config.username;
 
     startup.chime = false;
 

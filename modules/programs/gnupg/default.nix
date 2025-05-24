@@ -19,7 +19,7 @@ in
       enable = true;
       enableSshSupport = true;
       enableZshIntegration = true;
-      pinentryPackage = pkgs.pinentry;
+      pinentry.package = pkgs.pinentry;
     };
   };
 }
