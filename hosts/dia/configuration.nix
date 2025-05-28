@@ -42,13 +42,6 @@ in
 
   networking = {
     hostName = hostname;
-    firewall = {
-      allowedTCPPorts = [ 22 80 443 3000 3030 5173 5432 8000 8080 8675 ];
-      allowedUDPPortRanges = [{
-        from = 40000;
-        to = 49999;
-      }];
-    };
   };
 
   nix = {
