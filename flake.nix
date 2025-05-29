@@ -51,7 +51,7 @@
     # };
   };
 
-  outputs = { self, home-manager, nix-darwin, nixos-hardware, nixpkgs, ... } @inputs:
+  outputs = { home-manager, nix-darwin, nixos-hardware, nixpkgs, ... } @inputs:
     let
       lib = nixpkgs.lib;
     in
