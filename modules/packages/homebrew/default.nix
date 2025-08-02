@@ -28,7 +28,6 @@
       "readwise-ibooks"
       "slack"
       "spotify"
-      "wireshark"
       "wezterm"
       "zoom"
     ];
