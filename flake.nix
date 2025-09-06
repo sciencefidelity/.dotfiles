@@ -3,10 +3,11 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-darwin.url = "nixpkgs/nixpkgs-unstable";
     nixos-hardware.url = "nixos-hardware/master";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -51,7 +52,7 @@
     # };
   };
 
-  outputs = { home-manager, nix-darwin, nixos-hardware, nixpkgs, ... } @inputs:
+  outputs = { home-manager, nix-darwin, nixos-hardware, nixpkgs, nixpkgs-darwin, ... } @inputs:
     let
       lib = nixpkgs.lib;
     in
@@ -106,14 +107,14 @@
 
       homeConfigurations = {
         "matt@dia" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."aarch64-darwin";
+          pkgs = nixpkgs-darwin.legacyPackages."aarch64-darwin";
           modules = [
             ./hosts/dia/home.nix
           ];
         };
 
         "matt@ceres" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."aarch64-darwin";
+          pkgs = nixpkgs-darwin.legacyPackages."aarch64-darwin";
           modules = [
             ./hosts/ceres/home.nix
           ];
