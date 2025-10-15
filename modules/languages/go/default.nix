@@ -3,8 +3,8 @@
 {
   programs.go = {
     enable = false;
-    goBin = ".local/bin.go";
-    goPath = null;
+    env.GOBIN = ".local/bin.go";
+    env.GOPATH = null;
   };
 
   programs.neovim = {
