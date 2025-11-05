@@ -24,6 +24,20 @@ in
     };
   };
 
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      decorations = {
+        commit-decoration-style = "bold yellow box ul";
+        file-decoration-style = "none";
+        file-style = "bold yellow ul";
+      };
+      features = "decorations";
+      whitespace-error-style = "22 reverse";
+    };
+  };
+
   programs.gh = {
     enable = true;
     settings.git_protocol = "ssh";
@@ -31,36 +45,26 @@ in
 
   programs.git = {
     enable = true;
-    aliases = {
-      co = "checkout";
-      ci = "commit";
-      st = "status";
-      br = "branch";
-      hist = ''log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'';
-      type = "cat-file -t";
-      dump = "cat-file -p";
-    };
-    delta = {
-      enable = true;
-      options = {
-        decorations = {
-          commit-decoration-style = "bold yellow box ul";
-          file-decoration-style = "none";
-          file-style = "bold yellow ul";
-        };
-        features = "decorations";
-        whitespace-error-style = "22 reverse";
+    settings = {
+      aliases = {
+        co = "checkout";
+        ci = "commit";
+        st = "status";
+        br = "branch";
+        hist = ''log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'';
+        type = "cat-file -t";
+        dump = "cat-file -p";
       };
-    };
-    extraConfig = {
       init = { defaultBranch = "main"; };
       pull = { rebase = false; };
+      user = {
+        name = org;
+        email = email;
+      };
     };
     signing = {
       key = key;
       signByDefault = true;
     };
-    userName = org;
-    userEmail = email;
   };
 }

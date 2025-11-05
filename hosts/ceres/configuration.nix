@@ -29,6 +29,7 @@ in
   homebrew = {
     casks = [
       "linear-linear"
+      "postman"
     ];
     masApps = {
       "Xcode" = 497799835;
