@@ -160,7 +160,7 @@ in
   };
 
   programs.zsh = {
-    initExtra = /*bash*/ ''
+    initContent = /*bash*/ ''
       # TTY1=$(tty)
       # if [ "$TTY1" = "/dev/tty1" ]; then
       #   exec Hyprland
