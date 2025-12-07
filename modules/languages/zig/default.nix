@@ -7,7 +7,7 @@
         ensure_installed = { "zig" },
       })
 
-      require("lspconfig").zls.setup({})
+      vim.lsp.enable("zls")
 
       require("conform").setup({
         formatters_by_ft = {

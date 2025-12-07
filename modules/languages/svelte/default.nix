@@ -7,7 +7,7 @@
         ensure_installed = { "svelte" },
       })
 
-      require("lspconfig").svelte.setup({})
+      vim.lsp.enable("svelte");
 
       require("conform").setup({
         formatters_by_ft = {

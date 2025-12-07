@@ -38,9 +38,10 @@ in
         end,
       })
 
-      require("lspconfig").clangd.setup({
+      vim.lsp.config("clangd", {
         filetypes = { "c", "cpp", "objc", "objcpp" },
       })
+      vim.lsp.enable("clangd");
 
       require("conform").setup({
         formatters_by_ft = {

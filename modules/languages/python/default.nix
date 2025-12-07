@@ -17,7 +17,7 @@
         end,
       })
 
-      require("lspconfig").pyright.setup({})
+      vim.lsp.enable("pyright")
 
       require("conform").setup({
         formatters_by_ft = {

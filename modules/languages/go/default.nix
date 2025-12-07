@@ -23,7 +23,7 @@
         end,
       })
 
-      require("lspconfig").gopls.setup({
+      vim.lsp.config("gopls", {
         settings = {
           gopls = {
             completeUnimported = true,
@@ -35,6 +35,7 @@
           },
         },
       })
+      vim.lsp.enable("gopls")
 
       require("conform").setup({
         formatters_by_ft = {

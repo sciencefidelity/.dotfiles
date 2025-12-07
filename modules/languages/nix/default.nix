@@ -24,7 +24,7 @@
         end,
       })
 
-      require("lspconfig").nixd.setup({})
+      vim.lsp.enable("nixd")
 
       require("conform").setup({
         formatters_by_ft = {

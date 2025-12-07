@@ -7,7 +7,7 @@
         ensure_installed = { "java" },
       })
 
-      require("lspconfig").jdtls.setup({})
+      vim.lsp.enable("jdtls")
 
       require("conform").setup({
         formatters_by_ft = {

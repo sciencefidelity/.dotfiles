@@ -31,9 +31,9 @@ in
       "linear-linear"
       "postman"
     ];
-    masApps = {
-      "Xcode" = 497799835;
-    };
+    # masApps = {
+    #   "Xcode" = 497799835;
+    # };
   };
 
   networking = {

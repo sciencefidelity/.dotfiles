@@ -17,7 +17,7 @@
         end,
       })
 
-      require("lspconfig").terraform_lsp.setup({})
+      vim.lsp.enable("terraform_lsp")
 
       require("conform").setup({
         formatters_by_ft = {

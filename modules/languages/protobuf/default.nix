@@ -17,7 +17,7 @@
         end,
       })
 
-      require("lspconfig").buf_ls.setup({})
+      vim.lsp.enable("buf_ls")
 
       require("conform").setup({
         formatters_by_ft = {
