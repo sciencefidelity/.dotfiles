@@ -16,6 +16,7 @@ require("lazy").setup({
   { "catppuccin/nvim", name = "catppuccin" },
   "windwp/nvim-autopairs",
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  "MuntasirSZN/tera-autoextsyn.nvim",
   "HiPhish/rainbow-delimiters.nvim",
   "lukas-reineke/indent-blankline.nvim",
   "nvim-telescope/telescope.nvim",

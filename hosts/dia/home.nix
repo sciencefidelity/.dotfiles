@@ -19,7 +19,9 @@ in
     ../../modules/languages/lua
     ../../modules/languages/nix
     ../../modules/languages/rust
+    ../../modules/languages/sql
     ../../modules/languages/svelte
+    ../../modules/languages/tera
     ../../modules/languages/terraform
     ../../modules/languages/typescript
     ../../modules/languages/zig

@@ -19,3 +19,5 @@ require("nvim-treesitter.configs").setup({
   },
   additional_vim_regex_highlightling = false,
 })
+
+vim.treesitter.language.register("html", "xhtml")
