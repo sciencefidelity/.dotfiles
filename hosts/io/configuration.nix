@@ -8,6 +8,7 @@
     ../../modules/assets/fonts
     ../../modules/services/interception-tools
     ../../modules/services/pipewire
+    ../../modules/services/ddns
     ../../modules/utilities/webcam
     # ../../modules/windowmanager/dwm
     ../../modules/windowmanager/hyprland
