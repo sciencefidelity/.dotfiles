@@ -5,13 +5,13 @@
     ./hardware-configuration.nix
     ./config.nix
     ../../base/configuration.nix
-    ../../modules/assets/fonts
-    ../../modules/services/interception-tools
-    ../../modules/services/pipewire
+    # ../../modules/assets/fonts
+    # ../../modules/services/interception-tools
+    # ../../modules/services/pipewire
     ../../modules/services/ddns
-    ../../modules/utilities/webcam
+    # ../../modules/utilities/webcam
     # ../../modules/windowmanager/dwm
-    ../../modules/windowmanager/hyprland
+    # ../../modules/windowmanager/hyprland
   ];
 
   boot = {
@@ -26,19 +26,19 @@
     };
   };
 
-  environment = {
-    systemPackages = with pkgs; [
-      brave
-      firefox
-      obsidian
-      obs-studio
-      zoom-us
-    ];
-  };
+  # environment = {
+  #   systemPackages = with pkgs; [
+  #     brave
+  #     firefox
+  #     obsidian
+  #     obs-studio
+  #     zoom-us
+  #   ];
+  # };
 
-  fonts = {
-    fontconfig.enable = true;
-  };
+  # fonts = {
+  #   fontconfig.enable = true;
+  # };
 
   networking = {
     hostName = config.hostname;

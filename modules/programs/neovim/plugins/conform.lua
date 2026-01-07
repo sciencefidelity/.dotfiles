@@ -6,6 +6,7 @@ require("conform").setup({
     json = { "prettier" },
     yaml = { "prettier" },
     toml = { "taplo" },
+    ["*"] = { "injected" },
   },
   format_on_save = {
     lsp_fallback = true,
