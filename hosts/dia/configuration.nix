@@ -32,6 +32,7 @@ in
       "affinity-designer@1"
       "affinity-photo@1"
       "anki"
+      "godot"
       "openvpn-connect"
     ];
     masApps = {

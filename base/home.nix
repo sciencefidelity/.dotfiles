@@ -16,7 +16,7 @@ in
     ../modules/languages/lua
     ../modules/languages/nix
     ../modules/languages/protobuf
-    # ../modules/languages/python
+    ../modules/languages/python
     ../modules/languages/rust
     ../modules/languages/sql
     ../modules/languages/svelte
