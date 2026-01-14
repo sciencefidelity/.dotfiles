@@ -1,6 +1,16 @@
-.direnv
-.env
-.env.*
+# OS
 .DS_Store
+
+# Nix
+.direnv
+
+# Rust
 target
 
+# Environment
+.env
+.env.*
+!.env.example
+
+# LLM
+repomix-output.*

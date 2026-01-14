@@ -14,23 +14,51 @@
         pkgs = import nixpkgs {
           inherit system overlays;
         };
+        check = pkgs.writeShellScriptBin "check" ''
+          cargo fmt --check
+          cargo clippy --tests
+        '';
+        cov = pkgs.writeShellScriptBin "cov" ''
+          cargo llvm-cov --html
+        '';
+        ct = pkgs.writeShellScriptBin "ct" ''
+          cargo test
+        '';
+        format = pkgs.writeShellScriptBin "format" ''
+          cargo fmt
+        '';
+        run = pkgs.writeShellScriptBin "run" ''
+          cargo run | ${pkgs.bunyan-rs}/bin/bunyan
+        '';
+        watch = pkgs.writeShellScriptBin "watch" ''
+          ${pkgs.watchexec}/bin/watchexec -e rs -r cargo run
+        '';
       in
       with pkgs;
       {
         devShells.default = mkShell {
-          buildInputs = [
+          nativeBuildInputs = [
+            check
+            cov
+            ct
+            format
             pkg-config
-            taplo
-            (rust-bin.stable.latest.default.override {
-              extensions = [ "rust-analyzer" "rust-src" ];
-            })
+            run
+            watch
           ];
 
-          shellHook = /*bash*/ ''
-          ''
+          buildInputs = [
+            taplo
+            (rust-bin.stable.latest.default.override {
+              extensions = [ "llvm-tools-preview" "rust-analyzer" "rust-src" ];
+            })
+            (import ./scripts/init.nix { inherit pkgs; })
+          ] ++ lib.optionals stdenv.isLinux [ pkgs.cargo-llvm-cov pkgs.clang pkgs.mold ];
+
           # enable mold linker for Linux
-          + pkgs.lib.optionalString pkgs.stdenv.isLinux /*bash*/ ''
-            export RUSTFLAGS="-C linker=clang -C link-arg=-fuse-ld=${pkgs.mold-wrapped}/bin/mold"
+          RUSTFLAGS = if pkgs.stdenv.isLinux then "-C linker=clang -C link-arg=-fuse-ld=${pkgs.mold}/bin/mold" else "";
+
+          shellHook = /*bash*/ ''
           '';
         };
       }
