@@ -52,7 +52,6 @@
             (rust-bin.stable.latest.default.override {
               extensions = [ "llvm-tools-preview" "rust-analyzer" "rust-src" ];
             })
-            (import ./scripts/init.nix { inherit pkgs; })
           ] ++ lib.optionals stdenv.isLinux [ pkgs.cargo-llvm-cov pkgs.clang pkgs.mold ];
 
           # enable mold linker for Linux

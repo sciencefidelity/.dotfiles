@@ -14,11 +14,13 @@ in
     # ../../modules/languages/c
     # ../../modules/languages/clojure
     # ../../modules/languages/elixir
-    ../../modules/languages/gdscript
+    # ../../modules/languages/gdscript
     # ../../modules/languages/go
     # ../../modules/languages/java
     ../../modules/languages/lua
     ../../modules/languages/nix
+    # ../../modules/languages/protobuf
+    # ../../modules/languages/python
     ../../modules/languages/rust
     ../../modules/languages/sql
     ../../modules/languages/svelte

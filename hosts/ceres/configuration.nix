@@ -28,6 +28,7 @@ in
 
   homebrew = {
     casks = [
+      "android-studio"
       "linear-linear"
       "postman"
     ];
@@ -45,6 +46,7 @@ in
   };
 
   nixpkgs = {
+    config.android_sdk.accept_license = true;
     config.allowUnfree = true;
   };
 

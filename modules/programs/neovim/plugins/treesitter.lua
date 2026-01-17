@@ -11,6 +11,7 @@ require("nvim-treesitter.configs").setup({
     "scheme",
     "scss",
     "toml",
+    "wgsl",
     "yaml",
   },
   sync_installed = false,

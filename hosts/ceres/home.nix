@@ -11,10 +11,11 @@ in
     ../../modules/applications/wezterm
     ../../modules/files/hushlogin
     ../../modules/files/karabiner
-    ../../modules/languages/c
-    ../../modules/languages/clojure
-    ../../modules/languages/elixir
-    ../../modules/languages/go
+    # ../../modules/languages/c
+    # ../../modules/languages/clojure
+    # ../../modules/languages/elixir
+    # ../../modules/languages/gdscript
+    # ../../modules/languages/go
     ../../modules/languages/java
     ../../modules/languages/lua
     ../../modules/languages/nix
@@ -24,9 +25,9 @@ in
     ../../modules/languages/sql
     ../../modules/languages/svelte
     ../../modules/languages/tera
-    ../../modules/languages/terraform
+    # ../../modules/languages/terraform
     ../../modules/languages/typescript
-    ../../modules/languages/zig
+    # ../../modules/languages/zig
     ../../modules/packages/nixpkgs
     ../../modules/programs/direnv
     ../../modules/programs/eza
