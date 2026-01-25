@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+# let
+#   domainName = "mattcook.dev";
+# in
 {
   imports = [
     ./hardware-configuration.nix
@@ -44,17 +47,35 @@
     hostName = config.hostname;
     wireless.enable = false;
     firewall = {
-      allowedTCPPorts = [ 22 80 3000 3030 5173 5432 8000 8080 8674 8675 ];
-      allowedTCPPortRanges = [{ from = 40000; to = 49999; }];
-      allowedUDPPorts = [ 51820 ];
-      allowedUDPPortRanges = [{ from = 40000; to = 49999; }];
+      allowedTCPPorts = [ 22 80 443 6188 6189 8675 ];
     };
   };
 
+  # security.acme = {
+  #   acceptTerms = true;
+  #   defaults = {
+  #     email = "hello@${domainName}";
+  #     webroot = "/var/lib/acme/acme-challenge";
+  #   };
+  #   certs = {
+  #     "io.${domainName}" = {
+  #       group = config.services.nginx.group;
+  #     };
+  #   };
+  # };
+
   services = {
+    # nginx = {
+    #   enable = true;
+    #   virtualHosts."io.${domainName}" = {
+    #     forceSSL = true;
+    #     useACMEHost = "io.${domainName}";
+    #     locations."/.well-known".root = "/var/lib/acme/acme-challenge";
+    #   };
+    # };
+
     openssh = {
       ports = [ 22 7425 ];
     };
   };
 }
-

@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ./config.nix
     ../../base/configuration.nix
+    ../../modules/services/hickory-dns
     ../../modules/services/sqlite
     ../../modules/virtualization/docker
   ];
