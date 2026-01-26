@@ -13,39 +13,39 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprcursor = {
-      url = "github:hyprwm/hyprcursor";
-      inputs = {
-        hyprlang.follows = "hyprlang";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-    hyprlang = {
-      url = "github:hyprwm/hyprlang";
-      inputs = {
-        hyprutils.follows = "hyprutils";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-    hyprutils = {
-      url = "github:hyprwm/hyprutils";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-    catppuccin-hyprland = {
-      url = "github:catppuccin/hyprland";
-      flake = false;
-    };
-    catppuccin-waybar = {
-      url = "github:catppuccin/waybar";
-      flake = false;
-    };
-    catppuccin-wofi = {
-      url = "github:quantumfate/wofi";
-      flake = false;
-    };
-    rhea.url = "github:sciencefidelity/rhea";
+    # hyprcursor = {
+    #   url = "github:hyprwm/hyprcursor";
+    #   inputs = {
+    #     hyprlang.follows = "hyprlang";
+    #     nixpkgs.follows = "nixpkgs";
+    #   };
+    # };
+    # hyprlang = {
+    #   url = "github:hyprwm/hyprlang";
+    #   inputs = {
+    #     hyprutils.follows = "hyprutils";
+    #     nixpkgs.follows = "nixpkgs";
+    #   };
+    # };
+    # hyprutils = {
+    #   url = "github:hyprwm/hyprutils";
+    #   inputs = {
+    #     nixpkgs.follows = "nixpkgs";
+    #   };
+    # };
+    # catppuccin-hyprland = {
+    #   url = "github:catppuccin/hyprland";
+    #   flake = false;
+    # };
+    # catppuccin-waybar = {
+    #   url = "github:catppuccin/waybar";
+    #   flake = false;
+    # };
+    # catppuccin-wofi = {
+    #   url = "github:quantumfate/wofi";
+    #   flake = false;
+    # };
+    # rhea.url = "github:sciencefidelity/rhea";
     # wezterm = {
     #   url = "github:wez/wezterm/main?dir=nix";
     #   inputs.nixpkgs.follows = "nixpkgs";

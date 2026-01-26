@@ -5,8 +5,9 @@
     ./hardware-configuration.nix
     ./config.nix
     ../../base/configuration.nix
-    ../../modules/services/hickory-dns
-    ../../modules/services/sqlite
+    ../../modules/services/ca
+    ../../modules/services/dns
+    # ../../modules/services/sqlite
     ../../modules/virtualization/docker
   ];
 
@@ -25,7 +26,7 @@
   networking = {
     hostName = config.hostname;
     wireless.enable = false;
-    firewall.allowedTCPPorts = [ 22 80 3000 3030 5173 5432 8000 8080 30333 ];
+    firewall.allowedTCPPorts = [ 5432 ];
   };
 
   services = {
@@ -34,4 +35,3 @@
     };
   };
 }
-
