@@ -13,6 +13,7 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-utils.url = "github:numtide/flake-utils";
     # hyprcursor = {
     #   url = "github:hyprwm/hyprcursor";
     #   inputs = {
@@ -52,7 +53,7 @@
     # };
   };
 
-  outputs = { home-manager, nix-darwin, nixos-hardware, nixpkgs, nixpkgs-darwin, ... } @inputs:
+  outputs = { home-manager, nix-darwin, nixos-hardware, nixpkgs, nixpkgs-darwin, flake-utils, ... } @inputs:
     let
       lib = nixpkgs.lib;
     in
@@ -152,5 +153,28 @@
           extraSpecialArgs = { inherit inputs; };
         };
       };
-    };
+    }
+    //
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        overlays = [ ];
+        pkgs = import nixpkgs {
+          inherit system overlays;
+        };
+      in
+      with pkgs;
+      {
+        devShells.default = mkShell {
+          buildInputs = [
+            lua5_4_compat
+            lua-language-server
+            stylua
+          ];
+
+          shellHook = /*bash*/ ''
+            git pull
+          '';
+        };
+      }
+    );
 }

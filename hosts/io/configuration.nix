@@ -1,8 +1,5 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
-# let
-#   domainName = "mattcook.dev";
-# in
 {
   imports = [
     ./hardware-configuration.nix
@@ -51,29 +48,7 @@
     };
   };
 
-  # security.acme = {
-  #   acceptTerms = true;
-  #   defaults = {
-  #     email = "hello@${domainName}";
-  #     webroot = "/var/lib/acme/acme-challenge";
-  #   };
-  #   certs = {
-  #     "io.${domainName}" = {
-  #       group = config.services.nginx.group;
-  #     };
-  #   };
-  # };
-
   services = {
-    # nginx = {
-    #   enable = true;
-    #   virtualHosts."io.${domainName}" = {
-    #     forceSSL = true;
-    #     useACMEHost = "io.${domainName}";
-    #     locations."/.well-known".root = "/var/lib/acme/acme-challenge";
-    #   };
-    # };
-
     openssh = {
       ports = [ 22 7425 ];
     };
