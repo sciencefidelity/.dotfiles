@@ -42,17 +42,29 @@
 
   networking = {
     hostName = config.hostname;
+    nameservers = [ "127.0.0.1" ];
     wireless.enable = false;
     firewall = {
       allowedTCPPorts = [ 22 80 443 6188 6189 8675 ];
     };
   };
 
-  security.pki.certificates = [ (builtins.readFile ./secrets/root_ca.crt) ];
+  security = {
+    pki = {
+      certificates = [ (builtins.readFile /etc/nixos/root_ca.crt) ];
+    };
+  };
 
   services = {
     openssh = {
       ports = [ 22 7425 ];
+    };
+
+    dnsmasq = {
+      enable = true;
+      settings = {
+        server = [ "/augment.aero/192.168.1.125" ];
+      };
     };
   };
 }

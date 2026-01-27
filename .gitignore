@@ -5,3 +5,5 @@ result
 /.direnv
 .env
 secrets
+root_ca.crt
+acert
