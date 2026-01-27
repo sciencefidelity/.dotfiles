@@ -48,6 +48,8 @@
     };
   };
 
+  security.pki.certificates = [ (builtins.readFile ./secrets/root_ca.crt) ];
+
   services = {
     openssh = {
       ports = [ 22 7425 ];

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 
 let
   hostname = config.hostname;
@@ -22,6 +22,8 @@ in
     systemPackages = with pkgs; [
       coreutils
       curl
+      step-ca
+      step-cli
       wget
     ];
   };

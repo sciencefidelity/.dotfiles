@@ -1,11 +1,6 @@
-{ lib, pkgs, ... }:
+{ ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    step-ca
-    step-cli
-  ];
-
   networking.firewall.allowedTCPPorts = [ 443 ];
 
   services.step-ca = {

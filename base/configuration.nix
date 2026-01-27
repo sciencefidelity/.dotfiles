@@ -23,6 +23,8 @@ in
       gnumake
       htop
       libtool
+      step-ca
+      step-cli
       tree
       vim
       wget

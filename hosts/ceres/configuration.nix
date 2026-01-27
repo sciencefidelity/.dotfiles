@@ -22,6 +22,8 @@ in
     systemPackages = with pkgs; [
       coreutils
       curl
+      step-ca
+      step-cli
       wget
     ];
   };
