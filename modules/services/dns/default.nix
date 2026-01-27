@@ -7,12 +7,12 @@
   services.bind = {
     enable = true;
     zones = {
-      "local.augment.aero" = {
+      "augment.aero" = {
         master = true;
-        file = pkgs.writeText "local.augment.aero" ''
+        file = pkgs.writeText "augment.aero" ''
           $TTL    1h
-          $ORIGIN local.augment.aero.
-          @       IN  SOA   ns1.local.augment.aero hostmaster.local.augment.aero (
+          $ORIGIN augment.aero.
+          @       IN  SOA   ns1.augment.aero hostmaster.augment.aero (
                                 2003080800 ; serial number
                                 12h        ; refresh
                                 15m        ; update retry
@@ -20,11 +20,11 @@
                                 2h         ; minimum
                                 )
 
-                  IN  NS    ns1.local.augment.aero.
+                  IN  NS    ns1.augment.aero.
 
           ns1     IN  A     192.168.1.125
           api     IN  A     192.168.1.122
-          app     IN  A     192.168.1.122
+          @       IN  A     192.168.1.122
           ca      IN  A     192.168.1.125
         '';
       };
