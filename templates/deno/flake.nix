@@ -1,5 +1,5 @@
 {
-  description = "A Bun devshell";
+  description = "A Deno devshell";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";

@@ -1,8 +1,8 @@
 {
-  description = "A Python devshell";
+  description = "A Kotlin devshell";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -18,17 +18,17 @@
       {
         devShells.default = mkShell {
           buildInputs = [
-            pkgs.black
-            pkgs.pyright
-            (pkgs.python3.withPackages (python-pkgs: [
-              python-pkgs.pandas
-            ]))
+            gradle
+            jdk
+            kotlin
+            kotlin-language-server
+            ktlint
           ];
 
           shellHook = /*bash*/ ''
-            # python -m venv .venv --copies
           '';
         };
       }
     );
 }
+

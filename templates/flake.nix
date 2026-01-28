@@ -45,6 +45,13 @@
           Nothing in this world is difficult, it is only our thoughts that make is seem so.
         '';
       };
+      kotlin = {
+        path = ./kotlin;
+        description = "A Kotlin template";
+        welcomeText = ''
+          Nothing in this world is difficult, it is only our thoughts that make is seem so.
+        '';
+      };
       node = {
         path = ./node;
         description = "A Node template";

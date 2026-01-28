@@ -1,5 +1,5 @@
 {
-  description = "A Terraform devshell";
+  description = "An empty devshell";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";

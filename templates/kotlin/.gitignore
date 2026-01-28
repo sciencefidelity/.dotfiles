@@ -1,0 +1,8 @@
+.DS_Store
+.direnv
+.env
+.env.*
+!.env.example
+repomix-output.*
+.gradle
+build
