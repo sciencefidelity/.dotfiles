@@ -9,7 +9,7 @@
   };
 
   programs.neovim = {
-    extraLuaConfig = /*lua*/ ''
+    initLua = /*lua*/ ''
       require("nvim-treesitter.configs").setup({
         ensure_installed = { "hyprlang", "nix" },
       })

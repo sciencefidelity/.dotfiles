@@ -24,7 +24,7 @@ let
 in
 {
   programs.neovim = {
-    extraLuaConfig = /*lua*/ ''
+    initLua = /*lua*/ ''
       require("nvim-treesitter.configs").setup({
         ensure_installed = { "rust" },
       })

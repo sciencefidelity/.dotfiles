@@ -16,7 +16,7 @@
     enable = true;
     package = pkgs.neovim-unwrapped;
     defaultEditor = true;
-    extraLuaConfig = /*lua*/ ''
+    initLua = /*lua*/ ''
       ${builtins.readFile ./core/remap.lua}
       ${builtins.readFile ./core/lazy.lua}
       ${builtins.readFile ./core/editor.lua}

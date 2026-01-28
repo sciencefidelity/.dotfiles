@@ -23,7 +23,7 @@ in
   };
 
   programs.neovim = {
-    extraLuaConfig = /*lua*/ ''
+    initLua = /*lua*/ ''
       require("nvim-treesitter.configs").setup({
         ensure_installed = { "c", "cpp" },
       })
@@ -41,7 +41,7 @@ in
       vim.lsp.config("clangd", {
         filetypes = { "c", "cpp", "objc", "objcpp" },
       })
-      vim.lsp.enable("clangd");
+      vim.lsp.enable("clangd")
 
       require("conform").setup({
         formatters_by_ft = {

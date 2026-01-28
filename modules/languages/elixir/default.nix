@@ -50,7 +50,7 @@
   };
 
   programs.neovim = {
-    extraLuaConfig = /*lua*/ ''
+    initLua = /*lua*/ ''
       require("nvim-treesitter.configs").setup({
         ensure_installed = { "elixir", "erlang" },
       })
@@ -66,7 +66,7 @@
       })
 
       vim.lsp.config("elixirls", { cmd = { "elixir-ls" } })
-      vim.lsp.enable("elixirls");
+      vim.lsp.enable("elixirls")
 
       require("conform").setup({
         formatters_by_ft = {
