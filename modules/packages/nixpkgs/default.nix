@@ -25,7 +25,7 @@ in
       pkgs.tshark
       pkgs.xclip
       pkgs.xsel
-      inputs.rhea.packages.${pkgs.system}.default
+      # inputs.rhea.packages.${pkgs.system}.default
     ]
     else [ ]);
   };

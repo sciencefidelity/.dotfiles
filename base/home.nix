@@ -17,6 +17,7 @@ in
     ../modules/languages/nix
     ../modules/languages/protobuf
     ../modules/languages/python
+    ../modules/languages/ocaml
     ../modules/languages/rust
     ../modules/languages/sql
     ../modules/languages/svelte

@@ -59,6 +59,13 @@
           Nothing in this world is difficult, it is only our thoughts that make is seem so.
         '';
       };
+      ocaml = {
+        path = ./ocaml;
+        description = "A Ocaml template";
+        welcomeText = ''
+          Nothing in this world is difficult, it is only our thoughts that make is seem so.
+        '';
+      };
       python = {
         path = ./python;
         description = "A Python template";
