@@ -13,6 +13,7 @@ in
     # ../modules/languages/elixir
     # ../modules/languages/go
     # ../modules/languages/java
+    ../modules/languages/kotlin
     ../modules/languages/lua
     ../modules/languages/nix
     ../modules/languages/protobuf
