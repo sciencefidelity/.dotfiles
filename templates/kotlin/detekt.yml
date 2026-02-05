@@ -1,0 +1,89 @@
+# Detekt configuration
+# Docs: https://detekt.dev/docs/rules/
+
+build:
+  maxIssues: 0 # Fail on any issues (can increase during initial adoption)
+  weights:
+    complexity: 2
+    style: 1
+    comments: 0
+
+config:
+  validation: true
+  warningsAsErrors: false
+
+complexity:
+  LongMethod:
+    threshold: 60 # Default is 60, increase if needed
+  LongParameterList:
+    functionThreshold: 8
+    constructorThreshold: 10
+  ComplexCondition:
+    threshold: 5
+  CyclomaticComplexMethod:
+    threshold: 20
+  TooManyFunctions:
+    active: false # Not useful for ViewModels and large screens
+
+coroutines:
+  active: true
+
+empty-blocks:
+  active: true
+
+exceptions:
+  active: true
+  TooGenericExceptionCaught:
+    active: false # Often necessary in Android/network code
+  SwallowedException:
+    active: true
+  ThrowingExceptionsWithoutMessageOrCause:
+    active: true
+
+naming:
+  active: true
+  FunctionNaming:
+    # Allow Composable function naming convention (PascalCase)
+    functionPattern: "([a-z][a-zA-Z0-9]*)|([A-Z][a-zA-Z0-9]*)"
+  TopLevelPropertyNaming:
+    constantPattern: "[A-Z][A-Za-z0-9]*|[A-Z][_A-Z0-9]*"
+  VariableNaming:
+    privateVariablePattern: "(_)?[a-z][A-Za-z0-9]*"
+  PackageNaming:
+    packagePattern: '[a-z]+(\.[a-z][A-Za-z0-9]*)*'
+
+performance:
+  active: true
+  SpreadOperator:
+    active: false # Common in vararg calls
+
+potential-bugs:
+  active: true
+  UnsafeCallOnNullableType:
+    active: true
+  UnreachableCode:
+    active: true
+
+style:
+  active: true
+  ForbiddenComment:
+    active: false # Allow TODO/FIXME during development
+  MagicNumber:
+    active: false # Too noisy, especially for UI code
+  MaxLineLength:
+    maxLineLength: 120
+    excludeCommentStatements: true
+  ReturnCount:
+    max: 4
+  UnusedImports:
+    active: true
+  UnusedPrivateMember:
+    active: true
+  WildcardImport:
+    active: true
+    excludeImports:
+      - "java.util.*"
+      - "kotlinx.coroutines.*"
+
+comments:
+  active: false # Don't enforce documentation comments for now
