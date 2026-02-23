@@ -21,9 +21,9 @@ let
     sysclean = "sudo nix-collect-garbage -d; and sudo nix-store --optimise";
     syshs = "home-manager switch --flake .";
     sysrs = "sudo nixos-rebuild switch --flake .";
-    projects = "cd ~/developer/projects/rust";
-    learning = "cd ~/developer/learning/rust";
-    testing = "cd ~/developer/testing/rust";
+    projects = "cd ~/developer/projects";
+    learning = "cd ~/developer/learning";
+    testing = "cd ~/developer/testing";
     dots = "cd ~/.dotfiles";
   };
 in
