@@ -1,10 +1,10 @@
 require("conform").setup({
   formatters_by_ft = {
-    css = { "prettier" },
-    html = { "prettier" },
-    xhtml = { "prettier" },
-    json = { "prettier" },
-    yaml = { "prettier" },
+    css = { "prettierd", "prettier", stop_after_first = true },
+    html = { "prettierd", "prettier", stop_after_first = true },
+    xhtml = { "prettierd", "prettier", stop_after_first = true },
+    json = { "prettierd", "prettier", stop_after_first = true },
+    yaml = { "prettierd", "prettier", stop_after_first = true },
     toml = { "taplo" },
     ["*"] = { "injected" },
   },

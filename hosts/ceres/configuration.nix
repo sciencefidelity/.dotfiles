@@ -32,6 +32,7 @@ in
     casks = [
       "android-studio"
       "linear-linear"
+      "loom"
       "postman"
     ];
     # masApps = {
