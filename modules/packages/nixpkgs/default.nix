@@ -11,7 +11,7 @@ in
       pkgs.jq
       pkgs.lf
       pkgs.lld
-      pkgs.neofetch
+      pkgs.fastfetch
       pkgs.openssl
       pkgs.pkg-config
       # pkgs.nodePackages.prettier

@@ -22,8 +22,10 @@ in
     systemPackages = with pkgs; [
       coreutils
       curl
+      nodejs
       step-ca
       step-cli
+      tree-sitter
       wget
     ];
   };
@@ -35,9 +37,10 @@ in
       "loom"
       "postman"
     ];
-    # masApps = {
-    #   "Xcode" = 497799835;
-    # };
+    masApps = {
+      "Microsoft Word" = 462054704;
+      "Xcode" = 497799835;
+    };
   };
 
   networking = {

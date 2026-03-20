@@ -3,10 +3,9 @@
 {
   homebrew = {
     enable = true;
-    brewPrefix = "/opt/homebrew/bin";
+    prefix = "/opt/homebrew";
     global = {
       brewfile = true;
-      lockfiles = true;
     };
     onActivation = {
       cleanup = "zap";
@@ -23,6 +22,7 @@
       "brave-browser"
       "discord"
       "firefox"
+      "icon-composer"
       "karabiner-elements"
       "obsidian"
       "readwise-ibooks"

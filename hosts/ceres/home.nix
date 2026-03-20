@@ -25,6 +25,7 @@ in
     ../../modules/languages/rust
     ../../modules/languages/sql
     ../../modules/languages/svelte
+    ../../modules/languages/swift
     ../../modules/languages/tera
     # ../../modules/languages/terraform
     ../../modules/languages/typescript
