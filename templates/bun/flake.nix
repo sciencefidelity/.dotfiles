@@ -20,7 +20,7 @@
           buildInputs = [
             bun
             eslint_d
-            nodePackages.prettier
+            prettierd
             svelte-language-server
             typescript
             typescript-language-server

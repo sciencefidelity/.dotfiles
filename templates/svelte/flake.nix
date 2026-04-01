@@ -21,7 +21,7 @@
             eslint_d
             nodejs_latest
             pnpm
-            nodePackages.prettier
+            prettierd
             svelte-language-server
             typescript
             typescript-language-server

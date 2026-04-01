@@ -14,7 +14,6 @@ in
       pkgs.fastfetch
       pkgs.openssl
       pkgs.pkg-config
-      # pkgs.nodePackages.prettier
       pkgs.prettierd
       pkgs.ripgrep
       pkgs.vscode-langservers-extracted

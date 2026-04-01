@@ -24,7 +24,7 @@
             nodejs_latest
             eslint_d
             pkg-config
-            nodePackages.prettier
+            prettierd
             svelte-language-server
             typescript
             typescript-language-server
