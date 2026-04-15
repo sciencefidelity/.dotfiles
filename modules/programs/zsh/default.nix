@@ -18,9 +18,10 @@ let
     cp = "cp -Rv";
     mv = "mv -iv";
     rm = "rm -rIv";
+    cleanup = "find . -name '.DS_Store' -type f -delete";
     sysclean = "sudo nix-collect-garbage -d; and sudo nix-store --optimise";
-    syshs = "home-manager switch --flake .";
-    sysrs = "sudo nixos-rebuild switch --flake .";
+    syshs = "home-manager switch --flake ~/.dotfiles";
+    sysrs = "sudo nixos-rebuild switch --flake ~/.dotfiles";
     projects = "cd ~/developer/projects";
     learning = "cd ~/developer/learning";
     testing = "cd ~/developer/testing";

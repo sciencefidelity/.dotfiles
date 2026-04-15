@@ -8,6 +8,7 @@ require("nvim-treesitter.configs").setup({
     "markdown",
     "markdown_inline",
     "proto",
+    "ruby",
     "scheme",
     "scss",
     "toml",
@@ -20,6 +21,15 @@ require("nvim-treesitter.configs").setup({
     enable = true,
   },
   additional_vim_regex_highlightling = false,
+})
+
+vim.filetype.add({
+  filename = {
+    ["Fastfile"] = "ruby",
+    ["Matchfile"] = "ruby",
+    ["Appfile"] = "ruby",
+    ["Deliverfile"] = "ruby",
+  },
 })
 
 vim.treesitter.language.register("html", "xhtml")
