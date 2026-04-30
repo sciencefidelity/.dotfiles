@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   { "windwp/nvim-autopairs", event = "InsertEnter", config = true },
-  { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
+  { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate", branch = "main" },
   "HiPhish/rainbow-delimiters.nvim",
   { "lukas-reineke/indent-blankline.nvim", main = "ibl" },
   "nvim-lua/plenary.nvim",

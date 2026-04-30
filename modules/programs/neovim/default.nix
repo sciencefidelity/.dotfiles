@@ -1,16 +1,7 @@
-{ config, inputs, ... }:
+{ config, pkgs, ... }:
 
-let
-  pkgs-stable = import inputs.nixpkgs-stable {
-    system = "aarch64-darwin";
-  };
-in
 {
   home = {
-    packages = with pkgs-stable; [
-      neovim-unwrapped
-    ];
-
     sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "${config.home.sessionVariables.EDITOR}";
@@ -19,7 +10,7 @@ in
 
   programs.neovim = {
     enable = true;
-    package = pkgs-stable.neovim-unwrapped;
+    package = pkgs.neovim-unwrapped;
     defaultEditor = true;
     initLua = /*lua*/ ''
       ${builtins.readFile ./core/remap.lua}

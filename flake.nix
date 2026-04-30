@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-darwin.url = "nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable.url = "nixpkgs/nixos-25.11";
     nixos-hardware.url = "nixos-hardware/master";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
@@ -54,7 +53,7 @@
     # };
   };
 
-  outputs = { home-manager, nix-darwin, nixos-hardware, nixpkgs, nixpkgs-darwin, nixpkgs-stable, flake-utils, ... } @inputs:
+  outputs = { home-manager, nix-darwin, nixos-hardware, nixpkgs, nixpkgs-darwin, flake-utils, ... } @inputs:
     let
       lib = nixpkgs.lib;
     in
@@ -117,7 +116,6 @@
 
         "matt@ceres" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs-darwin.legacyPackages."aarch64-darwin";
-          extraSpecialArgs = { inherit inputs; };
           modules = [
             ./hosts/ceres/home.nix
           ];
@@ -128,7 +126,6 @@
           modules = [
             ./hosts/io/home.nix
           ];
-          extraSpecialArgs = { inherit inputs; };
         };
 
         "matt@sao" = home-manager.lib.homeManagerConfiguration {
@@ -136,7 +133,6 @@
           modules = [
             ./hosts/sao/home.nix
           ];
-          extraSpecialArgs = { inherit inputs; };
         };
 
         "matt@eris" = home-manager.lib.homeManagerConfiguration {
@@ -144,7 +140,6 @@
           modules = [
             ./hosts/eris/home.nix
           ];
-          extraSpecialArgs = { inherit inputs; };
         };
 
         "matt@rhea" = home-manager.lib.homeManagerConfiguration {
@@ -152,7 +147,6 @@
           modules = [
             ./hosts/rhea/home.nix
           ];
-          extraSpecialArgs = { inherit inputs; };
         };
       };
     }
