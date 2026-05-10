@@ -3,9 +3,7 @@
 {
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({
-        ensure_installed = { "clojure" },
-      })
+      require("nvim-treesitter").install({ "clojure" })
 
       vim.lsp.enable("clojure_lsp")
 
@@ -15,5 +13,13 @@
         },
       })
     '';
+  };
+
+  home.file = {
+    ftClojure = {
+      enable = true;
+      target = ".config/nvim/after/ftplugin/clojure.lua";
+      text = "vim.treesitter.start()";
+    };
   };
 }

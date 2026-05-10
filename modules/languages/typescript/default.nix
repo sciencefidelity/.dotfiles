@@ -3,9 +3,7 @@
 {
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({
-        ensure_installed = { "javascript", "tsx", "typescript" },
-      })
+      require("nvim-treesitter").install({ "javascript", "tsx", "typescript" })
 
       vim.lsp.enable("ts_ls")
 
@@ -19,5 +17,15 @@
       })
       ${builtins.readFile ./snippets.lua}
     '';
+  };
+
+  home.file = {
+    ftTypescript = {
+      enable = true;
+      target = ".config/nvim/after/ftplugin/typescript.lua";
+      text = /*lua*/ ''
+        vim.treesitter.start()
+      '';
+    };
   };
 }

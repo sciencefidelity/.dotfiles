@@ -25,9 +25,7 @@ in
 {
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({
-        ensure_installed = { "rust" },
-      })
+      require("nvim-treesitter").install({ "rust" })
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "rs" },
@@ -65,6 +63,16 @@ in
       enable = true;
       target = ".config/nvim/queries/rust/injections.scm";
       text = sqlQuery;
+    };
+  };
+
+  home.file = {
+    ftRust = {
+      enable = true;
+      target = ".config/nvim/after/ftplugin/rust.lua";
+      text = /*lua*/ ''
+        vim.treesitter.start()
+      '';
     };
   };
 }

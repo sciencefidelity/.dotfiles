@@ -3,9 +3,7 @@
 {
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({
-        ensure_installed = { "zig" },
-      })
+      require("nvim-treesitter").install({ "zig" })
 
       vim.lsp.enable("zls")
 
@@ -15,5 +13,15 @@
         },
       })
     '';
+  };
+
+  home.file = {
+    ftZig = {
+      enable = true;
+      target = ".config/nvim/after/ftplugin/zig.lua";
+      text = /*lua*/ ''
+        vim.treesitter.start()
+      '';
+    };
   };
 }

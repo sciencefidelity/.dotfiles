@@ -3,9 +3,7 @@
 {
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({
-        ensure_installed = { "gdscript" },
-      })
+      require("nvim-treesitter").setup({ "gdscript" })
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "gd" },
@@ -25,5 +23,15 @@
         },
       })
     '';
+  };
+
+  home.file = {
+    ftGdscript = {
+      enable = true;
+      target = ".config/nvim/after/ftplugin/gdscript.lua";
+      text = /*lua*/ ''
+        vim.treesitter.start()
+      '';
+    };
   };
 }

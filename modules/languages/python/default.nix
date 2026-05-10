@@ -3,9 +3,7 @@
 {
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({
-        ensure_installed = { "python" },
-      })
+      require("nvim-treesitter").install({ "python" })
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "py" },
@@ -18,7 +16,10 @@
         end,
       })
 
-      vim.lsp.enable("pyright")
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "py" },
+        callback = function() vim.treesitter.start() end,
+      })
 
       require("conform").setup({
         formatters_by_ft = {
@@ -26,5 +27,15 @@
         },
       })
     '';
+  };
+
+  home.file = {
+    ftPython = {
+      enable = true;
+      target = ".config/nvim/after/ftplugin/python.lua";
+      text = /*lua*/ ''
+        vim.treesitter.start()
+      '';
+    };
   };
 }

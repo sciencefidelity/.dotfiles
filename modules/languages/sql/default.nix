@@ -3,9 +3,7 @@
 {
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({
-        ensure_installed = { "sql" },
-      })
+      require("nvim-treesitter").install({ "sql" })
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "sql" },
@@ -25,5 +23,15 @@
         },
       })
     '';
+  };
+
+  home.file = {
+    ftSql = {
+      enable = true;
+      target = ".config/nvim/after/ftplugin/sql.lua";
+      text = /*lua*/ ''
+        vim.treesitter.start()
+      '';
+    };
   };
 }

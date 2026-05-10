@@ -3,9 +3,17 @@
 {
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({
-        ensure_installed = { "tera" },
-      })
+      require("nvim-treesitter").install({ "tera" })
     '';
+  };
+
+  home.file = {
+    ftTera = {
+      enable = true;
+      target = ".config/nvim/after/ftplugin/tera.lua";
+      text = /*lua*/ ''
+        vim.treesitter.start()
+      '';
+    };
   };
 }

@@ -3,9 +3,7 @@
 {
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({
-        ensure_installed = { "lua" },
-      })
+      require("nvim-treesitter").install({ "lua" })
 
       vim.lsp.config("lua_ls", {
         settings = {
@@ -27,5 +25,15 @@
 
       require("Comment.ft").set("lua", { "--%s", "--[[%s--]]" })
     '';
+  };
+
+  home.file = {
+    ftLua = {
+      enable = true;
+      target = ".config/nvim/after/ftplugin/lua.lua";
+      text = /*lua*/ ''
+        vim.treesitter.start()
+      '';
+    };
   };
 }

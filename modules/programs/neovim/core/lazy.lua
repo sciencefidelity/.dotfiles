@@ -17,11 +17,11 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   { "windwp/nvim-autopairs", event = "InsertEnter", config = true },
-  { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate", branch = "main" },
+  { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate" },
   "HiPhish/rainbow-delimiters.nvim",
   { "lukas-reineke/indent-blankline.nvim", main = "ibl" },
   "nvim-lua/plenary.nvim",
-  { "nvim-telescope/telescope.nvim", tag = "*" },
+  { "nvim-telescope/telescope.nvim", version = "*" },
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   "neovim/nvim-lspconfig",
   "stevearc/conform.nvim",

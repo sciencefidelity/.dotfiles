@@ -16,15 +16,16 @@ in
     # ../../modules/languages/elixir
     # ../../modules/languages/gdscript
     # ../../modules/languages/go
-    # ../../modules/languages/java
+    ../../modules/languages/java
     ../../modules/languages/kotlin
     ../../modules/languages/lua
     ../../modules/languages/nix
-    # ../../modules/languages/protobuf
-    # ../../modules/languages/python
+    ../../modules/languages/protobuf
+    ../../modules/languages/python
     ../../modules/languages/rust
     ../../modules/languages/sql
     ../../modules/languages/svelte
+    ../../modules/languages/swift
     ../../modules/languages/tera
     # ../../modules/languages/terraform
     ../../modules/languages/typescript

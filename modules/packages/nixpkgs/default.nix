@@ -17,6 +17,7 @@ in
       pkgs.prettierd
       pkgs.ripgrep
       pkgs.vscode-langservers-extracted
+      pkgs.tree-sitter
 
     ] ++ (if platform == "darwin" then [ ]
     else if platform == "linux" then [

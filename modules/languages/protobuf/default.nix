@@ -3,9 +3,7 @@
 {
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({
-        ensure_installed = { "proto" },
-      })
+      require("nvim-treesitter").install({ "proto" })
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "proto" },
@@ -25,5 +23,15 @@
         },
       })
     '';
+  };
+
+  home.file = {
+    ftProtobuf = {
+      enable = true;
+      target = ".config/nvim/after/ftplugin/proto.lua";
+      text = /*lua*/ ''
+        vim.treesitter.start()
+      '';
+    };
   };
 }

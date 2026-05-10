@@ -10,13 +10,12 @@
 
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({
-        ensure_installed = { "hyprlang", "nix" },
-      })
+      require("nvim-treesitter").install({ "hyprlang", "nix" })
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "nix" },
         callback = function()
+          vim.treesitter.start()
           vim.opt_local.tabstop = 2
           vim.opt_local.softtabstop = 2
           vim.opt_local.shiftwidth = 2
@@ -32,5 +31,15 @@
         },
       })
     '';
+  };
+
+  home.file = {
+    ftNix = {
+      enable = true;
+      target = ".config/nvim/after/ftplugin/nix.lua";
+      text = /*lua*/ ''
+        vim.treesitter.start()
+      '';
+    };
   };
 }

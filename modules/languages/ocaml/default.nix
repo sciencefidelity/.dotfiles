@@ -3,9 +3,7 @@
 {
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({
-        ensure_installed = { "ocaml" },
-      })
+      require("nvim-treesitter").install({ "ocaml" })
 
       vim.lsp.enable("ocamllsp")
 
@@ -15,5 +13,15 @@
         },
       })
     '';
+  };
+
+  home.file = {
+    ftOcaml = {
+      enable = true;
+      target = ".config/nvim/after/ftplugin/ocaml.lua";
+      text = /*lua*/ ''
+        vim.treesitter.start()
+      '';
+    };
   };
 }

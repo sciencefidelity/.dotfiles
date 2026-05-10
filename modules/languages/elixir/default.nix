@@ -51,9 +51,7 @@
 
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({
-        ensure_installed = { "elixir", "erlang" },
-      })
+      require("nvim-treesitter").install({ "elixir", "erlang" })
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "ex", "exs" },
@@ -74,5 +72,15 @@
         },
       })
     '';
+  };
+
+  home.file = {
+    ftElixir = {
+      enable = true;
+      target = ".config/nvim/after/ftplugin/elixir.lua";
+      text = /*lua*/ ''
+        vim.treesitter.start()
+      '';
+    };
   };
 }

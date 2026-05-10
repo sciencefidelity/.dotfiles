@@ -3,9 +3,7 @@
 {
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({
-        ensure_installed = { "java" },
-      })
+      require("nvim-treesitter").install({ "java" })
 
       vim.lsp.enable("jdtls")
 
@@ -15,5 +13,15 @@
         },
       })
     '';
+  };
+
+  home.file = {
+    ftJava = {
+      enable = true;
+      target = ".config/nvim/after/ftplugin/java.lua";
+      text = /*lua*/ ''
+        vim.treesitter.start()
+      '';
+    };
   };
 }

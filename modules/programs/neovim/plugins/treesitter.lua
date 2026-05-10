@@ -1,26 +1,17 @@
-require("nvim-treesitter").setup({
-  ensure_installed = {
-    "bash",
-    "css",
-    "dockerfile",
-    "html",
-    "json",
-    "markdown",
-    "markdown_inline",
-    "proto",
-    "ruby",
-    "scheme",
-    "scss",
-    "toml",
-    "wgsl",
-    "yaml",
-  },
-  sync_installed = false,
-  auto_install = false,
-  highlight = {
-    enable = true,
-  },
-  additional_vim_regex_highlightling = false,
+require("nvim-treesitter").install({
+  "bash",
+  "css",
+  "dockerfile",
+  "html",
+  "json",
+  "markdown",
+  "markdown_inline",
+  "ruby",
+  "scheme",
+  "scss",
+  "toml",
+  "wgsl",
+  "yaml",
 })
 
 vim.filetype.add({

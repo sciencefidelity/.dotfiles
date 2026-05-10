@@ -6,6 +6,96 @@
       EDITOR = "nvim";
       VISUAL = "${config.home.sessionVariables.EDITOR}";
     };
+
+    file = {
+      ftBash = {
+        enable = true;
+        target = ".config/nvim/after/ftplugin/bash.lua";
+        text = /*lua*/ ''
+          vim.treesitter.start()
+        '';
+      };
+
+      ftCss = {
+        enable = true;
+        target = ".config/nvim/after/ftplugin/css.lua";
+        text = /*lua*/ ''
+          vim.treesitter.start()
+        '';
+      };
+
+      ftDockerfile = {
+        enable = true;
+        target = ".config/nvim/after/ftplugin/dockerfile.lua";
+        text = /*lua*/ ''
+          vim.treesitter.start()
+        '';
+      };
+
+      ftHtml = {
+        enable = true;
+        target = ".config/nvim/after/ftplugin/html.lua";
+        text = /*lua*/ ''
+          vim.treesitter.start()
+        '';
+      };
+
+      ftMarkdown = {
+        enable = true;
+        target = ".config/nvim/after/ftplugin/markdown.lua";
+        text = /*lua*/ ''
+          vim.treesitter.start()
+        '';
+      };
+
+      ftRuby = {
+        enable = true;
+        target = ".config/nvim/after/ftplugin/ruby.lua";
+        text = /*lua*/ ''
+          vim.treesitter.start()
+        '';
+      };
+
+      ftScheme = {
+        enable = true;
+        target = ".config/nvim/after/ftplugin/scheme.lua";
+        text = /*lua*/ ''
+          vim.treesitter.start()
+        '';
+      };
+
+      ftScss = {
+        enable = true;
+        target = ".config/nvim/after/ftplugin/scss.lua";
+        text = /*lua*/ ''
+          vim.treesitter.start()
+        '';
+      };
+
+      ftToml = {
+        enable = true;
+        target = ".config/nvim/after/ftplugin/toml.lua";
+        text = /*lua*/ ''
+          vim.treesitter.start()
+        '';
+      };
+
+      ftWsgl = {
+        enable = true;
+        target = ".config/nvim/after/ftplugin/wsgl.lua";
+        text = /*lua*/ ''
+          vim.treesitter.start()
+        '';
+      };
+
+      ftYaml = {
+        enable = true;
+        target = ".config/nvim/after/ftplugin/yaml.lua";
+        text = /*lua*/ ''
+          vim.treesitter.start()
+        '';
+      };
+    };
   };
 
   programs.neovim = {

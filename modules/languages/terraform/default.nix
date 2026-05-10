@@ -3,9 +3,7 @@
 {
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({
-        ensure_installed = { "terraform", "hcl" },
-      })
+      require("nvim-treesitter").install({ "terraform", "hcl" })
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "tf" },
@@ -27,5 +25,15 @@
         },
       })
     '';
+  };
+
+  home.file = {
+    ftTeraform = {
+      enable = true;
+      target = ".config/nvim/after/ftplugin/teraform.lua";
+      text = /*lua*/ ''
+        vim.treesitter.start()
+      '';
+    };
   };
 }

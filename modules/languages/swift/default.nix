@@ -3,9 +3,7 @@
 {
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({
-        ensure_installed = { "swift" },
-      })
+      require("nvim-treesitter").install({ "swift" })
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "swift" },
@@ -26,5 +24,15 @@
         },
       })
     '';
+  };
+
+  home.file = {
+    ftSwift = {
+      enable = true;
+      target = ".config/nvim/after/ftplugin/swift.lua";
+      text = /*lua*/ ''
+        vim.treesitter.start()
+      '';
+    };
   };
 }

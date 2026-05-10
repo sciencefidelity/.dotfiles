@@ -3,9 +3,7 @@
 {
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({
-        ensure_installed = { "svelte" },
-      })
+      require("nvim-treesitter").install({ "svelte" })
 
       vim.lsp.enable("svelte")
 
@@ -15,5 +13,15 @@
         },
       })
     '';
+  };
+
+  home.file = {
+    ftSvelte = {
+      enable = true;
+      target = ".config/nvim/after/ftplugin/svelte.lua";
+      text = /*lua*/ ''
+        vim.treesitter.start()
+      '';
+    };
   };
 }

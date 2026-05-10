@@ -24,9 +24,7 @@ in
 
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({
-        ensure_installed = { "c", "cpp" },
-      })
+      require("nvim-treesitter").install({ "c", "cpp" })
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "c", "cpp" },

@@ -3,9 +3,7 @@
 {
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({
-        ensure_installed = { "kotlin" },
-      })
+      require("nvim-treesitter").setup({ "kotlin" })
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "kotlin" },
@@ -26,5 +24,15 @@
         },
       })
     '';
+  };
+
+  home.file = {
+    ftKotlin = {
+      enable = true;
+      target = ".config/nvim/after/ftplugin/kotlin.lua";
+      text = /*lua*/ ''
+        vim.treesitter.start()
+      '';
+    };
   };
 }
