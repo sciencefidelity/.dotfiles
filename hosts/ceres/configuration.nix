@@ -33,7 +33,7 @@ in
   homebrew = {
     casks = [
       "android-studio"
-      "linear-linear"
+      "linear"
       "loom"
       "postman"
     ];
