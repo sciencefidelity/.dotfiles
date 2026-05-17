@@ -26,7 +26,9 @@
               --output "$BASENAME.md"
           '';
           nb = pkgs.writeShellScriptBin "nb" ''
-            uv run --with jupyter,catppuccin-jupyterlab,jupyterlab-vim,jupyterlab-lsp jupyter lab
+            uv run \
+              --with jupyter,catppuccin-jupyterlab,jupyterlab-vim,jupyterlab-lsp,jupyter-ruff \
+              jupyter lab
           '';
           uvs = pkgs.writeShellScriptBin "uvs" ''
             uv sync
