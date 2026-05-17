@@ -45,6 +45,13 @@
           Nothing in this world is difficult, it is only our thoughts that make is seem so.
         '';
       };
+      jupyter = {
+        path = ./jupyter;
+        description = "A Jupyter template";
+        welcomeText = ''
+          Nothing in this world is difficult, it is only our thoughts that make is seem so.
+        '';
+      };
       kotlin = {
         path = ./kotlin;
         description = "A Kotlin template";

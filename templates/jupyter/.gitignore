@@ -1,0 +1,6 @@
+.direnv
+.venv
+.DS_Store
+.env
+.env.*
+
