@@ -9,7 +9,7 @@
 
   services.redis = {
     package = pkgs.redis;
-    servers."augmentaero" = {
+    servers."" = {
       bind = null;
       enable = true;
       openFirewall = true;
