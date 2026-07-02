@@ -39,53 +39,55 @@ in
         ] else [
           ",preferred,auto,auto"
         ];
-      exec-once = [
+      exec_cmd = [
         "awww-daemon"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       ];
       env = [
         "HYPRCURSOR_SIZE,${toString cursorSize}"
       ];
-      general = {
-        gaps_in = gapsIn;
-        gaps_out = gapsOut;
-        border_size = borderSize;
-        "col.active_border" = "0xFF$blueAlpha";
-        "col.inactive_border" = "0x66$overlay0Alpha";
-        allow_tearing = false;
-        layout = "dwindle";
-      };
-      decoration = {
-        rounding = rounding;
-        blur = {
+      config = {
+        general = {
+          gaps_in = gapsIn;
+          gaps_out = gapsOut;
+          border_size = borderSize;
+          "col.active_border" = "0xFF$blueAlpha";
+          "col.inactive_border" = "0x66$overlay0Alpha";
+          allow_tearing = false;
+          layout = "dwindle";
+        };
+        decoration = {
+          rounding = rounding;
+          blur = {
+            enabled = false;
+          };
+        };
+        animations = {
           enabled = false;
         };
-      };
-      animations = {
-        enabled = false;
-      };
-      dwindle = {
-        pseudotile = false;
-        preserve_split = true;
-      };
-      master = {
-        new_status = "master";
-      };
-      misc = {
-        force_default_wallpaper = 0;
-        disable_hyprland_logo = true;
-      };
-      input = {
-        kb_layout = "au";
-        kb_variant = "mac,nodeadkeys";
-        kb_options = "caps:ctrl_modifier";
-        repeat_delay = 210;
-        repeat_rate = 40;
-        follow_mouse = 0;
-        touchpad = lib.mkIf (host == "rhea") {
-          disable_while_typing = true;
-          clickfinger_behavior = true;
-          "tap-to-click" = false;
+        dwindle = {
+          pseudotile = false;
+          preserve_split = true;
+        };
+        master = {
+          new_status = "master";
+        };
+        misc = {
+          force_default_wallpaper = 0;
+          disable_hyprland_logo = true;
+        };
+        input = {
+          kb_layout = "au";
+          kb_variant = "mac,nodeadkeys";
+          kb_options = "caps:ctrl_modifier";
+          repeat_delay = 210;
+          repeat_rate = 40;
+          follow_mouse = 0;
+          touchpad = lib.mkIf (host == "rhea") {
+            disable_while_typing = true;
+            clickfinger_behavior = true;
+            "tap-to-click" = false;
+          };
         };
       };
       device = lib.mkIf (host == "rhea") {
@@ -97,7 +99,7 @@ in
         clickfinger_behavior = true;
         tap-to-click = false;
       };
-      gestures = lib.mkIf (host == "rhea") {
+      gesture = lib.mkIf (host == "rhea") {
         workspace_swipe = true;
         workspace_swipe_create_new = true;
       };
@@ -133,8 +135,6 @@ in
         "${mod} SHIFT, 7, movetoworkspace, 7"
         "${mod}, mouse_down, workspace, e+1"
         "${mod}, mouse_up, workspace, e-1"
-      ];
-      bindm = [
         "${mod}, mouse:272, movewindow"
         "${mod}, mouse:273, resizewindow"
       ];
