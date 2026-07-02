@@ -44,10 +44,6 @@
     };
 
     facetimehd.enable = true;
-
-    # pulseaudio = {
-    #   enable = true;
-    # };
   };
 
   networking = {
@@ -80,10 +76,6 @@
     openssh = {
       ports = [ 22 7424 ];
     };
-  };
-
-  powerManagement = {
-    enable = true;
   };
 }
 

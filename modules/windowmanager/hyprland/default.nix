@@ -3,7 +3,7 @@
 {
   environment = {
     systemPackages = with pkgs; [
-      swww
+      awww
       wofi
     ];
 
