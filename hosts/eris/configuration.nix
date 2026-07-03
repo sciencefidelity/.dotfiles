@@ -28,12 +28,12 @@
   networking = {
     hostName = config.hostname;
     wireless.enable = false;
-    firewall.allowedTCPPorts = [ 22 80 3000 3030 5173 5432 6379 8000 8080 ];
+    firewall.allowedTCPPorts = [ 6379 ];
   };
 
   services = {
     openssh = {
-      ports = [ 22 7423 ];
+      ports = [ 22 ];
     };
   };
 }

@@ -31,7 +31,7 @@
 
   services = {
     openssh = {
-      ports = [ 22 7422 ];
+      ports = [ 22 ];
     };
   };
 }

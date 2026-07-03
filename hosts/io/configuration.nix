@@ -45,7 +45,7 @@
     nameservers = [ "127.0.0.1" ];
     wireless.enable = false;
     firewall = {
-      allowedTCPPorts = [ 22 80 443 6188 6189 8675 ];
+      allowedTCPPorts = [ 8675 ];
     };
   };
 
