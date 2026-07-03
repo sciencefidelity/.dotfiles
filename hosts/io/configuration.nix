@@ -57,7 +57,12 @@
 
   services = {
     openssh = {
-      ports = [ 22 7425 ];
+      ports = [ 22 ];
+      settings = {
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+        PermitRootLogin = "prohibit-password";
+      };
     };
 
     dnsmasq = {
