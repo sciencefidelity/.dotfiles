@@ -3,7 +3,7 @@
 {
   programs.neovim = {
     initLua = /*lua*/ ''
-      require("nvim-treesitter").setup({ "kotlin" })
+      require("nvim-treesitter").install({ "kotlin" })
 
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "kotlin" },
