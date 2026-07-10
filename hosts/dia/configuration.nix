@@ -22,26 +22,20 @@ in
     systemPackages = with pkgs; [
       coreutils
       curl
+      nodejs
       step-ca
       step-cli
+      tree-sitter
       wget
     ];
   };
 
   homebrew = {
     casks = [
-      "affinity-publisher@1"
-      "affinity-designer@1"
-      "affinity-photo@1"
+      "affinity"
       "anki"
-      "godot"
-      "openvpn-connect"
     ];
-    masApps = {
-      "Microsoft Excel" = 462058435;
-      "Microsoft PowerPoint" = 462062816;
-      "Microsoft Word" = 462054704;
-    };
+    masApps = { };
   };
 
   networking = {

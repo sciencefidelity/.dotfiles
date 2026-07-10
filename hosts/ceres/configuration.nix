@@ -32,15 +32,8 @@ in
 
   homebrew = {
     casks = [
-      "android-studio"
-      "linear"
-      "loom"
-      "postman"
     ];
-    masApps = {
-      "Microsoft Word" = 462054704;
-      "Xcode" = 497799835;
-    };
+    masApps = { };
   };
 
   networking = {
