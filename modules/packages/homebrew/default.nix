@@ -24,6 +24,7 @@
       "caido"
       "claude"
       "discord"
+      "figma"
       "firefox"
       "icon-composer"
       "karabiner-elements"
