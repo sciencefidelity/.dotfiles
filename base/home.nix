@@ -11,7 +11,7 @@ in
     # ../modules/languages/c
     # ../modules/languages/clojure
     # ../modules/languages/elixir
-    # ../modules/languages/go
+    ../modules/languages/go
     # ../modules/languages/java
     ../modules/languages/kotlin
     ../modules/languages/lua

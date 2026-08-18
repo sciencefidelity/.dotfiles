@@ -52,13 +52,10 @@
             (rust-bin.stable.latest.default.override {
               extensions = [ "llvm-tools-preview" "rust-analyzer" "rust-src" ];
             })
-          ] ++ lib.optionals stdenv.isLinux [ pkgs.cargo-llvm-cov pkgs.clang pkgs.mold ];
+          ] ++ lib.optionals stdenv.hostPlatform.isLinux [ pkgs.cargo-llvm-cov pkgs.clang ];
 
           # enable mold linker for Linux
-          RUSTFLAGS = if pkgs.stdenv.isLinux then "-C linker=clang -C link-arg=-fuse-ld=${pkgs.mold}/bin/mold" else "";
-
-          shellHook = /*bash*/ ''
-          '';
+          RUSTFLAGS = lib.optionals stdenv.hostPlatform.isLinux "-C linker=clang -C link-arg=-fuse-ld=${pkgs.mold}/bin/mold";
         };
       }
     );
