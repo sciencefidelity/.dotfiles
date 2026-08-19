@@ -7,6 +7,7 @@
     ../../base/configuration.nix
     ../../modules/services/ca
     ../../modules/services/dns
+    # ../../modules/services/openobserve
     # ../../modules/services/sqlite
     ../../modules/virtualization/docker
   ];
