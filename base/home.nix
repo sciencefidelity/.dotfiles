@@ -12,6 +12,7 @@ in
     # ../modules/languages/clojure
     # ../modules/languages/elixir
     ../modules/languages/go
+    ../modules/languages/haskell
     # ../modules/languages/java
     ../modules/languages/kotlin
     ../modules/languages/lua
