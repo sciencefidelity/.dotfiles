@@ -30,11 +30,13 @@
       "karabiner-elements"
       "linear"
       "obsidian"
+      "opencode-desktop"
       "postman"
       "readwise-ibooks"
       "slack"
       "spotify"
       "wezterm"
+      "zed"
       "zoom"
     ];
 
