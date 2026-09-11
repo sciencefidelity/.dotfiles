@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 let
   platform = config.platform;
@@ -12,6 +12,7 @@ in
       pkgs.lf
       pkgs.lld
       pkgs.fastfetch
+      pkgs.opencode
       pkgs.openssl
       pkgs.pkg-config
       pkgs.prettierd

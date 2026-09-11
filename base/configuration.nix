@@ -16,6 +16,7 @@ in
       autoconf
       automake
       clang
+      claude-code
       coreutils
       curl
       gcc
