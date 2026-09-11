@@ -20,6 +20,7 @@ in
     shells = [ pkgs.zsh ];
 
     systemPackages = with pkgs; [
+      claude-code
       coreutils
       curl
       nodejs
