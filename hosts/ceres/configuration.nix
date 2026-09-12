@@ -32,8 +32,7 @@ in
   };
 
   homebrew = {
-    casks = [
-    ];
+    casks = [ ];
     masApps = { };
   };
 

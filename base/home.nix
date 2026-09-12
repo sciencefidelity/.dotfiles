@@ -8,12 +8,8 @@ in
 {
   imports = [
     ../modules/files/hushlogin
-    # ../modules/languages/c
-    # ../modules/languages/clojure
-    # ../modules/languages/elixir
     ../modules/languages/go
     ../modules/languages/haskell
-    # ../modules/languages/java
     ../modules/languages/kotlin
     ../modules/languages/lua
     ../modules/languages/nix
@@ -24,9 +20,7 @@ in
     ../modules/languages/sql
     ../modules/languages/svelte
     ../modules/languages/tera
-    # ../modules/languages/terraform
     ../modules/languages/typescript
-    # ../modules/languages/zig
     ../modules/packages/nixpkgs
     ../modules/programs/direnv
     ../modules/programs/eza
