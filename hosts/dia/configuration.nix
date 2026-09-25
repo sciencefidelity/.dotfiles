@@ -35,7 +35,6 @@ in
     casks = [
       "affinity"
       "anki"
-      "outline-manager"
     ];
     masApps = { };
   };
