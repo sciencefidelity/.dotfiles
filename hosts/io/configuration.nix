@@ -65,11 +65,11 @@
       };
     };
 
-    dnsmasq = {
-      enable = true;
-      settings = {
-        server = [ "/augment.aero/192.168.1.125" ];
-      };
-    };
+    # dnsmasq = {
+    #   enable = true;
+    #   settings = {
+    #     server = [ "/augment.aero/192.168.1.125" ];
+    #   };
+    # };
   };
 }

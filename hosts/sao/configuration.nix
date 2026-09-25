@@ -5,10 +5,6 @@
     ./hardware-configuration.nix
     ./config.nix
     ../../base/configuration.nix
-    ../../modules/services/ca
-    ../../modules/services/dns
-    # ../../modules/services/openobserve
-    # ../../modules/services/sqlite
     ../../modules/virtualization/docker
   ];
 
@@ -16,11 +12,6 @@
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
-    };
-    kernel = {
-      sysctl = {
-        "vm.overcommit_memory" = 1;
-      };
     };
   };
 
