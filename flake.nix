@@ -120,11 +120,19 @@
         pkgs = import nixpkgs {
           inherit system overlays;
         };
+        llm = pkgs.writeShellScriptBin "llm" ''
+          ${pkgs.repomix}/bin/repomix \
+            --style markdown \
+            --no-file-summary \
+            --ignore "assets/**/*, templates/**/*, *.lock" \
+            --output "repo.md"
+        '';
       in
       with pkgs;
       {
         devShells.default = mkShell {
           buildInputs = [
+            llm
             lua5_4_compat
             lua-language-server
             stylua

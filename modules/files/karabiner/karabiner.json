@@ -160,17 +160,14 @@
           }
         },
         {
+          "disable_built_in_keyboard_if_exists": true,
           "identifiers": {
             "is_keyboard": true,
-            "product_id": 12885,
+            "is_pointing_device": true,
+            "product_id": 12870,
             "vendor_id": 6645
           },
-          "simple_modifications": [
-            {
-              "from": { "key_code": "escape" },
-              "to": [{ "key_code": "grave_accent_and_tilde" }]
-            }
-          ]
+          "ignore": false
         }
       ],
       "fn_function_keys": [
@@ -181,10 +178,7 @@
       ],
       "name": "Default profile",
       "selected": true,
-      "virtual_hid_keyboard": {
-        "country_code": 0,
-        "keyboard_type_v2": "ansi"
-      }
+      "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
     }
   ]
 }
