@@ -116,8 +116,9 @@
       ${builtins.readFile ./plugins/nvim-cmp.lua}
       ${builtins.readFile ./plugins/telescope.lua}
       ${builtins.readFile ./plugins/treesitter.lua}
+    '' + pkgs.lib.optionalString pkgs.stdenv.hostPlatform.isLinux ''
+      ${builtins.readFile ./core/clipboard.lua}
     '';
-    # withNodeJs = true;
     viAlias = true;
     vimAlias = true;
   };
