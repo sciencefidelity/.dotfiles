@@ -5,7 +5,8 @@
     ./hardware-configuration.nix
     ./config.nix
     ../../base/configuration.nix
-    ../../modules/virtualization/docker
+    ../../modules/services/k3s
+    ../../modules/services/postgresql
   ];
 
   boot = {
@@ -18,7 +19,6 @@
   networking = {
     hostName = config.hostname;
     wireless.enable = false;
-    firewall.allowedTCPPorts = [ 5432 ];
   };
 
   services = {
