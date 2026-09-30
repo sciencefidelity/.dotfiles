@@ -10,12 +10,11 @@
     terminal = {
       app = mkOption { type = strMatching "(alacritty|kitty|wezterm)"; };
       opacity = mkOption { type = number; };
-    };
-    hypr = {
-      borderSize = mkOption { type = number; };
-      gapsIn = mkOption { type = number; };
-      gapsOut = mkOption { type = number; };
-      rounding = mkOption { type = number; };
+      fontSize = mkOption { type = number; };
+      paddingTop = mkOption { type = number; };
+      paddingRight = mkOption { type = number; };
+      paddingBottom = mkOption { type = number; };
+      paddingLeft = mkOption { type = number; };
     };
     maxBrightness = mkOption {
       type = number;
@@ -26,14 +25,13 @@
     hostname = "rhea";
     git.key = "EDAD41CC";
     terminal = {
-      app = "alacritty";
-      opacity = 0.8;
-    };
-    hypr = {
-      borderSize = 1;
-      gapsIn = 2.5;
-      gapsOut = 5;
-      rounding = 5;
+      app = "wezterm";
+      opacity = 0.9;
+      fontSize = 9.5;
+      paddingTop = 15;
+      paddingRight = 20;
+      paddingBottom = 15;
+      paddingLeft = 20;
     };
     maxBrightness = 1388;
   };

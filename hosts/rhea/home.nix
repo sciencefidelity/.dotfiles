@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 let
   username = config.username;
@@ -9,13 +9,24 @@ in
   imports = [
     ./config.nix
     ../../base/home.nix
-    ../../modules/applications/hyprland
-    ../../modules/applications/alacritty
+    ../../modules/applications/wezterm
   ];
 
   home = {
-    username = username;
-    homeDirectory = homeDirectory;
-    stateVersion = stateVersion;
+    inherit username homeDirectory stateVersion;
+
+    packages = with pkgs; [
+      adwaita-icon-theme
+    ];
+  };
+
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    configType = "lua";
+
+    systemd.enable = true;
+
+    extraConfig = builtins.readFile ./hyprland.lua;
   };
 }

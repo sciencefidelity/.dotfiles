@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }:
+{ config, ... }:
 
 let
   fontSize = toString (config.terminal.fontSize or 7.5);
@@ -28,7 +28,6 @@ in
 
   programs.wezterm = {
     enable = true;
-    # package = inputs.wezterm.packages.${pkgs.system}.default;
     extraConfig = /*lua*/ ''
       local wezterm = require("wezterm")
       local act = wezterm.action
@@ -47,7 +46,6 @@ in
         use_fancy_tab_bar = false,
         tab_max_width = 8,
         hide_tab_bar_if_only_one_tab = true,
-        -- front_end = "WebGpu",
         enable_wayland = true,
         window_decorations = "INTEGRATED_BUTTONS|RESIZE",
         initial_cols = 223,
@@ -84,16 +82,6 @@ in
         default_cursor_style = "SteadyUnderline",
         animation_fps = 1,
         audible_bell = "Disabled",
-        ssh_domains = {
-          {
-            name = "io",
-            remote_address = "192.168.1.122",
-            username = "matt",
-            -- ssh_option = {
-            --   identityfile = "~/.ssh/io.pub",
-            -- },
-          },
-        },
       }
     '';
   };

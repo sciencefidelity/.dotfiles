@@ -11,7 +11,7 @@
             runtime = { version = "LuaJIT" },
             workspace = { checkThirdParty = false },
             telemetry = { enable = false },
-            diagnostics = { globals = { "vim" } },
+            diagnostics = { globals = { "hl", "vim" } },
           },
         },
       })

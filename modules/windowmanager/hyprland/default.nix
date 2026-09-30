@@ -3,8 +3,7 @@
 {
   environment = {
     systemPackages = with pkgs; [
-      awww
-      wofi
+      swaybg
     ];
 
     variables = {
