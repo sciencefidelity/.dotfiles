@@ -8,7 +8,6 @@
     hostname = mkOption { type = str; };
     git.key = mkOption { type = str; };
     terminal = {
-      app = mkOption { type = strMatching "(alacritty|kitty|wezterm)"; };
       opacity = mkOption { type = number; };
       fontSize = mkOption { type = number; };
       paddingTop = mkOption { type = number; };
@@ -25,7 +24,6 @@
     hostname = "rhea";
     git.key = "EDAD41CC";
     terminal = {
-      app = "wezterm";
       opacity = 0.9;
       fontSize = 9.5;
       paddingTop = 15;

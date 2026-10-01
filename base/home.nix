@@ -33,10 +33,10 @@ in
   ];
 
   home = {
-    username = config.username;
-    homeDirectory = homeDirectory;
-    stateVersion = stateVersion;
+    inherit username homeDirectory stateVersion;
   };
 
-  programs.home-manager.enable = true;
+  programs = {
+    home-manager.enable = true;
+  };
 }

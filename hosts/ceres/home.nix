@@ -34,9 +34,7 @@ in
   ];
 
   home = {
-    homeDirectory = homeDirectory;
-    stateVersion = stateVersion;
-    username = username;
+    inherit username homeDirectory stateVersion;
   };
 
   programs = {
