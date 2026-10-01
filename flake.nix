@@ -16,7 +16,7 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { home-manager, nix-darwin, nixos-hardware, nixpkgs, nixpkgs-darwin, flake-utils, ... } @inputs:
+  outputs = { home-manager, nix-darwin, nixos-hardware, nixpkgs, nixpkgs-darwin, flake-utils, ... }:
     let
       lib = nixpkgs.lib;
     in

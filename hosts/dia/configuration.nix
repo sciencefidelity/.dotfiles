@@ -24,8 +24,6 @@ in
       coreutils
       curl
       nodejs
-      step-ca
-      step-cli
       tree-sitter
       wget
     ];

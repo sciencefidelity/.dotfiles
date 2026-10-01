@@ -28,6 +28,9 @@
   networking = {
     hostName = config.hostname;
     wireless.enable = false;
+    useDHCP = false;
+    interfaces.eno0.useDHCP = true;
+
     firewall.allowedTCPPorts = [ 6379 ];
   };
 

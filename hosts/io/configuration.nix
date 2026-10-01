@@ -22,18 +22,22 @@
 
   networking = {
     hostName = config.hostname;
-    nameservers = [ "127.0.0.1" ];
     wireless.enable = false;
+    useDHCP = false;
+    interfaces.enp7s0.useDHCP = true;
+
     firewall = {
       allowedTCPPorts = [ 8675 ];
     };
   };
 
-  security = {
-    pki = {
-      certificates = [ (builtins.readFile /etc/nixos/root_ca.crt) ];
-    };
-  };
+  # TODO: When we refactor this remember that when we do it this way a rebuild requires
+  # the `--impure` flag. Maybe there's a better way.
+  # security = {
+  #   pki = {
+  #     certificates = [ (builtins.readFile /etc/nixos/root_ca.crt) ];
+  #   };
+  # };
 
   services = {
     openssh = {

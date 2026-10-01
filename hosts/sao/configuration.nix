@@ -19,6 +19,8 @@
   networking = {
     hostName = config.hostname;
     wireless.enable = false;
+    useDHCP = false;
+    interfaces.eno1.useDHCP = true;
   };
 
   services = {
