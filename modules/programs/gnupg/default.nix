@@ -1,20 +1,21 @@
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 
-let
-  platform = config.platform;
-in
 {
-  home = {
+  home = with pkgs; {
     packages = [
-      pkgs.gnupg
-    ] ++ (if platform == "darwin" then [ pkgs.pinentry_mac ] else if platform == "linux" then [ pkgs.pinentry-curses ] else [ ]);
+      gnupg
+    ] ++ (if stdenv.hostPlatform.isDarwin then [
+      pinentry_mac
+    ] else if stdenv.hostPlatform.isLinux then [
+      pinentry-curses
+    ] else [ ]);
   };
 
   programs.gpg = {
     enable = true;
   };
 
-  services = lib.mkIf (platform == "linux") {
+  services = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
     gpg-agent = {
       enable = true;
       enableSshSupport = true;

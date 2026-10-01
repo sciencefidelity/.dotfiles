@@ -2,14 +2,13 @@
 
 let
   org = config.git.org;
-  platform = config.platform;
 in
 {
   fonts = {
-    packages = [
-      pkgs.nerd-fonts.symbols-only
-    ] ++ (if platform == "macos" then [
-      (pkgs.stdenv.mkDerivation {
+    packages = with pkgs; [
+      nerd-fonts.symbols-only
+    ] ++ (if stdenv.hostPlatform.isDarwin then [
+      (stdenv.mkDerivation {
         name = "monolisa";
         src = fetchGit {
           url = "git@github.com:${org}/fonts.git";

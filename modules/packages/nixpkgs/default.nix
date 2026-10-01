@@ -1,33 +1,27 @@
-{ config, pkgs, ... }:
+{ lib, pkgs, ... }:
 
-let
-  platform = config.platform;
-in
 {
   home = {
-    packages = [
-      pkgs.bc
-      pkgs.fd
-      pkgs.jq
-      pkgs.lf
-      pkgs.lld
-      pkgs.fastfetch
-      pkgs.opencode
-      pkgs.openssl
-      pkgs.pkg-config
-      pkgs.prettierd
-      pkgs.ripgrep
-      pkgs.vscode-langservers-extracted
-      pkgs.tree-sitter
-
-    ] ++ (if platform == "darwin" then [ ]
-    else if platform == "linux" then [
-      pkgs.lemonade
-      pkgs.tcpdump
-      pkgs.tshark
-      pkgs.xclip
-      pkgs.xsel
-    ]
-    else [ ]);
+    packages = with pkgs; [
+      bc
+      fd
+      jq
+      lf
+      lld
+      fastfetch
+      opencode
+      openssl
+      pkg-config
+      prettierd
+      ripgrep
+      vscode-langservers-extracted
+      tree-sitter
+    ] ++ lib.optionals stdenv.hostPlatform.isLinux [
+      lemonade
+      tcpdump
+      tshark
+      xclip
+      xsel
+    ];
   };
 }

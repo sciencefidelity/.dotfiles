@@ -1,17 +1,16 @@
-{ config, pkgs, ... }:
+{ lib, pkgs, ... }:
 
-let
-  platform = config.platform;
-in
 {
   home = {
-    packages = [
-      pkgs.clang-tools
-      # pkgs.lldb
-    ] ++ (if platform == "linux" then [ pkgs.gdb pkgs.valgrind ] else [ ]);
+    packages = with pkgs; [
+      clang-tools
+    ] ++ lib.optionals stdenv.hostPlatform.isLinux [
+      gdb
+      valgrind
+    ];
 
     file =
-      if platform == "linux" then {
+      lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
         gdbinit = {
           enable = true;
           target = ".gdbinit";
@@ -19,7 +18,7 @@ in
             set disassembly intel
           '';
         };
-      } else { };
+      };
   };
 
   programs.neovim = {

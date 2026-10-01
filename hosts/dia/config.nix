@@ -4,7 +4,6 @@
   imports = [ ../../base/config.nix ];
 
   options = with lib; with types; {
-    platform = mkOption { type = strMatching "(darwin|linux)"; };
     hostname = mkOption { type = str; };
     git.key = mkOption { type = str; };
     terminal = {
@@ -17,7 +16,6 @@
     };
   };
   config = {
-    platform = "darwin";
     hostname = "dia";
     git.key = "4142C2E2";
     terminal = {
