@@ -14,22 +14,6 @@
         pkgs = import nixpkgs {
           inherit system overlays;
         };
-        check = pkgs.writeShellScriptBin "check" ''
-          cargo fmt --check
-          cargo clippy --tests
-        '';
-        cov = pkgs.writeShellScriptBin "cov" ''
-          cargo llvm-cov --html
-        '';
-        ct = pkgs.writeShellScriptBin "ct" ''
-          cargo test
-        '';
-        format = pkgs.writeShellScriptBin "format" ''
-          cargo fmt
-        '';
-        run = pkgs.writeShellScriptBin "run" ''
-          cargo run | ${pkgs.bunyan-rs}/bin/bunyan
-        '';
         watch = pkgs.writeShellScriptBin "watch" ''
           ${pkgs.watchexec}/bin/watchexec -e rs -r cargo run
         '';
@@ -38,21 +22,24 @@
       {
         devShells.default = mkShell {
           nativeBuildInputs = [
-            check
-            cov
-            ct
-            format
             pkg-config
-            run
             watch
           ];
 
           buildInputs = [
             taplo
             (rust-bin.stable.latest.default.override {
-              extensions = [ "llvm-tools-preview" "rust-analyzer" "rust-src" ];
+              extensions = [
+                # "llvm-tools-preview" 
+                "rust-analyzer"
+                "rust-src"
+              ];
             })
-          ] ++ lib.optionals stdenv.hostPlatform.isLinux [ pkgs.cargo-llvm-cov pkgs.clang ];
+          ] ++ lib.optionals stdenv.hostPlatform.isLinux [
+            # Temporarily disabled because `direnv allow` is failing.
+            # pkgs.cargo-llvm-cov
+            pkgs.clang
+          ];
 
           # enable mold linker for Linux
           RUSTFLAGS = lib.optionals stdenv.hostPlatform.isLinux "-C linker=clang -C link-arg=-fuse-ld=${pkgs.mold}/bin/mold";
