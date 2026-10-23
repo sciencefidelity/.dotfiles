@@ -21,7 +21,7 @@
           buildInputs = [
             bun
             cocoapods
-            nodejs_latest
+            nodejs
             eslint_d
             pkg-config
             prettierd

@@ -23,7 +23,6 @@ in
       claude-code
       coreutils
       curl
-      nodejs
       tree-sitter
       wget
     ];
