@@ -1,5 +1,33 @@
+# Nix direnv
 .direnv
-.venv
-.DS_Store
 .env
 .env.*
+credentials.json
+
+# Data (large, local only)
+/data/
+/checkpoints/
+/models/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.venv/
+.pytest_cache
+.ruff_cache
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# LLM
+repo.md

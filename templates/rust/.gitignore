@@ -13,4 +13,4 @@ target
 !.env.example
 
 # LLM
-repomix-output.*
+repo.md

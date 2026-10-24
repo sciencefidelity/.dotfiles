@@ -1,2 +1,5 @@
 .direnv
 .env
+
+# llm
+repo.md
