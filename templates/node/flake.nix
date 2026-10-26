@@ -19,7 +19,7 @@
         devShells.default = mkShell {
           buildInputs = [
             eslint_d
-            nodejs_latest
+            nodejs
             pnpm
             prettierd
             typescript

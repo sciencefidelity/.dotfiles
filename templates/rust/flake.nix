@@ -4,60 +4,52 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     rust-overlay.url = "github:oxalica/rust-overlay";
-    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { nixpkgs, rust-overlay, flake-utils, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        overlays = [ (import rust-overlay) ];
-        pkgs = import nixpkgs {
-          inherit system overlays;
-        };
-        check = pkgs.writeShellScriptBin "check" ''
-          cargo fmt --check
-          cargo clippy --tests
-        '';
-        cov = pkgs.writeShellScriptBin "cov" ''
-          cargo llvm-cov --html
-        '';
-        ct = pkgs.writeShellScriptBin "ct" ''
-          cargo test
-        '';
-        format = pkgs.writeShellScriptBin "format" ''
-          cargo fmt
-        '';
-        run = pkgs.writeShellScriptBin "run" ''
-          cargo run | ${pkgs.bunyan-rs}/bin/bunyan
-        '';
-        watch = pkgs.writeShellScriptBin "watch" ''
-          ${pkgs.watchexec}/bin/watchexec -e rs -r cargo run
-        '';
-      in
-      with pkgs;
-      {
-        devShells.default = mkShell {
-          nativeBuildInputs = [
-            check
-            cov
-            ct
-            format
-            pkg-config
-            run
-            watch
-          ];
+  outputs = { nixpkgs, rust-overlay, ... }:
+    let
+      inherit (nixpkgs) lib;
+      forAllSystems = lib.genAttrs lib.systems.flakeExposed;
+    in
+    {
+      devShells = forAllSystems (
+        system:
+        let
+          overlays = [ (import rust-overlay) ];
+          pkgs = import nixpkgs {
+            inherit system overlays;
+          };
+          llm = pkgs.writeShellScriptBin "llm" ''
+            ${pkgs.repomix}/bin/repomix \
+              --style markdown \
+              --no-file-summary \
+              --ignore "*.lock" \
+              --output "repo.md"
+          '';
+          watch = pkgs.writeShellScriptBin "watch" ''
+            ${pkgs.watchexec}/bin/watchexec -e rs -r cargo run
+          '';
+        in
+        with pkgs;
+        {
+          default = mkShell {
+            packages = [
+              pkg-config
+              taplo
+              (rust-bin.stable.latest.default.override {
+                extensions = [ "rust-analyzer" "rust-src" ];
+              })
 
-          buildInputs = [
-            taplo
-            (rust-bin.stable.latest.default.override {
-              extensions = [ "llvm-tools-preview" "rust-analyzer" "rust-src" ];
-            })
-          ] ++ lib.optionals stdenv.hostPlatform.isLinux [ pkgs.cargo-llvm-cov pkgs.clang ];
+              # scripts
+              llm
+              watch
+            ];
 
-          # enable mold linker for Linux
-          RUSTFLAGS = lib.optionals stdenv.hostPlatform.isLinux "-C linker=clang -C link-arg=-fuse-ld=${pkgs.mold}/bin/mold";
-        };
-      }
-    );
+            # enable Mold linker for Linux
+            RUSTFLAGS = lib.optionals stdenv.hostPlatform.isLinux "-C linker=${clang}/bin/clang -C link-arg=-fuse-ld=${mold}/bin/mold";
+          };
+        }
+      );
+    };
 }
 

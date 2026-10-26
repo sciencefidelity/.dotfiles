@@ -9,9 +9,9 @@
   ];
 
   boot = {
-    initrd.systemd.tpm2.enable = false;
-    kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
-    kernelParams = [ "8250.nr_uarts=1" "console=ttyAMA0,115200" "console=tty1" ];
+    # initrd.systemd.tpm2.enable = false;
+    # kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
+    # kernelParams = [ "8250.nr_uarts=1" "console=ttyAMA0,115200" "console=tty1" ];
     loader = {
       grub.enable = false;
       generic-extlinux-compatible.enable = true;
@@ -29,7 +29,9 @@
     hostName = config.hostname;
     wireless.enable = false;
     useDHCP = false;
-    interfaces.eno0.useDHCP = true;
+    interfaces.end0.useDHCP = true;
+
+    firewall.allowedTCPPorts = [ 6379 ];
   };
 
   services = {
