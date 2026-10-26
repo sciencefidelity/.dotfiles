@@ -7,6 +7,7 @@
     ../../base/configuration.nix
     ../../modules/services/k3s
     ../../modules/services/postgresql
+    ../../modules/services/redis
   ];
 
   boot = {

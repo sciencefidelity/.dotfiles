@@ -18,4 +18,8 @@
     };
     vmOverCommit = true;
   };
+
+  networking = {
+    firewall.allowedTCPPorts = [ 6379 ];
+  };
 }

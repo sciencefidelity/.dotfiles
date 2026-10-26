@@ -5,6 +5,7 @@
     postgresql = {
       enable = true;
       enableTCPIP = true;
+      package = pkgs.postgresql;
 
       authentication = pkgs.lib.mkOverride 10 ''
         #type database DBuser origin-address auth-method
