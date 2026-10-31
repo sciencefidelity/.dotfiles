@@ -29,7 +29,7 @@
         in
         {
           default = pkgs.mkShell {
-            packages = with pkgs; [
+            buildInputs = with pkgs; [
               pyright
               python312
               ruff

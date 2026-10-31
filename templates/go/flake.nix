@@ -32,7 +32,7 @@
           in
           with pkgs;
           {
-            default = mkShell
+            buildInputs = mkShell
               {
                 packages = [
                   air

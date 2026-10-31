@@ -29,7 +29,7 @@
         with pkgs;
         {
           default = mkShell {
-            packages = [
+            buildInputs = [
               eslint_d
               nodejs
               pnpm

@@ -33,7 +33,7 @@
         with pkgs;
         {
           default = mkShell {
-            packages = [
+            buildInputs = [
               pkg-config
               taplo
               (rust-bin.stable.latest.default.override {

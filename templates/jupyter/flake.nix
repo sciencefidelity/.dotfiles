@@ -36,7 +36,7 @@
         in
         {
           default = pkgs.mkShell {
-            packages = with pkgs; [
+            buildInputs = with pkgs; [
               basedpyright
               llm
               nb
