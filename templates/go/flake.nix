@@ -32,9 +32,9 @@
           in
           with pkgs;
           {
-            buildInputs = mkShell
+            default = mkShell
               {
-                packages = [
+                buildInputs = [
                   air
                   go
                   goimports-reviser
