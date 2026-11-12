@@ -35,7 +35,6 @@
       "readwise-ibooks"
       "slack"
       "spotify"
-      "wezterm"
       "zed"
       "zoom"
     ];
